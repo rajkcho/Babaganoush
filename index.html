@@ -18,8 +18,91 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   
+  <!-- Google Analytics (uncomment and replace G-XXXXXXXXXX with your Measurement ID) -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#6366f1" />
+
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧮</text></svg>" />
+
+  <!-- Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Babaganoush",
+    "description": "Free premium financial calculators — business valuation, M&A analysis, mortgage calculator, investment returns, RRSP/TFSA optimizer, compound interest, startup runway, net worth tracker.",
+    "url": "https://rajkcho.github.io/Babaganoush/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "CAD"
+    }
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Babaganoush free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, all financial calculators on Babaganoush are 100% free with no sign-up required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my financial data safe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. All calculations run entirely in your browser. No data is sent to any server — your numbers never leave your device."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What calculators are available?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Babaganoush includes 8 professional-grade calculators: Business Valuation (DCF, Multiples, Asset-based), M&A Deal Analyzer, Canadian Mortgage Calculator, Investment Returns (CAGR & DCA), RRSP vs TFSA Optimizer, Compound Interest Visualizer, Startup Runway Calculator, and Net Worth Tracker."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate are the mortgage calculations for Canada?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The mortgage calculator uses Canadian semi-annual compounding as required by law, includes CMHC insurance premiums, provincial land transfer taxes, and OSFI B-20 stress test calculations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I choose RRSP or TFSA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on your current vs. expected retirement tax rate. Generally, RRSP is better if your current tax rate is higher than your expected retirement rate. Use our RRSP vs TFSA Optimizer to compare based on your specific situation."
+        }
+      }
+    ]
+  }
+  </script>
   
   <style>
     /* ══════════════════════════════════════════════════════════════
@@ -1375,6 +1458,39 @@
       stroke-linecap: round;
       transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
+    /* Affiliate CTA banners */
+    .affiliate-cta {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      backdrop-filter: blur(12px);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .affiliate-cta .ad-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      border: 1px solid var(--border-primary);
+      padding: 0.1rem 0.35rem;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .affiliate-cta a {
+      color: var(--brand-accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .affiliate-cta a:hover { text-decoration: underline; }
   </style>
 </head>
 <body class="noise">
@@ -3147,6 +3263,10 @@
             <span class="mono" style="font-size: 0.85rem;">${fmtFull(downPayment + ltt + 2000)}</span>
           </div>
         </div>
+        <div class="affiliate-cta">
+          <span class="ad-label">Sponsored</span>
+          Looking for the best mortgage rates? <a href="#">Compare rates at [Partner Name]</a>
+        </div>
       `;
       
       // Stress test
@@ -3487,6 +3607,10 @@
             💡 <strong>Rule of thumb:</strong> RRSP wins when your current tax rate is higher than your expected retirement tax rate. TFSA wins when rates are the same or lower now.
           </div>
         </div>
+        <div class="affiliate-cta">
+          <span class="ad-label">Ad</span>
+          Open a TFSA with <a href="#">Canada's top-rated platforms</a>
+        </div>
       `;
     }
     
@@ -3570,6 +3694,10 @@
             Your ${fmtFull(monthly)}/month contributions turn into <strong style="color: var(--text-primary);">${fmtFull(balance)}</strong> over ${years} years.
             That's <strong style="color: var(--brand-success);">${fmtFull(totalInterest)}</strong> in pure compound growth — money your money earned for you.
           </div>
+        </div>
+        <div class="affiliate-cta">
+          <span class="ad-label">Sponsored</span>
+          Start investing with <a href="#">$0 commissions</a>
         </div>
       `;
       
@@ -4097,6 +4225,11 @@
       localStorage.setItem('bb-cookie-consent', accepted ? 'accepted' : 'declined');
       var b = document.querySelector('.cookie-banner');
       if (b) b.remove();
+    }
+
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(function(){});
     }
   </script>
 </body>
