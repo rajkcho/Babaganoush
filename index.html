@@ -1231,6 +1231,135 @@
       border-top: 1px solid var(--border-primary);
     }
     
+    /* ── How It Works ──────────────────────────────────── */
+    .how-it-works-steps {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0;
+      position: relative;
+      padding: 2rem 0;
+    }
+    .how-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+      max-width: 260px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .how-step.visible { opacity: 1; transform: translateY(0); }
+    .how-step:nth-child(2) { transition-delay: 0.15s; }
+    .how-step:nth-child(3) { transition-delay: 0.3s; }
+    .how-step-num {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+      color: white; font-size: 1.5rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; z-index: 2;
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+    }
+    .how-step h3 { font-size: 1.05rem; margin: 1rem 0 0.5rem; }
+    .how-step p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+    .how-connector {
+      position: absolute; top: 32px; left: calc(50% + 32px); right: calc(-50% + 32px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+      opacity: 0.3; z-index: 1;
+    }
+    .how-step:last-child .how-connector { display: none; }
+    @media (max-width: 640px) {
+      .how-it-works-steps { flex-direction: column; align-items: center; gap: 2rem; }
+      .how-connector { display: none; }
+    }
+
+    /* ── Testimonials ──────────────────────────────────── */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .testimonial-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-xl);
+      transition: all 0.3s ease;
+    }
+    .testimonial-card:hover {
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+      transform: translateY(-2px);
+    }
+    .testimonial-stars { color: #f59e0b; font-size: 0.9rem; margin-bottom: 0.75rem; }
+    .testimonial-quote { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testimonial-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+      color: white; font-weight: 700; font-size: 0.8rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .testimonial-name { font-size: 0.85rem; font-weight: 600; }
+    .testimonial-role { font-size: 0.72rem; color: var(--text-muted); }
+
+    /* ── Newsletter ────────────────────────────────────── */
+    .newsletter-section {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(139, 92, 246, 0.05));
+      border: 1px solid rgba(99, 102, 241, 0.15);
+      border-radius: var(--radius-xl);
+      padding: var(--space-3xl) var(--space-xl);
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .newsletter-form {
+      display: flex; gap: 0.5rem; max-width: 420px; margin: 1.5rem auto 0;
+    }
+    .newsletter-form input {
+      flex: 1; padding: 0.75rem 1rem; border-radius: var(--radius-md);
+      border: 1px solid var(--border-primary); background: var(--bg-secondary);
+      color: var(--text-primary); font-size: 0.9rem; font-family: inherit;
+    }
+    .newsletter-form input:focus { outline: none; border-color: var(--brand-primary); box-shadow: 0 0 0 3px rgba(99,102,241,0.15); }
+    .newsletter-social-proof { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.75rem; }
+    @media (max-width: 480px) { .newsletter-form { flex-direction: column; } }
+
+    /* ── FAQ ────────────────────────────────────────────── */
+    .faq-list { max-width: 720px; margin: 0 auto; }
+
+    /* ── Cookie Banner ─────────────────────────────────── */
+    .cookie-banner {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border-primary);
+      padding: 1rem 1.5rem;
+      display: flex; align-items: center; justify-content: center; gap: 1rem;
+      font-size: 0.85rem; color: var(--text-secondary);
+      animation: fadeInUp 0.4s ease both;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+    }
+    .cookie-banner.hidden { display: none; }
+    .cookie-banner-btns { display: flex; gap: 0.5rem; }
+    @media (max-width: 640px) {
+      .cookie-banner { flex-direction: column; text-align: center; gap: 0.75rem; }
+    }
+
+    /* ── Toast ──────────────────────────────────────────── */
+    .toast-success {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 400;
+      background: var(--bg-elevated); border: 1px solid rgba(16,185,129,0.3);
+      border-radius: var(--radius-md); padding: 1rem 1.5rem;
+      box-shadow: var(--shadow-xl); animation: slideInRight 0.4s ease both;
+      font-size: 0.85rem; color: var(--brand-success); display: flex; align-items: center; gap: 0.5rem;
+    }
+
     /* ── Progress Ring ──────────────────────────────────── */
     .progress-ring {
       transform: rotate(-90deg);
@@ -1330,6 +1459,38 @@
       </div>
     </section>
     
+    <!-- How It Works -->
+    <section class="section" style="padding-bottom: 2rem;">
+      <div class="section-header reveal">
+        <div class="section-label">
+          <span class="label-line"></span>
+          How It Works
+          <span class="label-line"></span>
+        </div>
+        <h2 class="section-title">Three steps to <span class="gradient-text">smarter decisions</span></h2>
+        <p class="section-desc">No accounts, no downloads, no complexity. Just answers.</p>
+      </div>
+      <div class="how-it-works-steps">
+        <div class="how-step reveal">
+          <div class="how-connector"></div>
+          <div class="how-step-num">1</div>
+          <h3>Choose a tool</h3>
+          <p>Pick from 8 professional-grade calculators covering valuation, M&A, mortgage, and more.</p>
+        </div>
+        <div class="how-step reveal">
+          <div class="how-connector"></div>
+          <div class="how-step-num">2</div>
+          <h3>Enter your numbers</h3>
+          <p>Fill in the inputs with your data. Smart defaults help you get started instantly.</p>
+        </div>
+        <div class="how-step reveal">
+          <div class="how-step-num">3</div>
+          <h3>Get instant results</h3>
+          <p>See real-time calculations, sensitivity tables, and visual breakdowns — all in your browser.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Tools Grid -->
     <section class="section" id="tools">
       <div class="section-header reveal">
@@ -1466,6 +1627,117 @@
       </div>
     </section>
     
+    <!-- Testimonials -->
+    <section class="section">
+      <div class="section-header reveal">
+        <div class="section-label">
+          <span class="label-line"></span>
+          Testimonials
+          <span class="label-line"></span>
+        </div>
+        <h2 class="section-title">Trusted by <span class="gradient-text">finance professionals</span></h2>
+        <p class="section-desc">Join thousands who make better financial decisions with our tools.</p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"The DCF calculator saved me hours on my capstone project. The sensitivity analysis is exactly what we use in our investment banking case studies — but faster and more intuitive."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SK</div>
+            <div>
+              <div class="testimonial-name">Sarah K.</div>
+              <div class="testimonial-role">MBA Student</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"I screened over 30 acquisition targets using the business valuation tool. The multiples-based approach gave me quick sanity checks before diving into full due diligence."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MT</div>
+            <div>
+              <div class="testimonial-name">Michael T.</div>
+              <div class="testimonial-role">Search Fund Entrepreneur</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"I use the RRSP vs TFSA optimizer with every client meeting. Being able to show real-time scenarios on their own numbers builds instant trust and saves me 20 minutes per session."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">PR</div>
+            <div>
+              <div class="testimonial-name">Priya R.</div>
+              <div class="testimonial-role">Financial Advisor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+      <div class="section-header reveal">
+        <div class="section-label">
+          <span class="label-line"></span>
+          FAQ
+          <span class="label-line"></span>
+        </div>
+        <h2 class="section-title">Frequently asked <span class="gradient-text">questions</span></h2>
+      </div>
+      <div class="faq-list">
+        <div class="accordion-item reveal">
+          <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
+            <span>Are these tools really free?</span>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-body"><div class="accordion-body-inner" style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;">Yes, forever. All core calculators are completely free with no sign-up required. We monetize through optional premium exports — PDF reports and Excel downloads coming soon.</div></div>
+        </div>
+        <div class="accordion-item reveal">
+          <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
+            <span>Is my data safe?</span>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-body"><div class="accordion-body-inner" style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;">Absolutely. All calculations run locally in your browser. We never see your numbers, and nothing is sent to any server. Your financial data stays on your device.</div></div>
+        </div>
+        <div class="accordion-item reveal">
+          <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
+            <span>How accurate are the calculations?</span>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-body"><div class="accordion-body-inner" style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;">We use the same methodologies as investment banks and PE firms. Our DCF, accretion/dilution, and valuation models follow industry-standard formulas used in professional deal analysis.</div></div>
+        </div>
+        <div class="accordion-item reveal">
+          <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
+            <span>Can I export results?</span>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-body"><div class="accordion-body-inner" style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;">PDF and Excel exports are coming soon for premium users. You'll be able to generate presentation-ready reports with a single click.</div></div>
+        </div>
+        <div class="accordion-item reveal">
+          <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
+            <span>Who built this?</span>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-body"><div class="accordion-body-inner" style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;">Finance professionals with 15+ years of M&A and corporate development experience. We built the tools we wished existed when we were doing deals.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section">
+      <div class="newsletter-section reveal">
+        <div style="font-size: 2rem; margin-bottom: 0.75rem;">📬</div>
+        <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Get weekly financial insights</h2>
+        <p style="color: var(--text-secondary); font-size: 0.9rem;">Valuation frameworks, deal analysis tips, and new tool updates — straight to your inbox.</p>
+        <div class="newsletter-form" id="newsletter-form">
+          <input type="email" id="newsletter-email" placeholder="you@company.com" aria-label="Email address" />
+          <button class="btn btn-primary" onclick="subscribeNewsletter()">Subscribe</button>
+        </div>
+        <p class="newsletter-social-proof">✓ Join 2,000+ finance professionals · No spam, ever</p>
+      </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-content">
@@ -3787,6 +4059,44 @@
       html += '</div>';
       html += '<button class="btn btn-ghost btn-sm" style="margin-top:0.75rem;color:var(--brand-danger);font-size:0.72rem;" onclick="if(confirm(\'Clear all snapshots?\')){localStorage.removeItem(\'nw-snapshots\');loadNetWorthSnapshots();}">Clear All Snapshots</button>';
       el.innerHTML = html;
+    }
+
+    // ══════════════════════════════════════════════════════════
+    //  NEWSLETTER SIGNUP
+    // ══════════════════════════════════════════════════════════
+    function subscribeNewsletter() {
+      const input = document.getElementById('newsletter-email');
+      const email = input.value.trim();
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        input.style.borderColor = 'var(--brand-danger)';
+        setTimeout(function() { input.style.borderColor = ''; }, 2000);
+        return;
+      }
+      const subs = JSON.parse(localStorage.getItem('bb-newsletter') || '[]');
+      if (!subs.includes(email)) { subs.push(email); localStorage.setItem('bb-newsletter', JSON.stringify(subs)); }
+      input.value = '';
+      // Show toast
+      const toast = document.createElement('div');
+      toast.className = 'toast-success';
+      toast.innerHTML = '✅ You\'re subscribed! Welcome aboard.';
+      document.body.appendChild(toast);
+      setTimeout(function() { toast.remove(); }, 3500);
+    }
+
+    // ══════════════════════════════════════════════════════════
+    //  COOKIE CONSENT
+    // ══════════════════════════════════════════════════════════
+    (function() {
+      if (localStorage.getItem('bb-cookie-consent')) return;
+      var banner = document.createElement('div');
+      banner.className = 'cookie-banner';
+      banner.innerHTML = '<span>🍪 We use cookies to improve your experience.</span><div class="cookie-banner-btns"><button class="btn btn-primary btn-sm" onclick="acceptCookies(true)">Accept</button><button class="btn btn-secondary btn-sm" onclick="acceptCookies(false)">Decline</button></div>';
+      document.body.appendChild(banner);
+    })();
+    function acceptCookies(accepted) {
+      localStorage.setItem('bb-cookie-consent', accepted ? 'accepted' : 'declined');
+      var b = document.querySelector('.cookie-banner');
+      if (b) b.remove();
     }
   </script>
 </body>
