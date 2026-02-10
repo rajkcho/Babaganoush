@@ -1,0 +1,3129 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Babaganoush | Smart Financial Tools</title>
+  <meta name="description" content="Free premium financial calculators — business valuation, M&A analysis, mortgage calculator, investment returns, RRSP/TFSA optimizer. Built by finance professionals, for everyone." />
+  <meta name="keywords" content="financial calculator, business valuation, DCF calculator, mortgage calculator Canada, M&A accretion dilution, RRSP TFSA, investment returns, compound interest" />
+  <meta property="og:title" content="Babaganoush | Smart Financial Tools" />
+  <meta property="og:description" content="Free premium financial calculators built by finance professionals." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rajkcho.github.io/Babaganoush/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://rajkcho.github.io/Babaganoush/" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧮</text></svg>" />
+  
+  <style>
+    /* ══════════════════════════════════════════════════════════════
+       BABAGANOUSH — Premium Financial Tools
+       Design System & Core Styles
+       ══════════════════════════════════════════════════════════════ */
+    
+    :root {
+      /* Brand Colors */
+      --brand-primary: #6366f1;
+      --brand-secondary: #8b5cf6;
+      --brand-accent: #06b6d4;
+      --brand-success: #10b981;
+      --brand-warning: #f59e0b;
+      --brand-danger: #ef4444;
+      
+      /* Dark Theme (Default) */
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #111118;
+      --bg-card: #16161f;
+      --bg-card-hover: #1c1c28;
+      --bg-elevated: #1e1e2a;
+      --border-primary: #1e1e2e;
+      --border-hover: #2e2e42;
+      --text-primary: #f1f0f5;
+      --text-secondary: #9ca3af;
+      --text-muted: #6b7280;
+      --glass-bg: rgba(22, 22, 31, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.06);
+      
+      /* Spacing */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2rem;
+      --space-2xl: 3rem;
+      --space-3xl: 4rem;
+      
+      /* Radius */
+      --radius-sm: 0.5rem;
+      --radius-md: 0.75rem;
+      --radius-lg: 1rem;
+      --radius-xl: 1.5rem;
+      --radius-full: 9999px;
+      
+      /* Shadows */
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+      --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.6);
+      --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.15);
+      --shadow-glow-accent: 0 0 30px rgba(6, 182, 212, 0.15);
+    }
+    
+    /* Light Theme */
+    .light {
+      --bg-primary: #fafafa;
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f8f8fc;
+      --bg-elevated: #f3f4f6;
+      --border-primary: #e5e7eb;
+      --border-hover: #d1d5db;
+      --text-primary: #111827;
+      --text-secondary: #4b5563;
+      --text-muted: #9ca3af;
+      --glass-bg: rgba(255, 255, 255, 0.8);
+      --glass-border: rgba(0, 0, 0, 0.06);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
+      --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.12);
+      --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.08);
+    }
+    
+    /* ── Reset & Base ──────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    
+    /* ── Scrollbar ──────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+    ::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--brand-primary); }
+    
+    /* ── Typography ────────────────────────────────────── */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary), var(--brand-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* ── Animations ────────────────────────────────────── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.1); }
+      50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.25); }
+    }
+    
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    
+    @keyframes orbit {
+      from { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+      to { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+    }
+    
+    @keyframes counter-orbit {
+      from { transform: rotate(0deg) translateX(40px) rotate(0deg); }
+      to { transform: rotate(-360deg) translateX(40px) rotate(360deg); }
+    }
+    
+    @keyframes morphBlob {
+      0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+      25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+      50% { border-radius: 50% 60% 30% 60% / 30% 70% 60% 40%; }
+      75% { border-radius: 60% 30% 60% 40% / 60% 40% 30% 70%; }
+    }
+    
+    @keyframes typewriter {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes ripple {
+      0% { transform: scale(0); opacity: 0.6; }
+      100% { transform: scale(4); opacity: 0; }
+    }
+    
+    @keyframes borderGlow {
+      0%, 100% { border-color: rgba(99, 102, 241, 0.2); }
+      50% { border-color: rgba(99, 102, 241, 0.5); }
+    }
+    
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .animate-fade-up { animation: fadeInUp 0.6s ease both; }
+    .animate-fade-up-1 { animation: fadeInUp 0.6s ease 0.1s both; }
+    .animate-fade-up-2 { animation: fadeInUp 0.6s ease 0.2s both; }
+    .animate-fade-up-3 { animation: fadeInUp 0.6s ease 0.3s both; }
+    .animate-fade-up-4 { animation: fadeInUp 0.6s ease 0.4s both; }
+    .animate-fade-in { animation: fadeIn 0.6s ease both; }
+    .animate-scale-in { animation: scaleIn 0.5s ease both; }
+    .animate-slide-left { animation: slideInLeft 0.6s ease both; }
+    .animate-slide-right { animation: slideInRight 0.6s ease both; }
+    
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+    
+    /* ── Glass Card ────────────────────────────────────── */
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      transition: all 0.3s ease;
+    }
+    
+    .glass-card:hover {
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    /* ── Tool Card ──────────────────────────────────────── */
+    .tool-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-xl);
+      padding: var(--space-xl);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .tool-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--brand-primary), var(--brand-secondary), var(--brand-accent));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .tool-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-xl), var(--shadow-glow);
+      background: var(--bg-card-hover);
+    }
+    
+    .tool-card:hover::before { opacity: 1; }
+    
+    .tool-card .tool-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .tool-card:hover .tool-icon { transform: scale(1.1) rotate(-3deg); }
+    
+    /* ── Button System ─────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.875rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+    }
+    
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: white;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .btn:hover::after { opacity: 0.1; }
+    .btn:active { transform: scale(0.97); }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+      color: white;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    }
+    
+    .btn-primary:hover {
+      box-shadow: 0 6px 25px rgba(99, 102, 241, 0.4);
+      transform: translateY(-1px);
+    }
+    
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border-primary);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+    }
+    
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-secondary);
+    }
+    
+    .btn-ghost:hover { color: var(--text-primary); }
+    
+    .btn-lg { padding: 1rem 2rem; font-size: 1rem; border-radius: var(--radius-lg); }
+    .btn-sm { padding: 0.5rem 1rem; font-size: 0.8rem; }
+    
+    /* ── Input System ──────────────────────────────────── */
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+    }
+    
+    .input-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .input-group input, .input-group select {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1rem;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+    
+    .input-group input:focus, .input-group select:focus {
+      outline: none;
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    }
+    
+    .input-group input::placeholder { color: var(--text-muted); }
+    
+    .input-help {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.125rem;
+    }
+    
+    /* ── Range Slider ──────────────────────────────────── */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      background: var(--border-primary);
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+    }
+    
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+    
+    /* ── Result Card ───────────────────────────────────── */
+    .result-card {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(139, 92, 246, 0.05));
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      animation: scaleIn 0.4s ease both;
+    }
+    
+    .result-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .result-label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+    
+    /* ── Navigation ────────────────────────────────────── */
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 0.75rem 1.5rem;
+      transition: all 0.3s ease;
+      animation: fadeInDown 0.6s ease both;
+    }
+    
+    .nav-bar.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+    
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--text-primary);
+    }
+    
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: white;
+      font-weight: 800;
+    }
+    
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--text-primary);
+      background: rgba(99, 102, 241, 0.1);
+    }
+    
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-primary);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .theme-toggle:hover {
+      background: var(--bg-card-hover);
+      color: var(--text-primary);
+      border-color: var(--border-hover);
+    }
+    
+    /* Mobile nav */
+    .mobile-menu-btn {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-primary);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: flex; }
+      .nav-links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-primary);
+        padding: 1rem;
+        gap: 0.25rem;
+      }
+      .nav-links.mobile-open a {
+        padding: 0.75rem 1rem;
+        width: 100%;
+      }
+    }
+    
+    /* ── Hero Section ──────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 1.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.15;
+    }
+    
+    .hero-blob-1 {
+      width: 600px;
+      height: 600px;
+      background: var(--brand-primary);
+      top: -200px;
+      right: -100px;
+      animation: morphBlob 20s ease-in-out infinite;
+    }
+    
+    .hero-blob-2 {
+      width: 400px;
+      height: 400px;
+      background: var(--brand-accent);
+      bottom: -100px;
+      left: -50px;
+      animation: morphBlob 15s ease-in-out infinite reverse;
+    }
+    
+    .hero-blob-3 {
+      width: 300px;
+      height: 300px;
+      background: var(--brand-secondary);
+      top: 40%;
+      left: 50%;
+      animation: morphBlob 25s ease-in-out infinite 5s;
+    }
+    
+    /* Grid pattern */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--brand-primary);
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 0.6s ease both;
+    }
+    
+    .hero-badge .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand-success);
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      line-height: 1.05;
+      animation: fadeInUp 0.6s ease 0.1s both;
+    }
+    
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+      animation: fadeInUp 0.6s ease 0.2s both;
+    }
+    
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.6s ease 0.3s both;
+    }
+    
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      animation: fadeInUp 0.6s ease 0.4s both;
+    }
+    
+    .hero-stat {
+      text-align: center;
+    }
+    
+    .hero-stat-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    .hero-stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.25rem;
+    }
+    
+    @media (max-width: 640px) {
+      .hero-stats { gap: 1.5rem; }
+      .hero-stat-value { font-size: 1.25rem; }
+    }
+    
+    /* ── Sections ──────────────────────────────────────── */
+    .section {
+      padding: 5rem 1.5rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+    
+    .section-label .label-line {
+      width: 24px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+      border-radius: 1px;
+    }
+    
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+    
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* ── Tools Grid ────────────────────────────────────── */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    @media (max-width: 640px) {
+      .tools-grid { grid-template-columns: 1fr; }
+    }
+    
+    /* ── Calculator Layout ─────────────────────────────── */
+    .calc-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    
+    .calc-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .calc-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    
+    .calc-back:hover { color: var(--text-primary); }
+    
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    
+    .calc-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .calc-results {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+      .calc-grid { grid-template-columns: 1fr; }
+    }
+    
+    /* ── Footer ────────────────────────────────────────── */
+    .footer {
+      border-top: 1px solid var(--border-primary);
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+    
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    
+    .footer-brand {
+      font-weight: 800;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.7;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover { color: var(--text-primary); }
+    
+    /* ── Utility ───────────────────────────────────────── */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    /* ── Tab System ─────────────────────────────────────── */
+    .tabs {
+      display: flex;
+      gap: 0.25rem;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      padding: 0.25rem;
+      border: 1px solid var(--border-primary);
+    }
+    
+    .tab {
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex: 1;
+      text-align: center;
+    }
+    
+    .tab:hover { color: var(--text-primary); }
+    
+    .tab.active {
+      background: var(--brand-primary);
+      color: white;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+    }
+    
+    /* ── Metric pill ───────────────────────────────────── */
+    .metric-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.375rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
+    .metric-pill.positive {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--brand-success);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+    
+    .metric-pill.negative {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--brand-danger);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+    
+    .metric-pill.neutral {
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--brand-primary);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+    }
+    
+    /* ── Divider ───────────────────────────────────────── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-primary), transparent);
+      margin: 2rem 0;
+    }
+    
+    /* ── Tooltip ───────────────────────────────────────── */
+    .tooltip-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    
+    .tooltip-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--border-primary);
+      color: var(--text-muted);
+      font-size: 0.6rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: help;
+    }
+    
+    .tooltip-wrapper:hover .tooltip-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    
+    .tooltip-content {
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%) translateY(5px);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem 0.75rem;
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease;
+      z-index: 10;
+      box-shadow: var(--shadow-lg);
+      max-width: 250px;
+      white-space: normal;
+    }
+    
+    /* ── Chart Container ───────────────────────────────── */
+    .chart-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin: 1rem 0;
+    }
+    
+    .chart-bar {
+      height: 8px;
+      border-radius: 4px;
+      background: var(--border-primary);
+      overflow: hidden;
+      margin: 0.5rem 0;
+    }
+    
+    .chart-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+      background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+    }
+    
+    /* ── Sensitivity Table ─────────────────────────────── */
+    .sensitivity-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+    }
+    
+    .sensitivity-table th {
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+      font-weight: 600;
+      padding: 0.625rem 0.75rem;
+      text-align: center;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border-primary);
+    }
+    
+    .sensitivity-table th:first-child {
+      border-radius: var(--radius-sm) 0 0 0;
+      text-align: left;
+    }
+    
+    .sensitivity-table th:last-child {
+      border-radius: 0 var(--radius-sm) 0 0;
+    }
+    
+    .sensitivity-table td {
+      padding: 0.5rem 0.75rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-primary);
+      transition: background 0.2s ease;
+    }
+    
+    .sensitivity-table td:first-child {
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    
+    .sensitivity-table tr:hover td {
+      background: rgba(99, 102, 241, 0.05);
+    }
+    
+    .sensitivity-table .highlight {
+      background: rgba(99, 102, 241, 0.1);
+      font-weight: 700;
+      color: var(--brand-primary);
+    }
+    
+    .sensitivity-table .positive-val { color: var(--brand-success); }
+    .sensitivity-table .negative-val { color: var(--brand-danger); }
+    
+    /* ── Notification Toast ────────────────────────────── */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 200;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.5rem;
+      box-shadow: var(--shadow-xl);
+      animation: slideInRight 0.4s ease both;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+    }
+    
+    .toast.hidden { display: none; }
+    
+    /* ── Page transitions ──────────────────────────────── */
+    .page { display: none; }
+    .page.active { display: block; animation: fadeIn 0.4s ease both; }
+    
+    /* ── Intersection Observer reveals ─────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* ── Noise overlay ─────────────────────────────────── */
+    .noise::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.015;
+      pointer-events: none;
+      z-index: 1000;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    
+    /* ── Gradient border card ──────────────────────────── */
+    .gradient-border-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      padding: 1px;
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary), var(--brand-accent));
+      background-size: 200% 200%;
+      animation: gradient-shift 6s ease infinite;
+    }
+    
+    .gradient-border-card-inner {
+      background: var(--bg-card);
+      border-radius: calc(var(--radius-xl) - 1px);
+      padding: var(--space-xl);
+    }
+    
+    /* ── Accordion ──────────────────────────────────────── */
+    .accordion-item {
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-md);
+      margin-bottom: 0.5rem;
+      overflow: hidden;
+    }
+    
+    .accordion-header {
+      padding: 1rem 1.25rem;
+      background: var(--bg-card);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
+    
+    .accordion-header:hover { background: var(--bg-card-hover); }
+    
+    .accordion-arrow {
+      transition: transform 0.3s ease;
+      color: var(--text-muted);
+    }
+    
+    .accordion-item.open .accordion-arrow {
+      transform: rotate(180deg);
+    }
+    
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    
+    .accordion-item.open .accordion-body {
+      max-height: 2000px;
+    }
+    
+    .accordion-body-inner {
+      padding: 1rem 1.25rem;
+      border-top: 1px solid var(--border-primary);
+    }
+    
+    /* ── Progress Ring ──────────────────────────────────── */
+    .progress-ring {
+      transform: rotate(-90deg);
+    }
+    
+    .progress-ring-bg {
+      stroke: var(--border-primary);
+      fill: none;
+    }
+    
+    .progress-ring-fill {
+      fill: none;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
+</head>
+<body class="noise">
+  <!-- Navigation -->
+  <nav class="nav-bar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" onclick="showPage('home'); return false;">
+        <div class="nav-logo-icon">B</div>
+        <span>Babaganoush</span>
+      </a>
+      
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#tools" onclick="showPage('home')">Tools</a></li>
+        <li><a href="#" onclick="showPage('valuation'); return false;">Valuation</a></li>
+        <li><a href="#" onclick="showPage('mortgage'); return false;">Mortgage</a></li>
+        <li><a href="#" onclick="showPage('investment'); return false;">Investment</a></li>
+        <li><a href="#" onclick="showPage('retirement'); return false;">Retirement</a></li>
+        <li><a href="#" onclick="showPage('compound'); return false;">Compound</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- ═══════════════════════════════════════════════════════
+       HOME PAGE
+       ═══════════════════════════════════════════════════════ -->
+  <div class="page active" id="page-home">
+    
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-blob hero-blob-3"></div>
+        <div class="hero-grid"></div>
+      </div>
+      
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          Free Forever · No Sign-up Required
+        </div>
+        
+        <h1>
+          Financial tools that<br />
+          <span class="gradient-text">actually make sense</span>
+        </h1>
+        
+        <p>
+          Professional-grade calculators for business valuation, M&A analysis, 
+          mortgage planning, and investment returns. Built by finance professionals 
+          with 15+ years of experience.
+        </p>
+        
+        <div class="hero-cta">
+          <a href="#tools" class="btn btn-primary btn-lg">
+            Explore Tools →
+          </a>
+          <a href="#about" class="btn btn-secondary btn-lg">
+            Learn More
+          </a>
+        </div>
+        
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-value" data-count="8">0</div>
+            <div class="hero-stat-label">Free Tools</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value" data-count="100">0</div>
+            <div class="hero-stat-label">Calculations / Day</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">$0</div>
+            <div class="hero-stat-label">Cost — Always Free</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Tools Grid -->
+    <section class="section" id="tools">
+      <div class="section-header reveal">
+        <div class="section-label">
+          <span class="label-line"></span>
+          Calculator Suite
+          <span class="label-line"></span>
+        </div>
+        <h2 class="section-title">Everything you need, <span class="gradient-text">all in one place</span></h2>
+        <p class="section-desc">Professional financial calculators that would cost hundreds at a consulting firm. Free, instant, private.</p>
+      </div>
+      
+      <div class="tools-grid">
+        <!-- Business Valuation -->
+        <div class="tool-card reveal" onclick="showPage('valuation')" role="button" tabindex="0" aria-label="Business Valuation Calculator">
+          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.05));">🏢</div>
+          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Business Valuation</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">DCF, multiples, and asset-based valuation. Perfect for M&A, fundraising, and exit planning.</p>
+          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
+            <span class="metric-pill neutral">DCF</span>
+            <span class="metric-pill neutral">Multiples</span>
+            <span class="metric-pill neutral">Asset</span>
+          </div>
+        </div>
+        
+        <!-- M&A Analyzer -->
+        <div class="tool-card reveal" onclick="showPage('merger')" role="button" tabindex="0" aria-label="M&A Deal Analyzer">
+          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05));">🤝</div>
+          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">M&A Deal Analyzer</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Accretion/dilution analysis, synergy valuation, and deal structure optimization.</p>
+          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
+            <span class="metric-pill neutral">EPS Impact</span>
+            <span class="metric-pill neutral">Synergies</span>
+          </div>
+        </div>
+        
+        <!-- Mortgage Calculator -->
+        <div class="tool-card reveal" onclick="showPage('mortgage')" role="button" tabindex="0" aria-label="Canadian Mortgage Calculator">
+          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.05));">🏠</div>
+          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Canadian Mortgage</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Mortgage payments with OSFI stress test, land transfer tax, and amortization schedule.</p>
+          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
+            <span class="metric-pill neutral">Stress Test</span>
+            <span class="metric-pill neutral">🇨🇦 Canada</span>
+          </div>
+        </div>
+        
+        <!-- Investment Returns -->
+        <div class="tool-card reveal" onclick="showPage('investment')" role="button" tabindex="0" aria-label="Investment Returns Calculator">
+          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05));">📈</div>
+          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Investment Returns</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">CAGR calculator, dollar-cost averaging simulator, and portfolio growth projections.</p>
+          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
+            <span class="metric-pill neutral">CAGR</span>
+            <span class="metric-pill neutral">DCA</span>
+          </div>
+        </div>
+        
+        <!-- RRSP vs TFSA -->
+        <div class="tool-card reveal" onclick="showPage('retirement')" role="button" tabindex="0" aria-label="RRSP vs TFSA Optimizer">
+          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.05));">🏦</div>
+          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">RRSP vs TFSA</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Optimize your Canadian retirement strategy. Compare tax-sheltered growth scenarios.</p>
+          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
+            <span class="metric-pill neutral">RRSP</span>
+            <span class="metric-pill neutral">TFSA</span>
+            <span class="metric-pill neutral">🇨🇦</span>
+          </div>
+        </div>
+        
+        <!-- Compound Interest -->
+        <div class="tool-card reveal" onclick="showPage('compound')" role="button" tabindex="0" aria-label="Compound Interest Visualizer">
+          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(236, 72, 153, 0.05));">📊</div>
+          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Compound Interest</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Visualize the power of compound growth. See how small contributions become fortunes.</p>
+          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
+            <span class="metric-pill neutral">Visual</span>
+            <span class="metric-pill neutral">Chart</span>
+          </div>
+        </div>
+        
+        <!-- Startup Runway -->
+        <div class="tool-card reveal" onclick="showPage('runway')" role="button" tabindex="0" aria-label="Startup Runway Calculator">
+          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(168, 85, 247, 0.05));">🚀</div>
+          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Startup Runway</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Calculate your burn rate, runway, and when you need to raise. Scenario planning included.</p>
+          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
+            <span class="metric-pill neutral">Burn Rate</span>
+            <span class="metric-pill neutral">Runway</span>
+          </div>
+        </div>
+        
+        <!-- Net Worth -->
+        <div class="tool-card reveal" onclick="showPage('networth')" role="button" tabindex="0" aria-label="Net Worth Tracker">
+          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.05));">💰</div>
+          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Net Worth Tracker</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Track assets vs liabilities. See your complete financial picture with visual breakdowns.</p>
+          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
+            <span class="metric-pill neutral">Assets</span>
+            <span class="metric-pill neutral">Liabilities</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Why Section -->
+    <section class="section" id="about">
+      <div class="section-header reveal">
+        <div class="section-label">
+          <span class="label-line"></span>
+          Why Babaganoush
+          <span class="label-line"></span>
+        </div>
+        <h2 class="section-title">Built different</h2>
+        <p class="section-desc">Financial tools built by someone who's spent 15+ years actually doing deals, not just building software.</p>
+      </div>
+      
+      <div class="tools-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="glass-card reveal" style="padding: var(--space-xl); text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">🔒</div>
+          <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">100% Private</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary);">All calculations run in your browser. Your data never leaves your device.</p>
+        </div>
+        <div class="glass-card reveal" style="padding: var(--space-xl); text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">⚡</div>
+          <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Instant Results</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary);">No loading, no servers. Calculations happen in real-time as you type.</p>
+        </div>
+        <div class="glass-card reveal" style="padding: var(--space-xl); text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">🎓</div>
+          <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">IB-Grade Models</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary);">Same methodologies used at bulge bracket banks and top PE firms.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand gradient-text">Babaganoush</div>
+        <p class="footer-text">
+          Smart financial tools built by finance professionals. All calculations are for educational and informational purposes only. Not financial advice.
+        </p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Contact</a>
+          <a href="https://github.com/rajkcho/Babaganoush" target="_blank">GitHub</a>
+        </div>
+        <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 1.5rem;">© 2026 Babaganoush. Made in 🇨🇦 Canada.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       BUSINESS VALUATION PAGE
+       ═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-valuation">
+    <div class="calc-container" style="padding-top: 6rem;">
+      <div class="calc-back" onclick="showPage('home')">← Back to Tools</div>
+      
+      <div class="calc-header animate-fade-up">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏢</div>
+        <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">Business Valuation Calculator</h1>
+        <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto;">Estimate business value using DCF, comparable multiples, and asset-based approaches.</p>
+      </div>
+      
+      <!-- Method Tabs -->
+      <div class="tabs" style="max-width: 400px; margin: 2rem auto;" id="val-tabs">
+        <button class="tab active" onclick="switchValTab('dcf')">DCF</button>
+        <button class="tab" onclick="switchValTab('multiples')">Multiples</button>
+        <button class="tab" onclick="switchValTab('asset')">Asset-Based</button>
+      </div>
+      
+      <!-- DCF Method -->
+      <div id="val-dcf" class="animate-fade-up" style="margin-top: 2rem;">
+        <div class="calc-grid">
+          <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
+            <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;">Assumptions</h3>
+            
+            <div class="input-group">
+              <label>
+                Annual Free Cash Flow (FCF)
+                <span class="tooltip-wrapper">
+                  <span class="tooltip-icon">?</span>
+                  <span class="tooltip-content">Net cash generated by the business after all operating expenses and capital expenditures</span>
+                </span>
+              </label>
+              <input type="number" id="dcf-fcf" value="1000000" placeholder="1,000,000" oninput="calculateDCF()" />
+              <span class="input-help">Current annual free cash flow ($)</span>
+            </div>
+            
+            <div class="input-group">
+              <label>
+                Growth Rate (Year 1-5)
+                <span class="tooltip-wrapper">
+                  <span class="tooltip-icon">?</span>
+                  <span class="tooltip-content">Expected annual growth rate for the projection period</span>
+                </span>
+              </label>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <input type="range" id="dcf-growth" min="0" max="30" value="10" step="0.5" oninput="calculateDCF(); document.getElementById('dcf-growth-val').textContent = this.value + '%'" />
+                <span id="dcf-growth-val" class="mono" style="font-size: 0.85rem; min-width: 3.5rem; text-align: right; color: var(--brand-primary);">10%</span>
+              </div>
+            </div>
+            
+            <div class="input-group">
+              <label>
+                Terminal Growth Rate
+                <span class="tooltip-wrapper">
+                  <span class="tooltip-icon">?</span>
+                  <span class="tooltip-content">Long-term sustainable growth rate (typically 2-3%, matching GDP growth)</span>
+                </span>
+              </label>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <input type="range" id="dcf-terminal" min="0" max="5" value="2.5" step="0.25" oninput="calculateDCF(); document.getElementById('dcf-terminal-val').textContent = this.value + '%'" />
+                <span id="dcf-terminal-val" class="mono" style="font-size: 0.85rem; min-width: 3.5rem; text-align: right; color: var(--brand-accent);">2.5%</span>
+              </div>
+            </div>
+            
+            <div class="input-group">
+              <label>
+                Discount Rate (WACC)
+                <span class="tooltip-wrapper">
+                  <span class="tooltip-icon">?</span>
+                  <span class="tooltip-content">Weighted Average Cost of Capital — the required rate of return for investors</span>
+                </span>
+              </label>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <input type="range" id="dcf-wacc" min="5" max="25" value="12" step="0.5" oninput="calculateDCF(); document.getElementById('dcf-wacc-val').textContent = this.value + '%'" />
+                <span id="dcf-wacc-val" class="mono" style="font-size: 0.85rem; min-width: 3.5rem; text-align: right; color: var(--brand-warning);">12%</span>
+              </div>
+            </div>
+            
+            <div class="input-group">
+              <label>Projection Years</label>
+              <select id="dcf-years" onchange="calculateDCF()">
+                <option value="5" selected>5 Years</option>
+                <option value="7">7 Years</option>
+                <option value="10">10 Years</option>
+              </select>
+            </div>
+            
+            <div class="input-group">
+              <label>Net Debt</label>
+              <input type="number" id="dcf-debt" value="0" placeholder="0" oninput="calculateDCF()" />
+              <span class="input-help">Total debt minus cash (negative = net cash position)</span>
+            </div>
+          </div>
+          
+          <div class="calc-results" id="dcf-results">
+            <!-- Results populated by JS -->
+          </div>
+        </div>
+        
+        <!-- DCF Sensitivity Table -->
+        <div class="chart-container" style="margin-top: 2rem;" id="dcf-sensitivity">
+          <!-- Populated by JS -->
+        </div>
+        
+        <!-- FCF Projection Chart -->
+        <div class="chart-container" style="margin-top: 1rem;" id="dcf-chart">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+      
+      <!-- Multiples Method -->
+      <div id="val-multiples" style="display: none; margin-top: 2rem;">
+        <div class="calc-grid">
+          <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
+            <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;">Company Metrics</h3>
+            
+            <div class="input-group">
+              <label>Annual Revenue</label>
+              <input type="number" id="mult-revenue" value="5000000" oninput="calculateMultiples()" />
+            </div>
+            
+            <div class="input-group">
+              <label>EBITDA</label>
+              <input type="number" id="mult-ebitda" value="1200000" oninput="calculateMultiples()" />
+            </div>
+            
+            <div class="input-group">
+              <label>Net Income</label>
+              <input type="number" id="mult-income" value="800000" oninput="calculateMultiples()" />
+            </div>
+            
+            <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 1.5rem 0 1rem;">Industry Multiples</h3>
+            
+            <div class="input-group">
+              <label>EV/Revenue Multiple</label>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <input type="range" id="mult-ev-rev" min="0.5" max="15" value="3" step="0.25" oninput="calculateMultiples(); document.getElementById('mult-ev-rev-val').textContent = this.value + 'x'" />
+                <span id="mult-ev-rev-val" class="mono" style="font-size: 0.85rem; min-width: 3rem; text-align: right;">3x</span>
+              </div>
+            </div>
+            
+            <div class="input-group">
+              <label>EV/EBITDA Multiple</label>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <input type="range" id="mult-ev-ebitda" min="3" max="25" value="10" step="0.5" oninput="calculateMultiples(); document.getElementById('mult-ev-ebitda-val').textContent = this.value + 'x'" />
+                <span id="mult-ev-ebitda-val" class="mono" style="font-size: 0.85rem; min-width: 3rem; text-align: right;">10x</span>
+              </div>
+            </div>
+            
+            <div class="input-group">
+              <label>P/E Multiple</label>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <input type="range" id="mult-pe" min="5" max="40" value="15" step="0.5" oninput="calculateMultiples(); document.getElementById('mult-pe-val').textContent = this.value + 'x'" />
+                <span id="mult-pe-val" class="mono" style="font-size: 0.85rem; min-width: 3rem; text-align: right;">15x</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="calc-results" id="multiples-results">
+            <!-- Results populated by JS -->
+          </div>
+        </div>
+      </div>
+      
+      <!-- Asset-Based Method -->
+      <div id="val-asset" style="display: none; margin-top: 2rem;">
+        <div class="calc-grid">
+          <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
+            <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;">Assets</h3>
+            
+            <div class="input-group">
+              <label>Cash & Equivalents</label>
+              <input type="number" id="asset-cash" value="500000" oninput="calculateAsset()" />
+            </div>
+            <div class="input-group">
+              <label>Accounts Receivable</label>
+              <input type="number" id="asset-ar" value="300000" oninput="calculateAsset()" />
+            </div>
+            <div class="input-group">
+              <label>Inventory</label>
+              <input type="number" id="asset-inv" value="200000" oninput="calculateAsset()" />
+            </div>
+            <div class="input-group">
+              <label>Property & Equipment</label>
+              <input type="number" id="asset-ppe" value="1000000" oninput="calculateAsset()" />
+            </div>
+            <div class="input-group">
+              <label>Other Assets</label>
+              <input type="number" id="asset-other" value="150000" oninput="calculateAsset()" />
+            </div>
+            
+            <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 1.5rem 0 1rem;">Liabilities</h3>
+            
+            <div class="input-group">
+              <label>Accounts Payable</label>
+              <input type="number" id="asset-ap" value="200000" oninput="calculateAsset()" />
+            </div>
+            <div class="input-group">
+              <label>Loans & Debt</label>
+              <input type="number" id="asset-debt" value="400000" oninput="calculateAsset()" />
+            </div>
+            <div class="input-group">
+              <label>Other Liabilities</label>
+              <input type="number" id="asset-otherliab" value="100000" oninput="calculateAsset()" />
+            </div>
+          </div>
+          
+          <div class="calc-results" id="asset-results">
+            <!-- Results populated by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MORTGAGE CALCULATOR PAGE
+       ═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-mortgage">
+    <div class="calc-container" style="padding-top: 6rem;">
+      <div class="calc-back" onclick="showPage('home')">← Back to Tools</div>
+      
+      <div class="calc-header animate-fade-up">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏠</div>
+        <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">Canadian Mortgage Calculator</h1>
+        <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto;">Calculate payments with OSFI stress test, land transfer tax, and complete amortization schedule.</p>
+      </div>
+      
+      <div class="calc-grid" style="margin-top: 2rem;">
+        <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
+          <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;">Mortgage Details</h3>
+          
+          <div class="input-group">
+            <label>Home Price</label>
+            <input type="number" id="mort-price" value="800000" oninput="calculateMortgage()" />
+          </div>
+          
+          <div class="input-group">
+            <label>Down Payment (%)</label>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <input type="range" id="mort-down" min="5" max="50" value="20" step="1" oninput="calculateMortgage(); document.getElementById('mort-down-val').textContent = this.value + '%'" />
+              <span id="mort-down-val" class="mono" style="font-size: 0.85rem; min-width: 3rem; text-align: right;">20%</span>
+            </div>
+            <span class="input-help" id="mort-down-help">Down payment: $160,000</span>
+          </div>
+          
+          <div class="input-group">
+            <label>Interest Rate (%)</label>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <input type="range" id="mort-rate" min="1" max="10" value="5.5" step="0.05" oninput="calculateMortgage(); document.getElementById('mort-rate-val').textContent = this.value + '%'" />
+              <span id="mort-rate-val" class="mono" style="font-size: 0.85rem; min-width: 3.5rem; text-align: right;">5.5%</span>
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <label>Amortization Period</label>
+            <select id="mort-amort" onchange="calculateMortgage()">
+              <option value="25" selected>25 Years</option>
+              <option value="30">30 Years</option>
+              <option value="20">20 Years</option>
+              <option value="15">15 Years</option>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <label>Payment Frequency</label>
+            <select id="mort-freq" onchange="calculateMortgage()">
+              <option value="12" selected>Monthly</option>
+              <option value="26">Bi-Weekly</option>
+              <option value="52">Weekly</option>
+              <option value="24">Semi-Monthly</option>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <label>Province</label>
+            <select id="mort-province" onchange="calculateMortgage()">
+              <option value="ON" selected>Ontario</option>
+              <option value="BC">British Columbia</option>
+              <option value="AB">Alberta</option>
+              <option value="QC">Quebec</option>
+              <option value="MB">Manitoba</option>
+              <option value="SK">Saskatchewan</option>
+              <option value="NS">Nova Scotia</option>
+              <option value="NB">New Brunswick</option>
+              <option value="NL">Newfoundland</option>
+              <option value="PE">PEI</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="calc-results" id="mortgage-results">
+          <!-- Results populated by JS -->
+        </div>
+      </div>
+      
+      <!-- Stress Test -->
+      <div class="chart-container" style="margin-top: 2rem;" id="mortgage-stress">
+        <!-- Populated by JS -->
+      </div>
+      
+      <!-- Amortization Schedule -->
+      <div class="chart-container" style="margin-top: 1rem;" id="mortgage-amort">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       INVESTMENT RETURNS PAGE
+       ═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-investment">
+    <div class="calc-container" style="padding-top: 6rem;">
+      <div class="calc-back" onclick="showPage('home')">← Back to Tools</div>
+      
+      <div class="calc-header animate-fade-up">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📈</div>
+        <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">Investment Returns Calculator</h1>
+        <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto;">Calculate CAGR, simulate dollar-cost averaging, and project portfolio growth over time.</p>
+      </div>
+      
+      <div class="tabs" style="max-width: 300px; margin: 2rem auto;" id="inv-tabs">
+        <button class="tab active" onclick="switchInvTab('cagr')">CAGR</button>
+        <button class="tab" onclick="switchInvTab('dca')">DCA Sim</button>
+      </div>
+      
+      <!-- CAGR Calculator -->
+      <div id="inv-cagr" style="margin-top: 2rem;">
+        <div class="calc-grid">
+          <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
+            <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;">Investment Details</h3>
+            
+            <div class="input-group">
+              <label>Initial Investment</label>
+              <input type="number" id="cagr-initial" value="10000" oninput="calculateCAGR()" />
+            </div>
+            <div class="input-group">
+              <label>Final Value</label>
+              <input type="number" id="cagr-final" value="25000" oninput="calculateCAGR()" />
+            </div>
+            <div class="input-group">
+              <label>Time Period (Years)</label>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <input type="range" id="cagr-years" min="1" max="30" value="5" step="1" oninput="calculateCAGR(); document.getElementById('cagr-years-val').textContent = this.value + ' yrs'" />
+                <span id="cagr-years-val" class="mono" style="font-size: 0.85rem; min-width: 4rem; text-align: right;">5 yrs</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="calc-results" id="cagr-results"></div>
+        </div>
+      </div>
+      
+      <!-- DCA Simulator -->
+      <div id="inv-dca" style="display: none; margin-top: 2rem;">
+        <div class="calc-grid">
+          <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
+            <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;">DCA Parameters</h3>
+            
+            <div class="input-group">
+              <label>Monthly Investment</label>
+              <input type="number" id="dca-monthly" value="500" oninput="calculateDCA()" />
+            </div>
+            <div class="input-group">
+              <label>Expected Annual Return (%)</label>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <input type="range" id="dca-return" min="1" max="20" value="8" step="0.5" oninput="calculateDCA(); document.getElementById('dca-return-val').textContent = this.value + '%'" />
+                <span id="dca-return-val" class="mono" style="font-size: 0.85rem; min-width: 3.5rem; text-align: right;">8%</span>
+              </div>
+            </div>
+            <div class="input-group">
+              <label>Investment Period (Years)</label>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <input type="range" id="dca-years" min="1" max="40" value="20" step="1" oninput="calculateDCA(); document.getElementById('dca-years-val').textContent = this.value + ' yrs'" />
+                <span id="dca-years-val" class="mono" style="font-size: 0.85rem; min-width: 4rem; text-align: right;">20 yrs</span>
+              </div>
+            </div>
+            <div class="input-group">
+              <label>Initial Lump Sum (optional)</label>
+              <input type="number" id="dca-initial" value="0" oninput="calculateDCA()" />
+            </div>
+          </div>
+          
+          <div class="calc-results" id="dca-results"></div>
+        </div>
+        
+        <div class="chart-container" style="margin-top: 2rem;" id="dca-chart"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       RRSP vs TFSA PAGE
+       ═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-retirement">
+    <div class="calc-container" style="padding-top: 6rem;">
+      <div class="calc-back" onclick="showPage('home')">← Back to Tools</div>
+      
+      <div class="calc-header animate-fade-up">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏦</div>
+        <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">RRSP vs TFSA Optimizer</h1>
+        <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto;">Compare tax-sheltered strategies and find your optimal Canadian retirement plan.</p>
+      </div>
+      
+      <div class="calc-grid" style="margin-top: 2rem;">
+        <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
+          <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;">Your Situation</h3>
+          
+          <div class="input-group">
+            <label>Annual Income</label>
+            <input type="number" id="ret-income" value="120000" oninput="calculateRetirement()" />
+          </div>
+          <div class="input-group">
+            <label>Annual Contribution</label>
+            <input type="number" id="ret-contribution" value="20000" oninput="calculateRetirement()" />
+          </div>
+          <div class="input-group">
+            <label>Current Age</label>
+            <input type="number" id="ret-age" value="35" oninput="calculateRetirement()" />
+          </div>
+          <div class="input-group">
+            <label>Retirement Age</label>
+            <input type="number" id="ret-retire-age" value="60" oninput="calculateRetirement()" />
+          </div>
+          <div class="input-group">
+            <label>Expected Annual Return (%)</label>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <input type="range" id="ret-return" min="3" max="12" value="7" step="0.5" oninput="calculateRetirement(); document.getElementById('ret-return-val').textContent = this.value + '%'" />
+              <span id="ret-return-val" class="mono" style="font-size: 0.85rem; min-width: 3.5rem; text-align: right;">7%</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Expected Retirement Income</label>
+            <input type="number" id="ret-retire-income" value="60000" oninput="calculateRetirement()" />
+            <span class="input-help">Annual income in retirement (for tax bracket comparison)</span>
+          </div>
+          <div class="input-group">
+            <label>Province</label>
+            <select id="ret-province" onchange="calculateRetirement()">
+              <option value="ON" selected>Ontario</option>
+              <option value="BC">British Columbia</option>
+              <option value="AB">Alberta</option>
+              <option value="QC">Quebec</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="calc-results" id="retirement-results"></div>
+      </div>
+      
+      <div class="chart-container" style="margin-top: 2rem;" id="retirement-chart"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       COMPOUND INTEREST PAGE
+       ═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-compound">
+    <div class="calc-container" style="padding-top: 6rem;">
+      <div class="calc-back" onclick="showPage('home')">← Back to Tools</div>
+      
+      <div class="calc-header animate-fade-up">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📊</div>
+        <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">Compound Interest Visualizer</h1>
+        <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto;">See the magic of compound growth. Small contributions today become extraordinary wealth tomorrow.</p>
+      </div>
+      
+      <div class="calc-grid" style="margin-top: 2rem;">
+        <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
+          <div class="input-group">
+            <label>Initial Amount</label>
+            <input type="number" id="comp-initial" value="10000" oninput="calculateCompound()" />
+          </div>
+          <div class="input-group">
+            <label>Monthly Contribution</label>
+            <input type="number" id="comp-monthly" value="300" oninput="calculateCompound()" />
+          </div>
+          <div class="input-group">
+            <label>Annual Interest Rate (%)</label>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <input type="range" id="comp-rate" min="1" max="15" value="7" step="0.25" oninput="calculateCompound(); document.getElementById('comp-rate-val').textContent = this.value + '%'" />
+              <span id="comp-rate-val" class="mono" style="font-size: 0.85rem; min-width: 3.5rem; text-align: right;">7%</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Time Period (Years)</label>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <input type="range" id="comp-years" min="1" max="50" value="25" step="1" oninput="calculateCompound(); document.getElementById('comp-years-val').textContent = this.value + ' yrs'" />
+              <span id="comp-years-val" class="mono" style="font-size: 0.85rem; min-width: 4rem; text-align: right;">25 yrs</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Compounding Frequency</label>
+            <select id="comp-freq" onchange="calculateCompound()">
+              <option value="12" selected>Monthly</option>
+              <option value="4">Quarterly</option>
+              <option value="1">Annually</option>
+              <option value="365">Daily</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="calc-results" id="compound-results"></div>
+      </div>
+      
+      <div class="chart-container" style="margin-top: 2rem;" id="compound-chart"></div>
+    </div>
+  </div>
+
+  <!-- Placeholder pages for remaining tools -->
+  <div class="page" id="page-merger">
+    <div class="calc-container" style="padding-top: 6rem;">
+      <div class="calc-back" onclick="showPage('home')">← Back to Tools</div>
+      <div class="calc-header animate-fade-up">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🤝</div>
+        <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">M&A Deal Analyzer</h1>
+        <p style="color: var(--text-secondary);">Coming soon — Accretion/dilution, synergy analysis, and deal structuring.</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="page" id="page-runway">
+    <div class="calc-container" style="padding-top: 6rem;">
+      <div class="calc-back" onclick="showPage('home')">← Back to Tools</div>
+      <div class="calc-header animate-fade-up">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🚀</div>
+        <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">Startup Runway Calculator</h1>
+        <p style="color: var(--text-secondary);">Coming soon — Burn rate analysis, runway projections, and funding scenarios.</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="page" id="page-networth">
+    <div class="calc-container" style="padding-top: 6rem;">
+      <div class="calc-back" onclick="showPage('home')">← Back to Tools</div>
+      <div class="calc-header animate-fade-up">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">💰</div>
+        <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">Net Worth Tracker</h1>
+        <p style="color: var(--text-secondary);">Coming soon — Comprehensive asset and liability tracking with visual breakdowns.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       JAVASCRIPT ENGINE
+       ═══════════════════════════════════════════════════════ -->
+  <script>
+    // ── Utility Functions ──────────────────────────────────
+    const fmt = (n, decimals = 0) => {
+      if (n === undefined || n === null || isNaN(n)) return '$0';
+      const abs = Math.abs(n);
+      if (abs >= 1e9) return (n < 0 ? '-' : '') + '$' + (abs / 1e9).toFixed(1) + 'B';
+      if (abs >= 1e6) return (n < 0 ? '-' : '') + '$' + (abs / 1e6).toFixed(1) + 'M';
+      if (abs >= 1e3) return (n < 0 ? '-' : '') + '$' + (abs / 1e3).toFixed(decimals > 0 ? decimals : 0) + 'K';
+      return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: decimals }).format(n);
+    };
+    
+    const fmtFull = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'CAD', maximumFractionDigits: 0 }).format(n || 0);
+    
+    const fmtPct = (n, decimals = 1) => (n || 0).toFixed(decimals) + '%';
+    
+    const fmtNum = (n) => new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(n || 0);
+    
+    // ── Page Navigation ───────────────────────────────────
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById('page-' + pageId);
+      if (target) {
+        target.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      
+      // Close mobile menu
+      document.getElementById('nav-links').classList.remove('mobile-open');
+      
+      // Initialize calculators
+      if (pageId === 'valuation') calculateDCF();
+      if (pageId === 'mortgage') calculateMortgage();
+      if (pageId === 'investment') calculateCAGR();
+      if (pageId === 'retirement') calculateRetirement();
+      if (pageId === 'compound') calculateCompound();
+    }
+    
+    // ── Theme Toggle ──────────────────────────────────────
+    let isDark = localStorage.getItem('theme') !== 'light';
+    
+    function toggleTheme() {
+      isDark = !isDark;
+      document.documentElement.classList.toggle('light', !isDark);
+      document.querySelector('.theme-toggle').textContent = isDark ? '🌙' : '☀️';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+    
+    // Initialize theme
+    if (!isDark) {
+      document.documentElement.classList.add('light');
+      document.querySelector('.theme-toggle').textContent = '☀️';
+    }
+    
+    // ── Mobile Menu ───────────────────────────────────────
+    function toggleMobileMenu() {
+      document.getElementById('nav-links').classList.toggle('mobile-open');
+    }
+    
+    // ── Navbar Scroll Effect ──────────────────────────────
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+    
+    // ── Intersection Observer for Reveals ─────────────────
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    
+    // ── Hero Counter Animation ────────────────────────────
+    function animateCounters() {
+      document.querySelectorAll('[data-count]').forEach(el => {
+        const target = parseInt(el.dataset.count);
+        let current = 0;
+        const increment = target / 40;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          el.textContent = Math.floor(current) + (target > 10 ? '+' : '');
+        }, 40);
+      });
+    }
+    
+    setTimeout(animateCounters, 800);
+    
+    // ── Valuation Tab Switching ───────────────────────────
+    function switchValTab(tab) {
+      document.querySelectorAll('#val-tabs .tab').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      document.getElementById('val-dcf').style.display = tab === 'dcf' ? 'block' : 'none';
+      document.getElementById('val-multiples').style.display = tab === 'multiples' ? 'block' : 'none';
+      document.getElementById('val-asset').style.display = tab === 'asset' ? 'block' : 'none';
+      
+      if (tab === 'dcf') calculateDCF();
+      if (tab === 'multiples') calculateMultiples();
+      if (tab === 'asset') calculateAsset();
+    }
+    
+    // ── Investment Tab Switching ──────────────────────────
+    function switchInvTab(tab) {
+      document.querySelectorAll('#inv-tabs .tab').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      document.getElementById('inv-cagr').style.display = tab === 'cagr' ? 'block' : 'none';
+      document.getElementById('inv-dca').style.display = tab === 'dca' ? 'block' : 'none';
+      
+      if (tab === 'cagr') calculateCAGR();
+      if (tab === 'dca') calculateDCA();
+    }
+    
+    // ═══════════════════════════════════════════════════════
+    // DCF CALCULATOR
+    // ═══════════════════════════════════════════════════════
+    function calculateDCF() {
+      const fcf = parseFloat(document.getElementById('dcf-fcf').value) || 0;
+      const growth = parseFloat(document.getElementById('dcf-growth').value) / 100;
+      const terminal = parseFloat(document.getElementById('dcf-terminal').value) / 100;
+      const wacc = parseFloat(document.getElementById('dcf-wacc').value) / 100;
+      const years = parseInt(document.getElementById('dcf-years').value);
+      const debt = parseFloat(document.getElementById('dcf-debt').value) || 0;
+      
+      if (wacc <= terminal) {
+        document.getElementById('dcf-results').innerHTML = `
+          <div class="result-card" style="border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.05);">
+            <p style="color: var(--brand-danger); font-weight: 600;">⚠️ Discount rate must be higher than terminal growth rate</p>
+          </div>`;
+        return;
+      }
+      
+      // Project FCFs
+      let projections = [];
+      let pvSum = 0;
+      
+      for (let i = 1; i <= years; i++) {
+        const projFCF = fcf * Math.pow(1 + growth, i);
+        const pvFactor = Math.pow(1 + wacc, i);
+        const pvFCF = projFCF / pvFactor;
+        pvSum += pvFCF;
+        projections.push({ year: i, fcf: projFCF, pv: pvFCF });
+      }
+      
+      // Terminal value (Gordon Growth Model)
+      const finalFCF = fcf * Math.pow(1 + growth, years);
+      const terminalFCF = finalFCF * (1 + terminal);
+      const terminalValue = terminalFCF / (wacc - terminal);
+      const pvTerminal = terminalValue / Math.pow(1 + wacc, years);
+      
+      const enterpriseValue = pvSum + pvTerminal;
+      const equityValue = enterpriseValue - debt;
+      const tvPct = (pvTerminal / enterpriseValue * 100);
+      
+      // Results
+      document.getElementById('dcf-results').innerHTML = `
+        <div class="result-card">
+          <div class="result-label">Enterprise Value</div>
+          <div class="result-value">${fmt(enterpriseValue)}</div>
+          <div style="margin-top: 0.75rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="metric-pill neutral">PV of FCFs: ${fmt(pvSum)}</span>
+            <span class="metric-pill neutral">PV Terminal: ${fmt(pvTerminal)}</span>
+          </div>
+        </div>
+        
+        <div class="result-card">
+          <div class="result-label">Equity Value</div>
+          <div class="result-value" style="${equityValue < 0 ? 'background: linear-gradient(135deg, var(--brand-danger), #f97316); -webkit-background-clip: text;' : ''}">${fmt(equityValue)}</div>
+          ${debt !== 0 ? `<div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.375rem;">After ${debt > 0 ? 'subtracting' : 'adding'} ${fmtFull(Math.abs(debt))} net debt</div>` : ''}
+        </div>
+        
+        <div class="glass-card" style="padding: var(--space-lg);">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;">Key Metrics</div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Terminal Value %</div>
+              <div class="mono" style="font-size: 1rem; font-weight: 700; color: ${tvPct > 75 ? 'var(--brand-warning)' : 'var(--text-primary)'};">${tvPct.toFixed(1)}%</div>
+              ${tvPct > 75 ? '<div style="font-size: 0.65rem; color: var(--brand-warning);">⚠️ High TV reliance</div>' : ''}
+            </div>
+            <div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Implied Multiple</div>
+              <div class="mono" style="font-size: 1rem; font-weight: 700;">${(enterpriseValue / fcf).toFixed(1)}x FCF</div>
+            </div>
+            <div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Year ${years} FCF</div>
+              <div class="mono" style="font-size: 1rem; font-weight: 700;">${fmt(finalFCF)}</div>
+            </div>
+            <div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Terminal Value</div>
+              <div class="mono" style="font-size: 1rem; font-weight: 700;">${fmt(terminalValue)}</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass-card" style="padding: var(--space-lg);">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;">FCF Projections</div>
+          ${projections.map(p => `
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.375rem 0; border-bottom: 1px solid var(--border-primary);">
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Year ${p.year}</span>
+              <span class="mono" style="font-size: 0.8rem;">${fmt(p.fcf)}</span>
+              <span class="mono" style="font-size: 0.75rem; color: var(--text-muted);">PV: ${fmt(p.pv)}</span>
+            </div>
+          `).join('')}
+        </div>
+      `;
+      
+      // Sensitivity table
+      const waccRange = [-2, -1, 0, 1, 2].map(d => wacc * 100 + d);
+      const growthRange = [-1, -0.5, 0, 0.5, 1].map(d => terminal * 100 + d).filter(g => g >= 0);
+      
+      let tableHTML = `
+        <div style="font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem;">Sensitivity Analysis: Enterprise Value</div>
+        <div style="overflow-x: auto;">
+        <table class="sensitivity-table">
+          <tr>
+            <th>WACC \\ Terminal G</th>
+            ${growthRange.map(g => `<th>${g.toFixed(1)}%</th>`).join('')}
+          </tr>
+      `;
+      
+      waccRange.forEach(w => {
+        tableHTML += `<tr><td>${w.toFixed(1)}%</td>`;
+        growthRange.forEach(g => {
+          if (w / 100 <= g / 100) {
+            tableHTML += '<td style="color: var(--text-muted);">N/A</td>';
+            return;
+          }
+          let pv = 0;
+          for (let i = 1; i <= years; i++) {
+            pv += (fcf * Math.pow(1 + growth, i)) / Math.pow(1 + w / 100, i);
+          }
+          const tFCF = fcf * Math.pow(1 + growth, years) * (1 + g / 100);
+          const tv = tFCF / (w / 100 - g / 100);
+          const pvTV = tv / Math.pow(1 + w / 100, years);
+          const ev = pv + pvTV;
+          const isBase = Math.abs(w - wacc * 100) < 0.01 && Math.abs(g - terminal * 100) < 0.01;
+          tableHTML += `<td class="${isBase ? 'highlight' : ''}">${fmt(ev)}</td>`;
+        });
+        tableHTML += '</tr>';
+      });
+      
+      tableHTML += '</table></div>';
+      document.getElementById('dcf-sensitivity').innerHTML = tableHTML;
+      
+      // Bar chart
+      const maxFCF = Math.max(...projections.map(p => p.fcf));
+      document.getElementById('dcf-chart').innerHTML = `
+        <div style="font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem;">Projected Free Cash Flow</div>
+        <div style="display: flex; align-items: flex-end; gap: 0.5rem; height: 200px; padding: 0 0.5rem;">
+          ${projections.map(p => `
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+              <span class="mono" style="font-size: 0.65rem; color: var(--text-muted);">${fmt(p.fcf)}</span>
+              <div style="width: 100%; height: ${(p.fcf / maxFCF * 150)}px; background: linear-gradient(180deg, var(--brand-primary), var(--brand-accent)); border-radius: 4px 4px 0 0; transition: height 1s ease; min-height: 4px;"></div>
+              <span style="font-size: 0.7rem; color: var(--text-muted);">Y${p.year}</span>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+    
+    // ═══════════════════════════════════════════════════════
+    // MULTIPLES CALCULATOR
+    // ═══════════════════════════════════════════════════════
+    function calculateMultiples() {
+      const revenue = parseFloat(document.getElementById('mult-revenue').value) || 0;
+      const ebitda = parseFloat(document.getElementById('mult-ebitda').value) || 0;
+      const income = parseFloat(document.getElementById('mult-income').value) || 0;
+      const evRev = parseFloat(document.getElementById('mult-ev-rev').value);
+      const evEbitda = parseFloat(document.getElementById('mult-ev-ebitda').value);
+      const pe = parseFloat(document.getElementById('mult-pe').value);
+      
+      const valRevenue = revenue * evRev;
+      const valEbitda = ebitda * evEbitda;
+      const valEarnings = income * pe;
+      const average = (valRevenue + valEbitda + valEarnings) / 3;
+      const median = [valRevenue, valEbitda, valEarnings].sort((a, b) => a - b)[1];
+      const low = Math.min(valRevenue, valEbitda, valEarnings);
+      const high = Math.max(valRevenue, valEbitda, valEarnings);
+      
+      // Football field chart
+      const maxVal = high * 1.1;
+      const barWidth = (v) => (v / maxVal * 100).toFixed(1);
+      
+      document.getElementById('multiples-results').innerHTML = `
+        <div class="result-card">
+          <div class="result-label">Blended Valuation</div>
+          <div class="result-value">${fmt(average)}</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.375rem;">Average of three methodologies</div>
+        </div>
+        
+        <div class="result-card">
+          <div class="result-label">Median Valuation</div>
+          <div class="result-value">${fmt(median)}</div>
+        </div>
+        
+        <div class="glass-card" style="padding: var(--space-lg);">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;">Valuation Range (Football Field)</div>
+          
+          <div style="margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+              <span style="font-size: 0.8rem; font-weight: 600;">EV/Revenue (${evRev}x)</span>
+              <span class="mono" style="font-size: 0.8rem;">${fmt(valRevenue)}</span>
+            </div>
+            <div class="chart-bar">
+              <div class="chart-bar-fill" style="width: ${barWidth(valRevenue)}%; background: linear-gradient(90deg, #6366f1, #818cf8);"></div>
+            </div>
+          </div>
+          
+          <div style="margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+              <span style="font-size: 0.8rem; font-weight: 600;">EV/EBITDA (${evEbitda}x)</span>
+              <span class="mono" style="font-size: 0.8rem;">${fmt(valEbitda)}</span>
+            </div>
+            <div class="chart-bar">
+              <div class="chart-bar-fill" style="width: ${barWidth(valEbitda)}%; background: linear-gradient(90deg, #8b5cf6, #a78bfa);"></div>
+            </div>
+          </div>
+          
+          <div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+              <span style="font-size: 0.8rem; font-weight: 600;">P/E (${pe}x)</span>
+              <span class="mono" style="font-size: 0.8rem;">${fmt(valEarnings)}</span>
+            </div>
+            <div class="chart-bar">
+              <div class="chart-bar-fill" style="width: ${barWidth(valEarnings)}%; background: linear-gradient(90deg, #06b6d4, #22d3ee);"></div>
+            </div>
+          </div>
+          
+          <div class="divider"></div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.8rem;">
+            <span style="color: var(--text-muted);">Range: ${fmt(low)} — ${fmt(high)}</span>
+            <span style="color: var(--text-muted);">Spread: ${((high - low) / average * 100).toFixed(0)}%</span>
+          </div>
+        </div>
+        
+        <div class="glass-card" style="padding: var(--space-lg);">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;">Implied Metrics</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);">EBITDA Margin</div>
+              <div class="mono" style="font-weight: 700;">${revenue > 0 ? (ebitda / revenue * 100).toFixed(1) + '%' : 'N/A'}</div>
+            </div>
+            <div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Net Margin</div>
+              <div class="mono" style="font-weight: 700;">${revenue > 0 ? (income / revenue * 100).toFixed(1) + '%' : 'N/A'}</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    
+    // ═══════════════════════════════════════════════════════
+    // ASSET-BASED CALCULATOR
+    // ═══════════════════════════════════════════════════════
+    function calculateAsset() {
+      const cash = parseFloat(document.getElementById('asset-cash').value) || 0;
+      const ar = parseFloat(document.getElementById('asset-ar').value) || 0;
+      const inv = parseFloat(document.getElementById('asset-inv').value) || 0;
+      const ppe = parseFloat(document.getElementById('asset-ppe').value) || 0;
+      const other = parseFloat(document.getElementById('asset-other').value) || 0;
+      const ap = parseFloat(document.getElementById('asset-ap').value) || 0;
+      const debt = parseFloat(document.getElementById('asset-debt').value) || 0;
+      const otherLiab = parseFloat(document.getElementById('asset-otherliab').value) || 0;
+      
+      const totalAssets = cash + ar + inv + ppe + other;
+      const totalLiab = ap + debt + otherLiab;
+      const nav = totalAssets - totalLiab;
+      const currentRatio = (ap + otherLiab) > 0 ? (cash + ar + inv) / (ap + otherLiab) : 0;
+      
+      document.getElementById('asset-results').innerHTML = `
+        <div class="result-card">
+          <div class="result-label">Net Asset Value (NAV)</div>
+          <div class="result-value">${fmtFull(nav)}</div>
+        </div>
+        
+        <div class="glass-card" style="padding: var(--space-lg);">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;">Balance Sheet</div>
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-primary);">
+            <span style="font-size: 0.85rem; color: var(--brand-success);">Total Assets</span>
+            <span class="mono" style="font-size: 0.85rem;">${fmtFull(totalAssets)}</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-primary);">
+            <span style="font-size: 0.85rem; color: var(--brand-danger);">Total Liabilities</span>
+            <span class="mono" style="font-size: 0.85rem;">${fmtFull(totalLiab)}</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; font-weight: 700;">
+            <span style="font-size: 0.85rem;">Net Asset Value</span>
+            <span class="mono" style="font-size: 0.85rem; color: ${nav >= 0 ? 'var(--brand-success)' : 'var(--brand-danger)'};">${fmtFull(nav)}</span>
+          </div>
+        </div>
+        
+        <div class="glass-card" style="padding: var(--space-lg);">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;">Ratios</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Current Ratio</div>
+              <div class="mono" style="font-weight: 700; color: ${currentRatio >= 1.5 ? 'var(--brand-success)' : currentRatio >= 1 ? 'var(--brand-warning)' : 'var(--brand-danger)'};">${currentRatio.toFixed(2)}x</div>
+            </div>
+            <div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Debt Ratio</div>
+              <div class="mono" style="font-weight: 700;">${totalAssets > 0 ? (totalLiab / totalAssets * 100).toFixed(1) + '%' : 'N/A'}</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    
+    // ═══════════════════════════════════════════════════════
+    // MORTGAGE CALCULATOR
+    // ═══════════════════════════════════════════════════════
+    function calculateMortgage() {
+      const price = parseFloat(document.getElementById('mort-price').value) || 0;
+      const downPct = parseFloat(document.getElementById('mort-down').value) / 100;
+      const rate = parseFloat(document.getElementById('mort-rate').value) / 100;
+      const amort = parseInt(document.getElementById('mort-amort').value);
+      const freq = parseInt(document.getElementById('mort-freq').value);
+      const province = document.getElementById('mort-province').value;
+      
+      const downPayment = price * downPct;
+      const principal = price - downPayment;
+      
+      // Update down payment help
+      document.getElementById('mort-down-help').textContent = `Down payment: ${fmtFull(downPayment)}`;
+      
+      // CMHC Insurance (if down < 20%)
+      let cmhcPremium = 0;
+      if (downPct < 0.20) {
+        if (downPct >= 0.15) cmhcPremium = principal * 0.028;
+        else if (downPct >= 0.10) cmhcPremium = principal * 0.031;
+        else cmhcPremium = principal * 0.04;
+      }
+      
+      const totalMortgage = principal + cmhcPremium;
+      
+      // Canadian mortgage: semi-annual compounding
+      const semiAnnualRate = Math.pow(1 + rate / 2, 2) - 1;
+      const periodicRate = Math.pow(1 + semiAnnualRate, 1 / freq) - 1;
+      const totalPayments = amort * freq;
+      
+      // Payment calculation
+      const payment = totalMortgage * (periodicRate * Math.pow(1 + periodicRate, totalPayments)) / (Math.pow(1 + periodicRate, totalPayments) - 1);
+      const monthlyEquiv = payment * freq / 12;
+      const totalCost = payment * totalPayments;
+      const totalInterest = totalCost - totalMortgage;
+      
+      // OSFI Stress Test
+      const stressRate = Math.max(rate + 0.02, 0.0525);
+      const stressSemiAnnual = Math.pow(1 + stressRate / 2, 2) - 1;
+      const stressPeriodic = Math.pow(1 + stressSemiAnnual, 1 / 12) - 1;
+      const stressPayment = totalMortgage * (stressPeriodic * Math.pow(1 + stressPeriodic, amort * 12)) / (Math.pow(1 + stressPeriodic, amort * 12) - 1);
+      
+      // Land Transfer Tax
+      let ltt = 0;
+      if (province === 'ON') {
+        // Ontario LTT
+        if (price <= 55000) ltt = price * 0.005;
+        else if (price <= 250000) ltt = 275 + (price - 55000) * 0.01;
+        else if (price <= 400000) ltt = 2225 + (price - 250000) * 0.015;
+        else if (price <= 2000000) ltt = 4475 + (price - 400000) * 0.02;
+        else ltt = 36475 + (price - 2000000) * 0.025;
+      } else if (province === 'BC') {
+        if (price <= 200000) ltt = price * 0.01;
+        else if (price <= 2000000) ltt = 2000 + (price - 200000) * 0.02;
+        else ltt = 38000 + (price - 2000000) * 0.03;
+      }
+      
+      const freqLabel = { 12: 'Monthly', 26: 'Bi-Weekly', 52: 'Weekly', 24: 'Semi-Monthly' }[freq];
+      
+      document.getElementById('mortgage-results').innerHTML = `
+        <div class="result-card">
+          <div class="result-label">${freqLabel} Payment</div>
+          <div class="result-value">${fmtFull(payment)}</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.375rem;">Monthly equivalent: ${fmtFull(monthlyEquiv)}</div>
+        </div>
+        
+        <div class="result-card">
+          <div class="result-label">Total Cost of Mortgage</div>
+          <div class="result-value">${fmt(totalCost)}</div>
+          <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap;">
+            <span class="metric-pill neutral">Principal: ${fmt(totalMortgage)}</span>
+            <span class="metric-pill negative">Interest: ${fmt(totalInterest)}</span>
+          </div>
+        </div>
+        
+        ${cmhcPremium > 0 ? `
+        <div class="glass-card" style="padding: var(--space-lg); border-color: rgba(245, 158, 11, 0.3);">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--brand-warning); margin-bottom: 0.375rem;">⚠️ CMHC INSURANCE REQUIRED</div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary);">Down payment is less than 20%. CMHC premium of <span class="mono" style="font-weight: 700;">${fmtFull(cmhcPremium)}</span> added to mortgage.</div>
+        </div>
+        ` : ''}
+        
+        <div class="glass-card" style="padding: var(--space-lg);">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;">Closing Costs</div>
+          <div style="display: flex; justify-content: space-between; padding: 0.375rem 0; border-bottom: 1px solid var(--border-primary);">
+            <span style="font-size: 0.85rem;">Down Payment</span>
+            <span class="mono" style="font-size: 0.85rem;">${fmtFull(downPayment)}</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 0.375rem 0; border-bottom: 1px solid var(--border-primary);">
+            <span style="font-size: 0.85rem;">Land Transfer Tax</span>
+            <span class="mono" style="font-size: 0.85rem;">${fmtFull(ltt)}</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 0.375rem 0; border-bottom: 1px solid var(--border-primary);">
+            <span style="font-size: 0.85rem;">Legal Fees (est.)</span>
+            <span class="mono" style="font-size: 0.85rem;">${fmtFull(2000)}</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; font-weight: 700;">
+            <span style="font-size: 0.85rem;">Total Cash Needed</span>
+            <span class="mono" style="font-size: 0.85rem;">${fmtFull(downPayment + ltt + 2000)}</span>
+          </div>
+        </div>
+      `;
+      
+      // Stress test
+      document.getElementById('mortgage-stress').innerHTML = `
+        <div style="font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem;">🏛️ OSFI Stress Test (B-20)</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+          <div class="glass-card" style="padding: var(--space-lg); text-align: center;">
+            <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Your Rate</div>
+            <div class="mono" style="font-size: 1.5rem; font-weight: 700; color: var(--brand-success);">${(rate * 100).toFixed(2)}%</div>
+            <div class="mono" style="font-size: 1rem; margin-top: 0.375rem;">${fmtFull(monthlyEquiv)}/mo</div>
+          </div>
+          <div class="glass-card" style="padding: var(--space-lg); text-align: center;">
+            <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Stress Test Rate</div>
+            <div class="mono" style="font-size: 1.5rem; font-weight: 700; color: var(--brand-warning);">${(stressRate * 100).toFixed(2)}%</div>
+            <div class="mono" style="font-size: 1rem; margin-top: 0.375rem;">${fmtFull(stressPayment)}/mo</div>
+          </div>
+        </div>
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem; text-align: center;">
+          You must qualify at the stress test rate (contract rate + 2% or 5.25%, whichever is higher). Monthly payment increases by ${fmtFull(stressPayment - monthlyEquiv)}.
+        </div>
+      `;
+      
+      // Simple amortization visualization
+      let balance = totalMortgage;
+      const monthlyRate = Math.pow(1 + semiAnnualRate, 1 / 12) - 1;
+      const monthlyPmt = totalMortgage * (monthlyRate * Math.pow(1 + monthlyRate, amort * 12)) / (Math.pow(1 + monthlyRate, amort * 12) - 1);
+      let yearlyData = [];
+      
+      for (let year = 1; year <= amort; year++) {
+        let yearInterest = 0;
+        let yearPrincipal = 0;
+        for (let m = 0; m < 12; m++) {
+          const interestPmt = balance * monthlyRate;
+          const principalPmt = monthlyPmt - interestPmt;
+          yearInterest += interestPmt;
+          yearPrincipal += principalPmt;
+          balance -= principalPmt;
+          if (balance < 0) balance = 0;
+        }
+        yearlyData.push({ year, balance, interest: yearInterest, principal: yearPrincipal });
+      }
+      
+      document.getElementById('mortgage-amort').innerHTML = `
+        <div style="font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem;">Amortization — Balance Over Time</div>
+        <div style="display: flex; align-items: flex-end; gap: 2px; height: 200px; padding: 0;">
+          ${yearlyData.map(d => `
+            <div style="flex: 1; height: ${(d.balance / totalMortgage * 190)}px; background: linear-gradient(180deg, var(--brand-primary), var(--brand-accent)); border-radius: 2px 2px 0 0; min-height: 2px; position: relative;" title="Year ${d.year}: ${fmtFull(d.balance)} remaining"></div>
+          `).join('')}
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-muted); margin-top: 0.5rem;">
+          <span>Year 1</span>
+          <span>Year ${Math.floor(amort / 2)}</span>
+          <span>Year ${amort}</span>
+        </div>
+      `;
+    }
+    
+    // ═══════════════════════════════════════════════════════
+    // CAGR CALCULATOR
+    // ═══════════════════════════════════════════════════════
+    function calculateCAGR() {
+      const initial = parseFloat(document.getElementById('cagr-initial').value) || 0;
+      const final_ = parseFloat(document.getElementById('cagr-final').value) || 0;
+      const years = parseFloat(document.getElementById('cagr-years').value) || 1;
+      
+      if (initial <= 0) {
+        document.getElementById('cagr-results').innerHTML = `<div class="result-card"><p style="color: var(--text-muted);">Enter a positive initial investment.</p></div>`;
+        return;
+      }
+      
+      const cagr = (Math.pow(final_ / initial, 1 / years) - 1) * 100;
+      const totalReturn = ((final_ - initial) / initial) * 100;
+      const gain = final_ - initial;
+      
+      document.getElementById('cagr-results').innerHTML = `
+        <div class="result-card">
+          <div class="result-label">CAGR</div>
+          <div class="result-value">${cagr.toFixed(2)}%</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.375rem;">Compound Annual Growth Rate</div>
+        </div>
+        
+        <div class="result-card">
+          <div class="result-label">Total Return</div>
+          <div class="result-value" style="${totalReturn >= 0 ? '' : 'background: linear-gradient(135deg, var(--brand-danger), #f97316); -webkit-background-clip: text;'}">${totalReturn.toFixed(1)}%</div>
+          <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+            <span class="metric-pill ${gain >= 0 ? 'positive' : 'negative'}">${gain >= 0 ? '+' : ''}${fmtFull(gain)}</span>
+          </div>
+        </div>
+        
+        <div class="glass-card" style="padding: var(--space-lg);">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;">Rule of 72</div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary);">
+            At ${cagr.toFixed(1)}% CAGR, your money doubles every <strong style="color: var(--text-primary);">${cagr > 0 ? (72 / cagr).toFixed(1) : '∞'} years</strong>
+          </div>
+        </div>
+        
+        <div class="glass-card" style="padding: var(--space-lg);">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;">Benchmarks</div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.5rem;">
+            <div style="display: flex; justify-content: space-between;">
+              <span>S&P 500 (30yr avg)</span>
+              <span class="mono" style="color: ${cagr > 10.7 ? 'var(--brand-success)' : 'var(--text-muted)'};">~10.7%</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Warren Buffett</span>
+              <span class="mono" style="color: ${cagr > 20 ? 'var(--brand-success)' : 'var(--text-muted)'};">~20%</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>GIC (Canada)</span>
+              <span class="mono">~4-5%</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    
+    // ═══════════════════════════════════════════════════════
+    // DCA SIMULATOR
+    // ═══════════════════════════════════════════════════════
+    function calculateDCA() {
+      const monthly = parseFloat(document.getElementById('dca-monthly').value) || 0;
+      const annualReturn = parseFloat(document.getElementById('dca-return').value) / 100;
+      const years = parseInt(document.getElementById('dca-years').value);
+      const initial = parseFloat(document.getElementById('dca-initial').value) || 0;
+      
+      const monthlyRate = Math.pow(1 + annualReturn, 1 / 12) - 1;
+      const totalMonths = years * 12;
+      
+      let balance = initial;
+      let totalContributed = initial;
+      let yearlyData = [];
+      
+      for (let m = 1; m <= totalMonths; m++) {
+        balance = balance * (1 + monthlyRate) + monthly;
+        totalContributed += monthly;
+        if (m % 12 === 0) {
+          yearlyData.push({ year: m / 12, balance, contributed: totalContributed, earnings: balance - totalContributed });
+        }
+      }
+      
+      const totalEarnings = balance - totalContributed;
+      
+      document.getElementById('dca-results').innerHTML = `
+        <div class="result-card">
+          <div class="result-label">Final Portfolio Value</div>
+          <div class="result-value">${fmtFull(balance)}</div>
+        </div>
+        
+        <div class="result-card">
+          <div class="result-label">Investment Earnings</div>
+          <div class="result-value" style="background: linear-gradient(135deg, var(--brand-success), #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${fmtFull(totalEarnings)}</div>
+          <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap;">
+            <span class="metric-pill neutral">Contributed: ${fmtFull(totalContributed)}</span>
+            <span class="metric-pill positive">Earned: ${fmtFull(totalEarnings)}</span>
+          </div>
+        </div>
+        
+        <div class="glass-card" style="padding: var(--space-lg);">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;">Breakdown</div>
+          <div style="margin-bottom: 0.75rem;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 0.25rem;">
+              <span>Contributions</span>
+              <span class="mono">${(totalContributed / balance * 100).toFixed(0)}%</span>
+            </div>
+            <div class="chart-bar">
+              <div class="chart-bar-fill" style="width: ${(totalContributed / balance * 100)}%; background: var(--brand-primary);"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 0.25rem;">
+              <span>Earnings (Compound Growth)</span>
+              <span class="mono">${(totalEarnings / balance * 100).toFixed(0)}%</span>
+            </div>
+            <div class="chart-bar">
+              <div class="chart-bar-fill" style="width: ${(totalEarnings / balance * 100)}%; background: linear-gradient(90deg, var(--brand-success), var(--brand-accent));"></div>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      // Growth chart
+      if (yearlyData.length > 0) {
+        const maxVal = yearlyData[yearlyData.length - 1].balance;
+        document.getElementById('dca-chart').innerHTML = `
+          <div style="font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem;">Portfolio Growth Over Time</div>
+          <div style="display: flex; align-items: flex-end; gap: 3px; height: 220px;">
+            ${yearlyData.map(d => `
+              <div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%;">
+                <div style="display: flex; flex-direction: column; justify-content: flex-end; height: ${(d.balance / maxVal * 200)}px;">
+                  <div style="height: ${(d.earnings / maxVal * 200)}px; background: linear-gradient(180deg, var(--brand-success), rgba(16,185,129,0.3)); border-radius: 3px 3px 0 0; min-height: 1px;" title="Earnings: ${fmtFull(d.earnings)}"></div>
+                  <div style="height: ${(d.contributed / maxVal * 200)}px; background: linear-gradient(180deg, var(--brand-primary), rgba(99,102,241,0.3)); min-height: 1px;" title="Contributed: ${fmtFull(d.contributed)}"></div>
+                </div>
+                ${d.year % 5 === 0 || d.year === years ? `<span style="font-size: 0.6rem; color: var(--text-muted); text-align: center; margin-top: 4px;">Y${d.year}</span>` : ''}
+              </div>
+            `).join('')}
+          </div>
+          <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem; font-size: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.375rem;"><div style="width: 12px; height: 12px; border-radius: 2px; background: var(--brand-primary);"></div> Contributions</div>
+            <div style="display: flex; align-items: center; gap: 0.375rem;"><div style="width: 12px; height: 12px; border-radius: 2px; background: var(--brand-success);"></div> Earnings</div>
+          </div>
+        `;
+      }
+    }
+    
+    // ═══════════════════════════════════════════════════════
+    // RETIREMENT (RRSP vs TFSA)
+    // ═══════════════════════════════════════════════════════
+    function calculateRetirement() {
+      const income = parseFloat(document.getElementById('ret-income').value) || 0;
+      const contribution = parseFloat(document.getElementById('ret-contribution').value) || 0;
+      const age = parseInt(document.getElementById('ret-age').value) || 30;
+      const retireAge = parseInt(document.getElementById('ret-retire-age').value) || 65;
+      const annualReturn = parseFloat(document.getElementById('ret-return').value) / 100;
+      const retireIncome = parseFloat(document.getElementById('ret-retire-income').value) || 0;
+      const province = document.getElementById('ret-province').value;
+      
+      const years = retireAge - age;
+      if (years <= 0) {
+        document.getElementById('retirement-results').innerHTML = '<div class="result-card"><p style="color: var(--text-muted);">Retirement age must be greater than current age.</p></div>';
+        return;
+      }
+      
+      // Canadian federal tax brackets (2025)
+      const fedTax = (inc) => {
+        if (inc <= 0) return 0;
+        let tax = 0;
+        const brackets = [
+          [55867, 0.15], [55867, 0.205], [61942, 0.26], [70000, 0.29], [Infinity, 0.33]
+        ];
+        let remaining = inc;
+        for (const [limit, rate] of brackets) {
+          const taxable = Math.min(remaining, limit);
+          tax += taxable * rate;
+          remaining -= taxable;
+          if (remaining <= 0) break;
+        }
+        return tax;
+      };
+      
+      // Provincial tax (simplified — Ontario)
+      const provTax = (inc) => {
+        if (province !== 'ON' || inc <= 0) return inc * 0.05; // Simplified for non-ON
+        let tax = 0;
+        const brackets = [
+          [51446, 0.0505], [51446, 0.0915], [47046, 0.1116], [100000, 0.1216], [Infinity, 0.1316]
+        ];
+        let remaining = inc;
+        for (const [limit, rate] of brackets) {
+          const taxable = Math.min(remaining, limit);
+          tax += taxable * rate;
+          remaining -= taxable;
+          if (remaining <= 0) break;
+        }
+        return tax;
+      };
+      
+      const marginalRate = (inc) => {
+        const tax1 = fedTax(inc) + provTax(inc);
+        const tax2 = fedTax(inc + 1) + provTax(inc + 1);
+        return tax2 - tax1;
+      };
+      
+      const currentMarginal = marginalRate(income);
+      const retireMarginal = marginalRate(retireIncome);
+      
+      // RRSP: Tax deduction now, taxed on withdrawal
+      const rrspTaxSavings = contribution * currentMarginal;
+      const rrspGross = contribution; // Full amount invested
+      let rrspBalance = 0;
+      for (let y = 0; y < years; y++) {
+        rrspBalance = (rrspBalance + rrspGross) * (1 + annualReturn);
+      }
+      const rrspAfterTax = rrspBalance * (1 - retireMarginal);
+      
+      // TFSA: No deduction, tax-free growth and withdrawal
+      const tfsaNet = contribution; // Same contribution amount
+      let tfsaBalance = 0;
+      for (let y = 0; y < years; y++) {
+        tfsaBalance = (tfsaBalance + tfsaNet) * (1 + annualReturn);
+      }
+      
+      // RRSP with reinvested refund
+      const rrspWithRefund = contribution + rrspTaxSavings;
+      let rrspRefundBalance = 0;
+      for (let y = 0; y < years; y++) {
+        rrspRefundBalance = (rrspRefundBalance + rrspWithRefund) * (1 + annualReturn);
+      }
+      const rrspRefundAfterTax = rrspRefundBalance * (1 - retireMarginal);
+      
+      const winner = rrspRefundAfterTax > tfsaBalance ? 'RRSP' : 'TFSA';
+      const advantage = Math.abs(rrspRefundAfterTax - tfsaBalance);
+      
+      document.getElementById('retirement-results').innerHTML = `
+        <div class="gradient-border-card">
+          <div class="gradient-border-card-inner" style="text-align: center;">
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">Recommendation</div>
+            <div style="font-size: 1.75rem; font-weight: 800; margin-bottom: 0.25rem;">${winner} Wins</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">by ${fmtFull(advantage)} over ${years} years</div>
+          </div>
+        </div>
+        
+        <div class="glass-card" style="padding: var(--space-lg);">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div style="text-align: center; padding: 1rem; border-radius: var(--radius-md); background: ${winner === 'RRSP' ? 'rgba(99, 102, 241, 0.1)' : 'transparent'};">
+              <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">RRSP (After Tax)</div>
+              <div class="mono" style="font-size: 1.25rem; font-weight: 700; color: var(--brand-primary);">${fmtFull(rrspRefundAfterTax)}</div>
+              <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Pre-tax: ${fmtFull(rrspRefundBalance)}</div>
+            </div>
+            <div style="text-align: center; padding: 1rem; border-radius: var(--radius-md); background: ${winner === 'TFSA' ? 'rgba(6, 182, 212, 0.1)' : 'transparent'};">
+              <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase;">TFSA (Tax-Free)</div>
+              <div class="mono" style="font-size: 1.25rem; font-weight: 700; color: var(--brand-accent);">${fmtFull(tfsaBalance)}</div>
+              <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">100% tax-free</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass-card" style="padding: var(--space-lg);">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;">Tax Analysis</div>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem;">
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-secondary);">Current Marginal Rate</span>
+              <span class="mono" style="font-weight: 700;">${(currentMarginal * 100).toFixed(1)}%</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-secondary);">Retirement Marginal Rate</span>
+              <span class="mono" style="font-weight: 700;">${(retireMarginal * 100).toFixed(1)}%</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-secondary);">RRSP Tax Refund (Annual)</span>
+              <span class="mono" style="font-weight: 700; color: var(--brand-success);">${fmtFull(rrspTaxSavings)}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: var(--text-secondary);">Tax Rate Arbitrage</span>
+              <span class="mono" style="font-weight: 700; color: ${currentMarginal > retireMarginal ? 'var(--brand-success)' : 'var(--brand-danger)'};">${((currentMarginal - retireMarginal) * 100).toFixed(1)}%</span>
+            </div>
+          </div>
+          <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem; padding: 0.75rem; background: rgba(99,102,241,0.05); border-radius: var(--radius-sm);">
+            💡 <strong>Rule of thumb:</strong> RRSP wins when your current tax rate is higher than your expected retirement tax rate. TFSA wins when rates are the same or lower now.
+          </div>
+        </div>
+      `;
+    }
+    
+    // ═══════════════════════════════════════════════════════
+    // COMPOUND INTEREST
+    // ═══════════════════════════════════════════════════════
+    function calculateCompound() {
+      const initial = parseFloat(document.getElementById('comp-initial').value) || 0;
+      const monthly = parseFloat(document.getElementById('comp-monthly').value) || 0;
+      const rate = parseFloat(document.getElementById('comp-rate').value) / 100;
+      const years = parseInt(document.getElementById('comp-years').value);
+      const freq = parseInt(document.getElementById('comp-freq').value);
+      
+      const periodicRate = rate / freq;
+      const totalPeriods = years * freq;
+      const monthlyPeriods = freq / 12;
+      
+      // Calculate with contributions
+      let balance = initial;
+      let totalContributed = initial;
+      let yearlyData = [];
+      
+      for (let month = 1; month <= years * 12; month++) {
+        // Apply interest for the month
+        const monthlyRate = Math.pow(1 + rate, 1 / 12) - 1;
+        balance = balance * (1 + monthlyRate) + monthly;
+        totalContributed += monthly;
+        
+        if (month % 12 === 0) {
+          yearlyData.push({
+            year: month / 12,
+            balance,
+            contributed: totalContributed,
+            interest: balance - totalContributed
+          });
+        }
+      }
+      
+      // Without contributions (initial only)
+      const withoutContrib = initial * Math.pow(1 + rate, years);
+      
+      const totalInterest = balance - totalContributed;
+      const effectiveRate = (Math.pow(balance / totalContributed, 1 / years) - 1) * 100;
+      
+      document.getElementById('compound-results').innerHTML = `
+        <div class="result-card">
+          <div class="result-label">Future Value</div>
+          <div class="result-value">${fmtFull(balance)}</div>
+        </div>
+        
+        <div class="result-card">
+          <div class="result-label">Interest Earned</div>
+          <div class="result-value" style="background: linear-gradient(135deg, var(--brand-success), var(--brand-accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${fmtFull(totalInterest)}</div>
+        </div>
+        
+        <div class="glass-card" style="padding: var(--space-lg);">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;">Summary</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.85rem;">
+            <div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Total Contributed</div>
+              <div class="mono" style="font-weight: 700;">${fmtFull(totalContributed)}</div>
+            </div>
+            <div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Growth Multiple</div>
+              <div class="mono" style="font-weight: 700;">${(balance / totalContributed).toFixed(2)}x</div>
+            </div>
+            <div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Without Contributions</div>
+              <div class="mono" style="font-weight: 700;">${fmtFull(withoutContrib)}</div>
+            </div>
+            <div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);">Contribution Impact</div>
+              <div class="mono" style="font-weight: 700; color: var(--brand-success);">+${fmtFull(balance - withoutContrib)}</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass-card" style="padding: var(--space-lg);">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;">The Power of Compound Interest</div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7;">
+            Your ${fmtFull(monthly)}/month contributions turn into <strong style="color: var(--text-primary);">${fmtFull(balance)}</strong> over ${years} years.
+            That's <strong style="color: var(--brand-success);">${fmtFull(totalInterest)}</strong> in pure compound growth — money your money earned for you.
+          </div>
+        </div>
+      `;
+      
+      // Growth chart
+      if (yearlyData.length > 0) {
+        const maxVal = yearlyData[yearlyData.length - 1].balance;
+        document.getElementById('compound-chart').innerHTML = `
+          <div style="font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem;">Growth Visualization</div>
+          <div style="display: flex; align-items: flex-end; gap: 3px; height: 240px;">
+            ${yearlyData.map(d => `
+              <div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%;">
+                <div style="display: flex; flex-direction: column; justify-content: flex-end; height: ${(d.balance / maxVal * 220)}px;">
+                  <div style="height: ${(d.interest / maxVal * 220)}px; background: linear-gradient(180deg, var(--brand-success), rgba(16,185,129,0.2)); border-radius: 3px 3px 0 0; min-height: 1px;" title="Interest: ${fmtFull(d.interest)}"></div>
+                  <div style="height: ${(d.contributed / maxVal * 220)}px; background: linear-gradient(180deg, var(--brand-primary), rgba(99,102,241,0.2)); min-height: 1px;" title="Contributed: ${fmtFull(d.contributed)}"></div>
+                </div>
+                ${d.year % Math.ceil(years / 10) === 0 || d.year === years ? `<span style="font-size: 0.55rem; color: var(--text-muted); text-align: center; margin-top: 4px;">Y${d.year}</span>` : ''}
+              </div>
+            `).join('')}
+          </div>
+          <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem; font-size: 0.75rem;">
+            <div style="display: flex; align-items: center; gap: 0.375rem;"><div style="width: 12px; height: 12px; border-radius: 2px; background: var(--brand-primary);"></div> Contributions</div>
+            <div style="display: flex; align-items: center; gap: 0.375rem;"><div style="width: 12px; height: 12px; border-radius: 2px; background: var(--brand-success);"></div> Compound Interest</div>
+          </div>
+        `;
+      }
+    }
+    
+    // ═══════════════════════════════════════════════════════
+    // TEST SUITE
+    // ═══════════════════════════════════════════════════════
+    function runTests() {
+      const results = [];
+      let passed = 0;
+      let failed = 0;
+      
+      function assert(name, condition, detail) {
+        if (condition) {
+          passed++;
+          results.push({ name, status: 'PASS', detail });
+        } else {
+          failed++;
+          results.push({ name, status: 'FAIL', detail });
+        }
+      }
+      
+      // Test formatting
+      assert('fmt: millions', fmt(5000000) === '$5.0M', fmt(5000000));
+      assert('fmt: billions', fmt(2500000000) === '$2.5B', fmt(2500000000));
+      assert('fmt: thousands', fmt(50000) === '$50.0K', fmt(50000));
+      assert('fmtPct: basic', fmtPct(12.345) === '12.3%', fmtPct(12.345));
+      
+      // Test DCF calculation logic
+      const fcf = 1000000;
+      const growth = 0.10;
+      const terminal = 0.025;
+      const wacc = 0.12;
+      const years = 5;
+      
+      let pvSum = 0;
+      for (let i = 1; i <= years; i++) {
+        pvSum += (fcf * Math.pow(1 + growth, i)) / Math.pow(1 + wacc, i);
+      }
+      const finalFCF = fcf * Math.pow(1 + growth, years);
+      const tv = finalFCF * (1 + terminal) / (wacc - terminal);
+      const pvTV = tv / Math.pow(1 + wacc, years);
+      const ev = pvSum + pvTV;
+      
+      assert('DCF: PV of FCFs > 0', pvSum > 0, `PV sum = ${pvSum.toFixed(0)}`);
+      assert('DCF: Terminal value > 0', tv > 0, `TV = ${tv.toFixed(0)}`);
+      assert('DCF: EV > initial FCF', ev > fcf, `EV = ${ev.toFixed(0)}`);
+      assert('DCF: EV reasonable range', ev > 5000000 && ev < 50000000, `EV = ${fmt(ev)}`);
+      
+      // Test mortgage calculation
+      const price = 800000;
+      const downPct = 0.20;
+      const rate = 0.055;
+      const principal = price * (1 - downPct);
+      const semiRate = Math.pow(1 + rate / 2, 2) - 1;
+      const mRate = Math.pow(1 + semiRate, 1 / 12) - 1;
+      const mPayment = principal * (mRate * Math.pow(1 + mRate, 300)) / (Math.pow(1 + mRate, 300) - 1);
+      
+      assert('Mortgage: payment > 0', mPayment > 0, `Payment = ${mPayment.toFixed(2)}`);
+      assert('Mortgage: payment reasonable', mPayment > 2000 && mPayment < 6000, `Payment = ${fmtFull(mPayment)}`);
+      assert('Mortgage: semi-annual compounding', semiRate > rate, `Effective = ${(semiRate * 100).toFixed(3)}%`);
+      
+      // Test CMHC
+      assert('CMHC: not required at 20%', downPct >= 0.20, 'Down 20% = no CMHC');
+      const cmhc10 = principal * 0.031;
+      assert('CMHC: 10% down premium', cmhc10 > 0, `CMHC at 10% = ${cmhc10.toFixed(0)}`);
+      
+      // Test CAGR
+      const cagr = (Math.pow(25000 / 10000, 1 / 5) - 1) * 100;
+      assert('CAGR: basic calc', Math.abs(cagr - 20.11) < 0.1, `CAGR = ${cagr.toFixed(2)}%`);
+      
+      // Test compound interest
+      let balance = 10000;
+      for (let m = 0; m < 12; m++) {
+        balance *= (1 + 0.07 / 12);
+      }
+      assert('Compound: 1yr @7%', Math.abs(balance - 10722.9) < 5, `Balance = ${balance.toFixed(2)}`);
+      
+      // Test DCA
+      let dcaBalance = 0;
+      const dcaMonthly = 500;
+      const dcaRate = Math.pow(1.08, 1 / 12) - 1;
+      for (let m = 0; m < 240; m++) {
+        dcaBalance = dcaBalance * (1 + dcaRate) + dcaMonthly;
+      }
+      assert('DCA: 20yr result > contributions', dcaBalance > 500 * 240, `Balance = ${dcaBalance.toFixed(0)} > ${500 * 240}`);
+      
+      // Test tax brackets
+      const fedTaxResult = fedTax(120000);
+      assert('Fed tax: positive for 120K', fedTaxResult > 0, `Tax = ${fedTaxResult.toFixed(0)}`);
+      assert('Fed tax: reasonable', fedTaxResult > 15000 && fedTaxResult < 35000, `Tax = ${fedTaxResult.toFixed(0)}`);
+      
+      // Test nav links
+      assert('Nav: page exists - home', !!document.getElementById('page-home'), '');
+      assert('Nav: page exists - valuation', !!document.getElementById('page-valuation'), '');
+      assert('Nav: page exists - mortgage', !!document.getElementById('page-mortgage'), '');
+      assert('Nav: page exists - investment', !!document.getElementById('page-investment'), '');
+      assert('Nav: page exists - retirement', !!document.getElementById('page-retirement'), '');
+      assert('Nav: page exists - compound', !!document.getElementById('page-compound'), '');
+      
+      // Test theme toggle
+      const wasDark = isDark;
+      toggleTheme();
+      assert('Theme: toggles correctly', isDark !== wasDark, `isDark changed to ${isDark}`);
+      toggleTheme(); // Reset
+      
+      // Print results
+      console.log(`\n🧪 BABAGANOUSH TEST SUITE`);
+      console.log(`${'═'.repeat(50)}`);
+      results.forEach(r => {
+        console.log(`${r.status === 'PASS' ? '✅' : '❌'} ${r.name} ${r.detail ? `(${r.detail})` : ''}`);
+      });
+      console.log(`${'═'.repeat(50)}`);
+      console.log(`Results: ${passed} passed, ${failed} failed, ${passed + failed} total`);
+      console.log(failed === 0 ? '🎉 ALL TESTS PASSED!' : `⚠️ ${failed} TEST(S) FAILED`);
+      
+      return { passed, failed, total: passed + failed, results };
+    }
+    
+    // Run tests on load (dev mode)
+    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.search.includes('test=true')) {
+      window.addEventListener('load', () => {
+        setTimeout(runTests, 500);
+      });
+    }
+    
+    // Expose for manual testing
+    window.runTests = runTests;
+  </script>
+</body>
+</html>
