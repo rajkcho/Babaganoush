@@ -3479,6 +3479,8 @@
        JAVASCRIPT ENGINE
        ═══════════════════════════════════════════════════════ -->
   <script>
+    console.log('Babaganoush v2.0 loaded — run runTests() in console to verify');
+
     // ── Utility Functions ──────────────────────────────────
     const fmt = (n, decimals = 0) => {
       if (n === undefined || n === null || isNaN(n)) return '$0';
@@ -4531,13 +4533,18 @@
         }
       }
       
-      // Test formatting
+      // ── Formatting Tests ──────────────────────────────
       assert('fmt: millions', fmt(5000000) === '$5.0M', fmt(5000000));
       assert('fmt: billions', fmt(2500000000) === '$2.5B', fmt(2500000000));
       assert('fmt: thousands', fmt(50000) === '$50.0K', fmt(50000));
+      assert('fmt: zero', fmt(0) === '$0.00', fmt(0));
+      assert('fmt: negative', fmt(-3000000).includes('-'), fmt(-3000000));
+      assert('fmt: NaN guard', fmt(NaN) === '$0', fmt(NaN));
+      assert('fmt: undefined guard', fmt(undefined) === '$0', fmt(undefined));
       assert('fmtPct: basic', fmtPct(12.345) === '12.3%', fmtPct(12.345));
+      assert('fmtFull: formats number', fmtFull(1234).length > 0, fmtFull(1234));
       
-      // Test DCF calculation logic
+      // ── DCF Calculation Tests ─────────────────────────
       const fcf = 1000000;
       const growth = 0.10;
       const terminal = 0.025;
@@ -4558,11 +4565,39 @@
       assert('DCF: EV > initial FCF', ev > fcf, `EV = ${ev.toFixed(0)}`);
       assert('DCF: EV reasonable range', ev > 5000000 && ev < 50000000, `EV = ${fmt(ev)}`);
       
-      // Test mortgage calculation
+      // ── M&A Accretion/Dilution Tests ──────────────────
+      const acqEPS = 5.00, acqShares = 100, acqPrice = 50;
+      const tgtEPS = 2.00, tgtShares = 50, tgtPrice = 20;
+      const maPremium = 0.25, maCashPct = 0.50, maDebtCost = 0.05, maTaxRate = 0.25;
+      const maOfferPrice = tgtPrice * (1 + maPremium);
+      const maDealValue = maOfferPrice * tgtShares;
+      const maCashPortion = maDealValue * maCashPct;
+      const maStockPortion = maDealValue * (1 - maCashPct);
+      const maNewShares = maStockPortion / acqPrice;
+      const maProFormaShares = acqShares + maNewShares;
+      const maAcqNI = acqEPS * acqShares;
+      const maTgtNI = tgtEPS * tgtShares;
+      const maInterest = maCashPortion * maDebtCost * (1 - maTaxRate);
+      const maProFormaNI = maAcqNI + maTgtNI - maInterest;
+      const maProFormaEPS = maProFormaNI / maProFormaShares;
+      const maAccDil = ((maProFormaEPS - acqEPS) / acqEPS) * 100;
+      assert('M&A: offer price includes premium', maOfferPrice === 25, `Offer = ${maOfferPrice}`);
+      assert('M&A: deal value correct', maDealValue === 1250, `Deal = ${maDealValue}`);
+      assert('M&A: accretive deal detected', maAccDil > 0, `Accretion = ${maAccDil.toFixed(2)}%`);
+      // Dilutive scenario: high premium
+      const dilOfferPrice = tgtPrice * 3;
+      const dilDealValue = dilOfferPrice * tgtShares;
+      const dilNewShares = dilDealValue / acqPrice;
+      const dilProFormaShares = acqShares + dilNewShares;
+      const dilProFormaEPS = (maAcqNI + maTgtNI) / dilProFormaShares;
+      const dilAccDil = ((dilProFormaEPS - acqEPS) / acqEPS) * 100;
+      assert('M&A: dilutive with high premium', dilAccDil < 0, `Dilution = ${dilAccDil.toFixed(2)}%`);
+      
+      // ── Mortgage Tests ────────────────────────────────
       const price = 800000;
-      const downPct = 0.20;
+      const mortDownPct = 0.20;
       const rate = 0.055;
-      const principal = price * (1 - downPct);
+      const principal = price * (1 - mortDownPct);
       const semiRate = Math.pow(1 + rate / 2, 2) - 1;
       const mRate = Math.pow(1 + semiRate, 1 / 12) - 1;
       const mPayment = principal * (mRate * Math.pow(1 + mRate, 300)) / (Math.pow(1 + mRate, 300) - 1);
@@ -4571,49 +4606,82 @@
       assert('Mortgage: payment reasonable', mPayment > 2000 && mPayment < 6000, `Payment = ${fmtFull(mPayment)}`);
       assert('Mortgage: semi-annual compounding', semiRate > rate, `Effective = ${(semiRate * 100).toFixed(3)}%`);
       
-      // Test CMHC
-      assert('CMHC: not required at 20%', downPct >= 0.20, 'Down 20% = no CMHC');
-      const cmhc10 = principal * 0.031;
-      assert('CMHC: 10% down premium', cmhc10 > 0, `CMHC at 10% = ${cmhc10.toFixed(0)}`);
+      // ── CMHC Tests ────────────────────────────────────
+      assert('CMHC: not required at 20% down', mortDownPct >= 0.20, 'Down 20% = no CMHC');
+      const cmhc10Down = 0.10;
+      const cmhc10Principal = price * (1 - cmhc10Down);
+      const cmhc10Premium = cmhc10Principal * 0.031;
+      assert('CMHC: premium applies at 10% down', cmhc10Premium > 0, `CMHC = ${cmhc10Premium.toFixed(0)}`);
+      assert('CMHC: 10% down premium > 0', cmhc10Down < 0.20 && cmhc10Premium > 20000, `Premium = ${cmhc10Premium.toFixed(0)}`);
+      assert('CMHC: no premium at 20%+', mortDownPct >= 0.20, '20% down = exempt');
       
-      // Test CAGR
+      // ── CAGR Tests ────────────────────────────────────
       const cagr = (Math.pow(25000 / 10000, 1 / 5) - 1) * 100;
       assert('CAGR: basic calc', Math.abs(cagr - 20.11) < 0.1, `CAGR = ${cagr.toFixed(2)}%`);
       
-      // Test compound interest
+      // ── Compound Interest Tests ───────────────────────
       let balance = 10000;
       for (let m = 0; m < 12; m++) {
         balance *= (1 + 0.07 / 12);
       }
       assert('Compound: 1yr @7%', Math.abs(balance - 10722.9) < 5, `Balance = ${balance.toFixed(2)}`);
       
-      // Test DCA
+      // ── DCA Tests ─────────────────────────────────────
       let dcaBalance = 0;
       const dcaMonthly = 500;
       const dcaRate = Math.pow(1.08, 1 / 12) - 1;
       for (let m = 0; m < 240; m++) {
         dcaBalance = dcaBalance * (1 + dcaRate) + dcaMonthly;
       }
-      assert('DCA: 20yr result > contributions', dcaBalance > 500 * 240, `Balance = ${dcaBalance.toFixed(0)} > ${500 * 240}`);
+      const dcaTotalContributed = 500 * 240;
+      assert('DCA: 20yr result > contributions', dcaBalance > dcaTotalContributed, `Balance = ${dcaBalance.toFixed(0)} > ${dcaTotalContributed}`);
       
-      // Test tax brackets
+      // ── DCA with Inflation Tests ──────────────────────
+      const dcaInflation = 0.03;
+      const dcaNominal = dcaBalance;
+      const dcaReal = dcaNominal / Math.pow(1 + dcaInflation, 20);
+      assert('DCA inflation: real < nominal', dcaReal < dcaNominal, `Real = ${dcaReal.toFixed(0)} < Nominal = ${dcaNominal.toFixed(0)}`);
+      assert('DCA inflation: real still positive', dcaReal > 0, `Real = ${dcaReal.toFixed(0)}`);
+      
+      // ── Startup Runway Tests ──────────────────────────
+      const rwCosts = 50000;
+      const rwRevenue = 20000;
+      const rwBurnRate = rwCosts - rwRevenue;
+      assert('Runway: burn rate = costs - revenue', rwBurnRate === 30000, `Burn = ${rwBurnRate}`);
+      const rwCash = 300000;
+      const rwMonths = rwCash / rwBurnRate;
+      assert('Runway: months = cash / burn', rwMonths === 10, `Months = ${rwMonths}`);
+      assert('Runway: zero burn when revenue >= costs', (50000 - 50000) === 0, 'Break-even');
+      
+      // ── Net Worth Tests ───────────────────────────────
+      const nwAssets = 500000;
+      const nwLiabilities = 200000;
+      const nwNetWorth = nwAssets - nwLiabilities;
+      assert('Net worth: assets - liabilities', nwNetWorth === 300000, `NW = ${nwNetWorth}`);
+      assert('Net worth: negative when liabilities > assets', (100000 - 300000) < 0, 'Negative NW');
+      
+      // ── Tax Bracket Tests ─────────────────────────────
       const fedTaxResult = fedTax(120000);
       assert('Fed tax: positive for 120K', fedTaxResult > 0, `Tax = ${fedTaxResult.toFixed(0)}`);
       assert('Fed tax: reasonable', fedTaxResult > 15000 && fedTaxResult < 35000, `Tax = ${fedTaxResult.toFixed(0)}`);
       
-      // Test nav links
-      assert('Nav: page exists - home', !!document.getElementById('page-home'), '');
-      assert('Nav: page exists - valuation', !!document.getElementById('page-valuation'), '');
-      assert('Nav: page exists - mortgage', !!document.getElementById('page-mortgage'), '');
-      assert('Nav: page exists - investment', !!document.getElementById('page-investment'), '');
-      assert('Nav: page exists - retirement', !!document.getElementById('page-retirement'), '');
-      assert('Nav: page exists - compound', !!document.getElementById('page-compound'), '');
+      // ── Page Navigation Tests ─────────────────────────
+      const allPages = ['home', 'valuation', 'mortgage', 'investment', 'retirement', 'compound', 'merger', 'runway', 'networth', 'salary', 'debt'];
+      allPages.forEach(p => {
+        assert(`Nav: page-${p} exists`, !!document.getElementById('page-' + p), '');
+      });
       
-      // Test theme toggle
+      // ── Theme Tests ───────────────────────────────────
       const wasDark = isDark;
+      const wasCls = document.documentElement.classList.contains('light');
       toggleTheme();
-      assert('Theme: toggles correctly', isDark !== wasDark, `isDark changed to ${isDark}`);
+      assert('Theme: toggles isDark', isDark !== wasDark, `isDark changed to ${isDark}`);
+      assert('Theme: light class toggles', document.documentElement.classList.contains('light') !== wasCls, '');
+      const themeStored = localStorage.getItem('babaganoush-theme');
+      assert('Theme: persists to localStorage', themeStored !== null, `Stored: ${themeStored}`);
       toggleTheme(); // Reset
+      const themeReset = localStorage.getItem('babaganoush-theme');
+      assert('Theme: localStorage updates on re-toggle', themeReset !== themeStored, `Now: ${themeReset}`);
       
       // Print results
       console.log(`\n🧪 BABAGANOUSH TEST SUITE`);
