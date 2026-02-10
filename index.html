@@ -1459,6 +1459,126 @@
       transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    /* ── Scroll Progress Bar ──────────────────────────── */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--brand-primary), var(--brand-secondary), var(--brand-accent));
+      z-index: 9999;
+      transition: width 0.1s linear;
+      pointer-events: none;
+    }
+
+    /* ── Input Ripple Effect ──────────────────────────── */
+    .input-group input,
+    .input-group select {
+      position: relative;
+    }
+    .input-group {
+      position: relative;
+    }
+    .input-group .input-ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(99, 102, 241, 0.25);
+      transform: scale(0);
+      animation: ripple 0.6s ease-out forwards;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ── Page Fade Transitions ────────────────────────── */
+    .page.fade-out {
+      animation: pageFadeOut 0.15s ease forwards;
+    }
+    .page.fade-in {
+      animation: pageFadeIn 0.25s ease forwards;
+    }
+    @keyframes pageFadeOut {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(-8px); }
+    }
+    @keyframes pageFadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Loading Skeleton ─────────────────────────────── */
+    .skeleton-overlay {
+      position: absolute;
+      inset: 0;
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: var(--space-lg);
+    }
+    .skeleton-line {
+      height: 16px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--border-primary) 25%, var(--bg-elevated) 50%, var(--border-primary) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s ease infinite;
+    }
+    .skeleton-line.short { width: 60%; }
+    .skeleton-line.medium { width: 80%; }
+    .skeleton-line.tall { height: 48px; width: 50%; }
+
+    /* ── Chart Bar Tooltips ────────────────────────────── */
+    .chart-bar-tooltip {
+      position: relative;
+      cursor: pointer;
+    }
+    .chart-bar-tooltip::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%) scale(0.8);
+      background: var(--bg-elevated);
+      color: var(--text-primary);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-sm);
+      padding: 0.25rem 0.5rem;
+      font-size: 0.65rem;
+      font-family: 'JetBrains Mono', monospace;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-md);
+      z-index: 10;
+    }
+    .chart-bar-tooltip:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+
+    /* ── Confetti Easter Egg ───────────────────────────── */
+    @keyframes confettiFall {
+      0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+    .confetti-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 10000;
+      overflow: hidden;
+    }
+    .confetti-piece {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      top: -10px;
+      animation: confettiFall 3s ease-in forwards;
+    }
+
     /* Affiliate CTA banners */
     .affiliate-cta {
       margin-top: 1rem;
@@ -1494,6 +1614,9 @@
   </style>
 </head>
 <body class="noise">
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
   <!-- Navigation -->
   <nav class="nav-bar" id="navbar">
     <div class="nav-inner">
@@ -4226,6 +4349,242 @@
       var b = document.querySelector('.cookie-banner');
       if (b) b.remove();
     }
+
+    // ══════════════════════════════════════════════════════════
+    //  MICRO-INTERACTIONS v1.6
+    // ══════════════════════════════════════════════════════════
+
+    // 1. Smooth Number Animations
+    function animateValue(element, start, end, duration) {
+      if (!element || duration <= 0) { element.textContent = end; return; }
+      const startTime = performance.now();
+      const isFormatted = typeof end === 'string';
+      const endNum = isFormatted ? parseFloat(end.replace(/[^0-9.\-]/g, '')) : end;
+      const startNum = isFormatted ? parseFloat(start.toString().replace(/[^0-9.\-]/g, '')) || 0 : (start || 0);
+      if (isNaN(endNum)) { element.textContent = end; return; }
+      const prefix = isFormatted ? (end.match(/^[^0-9.\-]*/)||[''])[0] : '';
+      const suffix = isFormatted ? (end.match(/[^0-9.\-]*$/)||[''])[0] : '';
+      const hasDecimal = isFormatted && end.includes('.');
+      const decimals = hasDecimal ? (end.split('.')[1] || '').replace(/[^0-9]/g, '').length : 0;
+
+      function tick(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        const current = startNum + (endNum - startNum) * eased;
+        if (isFormatted) {
+          element.textContent = prefix + current.toLocaleString('en-US', {minimumFractionDigits: decimals, maximumFractionDigits: decimals}) + suffix;
+        } else {
+          element.textContent = Math.round(current);
+        }
+        if (progress < 1) requestAnimationFrame(tick);
+        else element.textContent = end; // ensure exact final value
+      }
+      requestAnimationFrame(tick);
+    }
+
+    // Observe .result-value changes and animate them
+    (function() {
+      const resultObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(m) {
+          if (m.type === 'childList' || m.type === 'characterData') {
+            const el = m.target.nodeType === 1 ? m.target : m.target.parentElement;
+            if (!el || !el.classList || !el.classList.contains('result-value')) return;
+            const newVal = el.textContent;
+            const oldVal = el.getAttribute('data-prev') || '0';
+            if (newVal !== oldVal && !el._animating) {
+              el._animating = true;
+              el.setAttribute('data-prev', newVal);
+              animateValue(el, oldVal, newVal, 600);
+              setTimeout(function() { el._animating = false; }, 650);
+            }
+          }
+        });
+      });
+      // Observe the whole body for result-value text changes
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.result-value').forEach(function(el) {
+          el.setAttribute('data-prev', el.textContent);
+        });
+      });
+      // Use a simpler approach: patch innerHTML setters on result containers
+      const origShowPage = window.showPage;
+      // We'll hook into calculator functions instead via a post-render observer
+      setInterval(function() {
+        document.querySelectorAll('.result-value').forEach(function(el) {
+          if (!el.hasAttribute('data-prev')) el.setAttribute('data-prev', el.textContent);
+        });
+      }, 200);
+    })();
+
+    // 2. Input Ripple Effect
+    document.addEventListener('click', function(e) {
+      const input = e.target.closest('.input-group input, .input-group select');
+      if (!input) return;
+      const group = input.closest('.input-group');
+      if (!group) return;
+      const ripple = document.createElement('div');
+      ripple.className = 'input-ripple';
+      const rect = input.getBoundingClientRect();
+      const grect = group.getBoundingClientRect();
+      const size = 30;
+      ripple.style.width = size + 'px';
+      ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - grect.left - size/2) + 'px';
+      ripple.style.top = (e.clientY - grect.top - size/2) + 'px';
+      group.appendChild(ripple);
+      setTimeout(function() { ripple.remove(); }, 600);
+    });
+
+    // 3. Page Transition (fade-out / fade-in)
+    (function() {
+      const origShowPage = window.showPage;
+      window.showPage = function(pageId) {
+        const currentPage = document.querySelector('.page.active');
+        const targetPage = document.getElementById('page-' + pageId);
+        if (!targetPage || currentPage === targetPage) {
+          origShowPage(pageId);
+          return;
+        }
+        if (currentPage) {
+          currentPage.classList.add('fade-out');
+          setTimeout(function() {
+            currentPage.classList.remove('active', 'fade-out');
+            targetPage.classList.add('active', 'fade-in');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setTimeout(function() { targetPage.classList.remove('fade-in'); }, 250);
+            // Close mobile menu & init calculators
+            document.getElementById('nav-links').classList.remove('mobile-open');
+            if (pageId === 'valuation') calculateDCF();
+            if (pageId === 'mortgage') calculateMortgage();
+            if (pageId === 'investment') calculateCAGR();
+            if (pageId === 'retirement') calculateRetirement();
+            if (pageId === 'compound') calculateCompound();
+            if (pageId === 'runway') calculateRunway();
+            if (pageId === 'networth') { calculateNetWorth(); loadNetWorthSnapshots(); }
+          }, 150);
+        } else {
+          origShowPage(pageId);
+        }
+      };
+    })();
+
+    // 4. Parallax Hero Blobs
+    (function() {
+      let ticking = false;
+      const blobs = document.querySelectorAll('.hero-blob');
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            const scrollY = window.scrollY;
+            blobs.forEach(function(blob, i) {
+              const speed = (i + 1) * 0.05;
+              blob.style.transform = 'translateY(' + (scrollY * speed * -1) + 'px)';
+            });
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
+
+    // 5. Chart Bar Tooltips — handled via CSS class .chart-bar-tooltip + data-tooltip attr
+    // The chart rendering functions already use title attrs; we enhance them with CSS tooltips
+    // by adding a MutationObserver that converts title attrs on chart bars to our tooltip class
+    (function() {
+      function enhanceChartBars() {
+        document.querySelectorAll('[title]').forEach(function(el) {
+          if (el.closest('.chart-container, #rw-chart, #dca-chart, #compound-chart, #dcf-chart')) {
+            if (!el.classList.contains('chart-bar-tooltip')) {
+              el.classList.add('chart-bar-tooltip');
+              el.setAttribute('data-tooltip', el.getAttribute('title'));
+              el.removeAttribute('title');
+            }
+          }
+        });
+      }
+      setInterval(enhanceChartBars, 500);
+    })();
+
+    // 6. Loading Skeleton
+    (function() {
+      const origShowPage2 = window.showPage;
+      window.showPage = (function(prev) {
+        return function(pageId) {
+          prev(pageId);
+          if (pageId === 'home') return;
+          const page = document.getElementById('page-' + pageId);
+          if (!page) return;
+          const results = page.querySelectorAll('.calc-results');
+          results.forEach(function(r) {
+            if (r._skeletonShown) return;
+            r._skeletonShown = true;
+            r.style.position = 'relative';
+            const skel = document.createElement('div');
+            skel.className = 'skeleton-overlay';
+            skel.innerHTML = '<div class="skeleton-line tall"></div><div class="skeleton-line medium"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div>';
+            r.appendChild(skel);
+            setTimeout(function() {
+              skel.style.transition = 'opacity 0.2s ease';
+              skel.style.opacity = '0';
+              setTimeout(function() { skel.remove(); r._skeletonShown = false; }, 200);
+            }, 300);
+          });
+        };
+      })(window.showPage);
+    })();
+
+    // 7. Scroll Progress Bar
+    (function() {
+      const bar = document.getElementById('scroll-progress');
+      let ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const pct = scrollHeight > 0 ? (scrollTop / scrollHeight * 100) : 0;
+            bar.style.width = pct + '%';
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
+
+    // 8. Easter Egg — type "babaganoush" anywhere
+    (function() {
+      let buffer = '';
+      const secret = 'babaganoush';
+      document.addEventListener('keypress', function(e) {
+        buffer += e.key.toLowerCase();
+        if (buffer.length > secret.length) buffer = buffer.slice(-secret.length);
+        if (buffer === secret) {
+          buffer = '';
+          triggerConfetti();
+        }
+      });
+
+      function triggerConfetti() {
+        const container = document.createElement('div');
+        container.className = 'confetti-container';
+        document.body.appendChild(container);
+        const colors = ['#6366f1', '#8b5cf6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444', '#ec4899', '#f97316'];
+        for (let i = 0; i < 80; i++) {
+          const piece = document.createElement('div');
+          piece.className = 'confetti-piece';
+          piece.style.left = Math.random() * 100 + 'vw';
+          piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+          piece.style.animationDelay = (Math.random() * 1.5) + 's';
+          piece.style.animationDuration = (2 + Math.random() * 2) + 's';
+          piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+          piece.style.width = (5 + Math.random() * 8) + 'px';
+          piece.style.height = (5 + Math.random() * 8) + 'px';
+          container.appendChild(piece);
+        }
+        setTimeout(function() { container.remove(); }, 5000);
+      }
+    })();
 
     // Register Service Worker
     if ('serviceWorker' in navigator) {
