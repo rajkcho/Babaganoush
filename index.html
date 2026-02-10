@@ -242,18 +242,18 @@
       align-items: center;
       justify-content: center;
     }
+    .btn-animated { overflow: hidden; position: relative; }
     .btn-animated .btn-text-wrap {
       display: flex;
       flex-direction: column;
       transition: transform 0.3s ease;
     }
     .btn-animated:hover .btn-text-wrap {
-      transform: translateY(-100%);
+      transform: translateY(-50%);
     }
     .btn-animated .btn-initial,
     .btn-animated .btn-hover {
       display: block;
-      height: 100%;
       line-height: 1;
       padding: 0.25em 0;
     }
@@ -271,17 +271,15 @@
     .hero-word-rotator {
       display: inline-block;
       position: relative;
-      overflow: hidden;
       vertical-align: bottom;
       height: 1.2em;
-      min-width: 4em;
     }
     .hero-word-rotator span {
       display: block;
       position: absolute;
       left: 0;
       top: 0;
-      width: 100%;
+      white-space: nowrap;
       opacity: 0;
       transform: translateY(50%);
       animation: wordFadeIn 10s infinite;
@@ -1825,7 +1823,7 @@
         <div class="figgy-hero-left">
           <h1 class="hero-huge load-stagger" style="transition-delay:0.1s;">
             Crunch your<br>
-            <span class="hero-word-rotator" style="height:1.15em;">
+            <span class="hero-word-rotator">
               <span class="gradient-text-animated">mortgage</span>
               <span class="gradient-text-animated">taxes</span>
               <span class="gradient-text-animated">investments</span>
