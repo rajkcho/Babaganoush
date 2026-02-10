@@ -5093,6 +5093,240 @@
 
 
     // ══════════════════════════════════════════════════════════
+    //  SALARY & COMPENSATION ANALYZER
+    // ══════════════════════════════════════════════════════════
+    function calculateSalary() {
+      const base = parseFloat(document.getElementById('sal-base').value) || 0;
+      const bonusPct = parseFloat(document.getElementById('sal-bonus-pct').value) || 0;
+      const shares = parseFloat(document.getElementById('sal-shares').value) || 0;
+      const strike = parseFloat(document.getElementById('sal-strike').value) || 0;
+      const currentPrice = parseFloat(document.getElementById('sal-current-price').value) || 0;
+      const vesting = parseFloat(document.getElementById('sal-vesting').value) || 4;
+      const health = parseFloat(document.getElementById('sal-health').value) || 0;
+      const pension = parseFloat(document.getElementById('sal-pension').value) || 0;
+      const province = document.getElementById('sal-province').value;
+
+      const bonus = base * (bonusPct / 100);
+      const intrinsicPerShare = Math.max(0, currentPrice - strike);
+      const totalEquity = shares * intrinsicPerShare;
+      const annualEquity = totalEquity / vesting;
+      const benefits = health + pension;
+      const totalComp = base + bonus + annualEquity + benefits;
+
+      // Simplified Canadian marginal tax rates (combined federal + provincial, 2024 approx)
+      const taxRates = {
+        ON: [[ 55867, 0.2005], [111733, 0.2965], [154906, 0.3148], [220000, 0.3389], [Infinity, 0.5353]],
+        BC: [[ 45654, 0.2006], [ 91310, 0.2272], [104835, 0.2950], [127299, 0.3148], [172602, 0.3267], [240716, 0.4070], [Infinity, 0.5350]],
+        AB: [[ 55867, 0.2500], [111733, 0.3050], [154906, 0.3600], [208000, 0.4200], [Infinity, 0.4800]],
+        QC: [[ 49275, 0.2753], [ 55867, 0.3253], [ 98540, 0.3802], [111733, 0.4397], [154906, 0.4797], [Infinity, 0.5331]],
+        MB: [[ 36842, 0.2580], [ 55867, 0.2775], [ 79625, 0.3340], [111733, 0.3783], [154906, 0.4340], [Infinity, 0.5040]],
+        SK: [[ 49720, 0.2550], [ 55867, 0.2775], [111733, 0.3577], [142058, 0.3577], [Infinity, 0.4477]],
+        NS: [[ 29590, 0.2379], [ 55867, 0.2995], [ 59180, 0.3495], [ 93000, 0.3695], [111733, 0.4295], [150000, 0.4595], [Infinity, 0.5400]],
+        NB: [[ 47715, 0.2440], [ 55867, 0.2682], [ 95524, 0.3182], [111733, 0.3552], [154906, 0.3952], [176756, 0.4352], [Infinity, 0.5302]],
+        NL: [[ 41457, 0.2350], [ 55867, 0.2850], [ 82913, 0.3150], [111733, 0.3350], [148027, 0.3850], [154906, 0.4350], [207239, 0.4580], [Infinity, 0.5180]],
+        PE: [[ 31984, 0.2480], [ 55867, 0.2880], [ 63969, 0.3330], [111733, 0.3530], [140000, 0.3730], [154906, 0.4430], [Infinity, 0.5130]]
+      };
+
+      const brackets = taxRates[province] || taxRates['ON'];
+      const taxableIncome = base + bonus; // equity/benefits not directly taxed this way
+      let tax = 0, prev = 0;
+      for (const [limit, rate] of brackets) {
+        if (taxableIncome <= prev) break;
+        const taxable = Math.min(taxableIncome, limit) - prev;
+        tax += taxable * rate;
+        prev = limit;
+      }
+      const takeHome = taxableIncome - tax + annualEquity + benefits; // simplified
+      const effTaxRate = taxableIncome > 0 ? (tax / taxableIncome) * 100 : 0;
+      const hourly = totalComp / 2080;
+
+      document.getElementById('sal-total-comp').textContent = fmtFull(totalComp);
+      document.getElementById('sal-take-home').textContent = fmtFull(takeHome);
+      document.getElementById('sal-eff-tax').textContent = fmtPct(effTaxRate);
+      document.getElementById('sal-hourly').textContent = fmtFull(hourly);
+      document.getElementById('sal-equity-val').textContent = fmtFull(annualEquity);
+      document.getElementById('sal-bonus-val').textContent = fmtFull(bonus);
+
+      // Pie chart
+      const parts = [
+        { label: 'Base Salary', value: base, color: '#14b8a6' },
+        { label: 'Bonus', value: bonus, color: '#f59e0b' },
+        { label: 'Equity', value: annualEquity, color: '#8b5cf6' },
+        { label: 'Benefits', value: benefits, color: '#3b82f6' }
+      ].filter(p => p.value > 0);
+
+      const total = parts.reduce((s, p) => s + p.value, 0);
+      let gradParts = [], cumPct = 0;
+      parts.forEach(p => {
+        const pct = (p.value / total) * 100;
+        gradParts.push(`${p.color} ${cumPct}% ${cumPct + pct}%`);
+        cumPct += pct;
+      });
+      document.getElementById('sal-pie').style.background = total > 0
+        ? `conic-gradient(${gradParts.join(', ')})`
+        : 'var(--border-primary)';
+      document.getElementById('sal-pie-legend').innerHTML = parts.map(p =>
+        `<div style="display:flex;align-items:center;gap:0.5rem;"><span style="width:10px;height:10px;border-radius:50%;background:${p.color};display:inline-block;"></span>${p.label}: ${fmtFull(p.value)} (${((p.value/total)*100).toFixed(0)}%)</div>`
+      ).join('');
+
+      // Comparison
+      const canadianMedian = 55000;
+      const techMedian = 95000;
+      const compEl = document.getElementById('sal-comparison');
+      const bar = (label, val, max) => {
+        const pct = Math.min(100, (val / max) * 100);
+        return `<div style="margin-bottom:0.75rem;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.25rem;"><span>${label}</span><span>${fmtFull(val)}</span></div>
+          <div style="height:8px;background:var(--border-primary);border-radius:4px;overflow:hidden;">
+            <div style="height:100%;width:${pct}%;background:linear-gradient(90deg,#14b8a6,#0d9488);border-radius:4px;transition:width 0.5s;"></div>
+          </div>
+        </div>`;
+      };
+      const maxVal = Math.max(totalComp, canadianMedian, techMedian) * 1.1;
+      compEl.innerHTML = bar('Your Total Comp', totalComp, maxVal)
+        + bar('Canadian Median', canadianMedian, maxVal)
+        + bar('Tech Median', techMedian, maxVal)
+        + `<div style="margin-top:0.5rem;font-size:0.8rem;color:var(--text-secondary);">You earn <strong>${totalComp > canadianMedian ? ((totalComp/canadianMedian - 1)*100).toFixed(0) + '% more' : ((1 - totalComp/canadianMedian)*100).toFixed(0) + '% less'}</strong> than the Canadian median</div>`;
+    }
+
+    // ══════════════════════════════════════════════════════════
+    //  DEBT PAYOFF CALCULATOR
+    // ══════════════════════════════════════════════════════════
+    let debtStrategy = 'avalanche';
+
+    function setDebtStrategy(s) {
+      debtStrategy = s;
+      document.getElementById('debt-btn-avalanche').className = s === 'avalanche' ? 'btn btn-primary btn-sm' : 'btn btn-secondary btn-sm';
+      document.getElementById('debt-btn-snowball').className = s === 'snowball' ? 'btn btn-primary btn-sm' : 'btn btn-secondary btn-sm';
+      document.getElementById('debt-strategy-help').textContent = s === 'avalanche'
+        ? 'Highest interest rate first — saves the most money'
+        : 'Lowest balance first — quick wins for motivation';
+      calculateDebt();
+    }
+
+    function addDebtRow() {
+      const container = document.getElementById('debt-rows');
+      const row = document.createElement('div');
+      row.className = 'debt-row';
+      row.style.cssText = 'display:grid;grid-template-columns:2fr 1.5fr 1fr 1.5fr auto;gap:0.5rem;align-items:end;margin-bottom:0.5rem;';
+      row.innerHTML = `
+        <div class="input-group" style="margin:0"><label style="font-size:0.7rem">Name</label><input type="text" value="New Debt" oninput="calculateDebt()" /></div>
+        <div class="input-group" style="margin:0"><label style="font-size:0.7rem">Balance ($)</label><input type="number" value="5000" oninput="calculateDebt()" /></div>
+        <div class="input-group" style="margin:0"><label style="font-size:0.7rem">Rate (%)</label><input type="number" value="12" step="0.01" oninput="calculateDebt()" /></div>
+        <div class="input-group" style="margin:0"><label style="font-size:0.7rem">Min Payment ($)</label><input type="number" value="150" oninput="calculateDebt()" /></div>
+        <button class="btn btn-secondary btn-sm" onclick="removeDebtRow(this)" style="padding:0.25rem 0.5rem;margin-bottom:2px;">✕</button>`;
+      container.appendChild(row);
+      calculateDebt();
+    }
+
+    function removeDebtRow(btn) {
+      const rows = document.querySelectorAll('#debt-rows .debt-row');
+      if (rows.length <= 1) return;
+      btn.closest('.debt-row').remove();
+      calculateDebt();
+    }
+
+    function getDebts() {
+      const rows = document.querySelectorAll('#debt-rows .debt-row');
+      return Array.from(rows).map(row => {
+        const inputs = row.querySelectorAll('input');
+        return {
+          name: inputs[0].value || 'Debt',
+          balance: parseFloat(inputs[1].value) || 0,
+          rate: parseFloat(inputs[2].value) || 0,
+          minPayment: parseFloat(inputs[3].value) || 0
+        };
+      }).filter(d => d.balance > 0);
+    }
+
+    function simulatePayoff(debts, extraMonthly, strategy) {
+      let balances = debts.map(d => ({ ...d }));
+      let totalInterest = 0;
+      let months = 0;
+      const maxMonths = 600; // 50 year cap
+      const timeline = [{ month: 0, total: balances.reduce((s, d) => s + d.balance, 0) }];
+
+      while (balances.some(d => d.balance > 0.01) && months < maxMonths) {
+        months++;
+        let extraLeft = extraMonthly;
+
+        // Apply interest
+        balances.forEach(d => {
+          if (d.balance > 0) {
+            const interest = d.balance * (d.rate / 100 / 12);
+            d.balance += interest;
+            totalInterest += interest;
+          }
+        });
+
+        // Make minimum payments
+        balances.forEach(d => {
+          if (d.balance > 0) {
+            const payment = Math.min(d.balance, d.minPayment);
+            d.balance -= payment;
+          }
+        });
+
+        // Sort for strategy and apply extra payment
+        const sorted = balances.filter(d => d.balance > 0.01);
+        if (strategy === 'avalanche') sorted.sort((a, b) => b.rate - a.rate);
+        else sorted.sort((a, b) => a.balance - b.balance);
+
+        for (const d of sorted) {
+          if (extraLeft <= 0) break;
+          const payment = Math.min(d.balance, extraLeft);
+          d.balance -= payment;
+          extraLeft -= payment;
+        }
+
+        timeline.push({ month: months, total: balances.reduce((s, d) => s + Math.max(0, d.balance), 0) });
+      }
+
+      return { totalInterest, months, timeline };
+    }
+
+    function calculateDebt() {
+      const debts = getDebts();
+      if (debts.length === 0) return;
+
+      const extra = parseFloat(document.getElementById('debt-extra').value) || 0;
+      const result = simulatePayoff(debts, extra, debtStrategy);
+      const minOnly = simulatePayoff(debts, 0, debtStrategy);
+
+      document.getElementById('debt-total-interest').textContent = fmtFull(result.totalInterest);
+      document.getElementById('debt-months').textContent = result.months;
+
+      const now = new Date();
+      const freeDate = new Date(now.getFullYear(), now.getMonth() + result.months, 1);
+      document.getElementById('debt-free-date').textContent = freeDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+
+      const savings = minOnly.totalInterest - result.totalInterest;
+      document.getElementById('debt-savings').textContent = fmtFull(Math.max(0, savings));
+
+      const yrs = Math.floor(result.months / 12);
+      const mos = result.months % 12;
+      document.getElementById('debt-countdown').textContent = yrs > 0 ? `${yrs}y ${mos}m` : `${mos} months`;
+
+      // Timeline chart (simple bar chart)
+      const chart = document.getElementById('debt-timeline-chart');
+      const tl = result.timeline;
+      const maxBalance = tl[0].total || 1;
+      const step = Math.max(1, Math.floor(tl.length / 30));
+      const sampled = tl.filter((_, i) => i % step === 0 || i === tl.length - 1);
+
+      chart.innerHTML = `
+        <div style="display:flex;align-items:flex-end;gap:2px;height:200px;">
+          ${sampled.map(p => {
+            const h = Math.max(1, (p.total / maxBalance) * 100);
+            return `<div title="Month ${p.month}: ${fmtFull(p.total)}" style="flex:1;height:${h}%;background:linear-gradient(to top,#ef4444,#f97316);border-radius:2px 2px 0 0;min-width:3px;transition:height 0.3s;cursor:pointer;"></div>`;
+          }).join('')}
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--text-secondary);margin-top:0.5rem;">
+          <span>Month 0</span><span>Month ${result.months}</span>
+        </div>`;
+    }
+
+    // ══════════════════════════════════════════════════════════
     //  PDF EXPORT & COPY RESULTS (All Calculators)
     // ══════════════════════════════════════════════════════════
     function generatePDFReport(calcName) {
