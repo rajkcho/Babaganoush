@@ -119,19 +119,19 @@
       --brand-warning: #f59e0b;
       --brand-danger: #ef4444;
       
-      /* Dark Theme (Default) */
-      --bg-primary: #0a0a0f;
-      --bg-secondary: #111118;
-      --bg-card: #16161f;
-      --bg-card-hover: #1c1c28;
-      --bg-elevated: #1e1e2a;
-      --border-primary: #1e1e2e;
-      --border-hover: #2e2e42;
-      --text-primary: #f1f0f5;
-      --text-secondary: #9ca3af;
-      --text-muted: #6b7280;
-      --glass-bg: rgba(22, 22, 31, 0.7);
-      --glass-border: rgba(255, 255, 255, 0.06);
+      /* Dark Theme */
+      --bg-primary: #0f1117;
+      --bg-secondary: #161922;
+      --bg-card: #1a1d28;
+      --bg-card-hover: #222633;
+      --bg-elevated: #1e2230;
+      --border-primary: #262a3a;
+      --border-hover: #363c52;
+      --text-primary: #f4f4f8;
+      --text-secondary: #a0a6b8;
+      --text-muted: #6c7490;
+      --glass-bg: rgba(26, 29, 40, 0.75);
+      --glass-border: rgba(255, 255, 255, 0.08);
       
       /* Spacing */
       --space-xs: 0.25rem;
@@ -160,23 +160,23 @@
     
     /* Light Theme */
     .light {
-      --bg-primary: #fafafa;
+      --bg-primary: #f8f9fc;
       --bg-secondary: #ffffff;
       --bg-card: #ffffff;
-      --bg-card-hover: #f8f8fc;
-      --bg-elevated: #f3f4f6;
-      --border-primary: #e5e7eb;
-      --border-hover: #d1d5db;
-      --text-primary: #111827;
-      --text-secondary: #4b5563;
-      --text-muted: #9ca3af;
-      --glass-bg: rgba(255, 255, 255, 0.8);
-      --glass-border: rgba(0, 0, 0, 0.06);
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
-      --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.12);
-      --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.08);
+      --bg-card-hover: #f5f6fa;
+      --bg-elevated: #f0f1f5;
+      --border-primary: #e2e4ec;
+      --border-hover: #c8ccd8;
+      --text-primary: #1a1d2e;
+      --text-secondary: #525872;
+      --text-muted: #8b90a5;
+      --glass-bg: rgba(255, 255, 255, 0.85);
+      --glass-border: rgba(99, 102, 241, 0.08);
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
+      --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.1);
+      --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.06);
     }
     
     /* ── Reset & Base ──────────────────────────────────── */
@@ -355,8 +355,8 @@
     .tool-card {
       background: var(--bg-card);
       border: 1px solid var(--border-primary);
-      border-radius: var(--radius-xl);
-      padding: var(--space-xl);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
@@ -692,13 +692,13 @@
     
     /* ── Hero Section ──────────────────────────────────── */
     .hero {
-      min-height: 100vh;
+      min-height: 85vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 8rem 1.5rem 4rem;
+      padding: 7rem 2rem 3rem;
       position: relative;
       overflow: hidden;
     }
@@ -713,7 +713,12 @@
       position: absolute;
       border-radius: 50%;
       filter: blur(80px);
-      opacity: 0.15;
+      opacity: 0.12;
+    }
+    
+    .light .hero-blob {
+      opacity: 0.08;
+      filter: blur(100px);
     }
     
     .hero-blob-1 {
@@ -844,14 +849,14 @@
     
     /* ── Sections ──────────────────────────────────────── */
     .section {
-      padding: 5rem 1.5rem;
-      max-width: 1280px;
+      padding: 4rem 2rem;
+      max-width: 1200px;
       margin: 0 auto;
     }
     
     .section-header {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
     
     .section-label {
@@ -889,8 +894,8 @@
     /* ── Tools Grid ────────────────────────────────────── */
     .tools-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
     }
     
     @media (max-width: 640px) {
@@ -2077,54 +2082,6 @@
       </div>
     </section>
     
-    <!-- Testimonials -->
-    <section class="section">
-      <div class="section-header reveal">
-        <div class="section-label">
-          <span class="label-line"></span>
-          Testimonials
-          <span class="label-line"></span>
-        </div>
-        <h2 class="section-title">Trusted by <span class="gradient-text">finance professionals</span></h2>
-        <p class="section-desc">Join thousands who make better financial decisions with our tools.</p>
-      </div>
-      <div class="testimonial-grid">
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"The DCF calculator saved me hours on my capstone project. The sensitivity analysis is exactly what we use in our investment banking case studies — but faster and more intuitive."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">SK</div>
-            <div>
-              <div class="testimonial-name">Sarah K.</div>
-              <div class="testimonial-role">MBA Student</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"I screened over 30 acquisition targets using the business valuation tool. The multiples-based approach gave me quick sanity checks before diving into full due diligence."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">MT</div>
-            <div>
-              <div class="testimonial-name">Michael T.</div>
-              <div class="testimonial-role">Search Fund Entrepreneur</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"I use the RRSP vs TFSA optimizer with every client meeting. Being able to show real-time scenarios on their own numbers builds instant trust and saves me 20 minutes per session."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">PR</div>
-            <div>
-              <div class="testimonial-name">Priya R.</div>
-              <div class="testimonial-role">Financial Advisor</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- FAQ -->
     <section class="section">
       <div class="section-header reveal">
@@ -3524,7 +3481,7 @@
     }
     
     // ── Theme Toggle ──────────────────────────────────────
-    let isDark = localStorage.getItem('theme') !== 'light';
+    let isDark = localStorage.getItem('theme') === 'dark';
     
     function toggleTheme() {
       isDark = !isDark;
