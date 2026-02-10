@@ -3009,12 +3009,12 @@
       <div class="calc-grid" style="margin-top: 2rem;">
         <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
           <div class="input-group">
-            <label>Initial Amount</label>
-            <input type="number" id="comp-initial" value="10000" oninput="calculateCompound()" />
+            <label>Initial Amount ($)</label>
+            <input type="number" id="comp-initial" value="10000" min="0" oninput="calculateCompound()" />
           </div>
           <div class="input-group">
-            <label>Monthly Contribution</label>
-            <input type="number" id="comp-monthly" value="300" oninput="calculateCompound()" />
+            <label>Monthly Contribution ($)</label>
+            <input type="number" id="comp-monthly" value="300" min="0" oninput="calculateCompound()" />
           </div>
           <div class="input-group">
             <label>Annual Interest Rate (%)</label>
@@ -3211,12 +3211,12 @@
 
           <div class="input-group">
             <label>Cash in Bank ($)</label>
-            <input type="number" id="rw-cash" value="500000" oninput="calculateRunway()" placeholder="500000" />
+            <input type="number" id="rw-cash" value="500000" min="0" oninput="calculateRunway()" placeholder="500000" />
           </div>
 
           <div class="input-group">
             <label>Monthly Revenue ($)</label>
-            <input type="number" id="rw-revenue" value="20000" oninput="calculateRunway()" placeholder="20000" />
+            <input type="number" id="rw-revenue" value="20000" min="0" oninput="calculateRunway()" placeholder="20000" />
           </div>
 
           <div class="input-group">
@@ -3242,9 +3242,9 @@
           </div>
 
           <div class="input-group">
-            <label>Monthly Hiring Cost Increases ($)</label>
-            <input type="number" id="rw-hiring" value="2000" oninput="calculateRunway()" placeholder="Planned monthly increase" />
-            <div class="input-help">Added to costs each month cumulatively</div>
+            <label>General Monthly Cost Escalation ($)</label>
+            <input type="number" id="rw-hiring" value="2000" min="0" oninput="calculateRunway()" placeholder="2000" />
+            <div class="input-help">Additional cost increase per month (cumulative) — separate from named hires below</div>
           </div>
           
           <div class="divider"></div>
@@ -4174,14 +4174,14 @@
       if (abs >= 1e9) return (n < 0 ? '-' : '') + '$' + (abs / 1e9).toFixed(1) + 'B';
       if (abs >= 1e6) return (n < 0 ? '-' : '') + '$' + (abs / 1e6).toFixed(1) + 'M';
       if (abs >= 1e3) return (n < 0 ? '-' : '') + '$' + (abs / 1e3).toFixed(decimals > 0 ? decimals : 0) + 'K';
-      return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: decimals }).format(n);
+      return new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD', minimumFractionDigits: decimals, maximumFractionDigits: decimals }).format(n);
     };
     
-    const fmtFull = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'CAD', maximumFractionDigits: 0 }).format(n || 0);
+    const fmtFull = (n) => new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n || 0);
     
     const fmtPct = (n, decimals = 1) => (n || 0).toFixed(decimals) + '%';
     
-    const fmtNum = (n) => new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(n || 0);
+    const fmtNum = (n) => new Intl.NumberFormat('en-CA', { maximumFractionDigits: 0 }).format(n || 0);
     
     // ── Page Navigation ───────────────────────────────────
     function showPage(pageId) {
@@ -4348,6 +4348,15 @@
           <div class="result-card" style="border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.05);">
             <p style="color: var(--brand-danger); font-weight: 600;">⚠️ Discount rate must be higher than terminal growth rate</p>
           </div>`;
+        return;
+      }
+      if (fcf <= 0) {
+        document.getElementById('dcf-results').innerHTML = `
+          <div class="result-card" style="border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.05);">
+            <p style="color: var(--brand-danger); font-weight: 600;">⚠️ Enter a positive Free Cash Flow to calculate valuation</p>
+          </div>`;
+        document.getElementById('dcf-sensitivity').innerHTML = '';
+        document.getElementById('dcf-chart').innerHTML = '';
         return;
       }
       
@@ -4647,15 +4656,31 @@
       const downPayment = price * downPct;
       const principal = price - downPayment;
       
+      if (price <= 0 || rate <= 0) {
+        document.getElementById('mortgage-results').innerHTML = '<div class="result-card"><p style="color: var(--text-muted);">Enter a home price and interest rate to calculate.</p></div>';
+        return;
+      }
+      
       // Update down payment help
       document.getElementById('mort-down-help').textContent = `Down payment: ${fmtFull(downPayment)}`;
       
       // CMHC Insurance (if down < 20%)
+      // CMHC does not insure homes over $1,000,000 — 20% min down required
       let cmhcPremium = 0;
-      if (downPct < 0.20) {
+      let cmhcWarning = '';
+      if (downPct < 0.20 && price <= 1000000) {
+        // For homes $500K-$1M: min 5% on first $500K + 10% on remainder
+        if (price > 500000) {
+          const minDown = 500000 * 0.05 + (price - 500000) * 0.10;
+          if (downPayment < minDown - 0.01) {
+            cmhcWarning = `⚠️ Minimum down payment for homes $500K–$1M is ${fmtFull(minDown)} (5% on first $500K + 10% on remainder).`;
+          }
+        }
         if (downPct >= 0.15) cmhcPremium = principal * 0.028;
         else if (downPct >= 0.10) cmhcPremium = principal * 0.031;
         else cmhcPremium = principal * 0.04;
+      } else if (downPct < 0.20 && price > 1000000) {
+        cmhcWarning = '⚠️ CMHC mortgage insurance is not available for homes over $1,000,000. Minimum 20% down payment required.';
       }
       
       const totalMortgage = principal + cmhcPremium;
@@ -4689,8 +4714,23 @@
       } else if (province === 'BC') {
         if (price <= 200000) ltt = price * 0.01;
         else if (price <= 2000000) ltt = 2000 + (price - 200000) * 0.02;
-        else ltt = 38000 + (price - 2000000) * 0.03;
+        else if (price <= 3000000) ltt = 38000 + (price - 2000000) * 0.03;
+        else ltt = 68000 + (price - 3000000) * 0.05;
+      } else if (province === 'QC') {
+        // Quebec welcome tax (droits de mutation)
+        if (price <= 58900) ltt = price * 0.005;
+        else if (price <= 294500) ltt = 294.50 + (price - 58900) * 0.01;
+        else if (price <= 500000) ltt = 2650.50 + (price - 294500) * 0.015;
+        else if (price <= 1000000) ltt = 5733.00 + (price - 500000) * 0.02;
+        else ltt = 15733.00 + (price - 1000000) * 0.025;
+      } else if (province === 'MB') {
+        if (price <= 30000) ltt = 0;
+        else if (price <= 90000) ltt = (price - 30000) * 0.005;
+        else if (price <= 150000) ltt = 300 + (price - 90000) * 0.01;
+        else if (price <= 200000) ltt = 900 + (price - 150000) * 0.015;
+        else ltt = 1650 + (price - 200000) * 0.02;
       }
+      // AB, SK, NB, NL, PE, NS: no provincial land transfer tax (or minimal)
       
       const freqLabel = { 12: 'Monthly', 26: 'Bi-Weekly', 52: 'Weekly', 24: 'Semi-Monthly' }[freq];
       
@@ -4714,6 +4754,12 @@
         <div class="glass-card" style="padding: var(--space-lg); border-color: rgba(245, 158, 11, 0.3);">
           <div style="font-size: 0.75rem; font-weight: 700; color: var(--brand-warning); margin-bottom: 0.375rem;">⚠️ CMHC INSURANCE REQUIRED</div>
           <div style="font-size: 0.85rem; color: var(--text-secondary);">Down payment is less than 20%. CMHC premium of <span class="mono" style="font-weight: 700;">${fmtFull(cmhcPremium)}</span> added to mortgage.</div>
+          ${cmhcWarning ? `<div style="font-size: 0.8rem; color: var(--brand-warning); margin-top: 0.5rem;">${cmhcWarning}</div>` : ''}
+        </div>
+        ` : ''}
+        ${cmhcWarning && cmhcPremium === 0 ? `
+        <div class="glass-card" style="padding: var(--space-lg); border-color: rgba(239, 68, 68, 0.3);">
+          <div style="font-size: 0.85rem; color: var(--brand-danger); font-weight: 600;">${cmhcWarning}</div>
         </div>
         ` : ''}
         
@@ -5339,14 +5385,17 @@
         return tax;
       };
       
-      // Provincial tax (simplified — Ontario)
+      // Provincial tax brackets (2025 approximations)
+      const provBrackets = {
+        'ON': [[51446, 0.0505], [51446, 0.0915], [47046, 0.1116], [100000, 0.1216], [Infinity, 0.1316]],
+        'BC': [[47937, 0.0506], [47937, 0.077], [13554, 0.105], [24517, 0.1229], [47937, 0.147], [Infinity, 0.168]],
+        'AB': [[148269, 0.10], [29654, 0.12], [59308, 0.13], [118616, 0.14], [Infinity, 0.15]],
+        'QC': [[51780, 0.14], [51780, 0.19], [21480, 0.24], [Infinity, 0.2575]]
+      };
       const provTax = (inc) => {
-        if (province !== 'ON' || inc <= 0) return inc * 0.05; // Simplified for non-ON
-        let tax = 0;
-        const brackets = [
-          [51446, 0.0505], [51446, 0.0915], [47046, 0.1116], [100000, 0.1216], [Infinity, 0.1316]
-        ];
-        let remaining = inc;
+        if (inc <= 0) return 0;
+        const brackets = provBrackets[province] || provBrackets['ON'];
+        let tax = 0, remaining = inc;
         for (const [limit, rate] of brackets) {
           const taxable = Math.min(remaining, limit);
           tax += taxable * rate;
@@ -5391,6 +5440,12 @@
       
       const winner = rrspRefundAfterTax > tfsaBalance ? 'RRSP' : 'TFSA';
       const advantage = Math.abs(rrspRefundAfterTax - tfsaBalance);
+      
+      // Contribution limit warnings
+      const rrspLimit = Math.min(income * 0.18, 31560); // 2024 limit
+      const tfsaLimit = 7000; // 2024 annual limit
+      const contribWarning = contribution > rrspLimit ? `⚠️ RRSP limit is ${fmtFull(rrspLimit)} (18% of income or $31,560 max). ` : '';
+      const tfsaWarning = contribution > tfsaLimit ? `⚠️ TFSA annual limit is ${fmtFull(tfsaLimit)}. Excess may incur 1%/month penalty.` : '';
       
       document.getElementById('retirement-results').innerHTML = `
         <div class="gradient-border-card">
@@ -5439,8 +5494,48 @@
           <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem; padding: 0.75rem; background: rgba(99,102,241,0.05); border-radius: var(--radius-sm);">
             💡 <strong>Rule of thumb:</strong> RRSP wins when your current tax rate is higher than your expected retirement tax rate. TFSA wins when rates are the same or lower now.
           </div>
+          ${contribWarning || tfsaWarning ? `<div style="font-size: 0.75rem; color: var(--brand-warning); margin-top: 0.75rem; padding: 0.75rem; background: rgba(245,158,11,0.08); border-radius: var(--radius-sm);">${contribWarning}${tfsaWarning}</div>` : ''}
         </div>
       `;
+      
+      // Growth comparison chart
+      let rrspYearly = [], tfsaYearly = [], rrspBal = 0, tfsaBal = 0;
+      for (let y = 1; y <= years; y++) {
+        rrspBal = (rrspBal + rrspWithRefund) * (1 + annualReturn);
+        tfsaBal = (tfsaBal + tfsaNet) * (1 + annualReturn);
+        if (y % Math.max(1, Math.floor(years / 15)) === 0 || y === years) {
+          rrspYearly.push({ year: y, rrsp: rrspBal * (1 - retireMarginal), tfsa: tfsaBal });
+        }
+      }
+      const chartData = rrspYearly.map(d => ({ label: 'Y' + d.year, bottom: Math.min(d.rrsp, d.tfsa), top: Math.max(d.rrsp, d.tfsa) }));
+      if (chartData.length > 0 && typeof renderAreaChart === 'function') {
+        renderAreaChart('retirement-chart', chartData, {
+          bottomColor: winner === 'RRSP' ? '#06b6d4' : '#6366f1',
+          topColor: winner === 'RRSP' ? '#6366f1' : '#06b6d4',
+          bottomLabel: winner === 'RRSP' ? 'TFSA' : 'RRSP (After Tax)',
+          topLabel: winner === 'RRSP' ? 'RRSP (After Tax)' : 'TFSA'
+        });
+      } else {
+        const maxRetVal = Math.max(rrspRefundAfterTax, tfsaBalance);
+        document.getElementById('retirement-chart').innerHTML = `
+          <div style="font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem;">📊 Growth Over ${years} Years</div>
+          <div style="display: flex; align-items: flex-end; gap: 1rem; height: 180px;">
+            ${rrspYearly.map(d => `
+              <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                <div style="display: flex; gap: 2px; align-items: flex-end; width: 100%; justify-content: center;">
+                  <div style="width: 45%; height: ${(d.rrsp / maxRetVal * 150)}px; background: var(--brand-primary); border-radius: 3px 3px 0 0; min-height: 4px;" title="RRSP: ${fmtFull(d.rrsp)}"></div>
+                  <div style="width: 45%; height: ${(d.tfsa / maxRetVal * 150)}px; background: var(--brand-accent); border-radius: 3px 3px 0 0; min-height: 4px;" title="TFSA: ${fmtFull(d.tfsa)}"></div>
+                </div>
+                <span style="font-size: 0.65rem; color: var(--text-muted);">Y${d.year}</span>
+              </div>
+            `).join('')}
+          </div>
+          <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 0.75rem; font-size: 0.75rem;">
+            <span><span style="display:inline-block;width:10px;height:10px;background:var(--brand-primary);border-radius:2px;"></span> RRSP (After Tax)</span>
+            <span><span style="display:inline-block;width:10px;height:10px;background:var(--brand-accent);border-radius:2px;"></span> TFSA</span>
+          </div>
+        `;
+      }
     }
     
     // ═══════════════════════════════════════════════════════
@@ -5451,11 +5546,15 @@
       const monthly = parseFloat(document.getElementById('comp-monthly').value) || 0;
       const rate = (parseFloat(document.getElementById('comp-rate').value) || 0) / 100;
       const years = parseInt(document.getElementById('comp-years').value) || 1;
-      const freq = parseInt(document.getElementById('comp-freq').value) || 1;
+      const freq = parseInt(document.getElementById('comp-freq').value) || 12;
       
-      const periodicRate = rate / freq;
-      const totalPeriods = years * freq;
-      const monthlyPeriods = freq / 12;
+      if (rate < 0 || years < 1) return;
+      
+      // Effective monthly rate based on compounding frequency
+      // For freq compoundings/year: effective annual = (1 + r/freq)^freq
+      // Then convert to monthly: (1 + effectiveAnnual)^(1/12) - 1
+      const effectiveAnnual = Math.pow(1 + rate / freq, freq) - 1;
+      const monthlyRate = Math.pow(1 + effectiveAnnual, 1 / 12) - 1;
       
       // Calculate with contributions
       let balance = initial;
@@ -5463,8 +5562,6 @@
       let yearlyData = [];
       
       for (let month = 1; month <= years * 12; month++) {
-        // Apply interest for the month
-        const monthlyRate = Math.pow(1 + rate, 1 / 12) - 1;
         balance = balance * (1 + monthlyRate) + monthly;
         totalContributed += monthly;
         
@@ -5478,8 +5575,8 @@
         }
       }
       
-      // Without contributions (initial only)
-      const withoutContrib = initial * Math.pow(1 + rate, years);
+      // Without contributions (initial only, using selected compounding)
+      const withoutContrib = initial * Math.pow(1 + effectiveAnnual, years);
       
       const totalInterest = balance - totalContributed;
       const effectiveRate = (Math.pow(balance / totalContributed, 1 / years) - 1) * 100;
@@ -5787,6 +5884,13 @@
       const debtCost = v('ma-debt-cost') / 100, taxRate = v('ma-tax') / 100;
       const revSyn = v('ma-rev-syn'), costSyn = v('ma-cost-syn');
 
+      if (acqEPS <= 0 || acqPrice <= 0 || tgtEPS <= 0 || tgtPrice <= 0) {
+        document.getElementById('ma-results').innerHTML = '<div class="result-card"><p style="color: var(--text-muted);">Enter positive values for EPS and share prices to analyze the deal.</p></div>';
+        document.getElementById('ma-sensitivity').innerHTML = '';
+        document.getElementById('ma-sources-uses').innerHTML = '';
+        return;
+      }
+
       // Core calcs
       const offerPrice = tgtPrice * (1 + premium);
       const dealValue = offerPrice * tgtShares; // in $M
@@ -5884,7 +5988,7 @@
       su += `<tr><td>New Debt</td><td class="mono">${fmtM(newDebt)}</td></tr>`;
       su += `<tr><td>Stock Issued</td><td class="mono">${fmtM(stockIssued)}</td></tr>`;
       su += `<tr><td>Cash on Hand</td><td class="mono">${fmtM(cashOnHand)}</td></tr>`;
-      su += `<tr style="border-top:2px solid rgba(255,255,255,0.1);"><td style="font-weight:700;">Total Sources</td><td class="mono" style="font-weight:700;">${fmtM(newDebt + stockIssued + cashOnHand)}</td></tr>`;
+      su += `<tr style="border-top:2px solid rgba(255,255,255,0.1);"><td style="font-weight:700;">Total Sources</td><td class="mono" style="font-weight:700;">${fmtM(dealValue + txnFees)}</td></tr>`;
       su += '</tbody></table></div>';
       su += '<div><table class="sensitivity-table"><thead><tr><th colspan="2">Uses</th></tr></thead><tbody>';
       su += `<tr><td>Purchase Price</td><td class="mono">${fmtM(dealValue)}</td></tr>`;
@@ -6486,8 +6590,26 @@
         tax += taxable * rate;
         prev = limit;
       }
-      const takeHome = taxableIncome - tax + annualEquity + benefits; // simplified
-      const effTaxRate = taxableIncome > 0 ? (tax / taxableIncome) * 100 : 0;
+
+      // CPP contributions (2025 rates)
+      const cppExemption = 3500;
+      const cppMax1 = 68500; // YMPE
+      const cppRate1 = 0.0595;
+      const cppMax2 = 73200; // YAMPE (CPP2)
+      const cppRate2 = 0.04;
+      const cpp1 = Math.max(0, Math.min(taxableIncome, cppMax1) - cppExemption) * cppRate1;
+      const cpp2 = taxableIncome > cppMax1 ? Math.max(0, Math.min(taxableIncome, cppMax2) - cppMax1) * cppRate2 : 0;
+      const totalCPP = Math.min(cpp1, 3867.50) + Math.min(cpp2, 188);
+
+      // EI contributions (2025 rates)
+      const eiMax = 65700;
+      const eiRate = province === 'QC' ? 0.01312 : 0.01660; // Quebec has lower EI
+      const totalEI = Math.min(taxableIncome * eiRate, province === 'QC' ? 862.62 : 1077.48);
+
+      // QPP for Quebec (replaces CPP with slightly different rates)
+      const totalDeductions = tax + totalCPP + totalEI;
+      const takeHome = taxableIncome - totalDeductions + annualEquity + benefits;
+      const effTaxRate = taxableIncome > 0 ? (totalDeductions / taxableIncome) * 100 : 0;
       const hourly = totalComp / 2080;
 
       document.getElementById('sal-total-comp').textContent = fmtFull(totalComp);
