@@ -3398,7 +3398,7 @@
       </div>
 
       <!-- Results -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 2rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
         <div class="result-card" style="text-align: center;">
           <div class="result-label">Total Assets</div>
           <div class="result-value" id="nw-total-assets" style="font-size: 1.5rem; color: var(--brand-success); -webkit-text-fill-color: var(--brand-success);">$0</div>
@@ -3422,7 +3422,7 @@
       </div>
 
       <!-- Pie Chart + Snapshot -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
         <!-- Asset Allocation Pie -->
         <div class="chart-container">
           <h3 style="font-size: 0.95rem; margin-bottom: 1rem;">🥧 Asset Allocation</h3>
@@ -3587,7 +3587,7 @@
   <!-- ═══════════════════════════════════════════════════════
        SALARY & COMPENSATION ANALYZER
        ═══════════════════════════════════════════════════════ -->
-  <div class="page" id="page-salary">
+  <div class="page" id="page-salary" role="region" aria-label="Salary & Compensation Analyzer">
     <div class="calc-container" style="padding-top: 6rem; max-width: 1000px;">
       <div class="calc-back" onclick="showPage('home')" role="button" tabindex="0" aria-label="Back to Tools">← Back to Tools</div>
 
@@ -3666,7 +3666,7 @@
       </div>
 
       <!-- Results -->
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
         <div class="result-card" style="text-align: center;">
           <div class="result-label">Total Compensation</div>
           <div class="result-value" id="sal-total-comp" style="font-size: 1.5rem;">$0</div>
@@ -3674,14 +3674,16 @@
         <div class="result-card" style="text-align: center;">
           <div class="result-label">After-Tax Take-Home</div>
           <div class="result-value" id="sal-take-home" style="font-size: 1.5rem; color: var(--brand-success); -webkit-text-fill-color: var(--brand-success);">$0</div>
+          <div class="input-help">After income tax, CPP &amp; EI</div>
         </div>
         <div class="result-card" style="text-align: center;">
-          <div class="result-label">Effective Tax Rate</div>
+          <div class="result-label">Effective Deduction Rate</div>
           <div class="result-value" id="sal-eff-tax" style="font-size: 1.5rem;">0%</div>
+          <div class="input-help">Includes tax, CPP &amp; EI</div>
         </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
         <div class="result-card" style="text-align: center;">
           <div class="result-label">Hourly Rate Equivalent</div>
           <div class="result-value" id="sal-hourly" style="font-size: 1.5rem;">$0</div>
@@ -3698,8 +3700,19 @@
         </div>
       </div>
 
+      <!-- Deduction Breakdown -->
+      <div class="glass-card" style="padding: var(--space-lg); margin-top: 1rem;">
+        <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;">🍁 Canadian Deductions Breakdown</div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; font-size: 0.85rem;" id="sal-deductions">
+          <div style="text-align: center;"><div style="font-size: 0.72rem; color: var(--text-muted);">Income Tax</div><div class="mono" style="font-weight: 700;" id="sal-income-tax">$0</div></div>
+          <div style="text-align: center;"><div style="font-size: 0.72rem; color: var(--text-muted);">CPP</div><div class="mono" style="font-weight: 700;" id="sal-cpp">$0</div></div>
+          <div style="text-align: center;"><div style="font-size: 0.72rem; color: var(--text-muted);">EI</div><div class="mono" style="font-weight: 700;" id="sal-ei">$0</div></div>
+          <div style="text-align: center;"><div style="font-size: 0.72rem; color: var(--text-muted);">Total Deductions</div><div class="mono" style="font-weight: 700; color: var(--brand-danger);" id="sal-total-ded">$0</div></div>
+        </div>
+      </div>
+
       <!-- Comparison + Pie -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
         <div class="chart-container">
           <h3 style="font-size: 0.95rem; margin-bottom: 1rem;">🥧 Compensation Breakdown</h3>
           <div style="display: flex; align-items: center; gap: 1.5rem;">
@@ -3718,7 +3731,7 @@
   <!-- ═══════════════════════════════════════════════════════
        DEBT PAYOFF CALCULATOR
        ═══════════════════════════════════════════════════════ -->
-  <div class="page" id="page-debt">
+  <div class="page" id="page-debt" role="region" aria-label="Debt Payoff Calculator">
     <div class="calc-container" style="padding-top: 6rem; max-width: 1000px;">
       <div class="calc-back" onclick="showPage('home')" role="button" tabindex="0" aria-label="Back to Tools">← Back to Tools</div>
 
@@ -3775,7 +3788,7 @@
       </div>
 
       <!-- Results -->
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 2rem;">
         <div class="result-card" style="text-align: center;">
           <div class="result-label">Total Interest Paid</div>
           <div class="result-value" id="debt-total-interest" style="font-size: 1.5rem; color: var(--brand-danger); -webkit-text-fill-color: var(--brand-danger);">$0</div>
@@ -3790,10 +3803,11 @@
         </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
         <div class="result-card" style="text-align: center;">
           <div class="result-label">Savings vs Minimum Only</div>
           <div class="result-value" id="debt-savings" style="font-size: 1.5rem; color: var(--brand-success); -webkit-text-fill-color: var(--brand-success);">$0</div>
+          <div class="input-help">Interest saved with extra payments</div>
         </div>
         <div class="result-card" style="text-align: center; padding: var(--space-xl);">
           <div class="result-label" style="font-size: 1rem;">🎯 Debt-Free Countdown</div>
@@ -3885,7 +3899,7 @@
         </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;" id="currency-results">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;" id="currency-results">
         <div class="result-card" style="text-align: center;">
           <div class="result-label">🇺🇸 US Dollar (USD)</div>
           <div class="result-value" id="cur-usd" style="font-size: 1.4rem;">$0</div>
@@ -3906,14 +3920,19 @@
           <div class="result-value" id="cur-inr" style="font-size: 1.4rem;">₹0</div>
           <div style="font-size: 0.75rem; color: var(--text-secondary);">1 CAD = 62.50 INR</div>
         </div>
-        <div class="result-card" style="text-align: center; grid-column: 1 / -1;">
+        <div class="result-card" style="text-align: center;">
           <div class="result-label">🇯🇵 Japanese Yen (JPY)</div>
           <div class="result-value" id="cur-jpy" style="font-size: 1.4rem;">¥0</div>
           <div style="font-size: 0.75rem; color: var(--text-secondary);">1 CAD = 111.11 JPY</div>
         </div>
+        <div class="result-card" style="text-align: center;">
+          <div class="result-label">🇦🇺 Australian Dollar (AUD)</div>
+          <div class="result-value" id="cur-aud" style="font-size: 1.4rem;">A$0</div>
+          <div style="font-size: 0.75rem; color: var(--text-secondary);">1 CAD = 1.1236 AUD</div>
+        </div>
       </div>
 
-      <p style="text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 1.5rem;">⚠️ Rates are approximate and for reference only. Based on: USD 1.36, EUR 1.47, GBP 1.72, INR 0.016, JPY 0.009 per CAD.</p>
+      <p style="text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 1.5rem;">⚠️ Rates are approximate and for reference only. Check a live source for current rates.</p>
     </div>
   </div>
 
@@ -5648,9 +5667,10 @@
       if (compCompare && (rateB > 0 || monthlyB > 0)) {
         let balB = initial, contribB = initial;
         let yearlyB = [];
+        const effectiveAnnualB = Math.pow(1 + rateB / freq, freq) - 1;
+        const monthlyRateB = Math.pow(1 + effectiveAnnualB, 1/12) - 1;
         for (let m = 1; m <= years * 12; m++) {
-          const mr = Math.pow(1 + rateB, 1/12) - 1;
-          balB = balB * (1 + mr) + monthlyB;
+          balB = balB * (1 + monthlyRateB) + monthlyB;
           contribB += monthlyB;
           if (m % 12 === 0) yearlyB.push({ year: m/12, balance: balB, contributed: contribB });
         }
@@ -6615,9 +6635,15 @@
       document.getElementById('sal-total-comp').textContent = fmtFull(totalComp);
       document.getElementById('sal-take-home').textContent = fmtFull(takeHome);
       document.getElementById('sal-eff-tax').textContent = fmtPct(effTaxRate);
-      document.getElementById('sal-hourly').textContent = fmtFull(hourly);
+      document.getElementById('sal-hourly').textContent = '$' + hourly.toFixed(2);
       document.getElementById('sal-equity-val').textContent = fmtFull(annualEquity);
       document.getElementById('sal-bonus-val').textContent = fmtFull(bonus);
+
+      // Deduction breakdown
+      document.getElementById('sal-income-tax').textContent = fmtFull(tax);
+      document.getElementById('sal-cpp').textContent = fmtFull(totalCPP);
+      document.getElementById('sal-ei').textContent = fmtFull(totalEI);
+      document.getElementById('sal-total-ded').textContent = fmtFull(totalDeductions);
 
       // Pie chart
       const parts = [
@@ -6764,6 +6790,21 @@
     function calculateDebt() {
       const debts = getDebts();
       if (debts.length === 0) return;
+
+      // Warn if any minimum payment doesn't cover monthly interest
+      const warnings = debts.filter(d => d.minPayment < d.balance * (d.rate / 100 / 12));
+      const warnEl = document.getElementById('debt-warnings');
+      if (warnings.length > 0 && !document.getElementById('debt-warnings')) {
+        const wDiv = document.createElement('div');
+        wDiv.id = 'debt-warnings';
+        wDiv.style.cssText = 'margin-top:0.75rem;padding:0.75rem;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:var(--radius-sm);font-size:0.8rem;color:var(--brand-danger);';
+        wDiv.innerHTML = '⚠️ <strong>' + warnings.map(w => w.name).join(', ') + '</strong>: minimum payment doesn\'t cover monthly interest — balance will grow!';
+        document.querySelector('#debt-rows').parentElement.appendChild(wDiv);
+      } else if (warnEl && warnings.length === 0) {
+        warnEl.remove();
+      } else if (warnEl && warnings.length > 0) {
+        warnEl.innerHTML = '⚠️ <strong>' + warnings.map(w => w.name).join(', ') + '</strong>: minimum payment doesn\'t cover monthly interest — balance will grow!';
+      }
 
       const extra = parseFloat(document.getElementById('debt-extra').value) || 0;
       const result = simulatePayoff(debts, extra, debtStrategy);
@@ -7134,11 +7175,11 @@ td:last-child{font-weight:600;text-align:right;color:#1a1a2e;font-variant-numeri
       var aPrice = parseFloat(document.getElementById('cmp-a-price').value) || 0;
       var aRate = parseFloat(document.getElementById('cmp-a-rate').value) || 0;
       var aAmort = parseInt(document.getElementById('cmp-a-amort').value) || 25;
-      var aDown = parseFloat(document.getElementById('cmp-a-down').value) || 0;
-      var bPrice = parseFloat(document.getElementById('cmp-b-price').value) || 0;
-      var bRate = parseFloat(document.getElementById('cmp-b-rate').value) || 0;
-      var bAmort = parseInt(document.getElementById('cmp-b-amort').value) || 25;
-      var bDown = parseFloat(document.getElementById('cmp-b-down').value) || 0;
+      var aDown = Math.min(100, Math.max(0, parseFloat(document.getElementById('cmp-a-down').value) || 0));
+      var bPrice = Math.max(0, parseFloat(document.getElementById('cmp-b-price').value) || 0);
+      var bRate = Math.max(0, parseFloat(document.getElementById('cmp-b-rate').value) || 0);
+      var bAmort = Math.max(1, parseInt(document.getElementById('cmp-b-amort').value) || 25);
+      var bDown = Math.min(100, Math.max(0, parseFloat(document.getElementById('cmp-b-down').value) || 0));
 
       var aPrincipal = aPrice * (1 - aDown / 100);
       var bPrincipal = bPrice * (1 - bDown / 100);
@@ -7155,32 +7196,41 @@ td:last-child{font-weight:600;text-align:right;color:#1a1a2e;font-variant-numeri
       var diff = Math.abs(a.totalCost - b.totalCost);
       var verdict = '';
       if (a.totalCost < b.totalCost) {
-        verdict = '🅰️ Scenario A saves you ' + fmtFull(diff) + ' in total cost over its term!';
+        verdict = '🅰️ Scenario A saves you <strong>' + fmtFull(diff) + '</strong> in total cost!';
       } else if (b.totalCost < a.totalCost) {
-        verdict = '🅱️ Scenario B saves you ' + fmtFull(diff) + ' in total cost over its term!';
+        verdict = '🅱️ Scenario B saves you <strong>' + fmtFull(diff) + '</strong> in total cost!';
       } else {
         verdict = 'Both scenarios have the same total cost.';
       }
       var pmtDiff = Math.abs(a.payment - b.payment);
-      verdict += '\nMonthly payment difference: ' + fmtFull(pmtDiff);
-      document.getElementById('cmp-verdict').innerHTML = verdict.replace(/\n/g, '<br>');
+      verdict += '<br><span style="font-size:0.9rem;">Monthly payment difference: ' + fmtFull(pmtDiff) + '</span>';
+      // CMHC warning
+      if (aDown < 20) verdict += '<br><span style="font-size:0.8rem;color:var(--brand-warning);">⚠️ Scenario A requires CMHC insurance (down payment &lt; 20%)</span>';
+      if (bDown < 20) verdict += '<br><span style="font-size:0.8rem;color:var(--brand-warning);">⚠️ Scenario B requires CMHC insurance (down payment &lt; 20%)</span>';
+      document.getElementById('cmp-verdict').innerHTML = verdict;
     }
 
     // ── Currency Converter ───────────────────────────────
     function convertCurrency() {
       incrementCalcCounter();
       var cad = parseFloat(document.getElementById('currency-amount').value) || 0;
+      if (cad < 0) cad = 0;
       // Rates: how many foreign units per 1 CAD (derived from "how many CAD per 1 foreign")
       var usd = cad / 1.36;
       var eur = cad / 1.47;
       var gbp = cad / 1.72;
       var inr = cad / 0.016;
       var jpy = cad / 0.009;
-      document.getElementById('cur-usd').textContent = '$' + usd.toFixed(2);
-      document.getElementById('cur-eur').textContent = '€' + eur.toFixed(2);
-      document.getElementById('cur-gbp').textContent = '£' + gbp.toFixed(2);
-      document.getElementById('cur-inr').textContent = '₹' + Math.round(inr).toLocaleString();
-      document.getElementById('cur-jpy').textContent = '¥' + Math.round(jpy).toLocaleString();
+      function fmtCur(symbol, val, decimals) {
+        return symbol + val.toLocaleString('en-CA', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+      }
+      document.getElementById('cur-usd').textContent = fmtCur('$', usd, 2);
+      document.getElementById('cur-eur').textContent = fmtCur('€', eur, 2);
+      document.getElementById('cur-gbp').textContent = fmtCur('£', gbp, 2);
+      document.getElementById('cur-inr').textContent = fmtCur('₹', inr, 0);
+      document.getElementById('cur-jpy').textContent = fmtCur('¥', jpy, 0);
+      var aud = cad * 1.1236;
+      document.getElementById('cur-aud').textContent = fmtCur('A$', aud, 2);
     }
 
     // ── Rule of 72 ──────────────────────────────────────
@@ -7192,6 +7242,10 @@ td:last-child{font-weight:600;text-align:right;color:#1a1a2e;font-variant-numeri
           document.getElementById('r72-rate-result').textContent = '≈ ' + years.toFixed(1) + ' years to double';
           document.getElementById('r72-years').value = years.toFixed(1);
           document.getElementById('r72-years-result').textContent = '≈ ' + rate.toFixed(1) + '% rate needed';
+        } else {
+          document.getElementById('r72-rate-result').textContent = 'Enter a rate above 0%';
+          document.getElementById('r72-rate-result').style.color = 'var(--text-muted)';
+          return;
         }
       } else {
         var years = parseFloat(document.getElementById('r72-years').value) || 0;
@@ -7200,21 +7254,33 @@ td:last-child{font-weight:600;text-align:right;color:#1a1a2e;font-variant-numeri
           document.getElementById('r72-years-result').textContent = '≈ ' + rate.toFixed(1) + '% rate needed';
           document.getElementById('r72-rate').value = rate.toFixed(1);
           document.getElementById('r72-rate-result').textContent = '≈ ' + years.toFixed(1) + ' years to double';
+        } else {
+          document.getElementById('r72-years-result').textContent = 'Enter a time above 0 years';
+          document.getElementById('r72-years-result').style.color = 'var(--text-muted)';
+          return;
         }
       }
+      // Reset colors after valid input
+      document.getElementById('r72-rate-result').style.color = 'var(--brand-primary)';
+      document.getElementById('r72-years-result').style.color = 'var(--brand-primary)';
     }
 
     // ── Lease vs Buy Calculator ──────────────────────────
     function calculateLeaseBuy() {
-      var price = parseFloat(document.getElementById('lb-price').value) || 0;
-      var leasePayment = parseFloat(document.getElementById('lb-lease-payment').value) || 0;
-      var leaseTerm = parseInt(document.getElementById('lb-lease-term').value) || 48;
-      var residual = parseFloat(document.getElementById('lb-residual').value) || 0;
-      var buyRate = (parseFloat(document.getElementById('lb-buy-rate').value) || 0) / 100 / 12;
-      var buyTerm = parseInt(document.getElementById('lb-buy-term').value) || 60;
-      var down = parseFloat(document.getElementById('lb-down').value) || 0;
+      var price = Math.max(0, parseFloat(document.getElementById('lb-price').value) || 0);
+      var leasePayment = Math.max(0, parseFloat(document.getElementById('lb-lease-payment').value) || 0);
+      var leaseTerm = Math.max(1, parseInt(document.getElementById('lb-lease-term').value) || 48);
+      var residual = Math.max(0, parseFloat(document.getElementById('lb-residual').value) || 0);
+      var buyRate = Math.max(0, (parseFloat(document.getElementById('lb-buy-rate').value) || 0)) / 100 / 12;
+      var buyTerm = Math.max(1, parseInt(document.getElementById('lb-buy-term').value) || 60);
+      var down = Math.max(0, parseFloat(document.getElementById('lb-down').value) || 0);
       var insDiff = parseFloat(document.getElementById('lb-insurance-diff').value) || 0;
       var maintDiff = parseFloat(document.getElementById('lb-maint-diff').value) || 0;
+      if (price === 0 && leasePayment === 0) {
+        document.getElementById('lease-buy-results').innerHTML = '<div class="glass-card" style="padding:var(--space-lg);text-align:center;color:var(--text-secondary);">Enter vehicle price and lease details to compare.</div>';
+        document.getElementById('lease-buy-chart').innerHTML = '';
+        return;
+      }
 
       // Total lease cost
       var totalLease = leasePayment * leaseTerm;
@@ -7310,12 +7376,18 @@ td:last-child{font-weight:600;text-align:right;color:#1a1a2e;font-variant-numeri
     // ── Canadian Tax Estimator ──────────────────────────
     function calculateTax() {
       var province = document.getElementById('tax-province').value;
-      var employment = parseFloat(document.getElementById('tax-employment').value) || 0;
-      var selfEmp = parseFloat(document.getElementById('tax-self').value) || 0;
-      var capGains = parseFloat(document.getElementById('tax-capgains').value) || 0;
-      var dividends = parseFloat(document.getElementById('tax-dividends').value) || 0;
-      var rrsp = parseFloat(document.getElementById('tax-rrsp').value) || 0;
-      var otherDed = parseFloat(document.getElementById('tax-other-ded').value) || 0;
+      var employment = Math.max(0, parseFloat(document.getElementById('tax-employment').value) || 0);
+      var selfEmp = Math.max(0, parseFloat(document.getElementById('tax-self').value) || 0);
+      var capGains = Math.max(0, parseFloat(document.getElementById('tax-capgains').value) || 0);
+      var dividends = Math.max(0, parseFloat(document.getElementById('tax-dividends').value) || 0);
+      var rrsp = Math.max(0, parseFloat(document.getElementById('tax-rrsp').value) || 0);
+      var otherDed = Math.max(0, parseFloat(document.getElementById('tax-other-ded').value) || 0);
+      if (employment === 0 && selfEmp === 0 && capGains === 0 && dividends === 0) {
+        document.getElementById('tax-results').innerHTML = '<div class="glass-card" style="padding:var(--space-lg);text-align:center;color:var(--text-secondary);">Enter your income to estimate taxes.</div>';
+        document.getElementById('tax-chart').innerHTML = '';
+        var pc = document.getElementById('tax-province-compare'); if (pc) pc.innerHTML = '';
+        return;
+      }
 
       // Gross income
       var grossIncome = employment + selfEmp + capGains * 0.5 + dividends * 1.38; // gross-up dividends
@@ -7324,7 +7396,7 @@ td:last-child{font-weight:600;text-align:right;color:#1a1a2e;font-variant-numeri
 
       // 2025 Federal brackets
       var fedBrackets = [
-        [57375, 0.15], [57375, 0.205], [63088, 0.26], [75368, 0.29], [Infinity, 0.33]
+        [57375, 0.15], [57375, 0.205], [43718, 0.26], [61532, 0.29], [Infinity, 0.33]
       ];
       var fedBasic = 16129; // basic personal amount
       var fedTax = calcBracketTax(taxableIncome, fedBrackets) - fedBasic * 0.15;
@@ -7472,19 +7544,19 @@ td:last-child{font-weight:600;text-align:right;color:#1a1a2e;font-variant-numeri
 
     function getProvBrackets(prov) {
       var b = {
-        'ON': [[52886,0.0505],[52878,0.0915],[150000-52886-52878,0.1116],[70000,0.1216],[Infinity,0.1316]],
-        'BC': [[47937,0.0506],[47937,0.077],[13622,0.105],[23144,0.1229],[48889,0.147],[67969,0.168],[Infinity,0.205]],
-        'AB': [[148269,0.10],[27631,0.12],[55263,0.13],[105263,0.14],[Infinity,0.15]],
-        'QC': [[51780,0.14],[51780,0.19],[22440,0.24],[Infinity,0.2575]]
+        'ON': [[52886,0.0505],[52889,0.0915],[44225,0.1116],[70000,0.1216],[Infinity,0.1316]],
+        'BC': [[47937,0.0506],[47938,0.077],[14201,0.105],[23588,0.1229],[47568,0.147],[71520,0.168],[Infinity,0.205]],
+        'AB': [[148269,0.10],[29653,0.12],[59308,0.13],[118615,0.14],[Infinity,0.15]],
+        'QC': [[51780,0.14],[51765,0.19],[22455,0.24],[Infinity,0.2575]]
       };
       // Simplified flat-ish brackets for other provinces
       var simple = {
-        'MB': [[47000,0.108],[47000,0.1275],[Infinity,0.174]],
-        'SK': [[52057,0.105],[96569-52057,0.125],[Infinity,0.145]],
+        'MB': [[47000,0.108],[53000,0.1275],[Infinity,0.174]],
+        'SK': [[52057,0.105],[96677,0.125],[Infinity,0.145]],
         'NS': [[29590,0.0879],[29590,0.1495],[33820,0.1667],[57000,0.175],[Infinity,0.21]],
-        'NB': [[49958,0.094],[49958,0.14],[31802,0.16],[44088,0.195],[Infinity,0.203]],
-        'NL': [[43198,0.087],[43198,0.145],[68134-43198,0.158],[86254-68134,0.178],[Infinity,0.218]],
-        'PE': [[32656,0.098],[32656,0.138],[Infinity,0.167]]
+        'NB': [[49958,0.094],[49958,0.14],[85148,0.16],[64936,0.195],[Infinity,0.203]],
+        'NL': [[43198,0.087],[43197,0.145],[67849,0.158],[61699,0.178],[59927,0.198],[Infinity,0.218]],
+        'PE': [[32656,0.0965],[31657,0.1363],[40687,0.1665],[35000,0.18],[Infinity,0.1875]]
       };
       return b[prov] || simple[prov] || [[Infinity, 0.12]];
     }
