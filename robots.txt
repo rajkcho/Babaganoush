@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://figgybank.ca/sitemap.xml
