@@ -3,47 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CalcStack | The Financial Toolkit That Actually Gets It Done</title>
-  <meta name="description" content="Free premium financial calculators — business valuation, M&A analysis, Canadian mortgage, investment returns, RRSP/TFSA optimizer, tax estimator. Smart money decisions start here." />
+  <title>FiggyBank | Smart Money Moves Made Simple</title>
+  <meta name="description" content="Free financial calculators for Canadians — mortgage, business valuation, tax estimator, M&A analysis, RRSP/TFSA, and more. Smart money moves made simple." />
   <meta name="keywords" content="financial calculator, business valuation, DCF calculator, mortgage calculator Canada, M&A accretion dilution, RRSP TFSA, investment returns, compound interest" />
-  <meta property="og:title" content="CalcStack | The Financial Toolkit That Actually Gets It Done" />
-  <meta property="og:description" content="Free premium financial calculators — smart money decisions start here." />
+  <meta property="og:title" content="FiggyBank | Smart Money Moves Made Simple" />
+  <meta property="og:description" content="Free financial calculators for Canadians. Smart money moves made simple." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://rajkcho.github.io/CalcStack/" />
+  <meta property="og:url" content="https://rajkcho.github.io/FiggyBank/" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://rajkcho.github.io/CalcStack/" />
+  <link rel="canonical" href="https://rajkcho.github.io/FiggyBank/" />
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  
-  <!-- Google Analytics (uncomment and replace G-XXXXXXXXXX with your Measurement ID) -->
-  <!--
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-  -->
 
   <!-- PWA Manifest -->
   <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#6366f1" />
+  <meta name="theme-color" content="#2C087D" />
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧮</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐷</text></svg>" />
 
   <!-- Structured Data: WebApplication -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "CalcStack",
-    "description": "Free premium financial calculators — business valuation, M&A analysis, mortgage calculator, investment returns, RRSP/TFSA optimizer, compound interest, startup runway, net worth tracker.",
-    "url": "https://rajkcho.github.io/CalcStack/",
+    "name": "FiggyBank",
+    "description": "Free financial calculators for Canadians — business valuation, M&A analysis, mortgage, investment returns, RRSP/TFSA optimizer, tax estimator. Smart money moves made simple.",
+    "url": "https://rajkcho.github.io/FiggyBank/",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "Any",
     "offers": {
@@ -62,10 +51,10 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Is CalcStack free to use?",
+        "name": "Is FiggyBank free to use?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, all financial calculators on CalcStack are 100% free with no sign-up required."
+          "text": "Yes, all financial calculators on FiggyBank are 100% free with no sign-up required."
         }
       },
       {
@@ -81,7 +70,7 @@
         "name": "What calculators are available?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "CalcStack includes 8 professional-grade calculators: Business Valuation (DCF, Multiples, Asset-based), M&A Deal Analyzer, Canadian Mortgage Calculator, Investment Returns (CAGR & DCA), RRSP vs TFSA Optimizer, Compound Interest Visualizer, Startup Runway Calculator, and Net Worth Tracker."
+          "text": "FiggyBank includes 14+ professional-grade calculators: Business Valuation (DCF, Multiples, Asset-based), M&A Deal Analyzer, Canadian Mortgage Calculator, Investment Returns, RRSP vs TFSA Optimizer, Compound Interest, Startup Runway, Net Worth Tracker, Salary Calculator, Debt Payoff, Lease vs Buy, Tax Estimator, Currency Converter, and Side-by-Side Comparison."
         }
       },
       {
@@ -106,32 +95,44 @@
   
   <style>
     /* ══════════════════════════════════════════════════════════════
-       BABAGANOUSH — Premium Financial Tools
-       Design System & Core Styles
+       FIGGYBANK — Smart Money Moves Made Simple
+       CreditGenie-Inspired Design System
        ══════════════════════════════════════════════════════════════ */
     
     :root {
-      /* Brand Colors */
-      --brand-primary: #6366f1;
-      --brand-secondary: #8b5cf6;
-      --brand-accent: #06b6d4;
+      /* Brand Colors — CreditGenie-inspired */
+      --fg-purple: #2C087D;
+      --fg-purple-light: #4A1CA0;
+      --fg-coral: #FF6B6B;
+      --fg-gold: #F5A623;
+      --fg-cream: #FCFAF4;
+      --fg-green: #10b981;
+
+      --brand-primary: #2C087D;
+      --brand-secondary: #4A1CA0;
+      --brand-accent: #FF6B6B;
       --brand-success: #10b981;
       --brand-warning: #f59e0b;
       --brand-danger: #ef4444;
       
-      /* Dark Theme */
-      --bg-primary: #0f1117;
-      --bg-secondary: #161922;
-      --bg-card: #1a1d28;
-      --bg-card-hover: #222633;
-      --bg-elevated: #1e2230;
-      --border-primary: #262a3a;
-      --border-hover: #363c52;
-      --text-primary: #f4f4f8;
-      --text-secondary: #a0a6b8;
-      --text-muted: #6c7490;
-      --glass-bg: rgba(26, 29, 40, 0.75);
-      --glass-border: rgba(255, 255, 255, 0.08);
+      /* Light Theme (default — CreditGenie is light-first) */
+      --bg-primary: #FCFAF4;
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f9f8f5;
+      --bg-elevated: #f5f3ee;
+      --border-primary: #e8e4dc;
+      --border-hover: #d4cfc5;
+      --text-primary: #2C087D;
+      --text-secondary: #5a4d7a;
+      --text-muted: #9b8fb5;
+      --glass-bg: rgba(255, 255, 255, 0.85);
+      --glass-border: rgba(44, 8, 125, 0.08);
+      --shadow-sm: 0 1px 3px rgba(44, 8, 125, 0.04);
+      --shadow-md: 0 4px 16px rgba(44, 8, 125, 0.06);
+      --shadow-lg: 0 8px 32px rgba(44, 8, 125, 0.08);
+      --shadow-xl: 0 20px 60px rgba(44, 8, 125, 0.1);
+      --shadow-glow: 0 0 30px rgba(44, 8, 125, 0.06);
       
       /* Spacing */
       --space-xs: 0.25rem;
@@ -148,116 +149,27 @@
       --radius-lg: 1rem;
       --radius-xl: 1.5rem;
       --radius-full: 9999px;
-      
-      /* Shadows */
+    }
+    
+    /* Dark Theme */
+    .dark {
+      --bg-primary: #0f0a1a;
+      --bg-secondary: #16102a;
+      --bg-card: #1a1330;
+      --bg-card-hover: #221a3d;
+      --bg-elevated: #1e1635;
+      --border-primary: #2d2450;
+      --border-hover: #3d3466;
+      --text-primary: #f4f0ff;
+      --text-secondary: #b0a3cc;
+      --text-muted: #7a6b9e;
+      --glass-bg: rgba(26, 19, 48, 0.75);
+      --glass-border: rgba(255, 255, 255, 0.08);
       --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
       --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
       --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
       --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.6);
-      --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.15);
-      --shadow-glow-accent: 0 0 30px rgba(6, 182, 212, 0.15);
-    }
-    
-    /* Light Theme */
-    .light {
-      --bg-primary: #f8f9fc;
-      --bg-secondary: #ffffff;
-      --bg-card: #ffffff;
-      --bg-card-hover: #f5f6fa;
-      --bg-elevated: #f0f1f5;
-      --border-primary: #e2e4ec;
-      --border-hover: #c8ccd8;
-      --text-primary: #1a1d2e;
-      --text-secondary: #525872;
-      --text-muted: #8b90a5;
-      --glass-bg: rgba(255, 255, 255, 0.85);
-      --glass-border: rgba(99, 102, 241, 0.08);
-      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
-      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
-      --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.1);
-      --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.06);
-    }
-    
-    /* ── Light Mode Polish ─────────────────────────────── */
-    
-    /* 1. Tool Card Shadows */
-    .light .tool-card {
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-    .light .tool-card:hover {
-      box-shadow: 0 8px 24px rgba(99,102,241,0.08), var(--shadow-glow);
-    }
-    
-    /* 2. Nav Bar */
-    .light .nav-bar {
-      background: rgba(255, 255, 255, 0.88);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    }
-    .light .nav-bar.scrolled {
-      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
-    }
-    
-    /* 3. Hero Gradient Text */
-    .light .gradient-text {
-      background: linear-gradient(135deg, #4f46e5, #7c3aed, #0891b2);
-      -webkit-background-clip: text;
-      background-clip: text;
-    }
-    
-    /* 4. Button Refinement */
-    .light .btn-primary {
-      box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
-    }
-    .light .btn-primary:hover {
-      box-shadow: 0 8px 28px rgba(99, 102, 241, 0.4);
-    }
-    .light .btn-secondary {
-      background: rgba(255, 255, 255, 0.8);
-      border: 1px solid var(--border-hover);
-    }
-    .light .btn-secondary:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--brand-primary);
-    }
-    
-    /* 5. Result Cards */
-    .light .result-card {
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.04), rgba(139, 92, 246, 0.02));
-      border: 1px solid rgba(99, 102, 241, 0.12);
-      border-left: 4px solid var(--brand-primary);
-    }
-    
-    /* 6. Section Dividers */
-    .light .section + .section::before {
-      content: '';
-      display: block;
-      height: 1px;
-      max-width: 800px;
-      margin: 0 auto 3rem;
-      background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.15), transparent);
-    }
-    
-    /* 7. Footer Polish */
-    .light .footer {
-      border-top: 1px solid rgba(0, 0, 0, 0.06);
-      background: rgba(248, 249, 252, 0.6);
-    }
-    .footer-made {
-      margin-top: 1.5rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border-primary);
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-    
-    /* 8. Glass Card */
-    .light .glass-card {
-      background: rgba(238, 240, 255, 0.55);
-      border: 1px solid rgba(99, 102, 241, 0.08);
-    }
-    .light .glass-card:hover {
-      background: rgba(238, 240, 255, 0.7);
+      --shadow-glow: 0 0 30px rgba(44, 8, 125, 0.15);
     }
     
     /* ── Reset & Base ──────────────────────────────────── */
@@ -289,114 +201,152 @@
       font-weight: 700;
       line-height: 1.2;
       letter-spacing: -0.02em;
+      color: var(--fg-purple);
     }
+    .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 { color: var(--text-primary); }
     
     .mono { font-family: 'JetBrains Mono', monospace; }
     
     .gradient-text {
-      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary), var(--brand-accent));
+      background: linear-gradient(135deg, var(--fg-purple), var(--fg-coral));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
     
-    /* ── Animations ────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════
+       ANIMATION SYSTEM — CreditGenie-style
+       ══════════════════════════════════════════════════════ */
+    
+    /* Scroll-triggered fade up */
+    .js-show {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .js-show.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .js-show-up-10 { transition-delay: 0.1s; }
+    .js-show-up-20 { transition-delay: 0.2s; }
+    .js-show-up-30 { transition-delay: 0.3s; }
+    .js-show-up-40 { transition-delay: 0.4s; }
+    .js-show-up-50 { transition-delay: 0.5s; }
+    
+    /* Button hover — text slide */
+    .btn-animated {
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-animated .btn-text-wrap {
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+    .btn-animated:hover .btn-text-wrap {
+      transform: translateY(-100%);
+    }
+    .btn-animated .btn-initial,
+    .btn-animated .btn-hover {
+      display: block;
+      height: 100%;
+      line-height: 1;
+      padding: 0.25em 0;
+    }
+    
+    /* Parallax floating elements */
+    .float-element { animation: figgyFloat 6s ease-in-out infinite; }
+    .float-element-slow { animation: figgyFloat 8s ease-in-out infinite; }
+    .float-element-fast { animation: figgyFloat 4s ease-in-out infinite; }
+    @keyframes figgyFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    /* Rotating hero words */
+    .hero-word-rotator {
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      vertical-align: bottom;
+      height: 1.15em;
+    }
+    .hero-word-rotator span {
+      display: block;
+      animation: wordRotate 10s infinite;
+      color: var(--fg-coral);
+      -webkit-text-fill-color: var(--fg-coral);
+    }
+    @keyframes wordRotate {
+      0%, 18% { transform: translateY(0); opacity: 1; }
+      22%, 43% { transform: translateY(-100%); opacity: 1; }
+      47%, 68% { transform: translateY(-200%); opacity: 1; }
+      72%, 93% { transform: translateY(-300%); opacity: 1; }
+      97%, 100% { transform: translateY(-400%); opacity: 1; }
+    }
+
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    
     @keyframes slideInLeft {
       from { opacity: 0; transform: translateX(-30px); }
       to { opacity: 1; transform: translateX(0); }
     }
-    
     @keyframes slideInRight {
       from { opacity: 0; transform: translateX(30px); }
       to { opacity: 1; transform: translateX(0); }
     }
-    
     @keyframes scaleIn {
       from { opacity: 0; transform: scale(0.9); }
       to { opacity: 1; transform: scale(1); }
     }
-    
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
-    
     @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.1); }
-      50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.25); }
+      0%, 100% { box-shadow: 0 0 20px rgba(44, 8, 125, 0.1); }
+      50% { box-shadow: 0 0 40px rgba(44, 8, 125, 0.25); }
     }
-    
     @keyframes gradient-shift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-    
     @keyframes shimmer {
       0% { background-position: -200% 0; }
       100% { background-position: 200% 0; }
     }
-    
-    @keyframes orbit {
-      from { transform: rotate(0deg) translateX(60px) rotate(0deg); }
-      to { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
-    }
-    
-    @keyframes counter-orbit {
-      from { transform: rotate(0deg) translateX(40px) rotate(0deg); }
-      to { transform: rotate(-360deg) translateX(40px) rotate(360deg); }
-    }
-    
     @keyframes morphBlob {
       0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
       25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
       50% { border-radius: 50% 60% 30% 60% / 30% 70% 60% 40%; }
       75% { border-radius: 60% 30% 60% 40% / 60% 40% 30% 70%; }
     }
-    
-    @keyframes typewriter {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-    
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-    
-    @keyframes countUp {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
     @keyframes ripple {
       0% { transform: scale(0); opacity: 0.6; }
       100% { transform: scale(4); opacity: 0; }
     }
-    
-    @keyframes borderGlow {
-      0%, 100% { border-color: rgba(99, 102, 241, 0.2); }
-      50% { border-color: rgba(99, 102, 241, 0.5); }
-    }
-    
     @keyframes spin-slow {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
+    }
+    @keyframes coinBounce {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(10deg); }
     }
     
     .animate-fade-up { animation: fadeInUp 0.6s ease both; }
@@ -406,8 +356,6 @@
     .animate-fade-up-4 { animation: fadeInUp 0.6s ease 0.4s both; }
     .animate-fade-in { animation: fadeIn 0.6s ease both; }
     .animate-scale-in { animation: scaleIn 0.5s ease both; }
-    .animate-slide-left { animation: slideInLeft 0.6s ease both; }
-    .animate-slide-right { animation: slideInRight 0.6s ease both; }
     
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -419,92 +367,54 @@
     
     /* ── Glass Card ────────────────────────────────────── */
     .glass-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-xl);
       transition: all 0.3s ease;
     }
-    
     .glass-card:hover {
       border-color: var(--border-hover);
       box-shadow: var(--shadow-lg);
     }
-    
+
     /* ── Tool Card ──────────────────────────────────────── */
     .tool-card {
       background: var(--bg-card);
       border: 1px solid var(--border-primary);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
       cursor: pointer;
     }
-    
-    .tool-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: var(--radius-lg);
-      padding: 2px;
-      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary), var(--brand-accent));
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-    }
-    
     .tool-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      border-color: transparent;
-      box-shadow: var(--shadow-xl), 0 0 40px rgba(99, 102, 241, 0.15), 0 0 80px rgba(99, 102, 241, 0.05);
-      background: var(--bg-card-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(44, 8, 125, 0.2);
     }
-    
-    .tool-card:hover::before { opacity: 1; }
-    
     .tool-card .tool-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: var(--radius-md);
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-lg);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.75rem;
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
     }
-    
-    .tool-card:hover .tool-icon { 
-      transform: scale(1.15) rotate(-5deg); 
-      animation: iconBounce 0.5s ease;
-    }
-    
-    @keyframes iconBounce {
-      0% { transform: scale(1); }
-      40% { transform: scale(1.2) rotate(-8deg); }
-      60% { transform: scale(1.1) rotate(-3deg); }
-      100% { transform: scale(1.15) rotate(-5deg); }
-    }
-    
-    .tool-card .card-badge {
+    .tool-card:hover .tool-icon { transform: scale(1.1); }
+    .tool-card .card-arrow {
       position: absolute;
-      top: 0.75rem;
-      right: 0.75rem;
-      font-size: 0.6rem;
-      font-weight: 700;
-      padding: 0.2rem 0.5rem;
-      border-radius: var(--radius-full);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      transition: transform 0.3s ease, color 0.3s ease;
     }
-    .card-badge-new { background: var(--brand-success); color: white; }
-    .card-badge-popular { background: var(--brand-primary); color: white; }
-    .card-badge-quick { background: var(--brand-accent); color: white; }
+    .tool-card:hover .card-arrow { transform: translateY(-50%) translateX(4px); color: var(--fg-purple); }
     
     /* ── Button System ─────────────────────────────────── */
     .btn {
@@ -512,10 +422,10 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius-md);
+      padding: 0.875rem 1.75rem;
+      border-radius: var(--radius-full);
       font-weight: 600;
-      font-size: 0.875rem;
+      font-size: 0.9rem;
       border: none;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -523,28 +433,17 @@
       overflow: hidden;
       text-decoration: none;
     }
-    
-    .btn::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: white;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    
-    .btn:hover::after { opacity: 0.1; }
     .btn:active { transform: scale(0.97); }
     
     .btn-primary {
-      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+      background: var(--fg-purple);
       color: white;
-      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+      box-shadow: 0 4px 15px rgba(44, 8, 125, 0.25);
     }
-    
     .btn-primary:hover {
-      box-shadow: 0 6px 25px rgba(99, 102, 241, 0.4);
-      transform: translateY(-1px);
+      box-shadow: 0 6px 25px rgba(44, 8, 125, 0.35);
+      transform: translateY(-2px);
+      background: var(--fg-purple-light);
     }
     
     .btn-secondary {
@@ -552,20 +451,18 @@
       color: var(--text-primary);
       border: 1px solid var(--border-primary);
     }
-    
     .btn-secondary:hover {
       background: var(--bg-card-hover);
-      border-color: var(--border-hover);
+      border-color: var(--brand-primary);
     }
     
     .btn-ghost {
       background: transparent;
       color: var(--text-secondary);
     }
-    
     .btn-ghost:hover { color: var(--text-primary); }
     
-    .btn-lg { padding: 1rem 2rem; font-size: 1rem; border-radius: var(--radius-lg); }
+    .btn-lg { padding: 1rem 2.25rem; font-size: 1rem; }
     .btn-sm { padding: 0.5rem 1rem; font-size: 0.8rem; }
     
     /* ── Input System ──────────────────────────────────── */
@@ -574,7 +471,6 @@
       flex-direction: column;
       gap: 0.375rem;
     }
-    
     .input-group label {
       font-size: 0.8rem;
       font-weight: 600;
@@ -582,7 +478,6 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    
     .input-group input, .input-group select {
       background: var(--bg-secondary);
       border: 1px solid var(--border-primary);
@@ -594,15 +489,12 @@
       transition: all 0.3s ease;
       width: 100%;
     }
-    
     .input-group input:focus, .input-group select:focus {
       outline: none;
       border-color: var(--brand-primary);
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+      box-shadow: 0 0 0 3px rgba(44, 8, 125, 0.15);
     }
-    
     .input-group input::placeholder { color: var(--text-muted); }
-    
     .input-help {
       font-size: 0.72rem;
       color: var(--text-muted);
@@ -620,41 +512,35 @@
       outline: none;
       cursor: pointer;
     }
-    
     input[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none;
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
-      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+      background: var(--fg-purple);
+      box-shadow: 0 2px 8px rgba(44, 8, 125, 0.4);
       cursor: pointer;
       transition: transform 0.2s ease;
     }
-    
-    input[type="range"]::-webkit-slider-thumb:hover {
-      transform: scale(1.2);
-    }
+    input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
     
     /* ── Result Card ───────────────────────────────────── */
     .result-card {
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(139, 92, 246, 0.05));
-      border: 1px solid rgba(99, 102, 241, 0.2);
+      background: linear-gradient(135deg, rgba(44, 8, 125, 0.06), rgba(74, 28, 160, 0.03));
+      border: 1px solid rgba(44, 8, 125, 0.15);
       border-radius: var(--radius-lg);
       padding: var(--space-lg);
       animation: scaleIn 0.4s ease both;
     }
-    
     .result-value {
       font-family: 'JetBrains Mono', monospace;
       font-size: 2rem;
       font-weight: 700;
-      background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+      background: linear-gradient(135deg, var(--fg-purple), var(--fg-coral));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    
     .result-label {
       font-size: 0.8rem;
       color: var(--text-secondary);
@@ -670,27 +556,28 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: var(--glass-bg);
+      background: rgba(252, 250, 244, 0.92);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-bottom: 1px solid var(--glass-border);
+      border-bottom: 1px solid rgba(44, 8, 125, 0.06);
       padding: 0.75rem 1.5rem;
       transition: all 0.3s ease;
       animation: fadeInDown 0.6s ease both;
     }
-    
-    .nav-bar.scrolled {
-      box-shadow: var(--shadow-md);
+    .dark .nav-bar {
+      background: rgba(15, 10, 26, 0.92);
+      border-bottom-color: rgba(255,255,255,0.06);
     }
-    
+    .nav-bar.scrolled {
+      box-shadow: 0 1px 12px rgba(44, 8, 125, 0.06);
+    }
     .nav-inner {
-      max-width: 1280px;
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    
     .nav-logo {
       display: flex;
       align-items: center;
@@ -698,54 +585,37 @@
       text-decoration: none;
       font-weight: 800;
       font-size: 1.1rem;
-      color: var(--text-primary);
+      color: var(--fg-purple);
     }
-    
-    .nav-logo-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: var(--radius-sm);
-      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      color: white;
-      font-weight: 800;
-    }
-    
+    .dark .nav-logo { color: var(--text-primary); }
     .nav-links {
       display: flex;
       align-items: center;
       gap: 0.25rem;
       list-style: none;
     }
-    
     .nav-links a {
       padding: 0.5rem 0.75rem;
-      border-radius: var(--radius-sm);
+      border-radius: var(--radius-full);
       color: var(--text-secondary);
       text-decoration: none;
       font-size: 0.85rem;
       font-weight: 500;
       transition: all 0.3s ease;
     }
-    
     .nav-links a:hover, .nav-links a.active {
-      color: var(--text-primary);
-      background: rgba(99, 102, 241, 0.1);
+      color: var(--fg-purple);
+      background: rgba(44, 8, 125, 0.06);
     }
-    
     .nav-actions {
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
-    
     .theme-toggle {
       width: 40px;
       height: 40px;
-      border-radius: var(--radius-sm);
+      border-radius: var(--radius-full);
       border: 1px solid var(--border-primary);
       background: var(--bg-card);
       color: var(--text-secondary);
@@ -756,19 +626,16 @@
       font-size: 1.1rem;
       transition: all 0.3s ease;
     }
-    
     .theme-toggle:hover {
       background: var(--bg-card-hover);
       color: var(--text-primary);
       border-color: var(--border-hover);
     }
-    
-    /* Mobile nav */
     .mobile-menu-btn {
       display: none;
       width: 40px;
       height: 40px;
-      border-radius: var(--radius-sm);
+      border-radius: var(--radius-full);
       border: 1px solid var(--border-primary);
       background: var(--bg-card);
       color: var(--text-primary);
@@ -777,7 +644,6 @@
       justify-content: center;
       font-size: 1.2rem;
     }
-    
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .mobile-menu-btn { display: flex; }
@@ -798,280 +664,346 @@
         width: 100%;
       }
     }
+
+    /* ══ HOME PAGE SECTIONS ════════════════════════════════ */
     
-    /* ── Floating Particles ─────────────────────────────── */
-    .particles-container {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .particle {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.15;
-      animation: particleFloat linear infinite;
-    }
-    @keyframes particleFloat {
-      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-      10% { opacity: 0.15; }
-      90% { opacity: 0.15; }
-      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-    }
-
-    /* ── Animated SVG Decorations ──────────────────────── */
-    .hero-decoration {
-      position: absolute;
-      z-index: 0;
-      opacity: 0.08;
-      animation: float 6s ease-in-out infinite;
-    }
-    .hero-decoration:nth-child(2) { animation-delay: -2s; }
-    .hero-decoration:nth-child(3) { animation-delay: -4s; }
-
-    /* ── Animated Section Backgrounds ──────────────────── */
-    .section-gradient-bg {
-      position: relative;
-      overflow: hidden;
-    }
-    .section-gradient-bg::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(99,102,241,0.03), rgba(139,92,246,0.02), rgba(6,182,212,0.03));
-      background-size: 400% 400%;
-      animation: gradient-shift 15s ease infinite;
-      pointer-events: none;
-    }
-
-    /* ── Hero Section ──────────────────────────────────── */
-    .hero {
-      min-height: 60vh;
+    /* Hero */
+    .figgy-hero {
+      min-height: 90vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 5.5rem 2rem 2rem;
+      padding: 7rem 2rem 4rem;
       position: relative;
       overflow: hidden;
+      background: var(--bg-primary);
     }
-    
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-    
-    .hero-blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.12;
-    }
-    
-    .light .hero-blob {
-      opacity: 0.08;
-      filter: blur(100px);
-    }
-    
-    .hero-blob-1 {
-      width: 600px;
-      height: 600px;
-      background: var(--brand-primary);
-      top: -200px;
-      right: -100px;
-      animation: morphBlob 20s ease-in-out infinite;
-    }
-    
-    .hero-blob-2 {
-      width: 400px;
-      height: 400px;
-      background: var(--brand-accent);
-      bottom: -100px;
-      left: -50px;
-      animation: morphBlob 15s ease-in-out infinite reverse;
-    }
-    
-    .hero-blob-3 {
-      width: 300px;
-      height: 300px;
-      background: var(--brand-secondary);
-      top: 40%;
-      left: 50%;
-      animation: morphBlob 25s ease-in-out infinite 5s;
-    }
-    
-    /* Grid pattern */
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image: 
-        linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
-      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
-    }
-    
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-    }
-    
-    .hero-badge {
-      display: inline-flex;
+    .figgy-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      background: rgba(99, 102, 241, 0.1);
-      border: 1px solid rgba(99, 102, 241, 0.2);
-      border-radius: var(--radius-full);
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--brand-primary);
-      margin-bottom: 1.5rem;
-      animation: fadeInUp 0.6s ease both;
+      position: relative;
+      z-index: 2;
     }
-    
-    .hero-badge .pulse-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--brand-success);
-      animation: pulse-glow 2s ease-in-out infinite;
+    @media (max-width: 900px) {
+      .figgy-hero { min-height: auto; padding: 6rem 1.5rem 3rem; }
+      .figgy-hero-inner { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+      .figgy-hero-right { display: none; }
     }
-    
-    .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
+    .figgy-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
       font-weight: 900;
       letter-spacing: -0.03em;
-      margin-bottom: 1rem;
-      line-height: 1.05;
-      animation: fadeInUp 0.6s ease 0.1s both;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+      color: var(--fg-purple);
     }
-    
-    .hero p {
-      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+    .figgy-hero p {
+      font-size: 1.15rem;
       color: var(--text-secondary);
-      max-width: 560px;
-      margin: 0 auto 1.5rem;
-      line-height: 1.6;
-      animation: fadeInUp 0.6s ease 0.2s both;
+      margin-bottom: 2rem;
+      line-height: 1.7;
     }
     
-    .hero-cta {
+    /* Decorative floaters */
+    .hero-floater {
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    /* Calculator mockup */
+    .calc-mockup {
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+    }
+    .mockup-header {
+      padding: 0.75rem 1rem;
+      background: var(--bg-elevated);
       display: flex;
       align-items: center;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      animation: fadeInUp 0.6s ease 0.3s both;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border-primary);
+    }
+    .mockup-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .mockup-body {
+      padding: 1.5rem;
     }
     
-    .hero-stats {
-      display: flex;
-      gap: 2.5rem;
-      margin-top: 2.5rem;
-      animation: fadeInUp 0.6s ease 0.4s both;
-    }
+    /* Section alternating backgrounds */
+    .section-cream { background: var(--bg-primary); }
+    .section-white { background: var(--bg-secondary); }
     
-    .hero-stat {
-      text-align: center;
-    }
-    
-    .hero-stat-value {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-    
-    .hero-stat-label {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-top: 0.25rem;
-    }
-    
-    @media (max-width: 640px) {
-      .hero-stats { gap: 1.5rem; }
-      .hero-stat-value { font-size: 1.25rem; }
-    }
-    
-    /* ── Sections ──────────────────────────────────────── */
     .section {
-      padding: 2.5rem 2rem;
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-full {
+      padding: 5rem 2rem;
+    }
+    .section-full .section-inner {
       max-width: 1200px;
       margin: 0 auto;
     }
     
     .section-header {
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 3.5rem;
     }
-    
     .section-label {
       display: inline-flex;
       align-items: center;
-      gap: 0.375rem;
-      font-size: 0.75rem;
+      gap: 0.5rem;
+      font-size: 0.8rem;
       font-weight: 700;
-      color: var(--brand-primary);
+      color: var(--fg-coral);
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.75rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
     }
-    
-    .section-label .label-line {
-      width: 24px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
-      border-radius: 1px;
-    }
-    
     .section-title {
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-size: clamp(2rem, 4vw, 3rem);
       letter-spacing: -0.03em;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
+      color: var(--fg-purple);
     }
-    
+    .dark .section-title { color: var(--text-primary); }
     .section-desc {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       color: var(--text-secondary);
       max-width: 600px;
       margin: 0 auto;
     }
     
-    /* ── Tools Grid ────────────────────────────────────── */
+    /* Featured calculator sections — alternating */
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      padding: 3rem 0;
+    }
+    .feature-row.reverse { direction: rtl; }
+    .feature-row.reverse > * { direction: ltr; }
+    .feature-row h3 {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+      color: var(--fg-purple);
+    }
+    .dark .feature-row h3 { color: var(--text-primary); }
+    .feature-row p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .feature-bullets {
+      list-style: none;
+      padding: 0;
+    }
+    .feature-bullets li {
+      padding: 0.4rem 0;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .feature-bullets li::before {
+      content: '✓';
+      color: var(--fg-green);
+      font-weight: 700;
+    }
+    @media (max-width: 900px) {
+      .feature-row { grid-template-columns: 1fr; gap: 2rem; }
+      .feature-row.reverse { direction: ltr; }
+    }
+    
+    /* Tools grid */
     .tools-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
     }
-    
-    @media (max-width: 960px) {
-      .tools-grid { grid-template-columns: repeat(2, 1fr); }
+    .tools-category-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--fg-coral);
+      margin-bottom: 1rem;
+      margin-top: 2.5rem;
     }
-    @media (max-width: 640px) {
-      .tools-grid { grid-template-columns: 1fr; }
+    .tools-category-label:first-child { margin-top: 0; }
+    @media (max-width: 960px) { .tools-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .tools-grid { grid-template-columns: 1fr; } }
+    
+    /* How it works */
+    .hiw-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      position: relative;
+    }
+    .hiw-step {
+      text-align: center;
+      position: relative;
+    }
+    .hiw-number {
+      font-size: 4rem;
+      font-weight: 900;
+      color: rgba(44, 8, 125, 0.08);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .dark .hiw-number { color: rgba(255,255,255,0.06); }
+    .hiw-step h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .hiw-step p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    @media (max-width: 768px) {
+      .hiw-grid { grid-template-columns: 1fr; gap: 2rem; }
     }
     
-    /* ── Calculator Layout ─────────────────────────────── */
+    /* Trust cards */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .trust-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .trust-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .trust-card-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+    .trust-card h4 {
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+    .trust-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    @media (max-width: 960px) { .trust-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .trust-grid { grid-template-columns: 1fr; } }
+    
+    /* FAQ Accordion */
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .accordion-item {
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+      background: var(--bg-card);
+    }
+    .accordion-header {
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.3s ease;
+      color: var(--text-primary);
+    }
+    .accordion-header:hover { background: var(--bg-card-hover); }
+    .accordion-arrow {
+      transition: transform 0.3s ease;
+      color: var(--text-muted);
+      font-size: 1.2rem;
+    }
+    .accordion-item.open .accordion-arrow { transform: rotate(180deg); }
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .accordion-item.open .accordion-body { max-height: 2000px; }
+    .accordion-body-inner {
+      padding: 0 1.5rem 1.25rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+    
+    /* Footer */
+    .figgy-footer {
+      background: var(--fg-purple);
+      color: rgba(255,255,255,0.9);
+      padding: 4rem 2rem 2rem;
+      text-align: center;
+    }
+    .figgy-footer h2 {
+      color: white;
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      margin-bottom: 1.5rem;
+    }
+    .figgy-footer-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .figgy-footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.3s;
+    }
+    .figgy-footer-links a:hover { color: white; }
+    .figgy-footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 1.5rem;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ── Calculator Layout (for sub-pages) ─────────────── */
     .calc-container {
       max-width: 900px;
       margin: 0 auto;
       padding: 2rem 1.5rem;
     }
-    
     .calc-header {
       text-align: center;
       margin-bottom: 2rem;
     }
-    
     .calc-back {
       display: inline-flex;
       align-items: center;
@@ -1084,94 +1016,80 @@
       cursor: pointer;
       transition: color 0.3s ease;
     }
-    
     .calc-back:hover { color: var(--text-primary); }
-    
     .calc-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
     }
-    
     .calc-inputs {
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
-    
     .calc-results {
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
-    
     @media (max-width: 768px) {
       .calc-grid { grid-template-columns: 1fr; }
     }
     
-    /* ── Footer ────────────────────────────────────────── */
-    .footer {
-      border-top: 1px solid var(--border-primary);
-      padding: 3rem 1.5rem;
-      text-align: center;
+    /* ── Chart containers, tables, etc (from original) ── */
+    .chart-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin: 1rem 0;
     }
-    
-    .footer-content {
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-    
-    .footer-brand {
-      font-weight: 800;
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .footer-text {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      max-width: 500px;
-      margin: 0 auto 1.5rem;
-      line-height: 1.7;
-    }
-    
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    
-    .footer-links a {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    
-    .footer-links a:hover { color: var(--text-primary); text-decoration: underline; }
-    .light .footer-links a { color: var(--text-secondary); }
-    
-    /* ── Utility ───────────────────────────────────────── */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
+    .chart-bar {
+      height: 8px;
+      border-radius: 4px;
+      background: var(--border-primary);
       overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
+      margin: 0.5rem 0;
     }
-    
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
+    .chart-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+      background: linear-gradient(90deg, var(--fg-purple), var(--fg-coral));
     }
+    .sensitivity-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+    }
+    .sensitivity-table th {
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+      font-weight: 600;
+      padding: 0.625rem 0.75rem;
+      text-align: center;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border-primary);
+    }
+    .sensitivity-table th:first-child { border-radius: var(--radius-sm) 0 0 0; text-align: left; }
+    .sensitivity-table th:last-child { border-radius: 0 var(--radius-sm) 0 0; }
+    .sensitivity-table td {
+      padding: 0.5rem 0.75rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-primary);
+      transition: background 0.2s ease;
+    }
+    .sensitivity-table td:first-child { text-align: left; font-weight: 600; color: var(--text-secondary); }
+    .sensitivity-table tr:hover td { background: rgba(44, 8, 125, 0.05); }
+    .sensitivity-table .highlight { background: rgba(44, 8, 125, 0.1); font-weight: 700; color: var(--fg-purple); }
+    .sensitivity-table .positive-val { color: var(--brand-success); }
+    .sensitivity-table .negative-val { color: var(--brand-danger); }
     
-    /* ── Tab System ─────────────────────────────────────── */
+    /* Tabs */
     .tabs {
       display: flex;
       gap: 0.25rem;
@@ -1180,7 +1098,6 @@
       padding: 0.25rem;
       border: 1px solid var(--border-primary);
     }
-    
     .tab {
       padding: 0.5rem 1rem;
       border-radius: 0.375rem;
@@ -1194,16 +1111,14 @@
       flex: 1;
       text-align: center;
     }
-    
     .tab:hover { color: var(--text-primary); }
-    
     .tab.active {
-      background: var(--brand-primary);
+      background: var(--fg-purple);
       color: white;
-      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+      box-shadow: 0 2px 8px rgba(44, 8, 125, 0.3);
     }
     
-    /* ── Metric pill ───────────────────────────────────── */
+    /* Metric pill */
     .metric-pill {
       display: inline-flex;
       align-items: center;
@@ -1214,892 +1129,213 @@
       font-weight: 600;
       font-family: 'JetBrains Mono', monospace;
     }
+    .metric-pill.positive { background: rgba(16, 185, 129, 0.1); color: var(--brand-success); border: 1px solid rgba(16, 185, 129, 0.2); }
+    .metric-pill.negative { background: rgba(239, 68, 68, 0.1); color: var(--brand-danger); border: 1px solid rgba(239, 68, 68, 0.2); }
+    .metric-pill.neutral { background: rgba(44, 8, 125, 0.1); color: var(--fg-purple); border: 1px solid rgba(44, 8, 125, 0.2); }
     
-    .metric-pill.positive {
-      background: rgba(16, 185, 129, 0.1);
-      color: var(--brand-success);
-      border: 1px solid rgba(16, 185, 129, 0.2);
-    }
-    
-    .metric-pill.negative {
-      background: rgba(239, 68, 68, 0.1);
-      color: var(--brand-danger);
-      border: 1px solid rgba(239, 68, 68, 0.2);
-    }
-    
-    .metric-pill.neutral {
-      background: rgba(99, 102, 241, 0.1);
-      color: var(--brand-primary);
-      border: 1px solid rgba(99, 102, 241, 0.2);
-    }
-    
-    /* ── Divider ───────────────────────────────────────── */
     .divider {
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--border-primary), transparent);
       margin: 2rem 0;
     }
     
-    /* ── Tooltip ───────────────────────────────────────── */
-    .tooltip-wrapper {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-    
+    /* Tooltip */
+    .tooltip-wrapper { position: relative; display: inline-flex; align-items: center; gap: 0.25rem; }
     .tooltip-icon {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--border-primary);
-      color: var(--text-muted);
-      font-size: 0.6rem;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: help;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--border-primary); color: var(--text-muted);
+      font-size: 0.6rem; font-weight: 700;
+      display: inline-flex; align-items: center; justify-content: center; cursor: help;
     }
-    
-    .tooltip-wrapper:hover .tooltip-content {
-      opacity: 1;
-      visibility: visible;
-      transform: translateX(-50%) translateY(0);
-    }
-    
+    .tooltip-wrapper:hover .tooltip-content { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
     .tooltip-content {
-      position: absolute;
-      bottom: calc(100% + 8px);
-      left: 50%;
+      position: absolute; bottom: calc(100% + 8px); left: 50%;
       transform: translateX(-50%) translateY(5px);
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-primary);
-      border-radius: var(--radius-sm);
-      padding: 0.5rem 0.75rem;
-      font-size: 0.72rem;
-      color: var(--text-secondary);
-      white-space: nowrap;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.2s ease;
-      z-index: 10;
-      box-shadow: var(--shadow-lg);
-      max-width: 250px;
-      white-space: normal;
-    }
-    
-    /* ── Chart Container ───────────────────────────────── */
-    .chart-container {
-      background: var(--bg-card);
-      border: 1px solid var(--border-primary);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      margin: 1rem 0;
-    }
-    
-    .chart-bar {
-      height: 8px;
-      border-radius: 4px;
-      background: var(--border-primary);
-      overflow: hidden;
-      margin: 0.5rem 0;
-    }
-    
-    .chart-bar-fill {
-      height: 100%;
-      border-radius: 4px;
-      transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
-      background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
-    }
-    
-    /* ── Sensitivity Table ─────────────────────────────── */
-    .sensitivity-table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-    }
-    
-    .sensitivity-table th {
-      background: var(--bg-elevated);
-      color: var(--text-secondary);
-      font-weight: 600;
-      padding: 0.625rem 0.75rem;
-      text-align: center;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border-bottom: 1px solid var(--border-primary);
-    }
-    
-    .sensitivity-table th:first-child {
-      border-radius: var(--radius-sm) 0 0 0;
-      text-align: left;
-    }
-    
-    .sensitivity-table th:last-child {
-      border-radius: 0 var(--radius-sm) 0 0;
-    }
-    
-    .sensitivity-table td {
-      padding: 0.5rem 0.75rem;
-      text-align: center;
-      border-bottom: 1px solid var(--border-primary);
-      transition: background 0.2s ease;
-    }
-    
-    .sensitivity-table td:first-child {
-      text-align: left;
-      font-weight: 600;
-      color: var(--text-secondary);
-    }
-    
-    .sensitivity-table tr:hover td {
-      background: rgba(99, 102, 241, 0.05);
-    }
-    
-    .sensitivity-table .highlight {
-      background: rgba(99, 102, 241, 0.1);
-      font-weight: 700;
-      color: var(--brand-primary);
-    }
-    
-    .sensitivity-table .positive-val { color: var(--brand-success); }
-    .sensitivity-table .negative-val { color: var(--brand-danger); }
-    
-    /* ── Notification Toast ────────────────────────────── */
-    .toast {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      z-index: 200;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-primary);
-      border-radius: var(--radius-md);
-      padding: 1rem 1.5rem;
-      box-shadow: var(--shadow-xl);
-      animation: slideInRight 0.4s ease both;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.85rem;
-    }
-    
-    .toast.hidden { display: none; }
-    
-    /* ── Page transitions ──────────────────────────────── */
-    .page { display: none; }
-    .page.active { display: block; animation: fadeIn 0.4s ease both; }
-    
-    /* ── Intersection Observer reveals ─────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    /* ── Noise overlay ─────────────────────────────────── */
-    .noise::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      opacity: 0.015;
-      pointer-events: none;
-      z-index: 1000;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    }
-    
-    /* ── Gradient border card ──────────────────────────── */
-    .gradient-border-card {
-      position: relative;
-      border-radius: var(--radius-xl);
-      padding: 1px;
-      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary), var(--brand-accent));
-      background-size: 200% 200%;
-      animation: gradient-shift 6s ease infinite;
-    }
-    
-    .gradient-border-card-inner {
-      background: var(--bg-card);
-      border-radius: calc(var(--radius-xl) - 1px);
-      padding: var(--space-xl);
-    }
-    
-    /* ── Accordion ──────────────────────────────────────── */
-    .accordion-item {
-      border: 1px solid var(--border-primary);
-      border-radius: var(--radius-md);
-      margin-bottom: 0.5rem;
-      overflow: hidden;
-    }
-    
-    .accordion-header {
-      padding: 1rem 1.25rem;
-      background: var(--bg-card);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: background 0.3s ease;
-    }
-    
-    .accordion-header:hover { background: var(--bg-card-hover); }
-    
-    .accordion-arrow {
-      transition: transform 0.3s ease;
-      color: var(--text-muted);
-    }
-    
-    .accordion-item.open .accordion-arrow {
-      transform: rotate(180deg);
-    }
-    
-    .accordion-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-    }
-    
-    .accordion-item.open .accordion-body {
-      max-height: 2000px;
-    }
-    
-    .accordion-body-inner {
-      padding: 1rem 1.25rem;
-      border-top: 1px solid var(--border-primary);
-    }
-    
-    /* ── How It Works ──────────────────────────────────── */
-    .how-it-works-steps {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 0;
-      position: relative;
-      padding: 2rem 0;
-    }
-    .how-step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      flex: 1;
-      max-width: 260px;
-      position: relative;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .how-step.visible { opacity: 1; transform: translateY(0); }
-    .how-step:nth-child(2) { transition-delay: 0.15s; }
-    .how-step:nth-child(3) { transition-delay: 0.3s; }
-    .how-step-num {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
-      color: white; font-size: 1.5rem; font-weight: 800;
-      display: flex; align-items: center; justify-content: center;
-      position: relative; z-index: 2;
-      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
-    }
-    .how-step h3 { font-size: 1.05rem; margin: 1rem 0 0.5rem; }
-    .how-step p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
-    .how-connector {
-      position: absolute; top: 32px; left: calc(50% + 32px); right: calc(-50% + 32px);
-      height: 2px;
-      background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
-      opacity: 0.3; z-index: 1;
-    }
-    .how-step:last-child .how-connector { display: none; }
-    @media (max-width: 640px) {
-      .how-it-works-steps { flex-direction: column; align-items: center; gap: 2rem; }
-      .how-connector { display: none; }
+      background: var(--bg-elevated); border: 1px solid var(--border-primary);
+      border-radius: var(--radius-sm); padding: 0.5rem 0.75rem;
+      font-size: 0.72rem; color: var(--text-secondary);
+      opacity: 0; visibility: hidden; transition: all 0.2s ease; z-index: 10;
+      box-shadow: var(--shadow-lg); max-width: 250px; white-space: normal;
     }
 
-    /* ── Testimonials ──────────────────────────────────── */
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-    .testimonial-card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-xl);
-      padding: var(--space-xl);
-      transition: all 0.3s ease;
-    }
-    .testimonial-card:hover {
-      border-color: var(--border-hover);
-      box-shadow: var(--shadow-lg), var(--shadow-glow);
-      transform: translateY(-2px);
-    }
-    .testimonial-stars { color: #f59e0b; font-size: 0.9rem; margin-bottom: 0.75rem; }
-    .testimonial-quote { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem; font-style: italic; }
-    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
-    .testimonial-avatar {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
-      color: white; font-weight: 700; font-size: 0.8rem;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .testimonial-name { font-size: 0.85rem; font-weight: 600; }
-    .testimonial-role { font-size: 0.72rem; color: var(--text-muted); }
-
-    /* ── Newsletter ────────────────────────────────────── */
-    .newsletter-section {
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(139, 92, 246, 0.05));
-      border: 1px solid rgba(99, 102, 241, 0.15);
-      border-radius: var(--radius-xl);
-      padding: var(--space-3xl) var(--space-xl);
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto;
-    }
-    .newsletter-form {
-      display: flex; gap: 0.5rem; max-width: 420px; margin: 1.5rem auto 0;
-    }
-    .newsletter-form input {
-      flex: 1; padding: 0.75rem 1rem; border-radius: var(--radius-md);
-      border: 1px solid var(--border-primary); background: var(--bg-secondary);
-      color: var(--text-primary); font-size: 0.9rem; font-family: inherit;
-    }
-    .newsletter-form input:focus { outline: none; border-color: var(--brand-primary); box-shadow: 0 0 0 3px rgba(99,102,241,0.15); }
-    .newsletter-social-proof { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.75rem; }
-    @media (max-width: 480px) { .newsletter-form { flex-direction: column; } }
-
-    /* ── FAQ ────────────────────────────────────────────── */
-    .faq-list { max-width: 720px; margin: 0 auto; }
-
-    /* ── Cookie Banner ─────────────────────────────────── */
-    .cookie-banner {
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
-      background: var(--bg-elevated);
-      border-top: 1px solid var(--border-primary);
-      padding: 1rem 1.5rem;
-      display: flex; align-items: center; justify-content: center; gap: 1rem;
-      font-size: 0.85rem; color: var(--text-secondary);
-      animation: fadeInUp 0.4s ease both;
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
-    }
-    .cookie-banner.hidden { display: none; }
-    .cookie-banner-btns { display: flex; gap: 0.5rem; }
-    @media (max-width: 640px) {
-      .cookie-banner { flex-direction: column; text-align: center; gap: 0.75rem; }
-    }
-
-    /* ── Toast ──────────────────────────────────────────── */
-    .toast-success {
-      position: fixed; bottom: 2rem; right: 2rem; z-index: 400;
-      background: var(--bg-elevated); border: 1px solid rgba(16,185,129,0.3);
-      border-radius: var(--radius-md); padding: 1rem 1.5rem;
-      box-shadow: var(--shadow-xl); animation: slideInRight 0.4s ease both;
-      font-size: 0.85rem; color: var(--brand-success); display: flex; align-items: center; gap: 0.5rem;
-    }
-
-    /* ── SVG Donut Chart ────────────────────────────────── */
+    /* SVG Charts */
     .svg-donut-chart { position: relative; display: inline-block; }
     .svg-donut-chart svg { transform: rotate(-90deg); }
-    .svg-donut-segment {
-      fill: none;
-      stroke-width: 32;
-      transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1), stroke-width 0.2s ease, filter 0.2s ease;
-      cursor: pointer;
-    }
-    .svg-donut-segment:hover {
-      stroke-width: 38;
-      filter: drop-shadow(0 0 6px rgba(99,102,241,0.4));
-    }
+    .svg-donut-segment { fill: none; stroke-width: 32; transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1), stroke-width 0.2s ease, filter 0.2s ease; cursor: pointer; }
+    .svg-donut-segment:hover { stroke-width: 38; filter: drop-shadow(0 0 6px rgba(44,8,125,0.4)); }
     .svg-donut-segment.donut-init { stroke-dashoffset: var(--circumference) !important; }
-    .svg-donut-center {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      text-align: center; pointer-events: none;
-    }
+    .svg-donut-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; pointer-events: none; }
     .svg-donut-center .donut-hover-label { font-size: 0.7rem; color: var(--text-muted); }
     .svg-donut-center .donut-hover-value { font-size: 0.85rem; font-weight: 700; color: var(--text-primary); font-family: 'JetBrains Mono', monospace; }
-
-    /* ── SVG Area Chart ────────────────────────────────── */
     .svg-area-chart { width: 100%; overflow: visible; }
-    .svg-area-path {
-      opacity: 0;
-      transition: opacity 0.8s ease, d 0.6s ease;
-    }
+    .svg-area-path { opacity: 0; transition: opacity 0.8s ease, d 0.6s ease; }
     .svg-area-path.visible { opacity: 1; }
     .svg-area-gridline { stroke: var(--border-primary); stroke-width: 0.5; }
     .svg-area-label { font-size: 10px; fill: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
-
-    /* ── SVG Gauge Chart ───────────────────────────────── */
     .svg-gauge { display: inline-block; position: relative; }
     .svg-gauge svg { overflow: visible; }
     .svg-gauge-arc { fill: none; stroke-width: 14; stroke-linecap: round; }
-    .svg-gauge-needle {
-      fill: var(--text-primary);
-      transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
-      transform-origin: center center;
-    }
-    .svg-gauge-label {
-      position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
-      text-align: center; pointer-events: none;
-    }
+    .svg-gauge-needle { fill: var(--text-primary); transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: center center; }
+    .svg-gauge-label { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); text-align: center; pointer-events: none; }
     .svg-gauge-label .gauge-value { font-size: 1.1rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; color: var(--text-primary); }
     .svg-gauge-label .gauge-text { font-size: 0.65rem; color: var(--text-muted); }
-
-    /* ── Sparkline ─────────────────────────────────────── */
     .sparkline-inline { display: inline-block; vertical-align: middle; margin-left: 0.5rem; }
-    .sparkline-path {
-      fill: none;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
+    .sparkline-path { fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
     .sparkline-fill { opacity: 0.15; }
-
-    /* ── Chart Animation Classes ───────────────────────── */
-    .chart-animate-bar {
-      transform: scaleY(0);
-      transform-origin: bottom;
-      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    .chart-animate-bar { transform: scaleY(0); transform-origin: bottom; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
     .chart-animate-bar.visible { transform: scaleY(1); }
+    .progress-ring { transform: rotate(-90deg); }
+    .progress-ring-bg { stroke: var(--border-primary); fill: none; }
+    .progress-ring-fill { fill: none; stroke-linecap: round; transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1); }
 
-    /* ── Progress Ring ──────────────────────────────────── */
-    .progress-ring {
-      transform: rotate(-90deg);
-    }
-    
-    .progress-ring-bg {
-      stroke: var(--border-primary);
-      fill: none;
-    }
-    
-    .progress-ring-fill {
-      fill: none;
-      stroke-linecap: round;
-      transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* ── Scroll Progress Bar ──────────────────────────── */
+    /* Scroll progress */
     #scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 3px;
-      background: linear-gradient(90deg, var(--brand-primary), var(--brand-secondary), var(--brand-accent));
-      z-index: 9999;
-      transition: width 0.1s linear;
-      pointer-events: none;
+      position: fixed; top: 0; left: 0; width: 0%; height: 3px;
+      background: linear-gradient(90deg, var(--fg-purple), var(--fg-coral));
+      z-index: 9999; transition: width 0.1s linear; pointer-events: none;
     }
 
-    /* ── Input Ripple Effect ──────────────────────────── */
-    .input-group input,
-    .input-group select {
-      position: relative;
-    }
-    .input-group {
-      position: relative;
-    }
-    .input-group .input-ripple {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(99, 102, 241, 0.25);
-      transform: scale(0);
-      animation: ripple 0.6s ease-out forwards;
-      pointer-events: none;
-      z-index: 1;
-    }
+    /* Page transitions */
+    .page { display: none; }
+    .page.active { display: block; animation: fadeIn 0.4s ease both; }
+    .page.fade-out { animation: pageFadeOut 0.15s ease forwards; }
+    .page.fade-in { animation: pageFadeIn 0.25s ease forwards; }
+    @keyframes pageFadeOut { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-8px); } }
+    @keyframes pageFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* ── Page Fade Transitions ────────────────────────── */
-    .page.fade-out {
-      animation: pageFadeOut 0.15s ease forwards;
-    }
-    .page.fade-in {
-      animation: pageFadeIn 0.25s ease forwards;
-    }
-    @keyframes pageFadeOut {
-      from { opacity: 1; transform: translateY(0); }
-      to { opacity: 0; transform: translateY(-8px); }
-    }
-    @keyframes pageFadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── Loading Skeleton ─────────────────────────────── */
-    .skeleton-overlay {
-      position: absolute;
-      inset: 0;
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      z-index: 5;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      padding: var(--space-lg);
-    }
-    .skeleton-line {
-      height: 16px;
-      border-radius: 4px;
-      background: linear-gradient(90deg, var(--border-primary) 25%, var(--bg-elevated) 50%, var(--border-primary) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.5s ease infinite;
-    }
-    .skeleton-line.short { width: 60%; }
-    .skeleton-line.medium { width: 80%; }
-    .skeleton-line.tall { height: 48px; width: 50%; }
-
-    /* ── Chart Bar Tooltips ────────────────────────────── */
-    .chart-bar-tooltip {
-      position: relative;
-      cursor: pointer;
-    }
-    .chart-bar-tooltip::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: calc(100% + 6px);
-      left: 50%;
-      transform: translateX(-50%) scale(0.8);
-      background: var(--bg-elevated);
-      color: var(--text-primary);
-      border: 1px solid var(--border-primary);
-      border-radius: var(--radius-sm);
-      padding: 0.25rem 0.5rem;
-      font-size: 0.65rem;
-      font-family: 'JetBrains Mono', monospace;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.2s ease;
-      box-shadow: var(--shadow-md);
-      z-index: 10;
-    }
-    .chart-bar-tooltip:hover::after {
-      opacity: 1;
-      transform: translateX(-50%) scale(1);
-    }
-
-    /* ── Confetti Easter Egg ───────────────────────────── */
-    @keyframes confettiFall {
-      0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-    }
-    .confetti-container {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 10000;
-      overflow: hidden;
-    }
-    .confetti-piece {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      top: -10px;
-      animation: confettiFall 3s ease-in forwards;
-    }
-
-    /* Affiliate CTA banners */
-    .affiliate-cta {
-      margin-top: 1rem;
-      padding: 0.75rem 1rem;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-md);
-      backdrop-filter: blur(12px);
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-    .affiliate-cta .ad-label {
-      font-size: 0.6rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      border: 1px solid var(--border-primary);
-      padding: 0.1rem 0.35rem;
-      border-radius: 3px;
-      flex-shrink: 0;
-    }
-    .affiliate-cta a {
-      color: var(--brand-accent);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .affiliate-cta a:hover { text-decoration: underline; }
-
-    /* ── Print / PDF Export ─────────────────────────────── */
-    @media print {
-      body { background: white !important; color: black !important; font-size: 12pt; }
-      .nav-bar, .cookie-banner, .no-print, .footer, .btn, .action-buttons,
-      .theme-toggle, .mobile-menu-btn, .newsletter-section, .hero-cta { display: none !important; }
-      * { box-shadow: none !important; text-shadow: none !important; }
-      .page { display: block !important; }
-      .glass-card, .result-card, .tool-card { background: white !important; border: 1px solid #ddd !important; break-inside: avoid; }
-      .section, .calc-container { page-break-inside: avoid; }
-      h1, h2, h3 { page-break-after: avoid; color: #1a1a2e !important; -webkit-text-fill-color: #1a1a2e !important; }
-      .result-value { -webkit-text-fill-color: #333 !important; color: #333 !important; }
-      a { text-decoration: underline; color: #333 !important; }
-      @page { margin: 2cm; }
-      .page.active::before {
-        content: "CalcStack — The Financial Toolkit That Actually Gets It Done";
-        display: block; text-align: center; font-size: 14pt; font-weight: 700;
-        color: #6366f1; border-bottom: 2px solid #6366f1; padding-bottom: 0.5rem; margin-bottom: 1.5rem;
-      }
-    }
-    .action-buttons { display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap; }
-    .action-buttons .btn { font-size: 0.78rem; padding: 0.5rem 1rem; }
-
-    /* ── Accessibility ─────────────────────────────────── */
-    .skip-to-content {
-      position: absolute;
-      top: -100%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--brand-primary);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0 0 var(--radius-md) var(--radius-md);
-      z-index: 10000;
-      font-weight: 600;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: top 0.2s ease;
-    }
-    .skip-to-content:focus {
-      top: 0;
-    }
-
-    /* Focus-visible outlines for all interactive elements */
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    select:focus-visible,
-    [tabindex]:focus-visible {
-      outline: 2px solid var(--brand-primary);
+    /* Accessibility */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .skip-to-content { position: absolute; top: -100%; left: 50%; transform: translateX(-50%); background: var(--fg-purple); color: white; padding: 0.75rem 1.5rem; border-radius: 0 0 var(--radius-md) var(--radius-md); z-index: 10000; font-weight: 600; text-decoration: none; transition: top 0.2s ease; }
+    .skip-to-content:focus { top: 0; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, [tabindex]:focus-visible {
+      outline: 2px solid var(--fg-purple);
       outline-offset: 2px;
     }
 
-    /* ── Mobile Optimization ───────────────────────────── */
+    /* Shortcuts overlay */
+    .shortcuts-overlay { position: fixed; inset: 0; z-index: 10000; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; animation: fadeIn 0.2s ease; }
+    .shortcuts-overlay.hidden { display: none; }
+    .shortcuts-card { background: var(--bg-card); border: 1px solid var(--border-primary); border-radius: var(--radius-xl); padding: 2rem; max-width: 420px; width: 90%; box-shadow: var(--shadow-xl); }
+    .shortcuts-card h2 { font-size: 1.25rem; margin-bottom: 1.25rem; }
+    .shortcut-row { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border-primary); font-size: 0.85rem; }
+    .shortcut-row:last-child { border-bottom: none; }
+    .shortcut-key { display: inline-block; background: var(--bg-elevated); border: 1px solid var(--border-primary); border-radius: 4px; padding: 0.15rem 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 600; min-width: 28px; text-align: center; }
+
+    /* Toast */
+    .toast { position: fixed; bottom: 2rem; right: 2rem; z-index: 200; background: var(--bg-elevated); border: 1px solid var(--border-primary); border-radius: var(--radius-md); padding: 1rem 1.5rem; box-shadow: var(--shadow-xl); animation: slideInRight 0.4s ease both; display: flex; align-items: center; gap: 0.75rem; font-size: 0.85rem; }
+    .toast.hidden { display: none; }
+    .toast-success { position: fixed; bottom: 2rem; right: 2rem; z-index: 400; background: var(--bg-elevated); border: 1px solid rgba(16,185,129,0.3); border-radius: var(--radius-md); padding: 1rem 1.5rem; box-shadow: var(--shadow-xl); animation: slideInRight 0.4s ease both; font-size: 0.85rem; color: var(--brand-success); display: flex; align-items: center; gap: 0.5rem; }
+
+    /* Action buttons */
+    .action-buttons { display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap; }
+    .action-buttons .btn { font-size: 0.78rem; padding: 0.5rem 1rem; }
+
+    /* Affiliate CTA */
+    .affiliate-cta { margin-top: 1rem; padding: 0.75rem 1rem; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); font-size: 0.8rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .affiliate-cta .ad-label { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); border: 1px solid var(--border-primary); padding: 0.1rem 0.35rem; border-radius: 3px; flex-shrink: 0; }
+    .affiliate-cta a { color: var(--fg-coral); text-decoration: none; font-weight: 500; }
+    .affiliate-cta a:hover { text-decoration: underline; }
+
+    /* Confetti */
+    @keyframes confettiFall { 0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
+    .confetti-container { position: fixed; inset: 0; pointer-events: none; z-index: 10000; overflow: hidden; }
+    .confetti-piece { position: absolute; width: 8px; height: 8px; top: -10px; animation: confettiFall 3s ease-in forwards; }
+
+    /* Chart bar tooltip */
+    .chart-bar-tooltip { position: relative; cursor: pointer; }
+    .chart-bar-tooltip::after { content: attr(data-tooltip); position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%) scale(0.8); background: var(--bg-elevated); color: var(--text-primary); border: 1px solid var(--border-primary); border-radius: var(--radius-sm); padding: 0.25rem 0.5rem; font-size: 0.65rem; font-family: 'JetBrains Mono', monospace; white-space: nowrap; opacity: 0; pointer-events: none; transition: all 0.2s ease; box-shadow: var(--shadow-md); z-index: 10; }
+    .chart-bar-tooltip:hover::after { opacity: 1; transform: translateX(-50%) scale(1); }
+
+    /* Showcase cards (kept for compatibility) */
+    .showcase-scroll { overflow-x: auto; overflow-y: visible; padding: 1rem 0 1.5rem; margin: 0 -1.5rem; padding-left: 1.5rem; scrollbar-width: none; -ms-overflow-style: none; scroll-snap-type: x proximity; }
+    .showcase-scroll::-webkit-scrollbar { display: none; }
+    .showcase-track { display: flex; gap: 1.25rem; padding-right: 1.5rem; }
+    .showcase-card { flex: 0 0 260px; cursor: pointer; scroll-snap-align: start; }
+    .showcase-card-inner { position: relative; width: 100%; height: 100%; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-primary); background: var(--bg-card); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s ease, border-color 0.4s ease; }
+    .showcase-card:hover .showcase-card-inner { transform: scale(1.03); box-shadow: var(--shadow-lg); border-color: rgba(44,8,125,0.2); }
+    .sc-overlay { position: absolute; inset: 0; background: rgba(252,250,244,0.9); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; border-radius: var(--radius-lg); }
+    .dark .sc-overlay { background: rgba(15,10,26,0.85); }
+    .showcase-card:hover .sc-overlay { opacity: 1; }
+    .sc-overlay span { font-weight: 700; font-size: 1rem; color: white; background: var(--fg-purple); padding: 0.6rem 1.5rem; border-radius: var(--radius-full); }
+    .sc-mini-ui { height: 100%; display: flex; flex-direction: column; }
+    .sc-mini-header { padding: 0.65rem 0.85rem; font-size: 0.75rem; font-weight: 700; color: white; display: flex; align-items: center; gap: 0.4rem; }
+    .sc-mini-body { padding: 0.75rem 0.85rem; flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
+    .sc-mini-field { display: flex; justify-content: space-between; align-items: center; font-size: 0.68rem; }
+    .sc-label { color: var(--text-muted); }
+    .sc-value { font-family: 'JetBrains Mono', monospace; font-weight: 600; color: var(--text-primary); font-size: 0.7rem; }
+    .sc-mini-result { margin-top: auto; padding-top: 0.5rem; border-top: 1px solid var(--border-primary); display: flex; justify-content: space-between; align-items: center; }
+    .sc-result-label { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+    .sc-result-num { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 800; color: var(--text-primary); }
+    .sc-mini-bar { height: 4px; background: var(--border-primary); border-radius: 2px; overflow: hidden; margin-top: 0.4rem; }
+    .sc-bar-fill { height: 100%; border-radius: 2px; transition: width 1s ease; }
+
+    /* Cookie banner */
+    .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 300; background: var(--bg-elevated); border-top: 1px solid var(--border-primary); padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: center; gap: 1rem; font-size: 0.85rem; color: var(--text-secondary); animation: fadeInUp 0.4s ease both; box-shadow: 0 -4px 20px rgba(0,0,0,0.1); }
+    .cookie-banner.hidden { display: none; }
+    .cookie-banner-btns { display: flex; gap: 0.5rem; }
+    @media (max-width: 640px) { .cookie-banner { flex-direction: column; text-align: center; gap: 0.75rem; } }
+
+    /* Print */
+    @media print {
+      body { background: white !important; color: black !important; font-size: 12pt; }
+      .nav-bar, .cookie-banner, .no-print, .figgy-footer, .btn, .action-buttons, .theme-toggle, .mobile-menu-btn { display: none !important; }
+      * { box-shadow: none !important; text-shadow: none !important; }
+      .page { display: block !important; }
+      .glass-card, .result-card, .tool-card { background: white !important; border: 1px solid #ddd !important; break-inside: avoid; }
+      h1, h2, h3 { page-break-after: avoid; color: #1a1a2e !important; -webkit-text-fill-color: #1a1a2e !important; }
+      .result-value { -webkit-text-fill-color: #333 !important; color: #333 !important; }
+      @page { margin: 2cm; }
+      .page.active::before {
+        content: "FiggyBank — Smart Money Moves Made Simple";
+        display: block; text-align: center; font-size: 14pt; font-weight: 700;
+        color: #2C087D; border-bottom: 2px solid #2C087D; padding-bottom: 0.5rem; margin-bottom: 1.5rem;
+      }
+    }
+
+    /* Mobile */
     @media (max-width: 768px) {
-      .section { padding: 2rem 1rem; }
+      .section { padding: 3rem 1rem; }
+      .section-full { padding: 3rem 1rem; }
       .calc-container { padding: 1.5rem 1rem; }
       .glass-card { padding: var(--space-lg) !important; }
       .btn { width: 100%; }
-      .hero-cta .btn { width: auto; min-width: 140px; }
+      .figgy-hero .btn { width: auto; min-width: 140px; }
       .action-buttons .btn { flex: 1; min-width: 120px; }
-      .tools-grid { grid-template-columns: 1fr; }
+      .result-value { font-size: 1.5rem; }
       [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
       [style*="grid-template-columns: 1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
-      .testimonial-grid { grid-template-columns: 1fr; }
-      .result-value { font-size: 1.5rem; }
-      #page-networth [style*="grid-template-columns: 1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
-      #page-networth [style*="grid-template-columns: 1fr 1fr;"] { grid-template-columns: 1fr !important; }
-    }
-
-    /* Touch-friendly sliders (44px min touch target) */
-    input[type="range"] {
-      height: 8px;
-      padding: 18px 0;
-      margin: 0;
-      box-sizing: content-box;
-    }
-    input[type="range"]::-webkit-slider-thumb {
-      width: 28px;
-      height: 28px;
-    }
-    input[type="range"]::-moz-range-thumb {
-      width: 28px;
-      height: 28px;
-      border: none;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
-      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
-      cursor: pointer;
-    }
-
-    /* ── Performance: will-change on animated elements ── */
-    .hero-blob { will-change: transform; }
-    .tool-card { will-change: transform; }
-    .animate-fade-up, .animate-scale-in { will-change: transform, opacity; }
-
-    /* ── Keyboard Shortcuts Help Overlay ────────────────── */
-    .shortcuts-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: fadeIn 0.2s ease;
-    }
-    .shortcuts-overlay.hidden { display: none; }
-    .shortcuts-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-primary);
-      border-radius: var(--radius-xl);
-      padding: 2rem;
-      max-width: 420px;
-      width: 90%;
-      box-shadow: var(--shadow-xl);
-    }
-    .shortcuts-card h2 { font-size: 1.25rem; margin-bottom: 1.25rem; }
-    .shortcut-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--border-primary);
-      font-size: 0.85rem;
-    }
-    .shortcut-row:last-child { border-bottom: none; }
-    .shortcut-key {
-      display: inline-block;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-primary);
-      border-radius: 4px;
-      padding: 0.15rem 0.5rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      font-weight: 600;
-      min-width: 28px;
-      text-align: center;
-    }
-    /* ══ Showcase Carousel ══════════════════════════════ */
-    .showcase-scroll {
-      overflow-x: auto;
-      overflow-y: visible;
-      padding: 1rem 0 1.5rem;
-      margin: 0 -1.5rem;
-      padding-left: 1.5rem;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      scroll-snap-type: x proximity;
-    }
-    .showcase-scroll::-webkit-scrollbar { display: none; }
-    .showcase-track {
-      display: flex;
-      gap: 1.25rem;
-      padding-right: 1.5rem;
-    }
-    .showcase-card {
-      flex: 0 0 260px;
-      perspective: 800px;
-      cursor: pointer;
-      scroll-snap-align: start;
-    }
-    .showcase-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid var(--border-primary);
-      background: var(--bg-card);
-      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s ease, border-color 0.4s ease;
-      transform-style: preserve-3d;
-    }
-    .showcase-card:hover .showcase-card-inner {
-      transform: scale(1.05) rotateY(-3deg) rotateX(2deg);
-      box-shadow: var(--shadow-xl), 0 0 40px rgba(99,102,241,0.12);
-      border-color: rgba(99,102,241,0.3);
-    }
-    .sc-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(15,17,23,0.85);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      border-radius: var(--radius-lg);
-    }
-    .light .sc-overlay { background: rgba(255,255,255,0.85); }
-    .showcase-card:hover .sc-overlay { opacity: 1; }
-    .sc-overlay span {
-      font-weight: 700;
-      font-size: 1rem;
-      color: white;
-      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
-      padding: 0.6rem 1.5rem;
-      border-radius: var(--radius-md);
-    }
-    .light .sc-overlay span { color: white; }
-    .sc-mini-ui { height: 100%; display: flex; flex-direction: column; }
-    .sc-mini-header {
-      padding: 0.65rem 0.85rem;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: white;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .sc-mini-body {
-      padding: 0.75rem 0.85rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-    .sc-mini-field {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.68rem;
-    }
-    .sc-label { color: var(--text-muted); }
-    .sc-value { font-family: 'JetBrains Mono', monospace; font-weight: 600; color: var(--text-primary); font-size: 0.7rem; }
-    .sc-mini-result {
-      margin-top: auto;
-      padding-top: 0.5rem;
-      border-top: 1px solid var(--border-primary);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .sc-result-label { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
-    .sc-result-num { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 800; color: var(--text-primary); }
-    .sc-mini-bar {
-      height: 4px;
-      background: var(--border-primary);
-      border-radius: 2px;
-      overflow: hidden;
-      margin-top: 0.4rem;
-    }
-    .sc-bar-fill { height: 100%; border-radius: 2px; transition: width 1s ease; }
-
-    /* Feature grid responsive */
-    @media (max-width: 768px) {
       [style*="grid-template-columns:repeat(4"] { grid-template-columns: repeat(2, 1fr) !important; }
     }
     @media (max-width: 480px) {
       [style*="grid-template-columns:repeat(4"] { grid-template-columns: 1fr !important; }
-      .showcase-card { flex: 0 0 220px; }
     }
-
-    /* Nav logo SVG */
+    input[type="range"] { height: 8px; padding: 18px 0; margin: 0; box-sizing: content-box; }
+    input[type="range"]::-webkit-slider-thumb { width: 28px; height: 28px; }
+    input[type="range"]::-moz-range-thumb { width: 28px; height: 28px; border: none; border-radius: 50%; background: var(--fg-purple); box-shadow: 0 2px 8px rgba(44, 8, 125, 0.4); cursor: pointer; }
+    .hero-blob { will-change: transform; }
+    .tool-card { will-change: transform; }
     .nav-logo-svg { flex-shrink: 0; }
+
+    /* Skeleton */
+    .skeleton-overlay { position: absolute; inset: 0; background: var(--bg-card); border-radius: var(--radius-lg); z-index: 5; display: flex; flex-direction: column; gap: 0.75rem; padding: var(--space-lg); }
+    .skeleton-line { height: 16px; border-radius: 4px; background: linear-gradient(90deg, var(--border-primary) 25%, var(--bg-elevated) 50%, var(--border-primary) 75%); background-size: 200% 100%; animation: shimmer 1.5s ease infinite; }
+    .skeleton-line.short { width: 60%; }
+    .skeleton-line.medium { width: 80%; }
+    .skeleton-line.tall { height: 48px; width: 50%; }
+
+    /* Input ripple */
+    .input-group { position: relative; }
+    .input-group .input-ripple { position: absolute; border-radius: 50%; background: rgba(44, 8, 125, 0.25); transform: scale(0); animation: ripple 0.6s ease-out forwards; pointer-events: none; z-index: 1; }
+
+    /* Loading skeleton */
+    .skeleton-overlay { position: absolute; inset: 0; background: var(--bg-card); border-radius: var(--radius-lg); z-index: 5; display: flex; flex-direction: column; gap: 0.75rem; padding: var(--space-lg); }
   </style>
 </head>
-<body class="noise">
-  <!-- Skip to Content (Accessibility) -->
+<body>
   <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
   <!-- Keyboard Shortcuts Overlay -->
@@ -2108,49 +1344,64 @@
       <h2>⌨️ Keyboard Shortcuts</h2>
       <div class="shortcut-row"><span>Show this help</span><span class="shortcut-key">?</span></div>
       <div class="shortcut-row"><span>Business Valuation</span><span class="shortcut-key">1</span></div>
-      <div class="shortcut-row"><span>M&A Analyzer</span><span class="shortcut-key">2</span></div>
-      <div class="shortcut-row"><span>Mortgage Calculator</span><span class="shortcut-key">3</span></div>
-      <div class="shortcut-row"><span>Investment Returns</span><span class="shortcut-key">4</span></div>
-      <div class="shortcut-row"><span>RRSP vs TFSA</span><span class="shortcut-key">5</span></div>
-      <div class="shortcut-row"><span>Compound Interest</span><span class="shortcut-key">6</span></div>
+      <div class="shortcut-row"><span>Mortgage Calculator</span><span class="shortcut-key">2</span></div>
+      <div class="shortcut-row"><span>Investment Returns</span><span class="shortcut-key">3</span></div>
+      <div class="shortcut-row"><span>RRSP vs TFSA</span><span class="shortcut-key">4</span></div>
+      <div class="shortcut-row"><span>Compound Interest</span><span class="shortcut-key">5</span></div>
+      <div class="shortcut-row"><span>M&A Analyzer</span><span class="shortcut-key">6</span></div>
       <div class="shortcut-row"><span>Startup Runway</span><span class="shortcut-key">7</span></div>
-      <div class="shortcut-row"><span>Net Worth Tracker</span><span class="shortcut-key">8</span></div>
-      <div class="shortcut-row"><span>Lease vs Buy</span><span class="shortcut-key">9</span></div>
-      <div class="shortcut-row"><span>Tax Estimator</span><span class="shortcut-key">0</span></div>
-      <div class="shortcut-row"><span>Back to Home</span><span class="shortcut-key">Esc</span></div>
-      <div class="shortcut-row"><span>Toggle Dark/Light</span><span class="shortcut-key">D</span></div>
+      <div class="shortcut-row"><span>Net Worth</span><span class="shortcut-key">8</span></div>
+      <div class="shortcut-row"><span>Toggle Theme</span><span class="shortcut-key">T</span></div>
+      <div class="shortcut-row"><span>Home</span><span class="shortcut-key">H</span></div>
     </div>
   </div>
 
-  <!-- Scroll Progress Bar -->
   <div id="scroll-progress"></div>
 
-  <!-- Navigation -->
+  <!-- ══ NAVIGATION ══ -->
   <nav class="nav-bar" id="navbar">
     <div class="nav-inner">
       <a href="#" class="nav-logo" onclick="showPage('home'); return false;">
-        <svg class="nav-logo-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- FiggyBank Piggy Bank Logo SVG -->
+        <svg class="nav-logo-svg" width="36" height="36" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="32" cy="36" rx="22" ry="18" fill="#FF8A8A"/>
+          <ellipse cx="32" cy="36" rx="22" ry="18" fill="url(#piggyGrad)" opacity="0.5"/>
+          <!-- Ears -->
+          <ellipse cx="16" cy="22" rx="6" ry="7" fill="#FF8A8A" transform="rotate(-15 16 22)"/>
+          <ellipse cx="16" cy="22" rx="4" ry="5" fill="#FFB5B5" transform="rotate(-15 16 22)"/>
+          <ellipse cx="48" cy="22" rx="6" ry="7" fill="#FF8A8A" transform="rotate(15 48 22)"/>
+          <ellipse cx="48" cy="22" rx="4" ry="5" fill="#FFB5B5" transform="rotate(15 48 22)"/>
+          <!-- Coin slot -->
+          <rect x="26" y="19" width="12" height="3" rx="1.5" fill="#F5A623"/>
+          <rect x="27" y="20" width="10" height="1" rx="0.5" fill="#D4891A"/>
+          <!-- Snout -->
+          <ellipse cx="32" cy="40" rx="8" ry="6" fill="#FFB5B5"/>
+          <circle cx="29" cy="39.5" r="1.5" fill="#E88A8A"/>
+          <circle cx="35" cy="39.5" r="1.5" fill="#E88A8A"/>
+          <!-- Eyes -->
+          <circle cx="24" cy="32" r="2.5" fill="#2C087D"/>
+          <circle cx="40" cy="32" r="2.5" fill="#2C087D"/>
+          <circle cx="25" cy="31" r="1" fill="white"/>
+          <circle cx="41" cy="31" r="1" fill="white"/>
+          <!-- Smile -->
+          <path d="M28 43 Q32 46 36 43" stroke="#E88A8A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Legs -->
+          <rect x="20" y="50" width="5" height="6" rx="2.5" fill="#FF8A8A"/>
+          <rect x="39" y="50" width="5" height="6" rx="2.5" fill="#FF8A8A"/>
+          <!-- Tail -->
+          <path d="M54 34 Q58 30 56 26 Q54 22 58 20" stroke="#FF8A8A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
           <defs>
-            <linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36">
-              <stop offset="0%" stop-color="#6366f1"/>
-              <stop offset="100%" stop-color="#06b6d4"/>
+            <linearGradient id="piggyGrad" x1="10" y1="18" x2="54" y2="54">
+              <stop offset="0%" stop-color="#FFD4D4"/>
+              <stop offset="100%" stop-color="#FF6B6B" stop-opacity="0.3"/>
             </linearGradient>
           </defs>
-          <rect x="4" y="18" width="28" height="16" rx="3" fill="url(#logoGrad)" opacity="0.3"/>
-          <rect x="4" y="10" width="28" height="16" rx="3" fill="url(#logoGrad)" opacity="0.55"/>
-          <rect x="4" y="2" width="28" height="16" rx="3" fill="url(#logoGrad)"/>
-          <rect x="10" y="6" width="4" height="3" rx="0.5" fill="white" opacity="0.9"/>
-          <rect x="16" y="6" width="4" height="3" rx="0.5" fill="white" opacity="0.9"/>
-          <rect x="22" y="6" width="4" height="3" rx="0.5" fill="white" opacity="0.9"/>
-          <rect x="10" y="11" width="4" height="3" rx="0.5" fill="white" opacity="0.6"/>
-          <rect x="16" y="11" width="4" height="3" rx="0.5" fill="white" opacity="0.6"/>
-          <rect x="22" y="11" width="4" height="3" rx="0.5" fill="white" opacity="0.6"/>
         </svg>
-        <span>CalcStack</span>
+        <span>FiggyBank</span>
       </a>
       
       <ul class="nav-links" id="nav-links">
-        <li><a href="#tools" onclick="showPage('home')">Tools</a></li>
+        <li><a href="#tools-section" onclick="showPage('home')">Tools</a></li>
         <li><a href="#" onclick="showPage('valuation'); return false;">Valuation</a></li>
         <li><a href="#" onclick="showPage('mortgage'); return false;">Mortgage</a></li>
         <li><a href="#" onclick="showPage('investment'); return false;">Investment</a></li>
@@ -2165,330 +1416,97 @@
       </ul>
       
       <div class="nav-actions">
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">☀️</button>
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">☰</button>
       </div>
     </div>
   </nav>
   
   <!-- ═══════════════════════════════════════════════════════
-       HOME PAGE
+       HOME PAGE — CreditGenie-inspired
        ═══════════════════════════════════════════════════════ -->
   <main id="main-content">
   <div class="page active" id="page-home">
 
     <!-- ══ HERO ══ -->
-    <section class="hero" id="hero" style="min-height:50vh;max-height:50vh;padding-top:5rem;padding-bottom:2rem;">
-      <div class="hero-bg">
-        <div class="hero-blob hero-blob-1"></div>
-        <div class="hero-blob hero-blob-2"></div>
-        <div class="hero-blob hero-blob-3"></div>
-        <div class="hero-grid"></div>
+    <section class="figgy-hero">
+      <!-- Floating decorations -->
+      <div class="hero-floater float-element" style="top:15%;left:8%;opacity:0.15;">
+        <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="#FF6B6B" stroke-width="2" stroke-dasharray="4 3"/></svg>
       </div>
-      <!-- Floating geometric shapes -->
-      <svg class="hero-decoration" style="top:12%;left:6%;width:70px;height:70px;opacity:0.06;" viewBox="0 0 70 70"><polygon points="35,5 65,60 5,60" fill="none" stroke="var(--brand-primary)" stroke-width="2"><animateTransform attributeName="transform" type="rotate" values="0 35 35;360 35 35" dur="30s" repeatCount="indefinite"/></polygon></svg>
-      <svg class="hero-decoration" style="top:25%;right:8%;width:50px;height:50px;opacity:0.06;" viewBox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="none" stroke="var(--brand-accent)" stroke-width="2" stroke-dasharray="6 4"><animateTransform attributeName="transform" type="rotate" values="0 25 25;-360 25 25" dur="25s" repeatCount="indefinite"/></circle></svg>
-      <svg class="hero-decoration" style="bottom:15%;left:15%;width:60px;height:60px;opacity:0.06;" viewBox="0 0 60 60"><polygon points="30,3 57,18 57,48 30,63 3,48 3,18" fill="none" stroke="var(--brand-secondary)" stroke-width="1.5"><animateTransform attributeName="transform" type="rotate" values="0 30 33;360 30 33" dur="40s" repeatCount="indefinite"/></polygon></svg>
-      <svg class="hero-decoration" style="bottom:20%;right:12%;width:40px;height:40px;opacity:0.05;" viewBox="0 0 40 40"><polygon points="20,2 38,32 2,32" fill="none" stroke="var(--brand-accent)" stroke-width="1.5"><animateTransform attributeName="transform" type="rotate" values="360 20 20;0 20 20" dur="35s" repeatCount="indefinite"/></polygon></svg>
-
-      <div class="hero-content" style="max-width:700px;">
-        <div style="display:flex;align-items:center;justify-content:center;gap:0.75rem;margin-bottom:1rem;animation:fadeInUp 0.6s ease both;">
-          <svg width="56" height="56" viewBox="0 0 36 36" fill="none">
-            <defs><linearGradient id="heroLogoGrad" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
-            <rect x="4" y="18" width="28" height="16" rx="3" fill="url(#heroLogoGrad)" opacity="0.3"/>
-            <rect x="4" y="10" width="28" height="16" rx="3" fill="url(#heroLogoGrad)" opacity="0.55"/>
-            <rect x="4" y="2" width="28" height="16" rx="3" fill="url(#heroLogoGrad)"/>
-            <rect x="10" y="6" width="4" height="3" rx="0.5" fill="white" opacity="0.9"/>
-            <rect x="16" y="6" width="4" height="3" rx="0.5" fill="white" opacity="0.9"/>
-            <rect x="22" y="6" width="4" height="3" rx="0.5" fill="white" opacity="0.9"/>
-            <rect x="10" y="11" width="4" height="3" rx="0.5" fill="white" opacity="0.6"/>
-            <rect x="16" y="11" width="4" height="3" rx="0.5" fill="white" opacity="0.6"/>
-            <rect x="22" y="11" width="4" height="3" rx="0.5" fill="white" opacity="0.6"/>
-          </svg>
-        </div>
-        <h1 style="font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;letter-spacing:-0.04em;margin-bottom:0.5rem;animation:fadeInUp 0.6s ease 0.1s both;">
-          <span class="gradient-text">CalcStack</span>
-        </h1>
-        <p style="font-size:clamp(1rem,2vw,1.3rem);color:var(--text-secondary);font-weight:300;margin-bottom:2rem;animation:fadeInUp 0.6s ease 0.2s both;">
-          Smart money decisions start here
-        </p>
-        <div style="animation:fadeInUp 0.6s ease 0.3s both;">
-          <a href="#showcase" class="btn btn-primary btn-lg" style="padding:1rem 2.5rem;font-size:1.05rem;border-radius:var(--radius-xl);">
-            Explore Tools →
-          </a>
-        </div>
+      <div class="hero-floater float-element-slow" style="top:25%;right:10%;opacity:0.12;">
+        <svg width="50" height="50" viewBox="0 0 50 50"><circle cx="25" cy="25" r="22" fill="#F5A623" opacity="0.3"/><text x="25" y="30" text-anchor="middle" font-size="18" fill="#F5A623">$</text></svg>
       </div>
-    </section>
-
-    <!-- ══ CALCULATOR SHOWCASE ══ -->
-    <section class="section" id="showcase" style="padding-top:3rem;padding-bottom:2rem;">
-      <div class="section-header reveal">
-        <div class="section-label"><span class="label-line"></span>Calculator Suite<span class="label-line"></span></div>
-        <h2 class="section-title" style="font-size:clamp(1.75rem,4vw,2.5rem);">The toolkit, <span class="gradient-text">at a glance</span></h2>
+      <div class="hero-floater float-element-fast" style="bottom:20%;left:12%;opacity:0.1;">
+        <svg width="35" height="35" viewBox="0 0 35 35"><rect x="5" y="5" width="25" height="25" rx="4" fill="none" stroke="#2C087D" stroke-width="1.5" opacity="0.3"/></svg>
+      </div>
+      <div class="hero-floater float-element-slow" style="bottom:30%;right:6%;opacity:0.12;">
+        <svg width="44" height="44" viewBox="0 0 44 44"><polygon points="22,4 28,16 42,18 32,28 34,42 22,36 10,42 12,28 2,18 16,16" fill="none" stroke="#FF6B6B" stroke-width="1.5" opacity="0.3"/></svg>
       </div>
 
-      <!-- Category: Business & M&A -->
-      <div style="margin-bottom:2.5rem;">
-        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:1rem;" class="reveal">Business & M&A</p>
-        <div class="showcase-scroll reveal" id="carousel-business">
-          <div class="showcase-track">
-            <!-- Business Valuation -->
-            <div class="showcase-card" style="height:280px;" onclick="showPage('valuation')">
-              <div class="showcase-card-inner">
-                <div class="sc-mini-ui">
-                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">
-                    <span>🏢</span> Business Valuation
-                  </div>
-                  <div class="sc-mini-body">
-                    <div class="sc-mini-field"><span class="sc-label">Free Cash Flow</span><span class="sc-value">$1,000,000</span></div>
-                    <div class="sc-mini-field"><span class="sc-label">Growth Rate</span><span class="sc-value">10%</span></div>
-                    <div class="sc-mini-field"><span class="sc-label">WACC</span><span class="sc-value">12%</span></div>
-                    <div class="sc-mini-result"><span class="sc-result-label">Enterprise Value</span><span class="sc-result-num">$8.2M</span></div>
-                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:72%;background:linear-gradient(90deg,#6366f1,#8b5cf6);"></div></div>
-                  </div>
-                </div>
-                <div class="sc-overlay"><span>Try it →</span></div>
-              </div>
-            </div>
-            <!-- M&A Analyzer -->
-            <div class="showcase-card" style="height:260px;" onclick="showPage('merger')">
-              <div class="showcase-card-inner">
-                <div class="sc-mini-ui">
-                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">
-                    <span>🤝</span> M&A Deal Analyzer
-                  </div>
-                  <div class="sc-mini-body">
-                    <div class="sc-mini-field"><span class="sc-label">Deal Value</span><span class="sc-value">$50M</span></div>
-                    <div class="sc-mini-field"><span class="sc-label">Synergies</span><span class="sc-value">$3.2M</span></div>
-                    <div class="sc-mini-result"><span class="sc-result-label">EPS Impact</span><span class="sc-result-num" style="color:#10b981;">+12.4%</span></div>
-                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:62%;background:linear-gradient(90deg,#8b5cf6,#a78bfa);"></div></div>
-                  </div>
-                </div>
-                <div class="sc-overlay"><span>Try it →</span></div>
-              </div>
-            </div>
-            <!-- Startup Runway -->
-            <div class="showcase-card" style="height:250px;" onclick="showPage('runway')">
-              <div class="showcase-card-inner">
-                <div class="sc-mini-ui">
-                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#a855f7,#c084fc);">
-                    <span>🚀</span> Startup Runway
-                  </div>
-                  <div class="sc-mini-body">
-                    <div class="sc-mini-field"><span class="sc-label">Monthly Burn</span><span class="sc-value">$85K</span></div>
-                    <div class="sc-mini-field"><span class="sc-label">Cash Balance</span><span class="sc-value">$1.2M</span></div>
-                    <div class="sc-mini-result"><span class="sc-result-label">Runway</span><span class="sc-result-num">14.1 mo</span></div>
-                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:55%;background:linear-gradient(90deg,#a855f7,#c084fc);"></div></div>
-                  </div>
-                </div>
-                <div class="sc-overlay"><span>Try it →</span></div>
-              </div>
-            </div>
+      <div class="figgy-hero-inner">
+        <div class="figgy-hero-left">
+          <h1 class="js-show">
+            Crunch your<br>
+            <span class="hero-word-rotator">
+              <span>mortgage</span>
+              <span>taxes</span>
+              <span>investments</span>
+              <span>business valuation</span>
+              <span>mortgage</span>
+            </span>
+          </h1>
+          <p class="js-show js-show-up-10">Free financial calculators built for Canadians. No sign-ups, no nonsense — just smart tools that help you make better money decisions.</p>
+          <div class="js-show js-show-up-20" style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="#tools-section" class="btn btn-primary btn-lg btn-animated" style="min-width:200px;">
+              <span class="btn-text-wrap">
+                <span class="btn-initial">Explore Tools →</span>
+                <span class="btn-hover">Let's go! 🐷</span>
+              </span>
+            </a>
           </div>
         </div>
-      </div>
-
-      <!-- Category: Personal Finance -->
-      <div style="margin-bottom:2.5rem;">
-        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:1rem;" class="reveal">Personal Finance</p>
-        <div class="showcase-scroll reveal" id="carousel-personal">
-          <div class="showcase-track">
-            <!-- Mortgage -->
-            <div class="showcase-card" style="height:280px;" onclick="showPage('mortgage')">
-              <div class="showcase-card-inner">
-                <div class="sc-mini-ui">
-                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#06b6d4,#22d3ee);">
-                    <span>🏠</span> Canadian Mortgage
-                  </div>
-                  <div class="sc-mini-body">
-                    <div class="sc-mini-field"><span class="sc-label">Home Price</span><span class="sc-value">$750,000</span></div>
-                    <div class="sc-mini-field"><span class="sc-label">Down Payment</span><span class="sc-value">20%</span></div>
-                    <div class="sc-mini-field"><span class="sc-label">Rate</span><span class="sc-value">5.24%</span></div>
-                    <div class="sc-mini-result"><span class="sc-result-label">Monthly</span><span class="sc-result-num">$3,584</span></div>
-                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:80%;background:linear-gradient(90deg,#06b6d4,#22d3ee);"></div></div>
-                  </div>
-                </div>
-                <div class="sc-overlay"><span>Try it →</span></div>
-              </div>
+        <div class="figgy-hero-right js-show js-show-up-30">
+          <!-- Floating calculator mockup -->
+          <div class="calc-mockup" style="max-width:380px;margin:0 auto;animation:figgyFloat 6s ease-in-out infinite;">
+            <div class="mockup-header">
+              <div class="mockup-dot" style="background:#FF5F56;"></div>
+              <div class="mockup-dot" style="background:#FFBD2E;"></div>
+              <div class="mockup-dot" style="background:#27C93F;"></div>
+              <span style="margin-left:0.5rem;font-size:0.7rem;color:var(--text-muted);font-weight:600;">Canadian Mortgage Calculator</span>
             </div>
-            <!-- Investment Returns -->
-            <div class="showcase-card" style="height:260px;" onclick="showPage('investment')">
-              <div class="showcase-card-inner">
-                <div class="sc-mini-ui">
-                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#10b981,#34d399);">
-                    <span>📈</span> Investment Returns
-                  </div>
-                  <div class="sc-mini-body">
-                    <div class="sc-mini-field"><span class="sc-label">Initial</span><span class="sc-value">$50,000</span></div>
-                    <div class="sc-mini-field"><span class="sc-label">Monthly Add</span><span class="sc-value">$500</span></div>
-                    <div class="sc-mini-result"><span class="sc-result-label">10yr Value</span><span class="sc-result-num">$198K</span></div>
-                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:68%;background:linear-gradient(90deg,#10b981,#34d399);"></div></div>
-                  </div>
+            <div class="mockup-body">
+              <div style="display:flex;flex-direction:column;gap:0.75rem;">
+                <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;">
+                  <span style="color:var(--text-muted);">Home Price</span>
+                  <span style="font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--text-primary);">$750,000</span>
                 </div>
-                <div class="sc-overlay"><span>Try it →</span></div>
-              </div>
-            </div>
-            <!-- Compound Interest -->
-            <div class="showcase-card" style="height:270px;" onclick="showPage('compound')">
-              <div class="showcase-card-inner">
-                <div class="sc-mini-ui">
-                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#ec4899,#f472b6);">
-                    <span>📊</span> Compound Interest
-                  </div>
-                  <div class="sc-mini-body">
-                    <div class="sc-mini-field"><span class="sc-label">Principal</span><span class="sc-value">$10,000</span></div>
-                    <div class="sc-mini-field"><span class="sc-label">Rate</span><span class="sc-value">7%</span></div>
-                    <div class="sc-mini-field"><span class="sc-label">Years</span><span class="sc-value">20</span></div>
-                    <div class="sc-mini-result"><span class="sc-result-label">Future Value</span><span class="sc-result-num">$38,697</span></div>
-                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:75%;background:linear-gradient(90deg,#ec4899,#f472b6);"></div></div>
-                  </div>
+                <div style="height:6px;background:var(--border-primary);border-radius:3px;overflow:hidden;">
+                  <div style="width:75%;height:100%;background:linear-gradient(90deg,#2C087D,#FF6B6B);border-radius:3px;"></div>
                 </div>
-                <div class="sc-overlay"><span>Try it →</span></div>
-              </div>
-            </div>
-            <!-- Net Worth -->
-            <div class="showcase-card" style="height:250px;" onclick="showPage('networth')">
-              <div class="showcase-card-inner">
-                <div class="sc-mini-ui">
-                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#22c55e,#4ade80);">
-                    <span>💰</span> Net Worth Tracker
-                  </div>
-                  <div class="sc-mini-body">
-                    <div class="sc-mini-field"><span class="sc-label">Assets</span><span class="sc-value" style="color:#10b981;">$485K</span></div>
-                    <div class="sc-mini-field"><span class="sc-label">Liabilities</span><span class="sc-value" style="color:#ef4444;">$210K</span></div>
-                    <div class="sc-mini-result"><span class="sc-result-label">Net Worth</span><span class="sc-result-num">$275K</span></div>
-                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:57%;background:linear-gradient(90deg,#22c55e,#4ade80);"></div></div>
-                  </div>
+                <div style="display:flex;justify-content:space-between;font-size:0.8rem;">
+                  <span style="color:var(--text-muted);">Down Payment</span>
+                  <span style="font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--text-primary);">20%</span>
                 </div>
-                <div class="sc-overlay"><span>Try it →</span></div>
-              </div>
-            </div>
-            <!-- Salary -->
-            <div class="showcase-card" style="height:265px;" onclick="showPage('salary')">
-              <div class="showcase-card-inner">
-                <div class="sc-mini-ui">
-                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#14b8a6,#2dd4bf);">
-                    <span>💼</span> Salary & Comp
-                  </div>
-                  <div class="sc-mini-body">
-                    <div class="sc-mini-field"><span class="sc-label">Base Salary</span><span class="sc-value">$95,000</span></div>
-                    <div class="sc-mini-field"><span class="sc-label">Bonus</span><span class="sc-value">15%</span></div>
-                    <div class="sc-mini-result"><span class="sc-result-label">Take-Home</span><span class="sc-result-num">$6,820/mo</span></div>
-                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:64%;background:linear-gradient(90deg,#14b8a6,#2dd4bf);"></div></div>
-                  </div>
+                <div style="display:flex;justify-content:space-between;font-size:0.8rem;">
+                  <span style="color:var(--text-muted);">Rate</span>
+                  <span style="font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--text-primary);">5.24%</span>
                 </div>
-                <div class="sc-overlay"><span>Try it →</span></div>
-              </div>
-            </div>
-            <!-- Debt -->
-            <div class="showcase-card" style="height:255px;" onclick="showPage('debt')">
-              <div class="showcase-card-inner">
-                <div class="sc-mini-ui">
-                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#ef4444,#f87171);">
-                    <span>💳</span> Debt Payoff
-                  </div>
-                  <div class="sc-mini-body">
-                    <div class="sc-mini-field"><span class="sc-label">Total Debt</span><span class="sc-value">$24,500</span></div>
-                    <div class="sc-mini-field"><span class="sc-label">Monthly Payment</span><span class="sc-value">$800</span></div>
-                    <div class="sc-mini-result"><span class="sc-result-label">Debt-Free In</span><span class="sc-result-num">34 mo</span></div>
-                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:48%;background:linear-gradient(90deg,#ef4444,#f87171);"></div></div>
-                  </div>
+                <div style="margin-top:0.5rem;padding-top:0.75rem;border-top:1px solid var(--border-primary);">
+                  <div style="font-size:0.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;">Monthly Payment</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:1.75rem;font-weight:800;background:linear-gradient(135deg,#2C087D,#FF6B6B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">$3,584</div>
                 </div>
-                <div class="sc-overlay"><span>Try it →</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Category: Tax & Planning -->
-      <div style="margin-bottom:1rem;">
-        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:1rem;" class="reveal">Tax & Planning</p>
-        <div class="showcase-scroll reveal" id="carousel-tax">
-          <div class="showcase-track">
-            <!-- RRSP vs TFSA -->
-            <div class="showcase-card" style="height:270px;" onclick="showPage('retirement')">
-              <div class="showcase-card-inner">
-                <div class="sc-mini-ui">
-                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">
-                    <span>🏦</span> RRSP vs TFSA
-                  </div>
-                  <div class="sc-mini-body">
-                    <div class="sc-mini-field"><span class="sc-label">Annual Contribution</span><span class="sc-value">$6,500</span></div>
-                    <div class="sc-mini-field"><span class="sc-label">Tax Bracket</span><span class="sc-value">33%</span></div>
-                    <div class="sc-mini-result"><span class="sc-result-label">Best Option</span><span class="sc-result-num" style="color:#10b981;">RRSP ✓</span></div>
-                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:70%;background:linear-gradient(90deg,#f59e0b,#fbbf24);"></div></div>
-                  </div>
+                <!-- Mini bar chart -->
+                <div style="display:flex;gap:3px;align-items:flex-end;height:40px;margin-top:0.25rem;">
+                  <div style="flex:1;background:rgba(44,8,125,0.15);border-radius:2px;height:60%;"></div>
+                  <div style="flex:1;background:rgba(44,8,125,0.2);border-radius:2px;height:75%;"></div>
+                  <div style="flex:1;background:rgba(44,8,125,0.3);border-radius:2px;height:55%;"></div>
+                  <div style="flex:1;background:rgba(44,8,125,0.4);border-radius:2px;height:85%;"></div>
+                  <div style="flex:1;background:rgba(44,8,125,0.5);border-radius:2px;height:70%;"></div>
+                  <div style="flex:1;background:linear-gradient(to top,#2C087D,#FF6B6B);border-radius:2px;height:100%;"></div>
+                  <div style="flex:1;background:rgba(44,8,125,0.4);border-radius:2px;height:90%;"></div>
+                  <div style="flex:1;background:rgba(44,8,125,0.3);border-radius:2px;height:65%;"></div>
                 </div>
-                <div class="sc-overlay"><span>Try it →</span></div>
-              </div>
-            </div>
-            <!-- Tax Estimator -->
-            <div class="showcase-card" style="height:280px;" onclick="showPage('tax')">
-              <div class="showcase-card-inner">
-                <div class="sc-mini-ui">
-                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#ef4444,#f87171);">
-                    <span>🧾</span> Canadian Tax Estimator
-                  </div>
-                  <div class="sc-mini-body">
-                    <div class="sc-mini-field"><span class="sc-label">Income</span><span class="sc-value">$120,000</span></div>
-                    <div class="sc-mini-field"><span class="sc-label">Province</span><span class="sc-value">Ontario</span></div>
-                    <div class="sc-mini-field"><span class="sc-label">Federal Tax</span><span class="sc-value">$18,270</span></div>
-                    <div class="sc-mini-result"><span class="sc-result-label">Effective Rate</span><span class="sc-result-num">28.7%</span></div>
-                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:60%;background:linear-gradient(90deg,#ef4444,#f87171);"></div></div>
-                  </div>
-                </div>
-                <div class="sc-overlay"><span>Try it →</span></div>
-              </div>
-            </div>
-            <!-- Lease vs Buy -->
-            <div class="showcase-card" style="height:260px;" onclick="showPage('lease')">
-              <div class="showcase-card-inner">
-                <div class="sc-mini-ui">
-                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">
-                    <span>🚗</span> Lease vs Buy
-                  </div>
-                  <div class="sc-mini-body">
-                    <div class="sc-mini-field"><span class="sc-label">Vehicle Price</span><span class="sc-value">$45,000</span></div>
-                    <div class="sc-mini-field"><span class="sc-label">Lease Term</span><span class="sc-value">48 mo</span></div>
-                    <div class="sc-mini-result"><span class="sc-result-label">Better Option</span><span class="sc-result-num" style="color:#10b981;">Buy ✓</span></div>
-                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:52%;background:linear-gradient(90deg,#f59e0b,#fbbf24);"></div></div>
-                  </div>
-                </div>
-                <div class="sc-overlay"><span>Try it →</span></div>
-              </div>
-            </div>
-            <!-- Currency -->
-            <div class="showcase-card" style="height:245px;" onclick="showPage('currency')">
-              <div class="showcase-card-inner">
-                <div class="sc-mini-ui">
-                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#14b8a6,#2dd4bf);">
-                    <span>💱</span> Currency Converter
-                  </div>
-                  <div class="sc-mini-body">
-                    <div class="sc-mini-field"><span class="sc-label">CAD Amount</span><span class="sc-value">$1,000</span></div>
-                    <div class="sc-mini-field"><span class="sc-label">To USD</span><span class="sc-value">$735.20</span></div>
-                    <div class="sc-mini-result"><span class="sc-result-label">Rate</span><span class="sc-result-num">0.7352</span></div>
-                  </div>
-                </div>
-                <div class="sc-overlay"><span>Try it →</span></div>
-              </div>
-            </div>
-            <!-- Compare -->
-            <div class="showcase-card" style="height:255px;" onclick="showPage('compare')">
-              <div class="showcase-card-inner">
-                <div class="sc-mini-ui">
-                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#a855f7,#c084fc);">
-                    <span>⚖️</span> Side-by-Side Compare
-                  </div>
-                  <div class="sc-mini-body">
-                    <div class="sc-mini-field"><span class="sc-label">Option A</span><span class="sc-value">$3,200/mo</span></div>
-                    <div class="sc-mini-field"><span class="sc-label">Option B</span><span class="sc-value">$2,980/mo</span></div>
-                    <div class="sc-mini-result"><span class="sc-result-label">Savings</span><span class="sc-result-num" style="color:#10b981;">$26K</span></div>
-                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:45%;background:linear-gradient(90deg,#a855f7,#c084fc);"></div></div>
-                  </div>
-                </div>
-                <div class="sc-overlay"><span>Try it →</span></div>
               </div>
             </div>
           </div>
@@ -2496,157 +1514,467 @@
       </div>
     </section>
 
-    <!-- ══ SOCIAL PROOF ══ -->
-    <section class="section" style="padding-top:1rem;padding-bottom:2rem;">
-      <div style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;margin-bottom:2.5rem;" class="reveal">
-        <div style="text-align:center;">
-          <div class="mono" style="font-size:2rem;font-weight:800;color:var(--text-primary);" data-count-up="10000" data-suffix="+">0</div>
-          <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.25rem;">Calculations</div>
+    <!-- ══ FEATURED CALCULATORS — Alternating Layout ══ -->
+    <div class="section-white">
+      <section class="section">
+        <div class="section-header">
+          <div class="section-label js-show">✨ Featured Calculators</div>
+          <h2 class="section-title js-show">Powerful tools,<br>ridiculously simple</h2>
         </div>
-        <div style="text-align:center;">
-          <div class="mono" style="font-size:2rem;font-weight:800;color:var(--brand-warning);" data-count-up="4.9" data-decimals="1">0</div>
-          <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.25rem;">★ Rating</div>
-        </div>
-        <div style="text-align:center;">
-          <div class="mono" style="font-size:2rem;font-weight:800;color:var(--brand-success);">100%</div>
-          <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.25rem;">Free</div>
-        </div>
-      </div>
 
-      <div class="testimonial-grid" style="max-width:960px;margin:0 auto;">
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"Replaced a $2,000/yr Bloomberg terminal for my small M&A practice. The DCF model is surprisingly robust."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">JM</div>
-            <div><div class="testimonial-name">James M.</div><div class="testimonial-role">M&A Advisor, Toronto</div></div>
+        <!-- 1. Mortgage Calculator -->
+        <div class="feature-row js-show">
+          <div style="position:relative;">
+            <div class="calc-mockup">
+              <div class="mockup-header">
+                <div class="mockup-dot" style="background:#FF5F56;"></div>
+                <div class="mockup-dot" style="background:#FFBD2E;"></div>
+                <div class="mockup-dot" style="background:#27C93F;"></div>
+                <span style="margin-left:0.5rem;font-size:0.7rem;color:var(--text-muted);font-weight:600;">🏠 Mortgage Calculator</span>
+              </div>
+              <div class="mockup-body" style="background:linear-gradient(135deg,rgba(6,182,212,0.05),rgba(44,8,125,0.03));">
+                <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:0.5rem;">
+                  <span style="color:var(--text-muted);">Home Price</span>
+                  <span class="mono" style="font-weight:600;">$750,000</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:0.5rem;">
+                  <span style="color:var(--text-muted);">Down Payment</span>
+                  <span class="mono" style="font-weight:600;">20%</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:0.75rem;">
+                  <span style="color:var(--text-muted);">Rate (semi-annual)</span>
+                  <span class="mono" style="font-weight:600;">5.24%</span>
+                </div>
+                <div style="border-top:1px solid var(--border-primary);padding-top:0.75rem;">
+                  <div style="font-size:0.6rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;">Monthly Payment</div>
+                  <div style="font-size:1.5rem;font-weight:800;font-family:'JetBrains Mono',monospace;color:#2C087D;">$3,584</div>
+                </div>
+              </div>
+            </div>
+            <div class="hero-floater float-element-fast" style="top:-15px;right:-20px;opacity:0.15;"><svg width="30" height="30"><circle cx="15" cy="15" r="14" fill="#FF6B6B" opacity="0.3"/></svg></div>
+          </div>
+          <div>
+            <h3>Canadian Mortgage Calculator</h3>
+            <p>The only mortgage calculator that actually does Canadian semi-annual compounding correctly. With CMHC insurance, stress test, and land transfer tax built in.</p>
+            <ul class="feature-bullets">
+              <li>Semi-annual compounding (as required by law)</li>
+              <li>CMHC insurance premiums</li>
+              <li>OSFI B-20 stress test</li>
+              <li>Provincial land transfer taxes</li>
+            </ul>
+            <a href="#" onclick="showPage('mortgage'); return false;" class="btn btn-primary" style="margin-top:1rem;">Try it →</a>
           </div>
         </div>
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"The mortgage calculator with stress test saved me hours. Finally one that actually does Canadian semi-annual compounding right."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">SP</div>
-            <div><div class="testimonial-name">Sarah P.</div><div class="testimonial-role">Mortgage Broker, Vancouver</div></div>
+
+        <!-- 2. Business Valuation -->
+        <div class="feature-row reverse js-show">
+          <div style="position:relative;">
+            <div class="calc-mockup">
+              <div class="mockup-header">
+                <div class="mockup-dot" style="background:#FF5F56;"></div>
+                <div class="mockup-dot" style="background:#FFBD2E;"></div>
+                <div class="mockup-dot" style="background:#27C93F;"></div>
+                <span style="margin-left:0.5rem;font-size:0.7rem;color:var(--text-muted);font-weight:600;">🏢 Business Valuation</span>
+              </div>
+              <div class="mockup-body" style="background:linear-gradient(135deg,rgba(99,102,241,0.05),rgba(139,92,246,0.03));">
+                <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:0.5rem;">
+                  <span style="color:var(--text-muted);">Free Cash Flow</span>
+                  <span class="mono" style="font-weight:600;">$1,000,000</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:0.5rem;">
+                  <span style="color:var(--text-muted);">Growth Rate</span>
+                  <span class="mono" style="font-weight:600;">10%</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:0.75rem;">
+                  <span style="color:var(--text-muted);">WACC</span>
+                  <span class="mono" style="font-weight:600;">12%</span>
+                </div>
+                <div style="border-top:1px solid var(--border-primary);padding-top:0.75rem;">
+                  <div style="font-size:0.6rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;">Enterprise Value</div>
+                  <div style="font-size:1.5rem;font-weight:800;font-family:'JetBrains Mono',monospace;color:#2C087D;">$8.2M</div>
+                </div>
+              </div>
+            </div>
+            <div class="hero-floater float-element-slow" style="bottom:-10px;left:-15px;opacity:0.12;"><svg width="35" height="35"><rect x="5" y="5" width="25" height="25" rx="5" fill="none" stroke="#F5A623" stroke-width="2" opacity="0.4"/></svg></div>
+          </div>
+          <div>
+            <h3>Business Valuation</h3>
+            <p>Three professional valuation methods in one tool — DCF, comparable multiples, and asset-based approaches. Sensitivity tables included.</p>
+            <ul class="feature-bullets">
+              <li>5-year DCF with terminal value</li>
+              <li>Industry-specific multiples (SaaS, retail, etc.)</li>
+              <li>Sensitivity analysis tables</li>
+              <li>Professional PDF export</li>
+            </ul>
+            <a href="#" onclick="showPage('valuation'); return false;" class="btn btn-primary" style="margin-top:1rem;">Try it →</a>
           </div>
         </div>
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"I use the RRSP vs TFSA tool with every client meeting. Clean, fast, and the visuals actually help explain things."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">DK</div>
-            <div><div class="testimonial-name">David K.</div><div class="testimonial-role">Financial Planner, Calgary</div></div>
+
+        <!-- 3. Tax Estimator -->
+        <div class="feature-row js-show">
+          <div style="position:relative;">
+            <div class="calc-mockup">
+              <div class="mockup-header">
+                <div class="mockup-dot" style="background:#FF5F56;"></div>
+                <div class="mockup-dot" style="background:#FFBD2E;"></div>
+                <div class="mockup-dot" style="background:#27C93F;"></div>
+                <span style="margin-left:0.5rem;font-size:0.7rem;color:var(--text-muted);font-weight:600;">🧾 Tax Estimator</span>
+              </div>
+              <div class="mockup-body" style="background:linear-gradient(135deg,rgba(239,68,68,0.04),rgba(245,166,35,0.03));">
+                <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:0.5rem;">
+                  <span style="color:var(--text-muted);">Income</span>
+                  <span class="mono" style="font-weight:600;">$120,000</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:0.5rem;">
+                  <span style="color:var(--text-muted);">Province</span>
+                  <span class="mono" style="font-weight:600;">Ontario</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:0.75rem;">
+                  <span style="color:var(--text-muted);">Federal Tax</span>
+                  <span class="mono" style="font-weight:600;">$18,270</span>
+                </div>
+                <div style="border-top:1px solid var(--border-primary);padding-top:0.75rem;">
+                  <div style="font-size:0.6rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;">Effective Rate</div>
+                  <div style="font-size:1.5rem;font-weight:800;font-family:'JetBrains Mono',monospace;color:#ef4444;">28.7%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3>Canadian Tax Estimator</h3>
+            <p>Federal + provincial tax calculations with all the Canadian-specific brackets. See exactly where your money goes.</p>
+            <ul class="feature-bullets">
+              <li>2025/2026 federal & provincial brackets</li>
+              <li>CPP, EI, and basic personal amount</li>
+              <li>Marginal vs effective rate breakdown</li>
+              <li>Compare across provinces</li>
+            </ul>
+            <a href="#" onclick="showPage('tax'); return false;" class="btn btn-primary" style="margin-top:1rem;">Try it →</a>
           </div>
         </div>
-      </div>
-    </section>
+
+        <!-- 4. M&A Deal Analyzer -->
+        <div class="feature-row reverse js-show">
+          <div style="position:relative;">
+            <div class="calc-mockup">
+              <div class="mockup-header">
+                <div class="mockup-dot" style="background:#FF5F56;"></div>
+                <div class="mockup-dot" style="background:#FFBD2E;"></div>
+                <div class="mockup-dot" style="background:#27C93F;"></div>
+                <span style="margin-left:0.5rem;font-size:0.7rem;color:var(--text-muted);font-weight:600;">🤝 M&A Deal Analyzer</span>
+              </div>
+              <div class="mockup-body" style="background:linear-gradient(135deg,rgba(139,92,246,0.05),rgba(168,85,247,0.03));">
+                <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:0.5rem;">
+                  <span style="color:var(--text-muted);">Deal Value</span>
+                  <span class="mono" style="font-weight:600;">$50M</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-bottom:0.5rem;">
+                  <span style="color:var(--text-muted);">Synergies</span>
+                  <span class="mono" style="font-weight:600;">$3.2M</span>
+                </div>
+                <div style="border-top:1px solid var(--border-primary);padding-top:0.75rem;">
+                  <div style="font-size:0.6rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;">EPS Impact</div>
+                  <div style="font-size:1.5rem;font-weight:800;font-family:'JetBrains Mono',monospace;color:#10b981;">+12.4% Accretive</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3>M&A Deal Analyzer</h3>
+            <p>Model accretion/dilution, financing mix, and synergy impact. The same analysis investment banks charge thousands for.</p>
+            <ul class="feature-bullets">
+              <li>Accretion/dilution analysis</li>
+              <li>Cash, stock, and mixed financing</li>
+              <li>Synergy modeling</li>
+              <li>Sensitivity tables</li>
+            </ul>
+            <a href="#" onclick="showPage('merger'); return false;" class="btn btn-primary" style="margin-top:1rem;">Try it →</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══ ALL TOOLS GRID ══ -->
+    <div class="section-cream" id="tools-section">
+      <section class="section">
+        <div class="section-header">
+          <div class="section-label js-show">🧮 All Tools</div>
+          <h2 class="section-title js-show">Every calculator you need</h2>
+          <p class="section-desc js-show">14 professional-grade tools, zero price tag.</p>
+        </div>
+
+        <div class="tools-category-label js-show">Business & M&A</div>
+        <div class="tools-grid">
+          <div class="tool-card js-show" onclick="showPage('valuation')">
+            <div class="tool-icon" style="background:rgba(44,8,125,0.08);">🏢</div>
+            <h4 style="font-size:0.95rem;margin-bottom:0.25rem;">Business Valuation</h4>
+            <p style="font-size:0.8rem;color:var(--text-secondary);">DCF, multiples & asset-based approaches</p>
+            <span class="card-arrow">→</span>
+          </div>
+          <div class="tool-card js-show js-show-up-10" onclick="showPage('merger')">
+            <div class="tool-icon" style="background:rgba(139,92,246,0.08);">🤝</div>
+            <h4 style="font-size:0.95rem;margin-bottom:0.25rem;">M&A Deal Analyzer</h4>
+            <p style="font-size:0.8rem;color:var(--text-secondary);">Accretion/dilution & financing mix</p>
+            <span class="card-arrow">→</span>
+          </div>
+          <div class="tool-card js-show js-show-up-20" onclick="showPage('runway')">
+            <div class="tool-icon" style="background:rgba(168,85,247,0.08);">🚀</div>
+            <h4 style="font-size:0.95rem;margin-bottom:0.25rem;">Startup Runway</h4>
+            <p style="font-size:0.8rem;color:var(--text-secondary);">Burn rate, hiring & fundraising timing</p>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+
+        <div class="tools-category-label js-show">Personal Finance</div>
+        <div class="tools-grid">
+          <div class="tool-card js-show" onclick="showPage('mortgage')">
+            <div class="tool-icon" style="background:rgba(6,182,212,0.08);">🏠</div>
+            <h4 style="font-size:0.95rem;margin-bottom:0.25rem;">Canadian Mortgage</h4>
+            <p style="font-size:0.8rem;color:var(--text-secondary);">Semi-annual compounding, CMHC, stress test</p>
+            <span class="card-arrow">→</span>
+          </div>
+          <div class="tool-card js-show js-show-up-10" onclick="showPage('investment')">
+            <div class="tool-icon" style="background:rgba(16,185,129,0.08);">📈</div>
+            <h4 style="font-size:0.95rem;margin-bottom:0.25rem;">Investment Returns</h4>
+            <p style="font-size:0.8rem;color:var(--text-secondary);">CAGR, DCA & portfolio growth</p>
+            <span class="card-arrow">→</span>
+          </div>
+          <div class="tool-card js-show js-show-up-20" onclick="showPage('compound')">
+            <div class="tool-icon" style="background:rgba(236,72,153,0.08);">📊</div>
+            <h4 style="font-size:0.95rem;margin-bottom:0.25rem;">Compound Interest</h4>
+            <p style="font-size:0.8rem;color:var(--text-secondary);">Visualize the power of compounding</p>
+            <span class="card-arrow">→</span>
+          </div>
+          <div class="tool-card js-show" onclick="showPage('networth')">
+            <div class="tool-icon" style="background:rgba(34,197,94,0.08);">💰</div>
+            <h4 style="font-size:0.95rem;margin-bottom:0.25rem;">Net Worth Tracker</h4>
+            <p style="font-size:0.8rem;color:var(--text-secondary);">Track assets, liabilities & progress</p>
+            <span class="card-arrow">→</span>
+          </div>
+          <div class="tool-card js-show js-show-up-10" onclick="showPage('salary')">
+            <div class="tool-icon" style="background:rgba(20,184,166,0.08);">💼</div>
+            <h4 style="font-size:0.95rem;margin-bottom:0.25rem;">Salary & Compensation</h4>
+            <p style="font-size:0.8rem;color:var(--text-secondary);">Total comp, take-home & benefits</p>
+            <span class="card-arrow">→</span>
+          </div>
+          <div class="tool-card js-show js-show-up-20" onclick="showPage('debt')">
+            <div class="tool-icon" style="background:rgba(239,68,68,0.08);">💳</div>
+            <h4 style="font-size:0.95rem;margin-bottom:0.25rem;">Debt Payoff</h4>
+            <p style="font-size:0.8rem;color:var(--text-secondary);">Snowball, avalanche & payoff timeline</p>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+
+        <div class="tools-category-label js-show">Tax & Planning</div>
+        <div class="tools-grid">
+          <div class="tool-card js-show" onclick="showPage('retirement')">
+            <div class="tool-icon" style="background:rgba(245,158,11,0.08);">🏦</div>
+            <h4 style="font-size:0.95rem;margin-bottom:0.25rem;">RRSP vs TFSA</h4>
+            <p style="font-size:0.8rem;color:var(--text-secondary);">Compare tax-advantaged accounts</p>
+            <span class="card-arrow">→</span>
+          </div>
+          <div class="tool-card js-show js-show-up-10" onclick="showPage('tax')">
+            <div class="tool-icon" style="background:rgba(239,68,68,0.08);">🧾</div>
+            <h4 style="font-size:0.95rem;margin-bottom:0.25rem;">Canadian Tax Estimator</h4>
+            <p style="font-size:0.8rem;color:var(--text-secondary);">Federal + provincial brackets</p>
+            <span class="card-arrow">→</span>
+          </div>
+          <div class="tool-card js-show js-show-up-20" onclick="showPage('lease')">
+            <div class="tool-icon" style="background:rgba(245,158,11,0.08);">🚗</div>
+            <h4 style="font-size:0.95rem;margin-bottom:0.25rem;">Lease vs Buy</h4>
+            <p style="font-size:0.8rem;color:var(--text-secondary);">Total cost comparison over time</p>
+            <span class="card-arrow">→</span>
+          </div>
+          <div class="tool-card js-show" onclick="showPage('currency')">
+            <div class="tool-icon" style="background:rgba(20,184,166,0.08);">💱</div>
+            <h4 style="font-size:0.95rem;margin-bottom:0.25rem;">Currency Converter</h4>
+            <p style="font-size:0.8rem;color:var(--text-secondary);">Live exchange rates</p>
+            <span class="card-arrow">→</span>
+          </div>
+          <div class="tool-card js-show js-show-up-10" onclick="showPage('compare')">
+            <div class="tool-icon" style="background:rgba(168,85,247,0.08);">⚖️</div>
+            <h4 style="font-size:0.95rem;margin-bottom:0.25rem;">Side-by-Side Compare</h4>
+            <p style="font-size:0.8rem;color:var(--text-secondary);">Compare any two financial options</p>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <!-- ══ HOW IT WORKS ══ -->
-    <section class="section" style="padding-top:1rem;padding-bottom:2rem;">
-      <div class="section-header reveal">
-        <div class="section-label"><span class="label-line"></span>How It Works<span class="label-line"></span></div>
-        <h2 class="section-title">Three steps to <span class="gradient-text">smarter decisions</span></h2>
-      </div>
-      <div class="how-it-works-steps">
-        <div class="how-step reveal">
-          <div class="how-connector"></div>
-          <div class="how-step-num">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-          </div>
-          <h3>Choose a calculator</h3>
-          <p>Pick from 14 professional-grade tools covering valuation, tax, mortgage, and more.</p>
+    <div class="section-white">
+      <section class="section">
+        <div class="section-header">
+          <div class="section-label js-show">🎯 How It Works</div>
+          <h2 class="section-title js-show">Three steps. Zero friction.</h2>
         </div>
-        <div class="how-step reveal">
-          <div class="how-connector"></div>
-          <div class="how-step-num">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M6 16h12"/></svg>
+        <div class="hiw-grid">
+          <div class="hiw-step js-show">
+            <div class="hiw-number">01</div>
+            <h3>Pick your calculator</h3>
+            <p>Browse our collection of 14+ financial tools — from mortgage to M&A, we've got you covered.</p>
+            <div class="hero-floater float-element" style="position:absolute;top:-10px;right:10px;opacity:0.1;"><svg width="25" height="25"><circle cx="12" cy="12" r="11" fill="#FF6B6B"/></svg></div>
           </div>
-          <h3>Enter your numbers</h3>
-          <p>Smart defaults get you started instantly. Adjust inputs and watch results update live.</p>
-        </div>
-        <div class="how-step reveal">
-          <div class="how-step-num">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <div class="hiw-step js-show js-show-up-20">
+            <div class="hiw-number">02</div>
+            <h3>Punch in your numbers</h3>
+            <p>Easy inputs with smart defaults get you started instantly. Watch results update in real time.</p>
+            <div class="hero-floater float-element-slow" style="position:absolute;bottom:-10px;left:15px;opacity:0.08;"><svg width="30" height="30"><rect x="3" y="3" width="24" height="24" rx="4" fill="#F5A623"/></svg></div>
           </div>
-          <h3>Get instant results</h3>
-          <p>Visual breakdowns, sensitivity tables, and exportable reports — all in your browser.</p>
+          <div class="hiw-step js-show js-show-up-40">
+            <div class="hiw-number">03</div>
+            <h3>Make better decisions</h3>
+            <p>Export PDF reports, compare scenarios, and act with confidence. Your money, your math, your move.</p>
+            <div class="hero-floater float-element-fast" style="position:absolute;top:0;left:0;opacity:0.06;"><svg width="28" height="28"><polygon points="14,2 26,24 2,24" fill="#2C087D"/></svg></div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
-    <!-- ══ FEATURE HIGHLIGHTS ══ -->
-    <section class="section" style="padding-top:1rem;padding-bottom:2rem;" id="about">
-      <div class="section-header reveal">
-        <div class="section-label"><span class="label-line"></span>Why CalcStack<span class="label-line"></span></div>
-        <h2 class="section-title">Built <span class="gradient-text">different</span></h2>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;max-width:1000px;margin:0 auto;">
-        <div class="glass-card reveal" style="padding:var(--space-xl);text-align:center;">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin:0 auto 1rem;">
-            <rect width="48" height="48" rx="12" fill="url(#logoGrad)" opacity="0.1"/>
-            <text x="24" y="32" text-anchor="middle" font-size="24">🇨🇦</text>
-          </svg>
-          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Canadian-First</h3>
-          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.5;">Built for Canadian tax, mortgage, RRSP rules</p>
+    <!-- ══ TRUST / FEATURES ══ -->
+    <div class="section-cream">
+      <section class="section">
+        <div class="section-header">
+          <div class="section-label js-show">💪 Why FiggyBank</div>
+          <h2 class="section-title js-show">Built different. Built for you.</h2>
         </div>
-        <div class="glass-card reveal" style="padding:var(--space-xl);text-align:center;">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin:0 auto 1rem;">
-            <rect width="48" height="48" rx="12" fill="rgba(16,185,129,0.1)"/>
-            <text x="24" y="32" text-anchor="middle" font-size="24">🔓</text>
-          </svg>
-          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">No Sign-Up Required</h3>
-          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.5;">All tools free, no account needed</p>
+        <div class="trust-grid">
+          <div class="trust-card js-show">
+            <div class="trust-card-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="rgba(239,68,68,0.08)"/><text x="24" y="32" text-anchor="middle" font-size="24">🇨🇦</text></svg>
+            </div>
+            <h4>Canadian-First</h4>
+            <p>Built for Canadian tax brackets, CMHC rules, RRSP limits, and semi-annual mortgage compounding.</p>
+          </div>
+          <div class="trust-card js-show js-show-up-10">
+            <div class="trust-card-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="rgba(44,8,125,0.08)"/><text x="24" y="32" text-anchor="middle" font-size="24">🔒</text></svg>
+            </div>
+            <h4>Privacy-First</h4>
+            <p>All calculations run in your browser. Nothing stored. Nothing sent. Your numbers never leave your device.</p>
+          </div>
+          <div class="trust-card js-show js-show-up-20">
+            <div class="trust-card-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="rgba(16,185,129,0.08)"/><text x="24" y="32" text-anchor="middle" font-size="24">💰</text></svg>
+            </div>
+            <h4>Always Free</h4>
+            <p>No accounts, no paywalls, no BS. Just open the page and start crunching numbers.</p>
+          </div>
+          <div class="trust-card js-show js-show-up-30">
+            <div class="trust-card-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="rgba(245,166,35,0.08)"/><text x="24" y="32" text-anchor="middle" font-size="24">📊</text></svg>
+            </div>
+            <h4>Export Ready</h4>
+            <p>Professional PDF reports for client meetings, boardrooms, or your own records.</p>
+          </div>
         </div>
-        <div class="glass-card reveal" style="padding:var(--space-xl);text-align:center;">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin:0 auto 1rem;">
-            <rect width="48" height="48" rx="12" fill="rgba(99,102,241,0.1)"/>
-            <text x="24" y="32" text-anchor="middle" font-size="24">🔒</text>
-          </svg>
-          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Privacy-First</h3>
-          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.5;">All calculations run locally, nothing stored</p>
+      </section>
+    </div>
+
+    <!-- ══ FAQ ══ -->
+    <div class="section-white">
+      <section class="section">
+        <div class="section-header">
+          <div class="section-label js-show">❓ FAQ</div>
+          <h2 class="section-title js-show">Got questions?</h2>
         </div>
-        <div class="glass-card reveal" style="padding:var(--space-xl);text-align:center;">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin:0 auto 1rem;">
-            <rect width="48" height="48" rx="12" fill="rgba(6,182,212,0.1)"/>
-            <text x="24" y="32" text-anchor="middle" font-size="24">📄</text>
-          </svg>
-          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Export & Share</h3>
-          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.5;">PDF exports for professional use</p>
+        <div class="faq-list">
+          <div class="accordion-item js-show">
+            <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
+              <span>Is FiggyBank really free?</span>
+              <span class="accordion-arrow">▾</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">Yes, 100% free. All 14+ calculators are available without creating an account or paying anything. We believe everyone deserves access to quality financial tools.</div>
+            </div>
+          </div>
+          <div class="accordion-item js-show js-show-up-10">
+            <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
+              <span>Is my data safe?</span>
+              <span class="accordion-arrow">▾</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">Absolutely. All calculations run entirely in your browser using JavaScript. No data is sent to any server. Your financial numbers never leave your device. We don't even have a database.</div>
+            </div>
+          </div>
+          <div class="accordion-item js-show js-show-up-20">
+            <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
+              <span>How accurate are the Canadian mortgage calculations?</span>
+              <span class="accordion-arrow">▾</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">Our mortgage calculator uses Canadian semi-annual compounding as required by law, includes CMHC insurance premiums for high-ratio mortgages, provincial land transfer taxes, and OSFI B-20 stress test calculations. Results match major bank calculators.</div>
+            </div>
+          </div>
+          <div class="accordion-item js-show js-show-up-30">
+            <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
+              <span>Should I choose RRSP or TFSA?</span>
+              <span class="accordion-arrow">▾</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">It depends on your current vs. expected retirement tax rate. Generally, RRSP is better if your current tax rate is higher than your expected retirement rate. Use our RRSP vs TFSA Optimizer to compare based on your specific situation — it'll show you the exact dollar difference.</div>
+            </div>
+          </div>
+          <div class="accordion-item js-show js-show-up-40">
+            <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
+              <span>Can I export results as PDF?</span>
+              <span class="accordion-arrow">▾</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">Yes! Most calculators have an "Export PDF" button that generates a professional report with your inputs, results, and charts. Great for client meetings, personal records, or sharing with your financial advisor.</div>
+            </div>
+          </div>
+          <div class="accordion-item js-show js-show-up-50">
+            <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
+              <span>Are the tax brackets up to date?</span>
+              <span class="accordion-arrow">▾</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">We update federal and provincial tax brackets annually. The current calculator reflects 2025/2026 Canadian tax rates, CPP/EI contributions, and basic personal amounts for all provinces and territories.</div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <!-- ══ FOOTER ══ -->
-    <footer class="footer" style="padding:2rem 1.5rem;">
-      <div class="footer-content">
-        <div style="display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-bottom:0.75rem;">
-          <svg width="24" height="24" viewBox="0 0 36 36" fill="none">
-            <defs><linearGradient id="footLogoGrad" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
-            <rect x="4" y="18" width="28" height="16" rx="3" fill="url(#footLogoGrad)" opacity="0.3"/>
-            <rect x="4" y="10" width="28" height="16" rx="3" fill="url(#footLogoGrad)" opacity="0.55"/>
-            <rect x="4" y="2" width="28" height="16" rx="3" fill="url(#footLogoGrad)"/>
+    <footer class="figgy-footer">
+      <div style="max-width:800px;margin:0 auto;">
+        <!-- Logo in footer -->
+        <div style="margin-bottom:1.5rem;">
+          <svg width="48" height="48" viewBox="0 0 64 64" fill="none">
+            <ellipse cx="32" cy="36" rx="22" ry="18" fill="#FF8A8A"/>
+            <ellipse cx="16" cy="22" rx="6" ry="7" fill="#FF8A8A" transform="rotate(-15 16 22)"/>
+            <ellipse cx="48" cy="22" rx="6" ry="7" fill="#FF8A8A" transform="rotate(15 48 22)"/>
+            <rect x="26" y="19" width="12" height="3" rx="1.5" fill="#F5A623"/>
+            <ellipse cx="32" cy="40" rx="8" ry="6" fill="#FFB5B5"/>
+            <circle cx="29" cy="39.5" r="1.5" fill="#E88A8A"/>
+            <circle cx="35" cy="39.5" r="1.5" fill="#E88A8A"/>
+            <circle cx="24" cy="32" r="2.5" fill="white"/>
+            <circle cx="40" cy="32" r="2.5" fill="white"/>
+            <circle cx="25" cy="31" r="1" fill="#2C087D"/>
+            <circle cx="41" cy="31" r="1" fill="#2C087D"/>
           </svg>
-          <span class="footer-brand gradient-text" style="margin-bottom:0;">CalcStack</span>
         </div>
-        <p class="footer-text" style="margin-bottom:1rem;">
-          The financial toolkit that actually gets it done. All calculations for educational purposes only.
-        </p>
-        <div class="footer-links" style="margin-bottom:1rem;">
-          <a href="#" onclick="document.querySelector('#carousel-business').scrollIntoView({behavior:'smooth'});return false;">Business & M&A</a>
-          <a href="#" onclick="document.querySelector('#carousel-personal').scrollIntoView({behavior:'smooth'});return false;">Personal Finance</a>
-          <a href="#" onclick="document.querySelector('#carousel-tax').scrollIntoView({behavior:'smooth'});return false;">Tax & Planning</a>
+        <h2>Your money. Your math. Your move.</h2>
+        <p style="color:rgba(255,255,255,0.65);margin-bottom:2rem;font-size:1rem;">Smart money moves made simple — start crunching numbers today.</p>
+        <a href="#tools-section" class="btn" style="background:white;color:#2C087D;font-weight:700;padding:0.875rem 2rem;border-radius:var(--radius-full);margin-bottom:2.5rem;">Explore All Tools →</a>
+        <div class="figgy-footer-links">
+          <a href="#" onclick="document.getElementById('tools-section').scrollIntoView({behavior:'smooth'});return false;">Business & M&A</a>
+          <a href="#" onclick="document.getElementById('tools-section').scrollIntoView({behavior:'smooth'});return false;">Personal Finance</a>
+          <a href="#" onclick="document.getElementById('tools-section').scrollIntoView({behavior:'smooth'});return false;">Tax & Planning</a>
           <a href="https://github.com/rajkcho/Babaganoush" target="_blank">GitHub</a>
         </div>
-        <div style="display:inline-flex;align-items:center;gap:0.375rem;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.15);border-radius:var(--radius-full);padding:0.3rem 0.75rem;font-size:0.72rem;color:var(--text-muted);font-weight:600;">
-          Built in Canada 🇨🇦
+        <div class="figgy-footer-bottom">
+          <p>Built with ❤️ in Canada 🇨🇦</p>
+          <p style="margin-top:0.5rem;">© 2026 FiggyBank</p>
         </div>
-        <p class="footer-made">© 2026 CalcStack</p>
       </div>
     </footer>
   </div>
 
   <!-- ═══════════════════════════════════════════════════════
-       BUSINESS VALUATION PAGE
+       CALCULATOR PAGES (preserved from original)
        ═══════════════════════════════════════════════════════ -->
   <div class="page" id="page-valuation" role="region" aria-label="Business Valuation Calculator">
     <div class="calc-container" style="padding-top: 6rem;">
@@ -4115,7 +3443,18 @@
        JAVASCRIPT ENGINE
        ═══════════════════════════════════════════════════════ -->
   <script>
-    console.log('CalcStack v3.0 loaded — run runTests() in console to verify');
+    console.log('FiggyBank v5.0 loaded — run runTests() in console to verify');
+
+    // ── IntersectionObserver for js-show elements (CreditGenie-style) ──
+    const jsShowObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          jsShowObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.js-show').forEach(el => jsShowObserver.observe(el));
 
     // ── Floating Particles Generator ──────────────────────
     (function initParticles() {
@@ -4228,15 +3567,15 @@
     
     function toggleTheme() {
       isDark = !isDark;
-      document.documentElement.classList.toggle('light', !isDark);
+      document.documentElement.classList.toggle('dark', isDark);
       document.querySelector('.theme-toggle').textContent = isDark ? '🌙' : '☀️';
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     }
     
-    // Initialize theme
-    if (!isDark) {
-      document.documentElement.classList.add('light');
-      document.querySelector('.theme-toggle').textContent = '☀️';
+    // Initialize theme (light is default)
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+      document.querySelector('.theme-toggle').textContent = '🌙';
     }
     
     // ── Mobile Menu ───────────────────────────────────────
@@ -5767,14 +5106,14 @@
       toggleTheme();
       assert('Theme: toggles isDark', isDark !== wasDark, `isDark changed to ${isDark}`);
       assert('Theme: light class toggles', document.documentElement.classList.contains('light') !== wasCls, '');
-      const themeStored = localStorage.getItem('calcstack-theme');
+      const themeStored = localStorage.getItem('figgybank-theme');
       assert('Theme: persists to localStorage', themeStored !== null, `Stored: ${themeStored}`);
       toggleTheme(); // Reset
-      const themeReset = localStorage.getItem('calcstack-theme');
+      const themeReset = localStorage.getItem('figgybank-theme');
       assert('Theme: localStorage updates on re-toggle', themeReset !== themeStored, `Now: ${themeReset}`);
       
       // Print results
-      console.log(`\n🧪 BABAGANOUSH TEST SUITE`);
+      console.log(`\n🧪 FIGGYBANK TEST SUITE`);
       console.log(`${'═'.repeat(50)}`);
       results.forEach(r => {
         console.log(`${r.status === 'PASS' ? '✅' : '❌'} ${r.name} ${r.detail ? `(${r.detail})` : ''}`);
@@ -6434,7 +5773,7 @@
     // 8. Easter Egg — type "calcstack" anywhere
     (function() {
       let buffer = '';
-      const secret = 'calcstack';
+      const secret = 'figgybank';
       document.addEventListener('keypress', function(e) {
         buffer += e.key.toLowerCase();
         if (buffer.length > secret.length) buffer = buffer.slice(-secret.length);
@@ -6763,7 +6102,7 @@
 
       if (calcMap[calcName]) calcMap[calcName]();
 
-      const html = '<!DOCTYPE html><html><head><title>CalcStack - ' + calcName + '</title><style>@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.no-print{display:none!important}}body{font-family:Segoe UI,Arial,sans-serif;max-width:700px;margin:0 auto;padding:2rem;color:#1a1a2e}.header{text-align:center;border-bottom:3px solid #6366f1;padding-bottom:1rem;margin-bottom:2rem}.header h1{color:#6366f1;margin:0;font-size:1.8rem}.header .brand{font-size:.9rem;color:#888;margin-top:.25rem}.header .date{font-size:.8rem;color:#999;margin-top:.5rem}h2{color:#333;font-size:1.1rem;border-bottom:1px solid #eee;padding-bottom:.5rem}table{width:100%;border-collapse:collapse;margin:1rem 0}td{padding:.5rem .75rem;border-bottom:1px solid #eee;font-size:.9rem}td:first-child{color:#666;width:50%}td:last-child{font-weight:600;text-align:right}.results{background:#f8f8ff;border-radius:8px;padding:1.5rem;margin:1.5rem 0;white-space:pre-line;font-size:.9rem;line-height:1.8}.disclaimer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;font-size:.72rem;color:#999;text-align:center}.print-btn{display:block;margin:1rem auto;padding:.75rem 2rem;background:#6366f1;color:white;border:none;border-radius:8px;font-size:1rem;cursor:pointer}</style></head><body><div class="header"><h1>\ud83e\uddee ' + calcName + '</h1><div class="brand">CalcStack \u2014 Smart Financial Tools</div><div class="date">Generated: ' + date + '</div></div><h2>\ud83d\udccb Input Assumptions</h2><table>' + assumptions + '</table><h2>\ud83d\udcca Results</h2><div class="results">' + resultsText.replace(/\n/g, '<br>') + '</div><div class="disclaimer"><p><strong>Disclaimer:</strong> This report is for informational and educational purposes only. It does not constitute financial, investment, tax, or legal advice. Consult a qualified professional before making financial decisions.</p><p>\u00a9 ' + new Date().getFullYear() + ' CalcStack \u00b7 calcstack.ca</p></div><button class="print-btn no-print" onclick="window.print()">\ud83d\udda8\ufe0f Print / Save as PDF</button></body></html>';
+      const html = '<!DOCTYPE html><html><head><title>FiggyBank - ' + calcName + '</title><style>@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.no-print{display:none!important}}body{font-family:Segoe UI,Arial,sans-serif;max-width:700px;margin:0 auto;padding:2rem;color:#1a1a2e}.header{text-align:center;border-bottom:3px solid #6366f1;padding-bottom:1rem;margin-bottom:2rem}.header h1{color:#6366f1;margin:0;font-size:1.8rem}.header .brand{font-size:.9rem;color:#888;margin-top:.25rem}.header .date{font-size:.8rem;color:#999;margin-top:.5rem}h2{color:#333;font-size:1.1rem;border-bottom:1px solid #eee;padding-bottom:.5rem}table{width:100%;border-collapse:collapse;margin:1rem 0}td{padding:.5rem .75rem;border-bottom:1px solid #eee;font-size:.9rem}td:first-child{color:#666;width:50%}td:last-child{font-weight:600;text-align:right}.results{background:#f8f8ff;border-radius:8px;padding:1.5rem;margin:1.5rem 0;white-space:pre-line;font-size:.9rem;line-height:1.8}.disclaimer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;font-size:.72rem;color:#999;text-align:center}.print-btn{display:block;margin:1rem auto;padding:.75rem 2rem;background:#6366f1;color:white;border:none;border-radius:8px;font-size:1rem;cursor:pointer}</style></head><body><div class="header"><h1>\ud83e\uddee ' + calcName + '</h1><div class="brand">FiggyBank \u2014 Smart Financial Tools</div><div class="date">Generated: ' + date + '</div></div><h2>\ud83d\udccb Input Assumptions</h2><table>' + assumptions + '</table><h2>\ud83d\udcca Results</h2><div class="results">' + resultsText.replace(/\n/g, '<br>') + '</div><div class="disclaimer"><p><strong>Disclaimer:</strong> This report is for informational and educational purposes only. It does not constitute financial, investment, tax, or legal advice. Consult a qualified professional before making financial decisions.</p><p>\u00a9 ' + new Date().getFullYear() + ' FiggyBank \u00b7 figgybank.ca</p></div><button class="print-btn no-print" onclick="window.print()">\ud83d\udda8\ufe0f Print / Save as PDF</button></body></html>';
 
       const w = window.open('', '_blank');
       w.document.write(html);
@@ -6771,7 +6110,7 @@
     }
 
     function copyResults(calcName) {
-      let text = '\ud83d\udcca ' + calcName + ' \u2014 CalcStack Report\n' + '\u2500'.repeat(40) + '\n';
+      let text = '\ud83d\udcca ' + calcName + ' \u2014 FiggyBank Report\n' + '\u2500'.repeat(40) + '\n';
       const resultIds = {
         'Business Valuation (DCF)': 'dcf-results',
         'Business Valuation (Multiples)': 'multiples-results',
@@ -6795,7 +6134,7 @@
         text += 'Liabilities: ' + document.getElementById('nw-total-liabilities').textContent + '\n';
         text += 'Net Worth: ' + document.getElementById('nw-networth').textContent + '\n';
       }
-      text += '\n' + '\u2500'.repeat(40) + '\nGenerated by CalcStack \u00b7 calcstack.ca';
+      text += '\n' + '\u2500'.repeat(40) + '\nGenerated by FiggyBank \u00b7 figgybank.ca';
       navigator.clipboard.writeText(text).then(showCopyToast).catch(function() {
         const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showCopyToast();
       });
@@ -6964,13 +6303,13 @@
 
     // ── Global Calculation Counter ─────────────────────────
     function incrementCalcCounter() {
-      var count = parseInt(localStorage.getItem('calcstack-calc-count') || '0', 10) + 1;
-      localStorage.setItem('calcstack-calc-count', count.toString());
+      var count = parseInt(localStorage.getItem('figgybank-calc-count') || '0', 10) + 1;
+      localStorage.setItem('figgybank-calc-count', count.toString());
       var el = document.getElementById('global-calc-counter');
       if (el) el.textContent = count.toLocaleString();
     }
     (function initCounter() {
-      var count = parseInt(localStorage.getItem('calcstack-calc-count') || '0', 10);
+      var count = parseInt(localStorage.getItem('figgybank-calc-count') || '0', 10);
       var el = document.getElementById('global-calc-counter');
       if (el) el.textContent = count > 0 ? count.toLocaleString() : '0';
     })();

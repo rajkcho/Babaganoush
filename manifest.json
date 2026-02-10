@@ -1,10 +1,10 @@
 {
-  "name": "Babaganoush",
-  "short_name": "Babaganoush",
+  "name": "FiggyBank",
+  "short_name": "FiggyBank",
   "description": "Free premium financial calculators built by finance professionals.",
-  "start_url": "/Babaganoush/",
+  "start_url": "/FiggyBank/",
   "display": "standalone",
-  "theme_color": "#6366f1",
+  "theme_color": "#2C087D",
   "background_color": "#0a0a0f",
   "icons": [
     {
