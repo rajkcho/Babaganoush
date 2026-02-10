@@ -3575,6 +3575,219 @@
 
     // Initialize M&A on page load
     document.addEventListener('DOMContentLoaded', function() { if(document.getElementById('ma-acq-eps')) calculateMA(); });
+
+    // ══════════════════════════════════════════════════════════
+    //  STARTUP RUNWAY CALCULATOR
+    // ══════════════════════════════════════════════════════════
+    let runwayScenario = 'base';
+
+    function switchRunwayTab(tab) {
+      runwayScenario = tab;
+      document.querySelectorAll('#runway-tabs .tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('runway-tab-' + tab).classList.add('active');
+      calculateRunway();
+    }
+
+    function calculateRunway() {
+      const cash = parseFloat(document.getElementById('rw-cash').value) || 0;
+      const revenue = parseFloat(document.getElementById('rw-revenue').value) || 0;
+      let growthPct = parseFloat(document.getElementById('rw-growth').value) || 0;
+      const fixed = parseFloat(document.getElementById('rw-fixed').value) || 0;
+      const variable = parseFloat(document.getElementById('rw-variable').value) || 0;
+      const onetime = parseFloat(document.getElementById('rw-onetime').value) || 0;
+      const hiring = parseFloat(document.getElementById('rw-hiring').value) || 0;
+
+      let scenarioLabel = 'Base Case Scenario';
+      let effectiveGrowth = growthPct;
+      if (runwayScenario === 'conservative') { effectiveGrowth = 0; scenarioLabel = 'Conservative Scenario (No Growth)'; }
+      if (runwayScenario === 'aggressive') { effectiveGrowth = growthPct * 2; scenarioLabel = 'Aggressive Scenario (' + (growthPct * 2) + '% Growth)'; }
+
+      document.getElementById('rw-scenario-label').textContent = scenarioLabel;
+
+      const totalCosts = fixed + variable;
+      const burnRate = totalCosts - revenue;
+      document.getElementById('rw-burn').textContent = fmtFull(burnRate);
+
+      const maxMonths = 60;
+      let balances = [];
+      let flatRunway = 0;
+      let growthRunway = 0;
+      let breakEvenMonth = null;
+      let hitZeroGrowth = false;
+
+      // Flat runway (no growth)
+      let flatBal = cash - onetime;
+      for (let m = 1; m <= maxMonths; m++) {
+        let flatCosts = totalCosts + (hiring * m);
+        flatBal -= (flatCosts - revenue);
+        if (flatBal <= 0) { flatRunway = m; break; }
+        if (m === maxMonths) flatRunway = maxMonths;
+      }
+
+      // Growth runway
+      let bal = cash - onetime;
+      let rev = revenue;
+      for (let m = 1; m <= maxMonths; m++) {
+        rev = rev * (1 + effectiveGrowth / 100);
+        let costs = totalCosts + (hiring * m);
+        bal -= (costs - rev);
+        balances.push({ month: m, balance: bal, revenue: rev, costs: costs });
+        if (!breakEvenMonth && rev >= costs) breakEvenMonth = m;
+        if (!hitZeroGrowth && bal <= 0) { growthRunway = m; hitZeroGrowth = true; }
+      }
+      if (!hitZeroGrowth) growthRunway = maxMonths;
+
+      document.getElementById('rw-runway-flat').textContent = flatRunway >= maxMonths ? '60+ months' : flatRunway + ' months';
+      document.getElementById('rw-runway-growth').textContent = growthRunway >= maxMonths ? '60+ months' : growthRunway + ' months';
+
+      const now = new Date();
+      if (growthRunway < maxMonths) {
+        const zeroDate = new Date(now.getFullYear(), now.getMonth() + growthRunway, 1);
+        document.getElementById('rw-zero-date').textContent = zeroDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+      } else {
+        document.getElementById('rw-zero-date').textContent = 'N/A (sustainable)';
+      }
+
+      const rw = growthRunway;
+      const safeEl = document.getElementById('rw-safe-zone');
+      const safeText = document.getElementById('rw-safe-text');
+      if (rw > 12 || rw >= maxMonths) {
+        safeText.textContent = '\u{1F7E2} Safe Zone';
+        safeEl.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+        safeEl.style.background = 'linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(16, 185, 129, 0.03))';
+      } else if (rw >= 6) {
+        safeText.textContent = '\u{1F7E1} Caution';
+        safeEl.style.borderColor = 'rgba(245, 158, 11, 0.4)';
+        safeEl.style.background = 'linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(245, 158, 11, 0.03))';
+      } else {
+        safeText.textContent = '\u{1F534} Danger';
+        safeEl.style.borderColor = 'rgba(239, 68, 68, 0.4)';
+        safeEl.style.background = 'linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(239, 68, 68, 0.03))';
+      }
+
+      document.getElementById('rw-breakeven').textContent = breakEvenMonth ? 'Month ' + breakEvenMonth : 'Not within 60 months';
+
+      // Chart
+      const chart = document.getElementById('rw-chart');
+      const maxBal = Math.max(...balances.map(b => Math.abs(b.balance)), 1);
+      const months = Math.min(balances.length, 36);
+      let html = '';
+      for (let i = 0; i < months; i++) {
+        const b = balances[i];
+        const pct = Math.min(Math.abs(b.balance) / maxBal * 100, 100);
+        const isNeg = b.balance < 0;
+        const isBE = breakEvenMonth && i + 1 === breakEvenMonth;
+        let color = isNeg ? 'var(--brand-danger)' : (isBE ? 'var(--brand-success)' : 'linear-gradient(to top, var(--brand-primary), var(--brand-accent))');
+        const title = 'Month ' + (i + 1) + ': ' + fmtFull(b.balance);
+        html += '<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;position:relative;" title="' + title + '">';
+        html += '<div style="width:100%;height:' + Math.max(pct, 2) + '%;background:' + color + ';border-radius:3px 3px 0 0;min-height:2px;transition:height 0.5s ease;"></div>';
+        if (i % 6 === 0 || i === months - 1) html += '<span style="font-size:0.55rem;color:var(--text-muted);position:absolute;bottom:-18px;">M' + (i + 1) + '</span>';
+        html += '</div>';
+      }
+      chart.innerHTML = html;
+    }
+
+    // ══════════════════════════════════════════════════════════
+    //  NET WORTH TRACKER
+    // ══════════════════════════════════════════════════════════
+    function nwVal(id) { return parseFloat(document.getElementById(id).value) || 0; }
+
+    function calculateNetWorth() {
+      const assets = {
+        'Cash & Savings': nwVal('nw-cash'),
+        'TFSA': nwVal('nw-tfsa'),
+        'RRSP': nwVal('nw-rrsp'),
+        'Non-Registered': nwVal('nw-nonreg'),
+        'Real Estate': nwVal('nw-realestate'),
+        'Vehicles': nwVal('nw-vehicles'),
+        'Other Assets': nwVal('nw-other-assets'),
+      };
+      const liabilities = {
+        'Mortgage': nwVal('nw-mortgage'),
+        'Car Loans': nwVal('nw-carloans'),
+        'Student Loans': nwVal('nw-student'),
+        'Credit Cards': nwVal('nw-cc'),
+        'Line of Credit': nwVal('nw-loc'),
+        'Other Debt': nwVal('nw-other-debt'),
+      };
+
+      const totalAssets = Object.values(assets).reduce((a, b) => a + b, 0);
+      const totalLiabilities = Object.values(liabilities).reduce((a, b) => a + b, 0);
+      const netWorth = totalAssets - totalLiabilities;
+      const liquidNW = totalAssets - assets['Real Estate'] - assets['Vehicles'] - totalLiabilities;
+
+      document.getElementById('nw-total-assets').textContent = fmtFull(totalAssets);
+      document.getElementById('nw-total-liabilities').textContent = fmtFull(totalLiabilities);
+      document.getElementById('nw-networth').textContent = fmtFull(netWorth);
+      document.getElementById('nw-liquid').textContent = fmtFull(liquidNW);
+
+      // Debt-to-asset ratio
+      const dtaEl = document.getElementById('nw-dta');
+      if (totalAssets > 0) {
+        const dta = (totalLiabilities / totalAssets * 100);
+        let pillClass = dta > 80 ? 'negative' : dta > 50 ? 'neutral' : 'positive';
+        let icon = dta > 80 ? '\u{1F534}' : dta > 50 ? '\u{1F7E1}' : '\u{1F7E2}';
+        dtaEl.innerHTML = '<span class="metric-pill ' + pillClass + '">' + icon + ' Debt-to-Asset: ' + dta.toFixed(1) + '%</span>';
+      } else {
+        dtaEl.innerHTML = '';
+      }
+
+      // Pie chart (conic-gradient)
+      const colors = ['#6366f1', '#8b5cf6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444', '#ec4899'];
+      const assetEntries = Object.entries(assets).filter(function(e) { return e[1] > 0; });
+      if (totalAssets > 0 && assetEntries.length > 0) {
+        let gradParts = [];
+        let cumPct = 0;
+        let legendHtml = '';
+        assetEntries.forEach(function(entry, i) {
+          const name = entry[0], val = entry[1];
+          const pct = val / totalAssets * 100;
+          const c = colors[i % colors.length];
+          gradParts.push(c + ' ' + cumPct.toFixed(1) + '% ' + (cumPct + pct).toFixed(1) + '%');
+          legendHtml += '<div style="display:flex;align-items:center;gap:6px;"><span style="width:10px;height:10px;border-radius:2px;background:' + c + ';flex-shrink:0;"></span>' + name + ' <span class="mono" style="color:var(--text-muted);">' + pct.toFixed(0) + '%</span></div>';
+          cumPct += pct;
+        });
+        document.getElementById('nw-pie').style.background = 'conic-gradient(' + gradParts.join(', ') + ')';
+        document.getElementById('nw-pie-legend').innerHTML = legendHtml;
+      } else {
+        document.getElementById('nw-pie').style.background = 'var(--border-primary)';
+        document.getElementById('nw-pie-legend').innerHTML = '<span style="color:var(--text-muted);">Enter assets to see allocation</span>';
+      }
+    }
+
+    function saveNetWorthSnapshot() {
+      const snap = {
+        date: new Date().toISOString(),
+        assets: nwVal('nw-cash') + nwVal('nw-tfsa') + nwVal('nw-rrsp') + nwVal('nw-nonreg') + nwVal('nw-realestate') + nwVal('nw-vehicles') + nwVal('nw-other-assets'),
+        liabilities: nwVal('nw-mortgage') + nwVal('nw-carloans') + nwVal('nw-student') + nwVal('nw-cc') + nwVal('nw-loc') + nwVal('nw-other-debt'),
+      };
+      snap.netWorth = snap.assets - snap.liabilities;
+      const snaps = JSON.parse(localStorage.getItem('nw-snapshots') || '[]');
+      snaps.push(snap);
+      localStorage.setItem('nw-snapshots', JSON.stringify(snaps));
+      loadNetWorthSnapshots();
+    }
+
+    function loadNetWorthSnapshots() {
+      const snaps = JSON.parse(localStorage.getItem('nw-snapshots') || '[]');
+      const el = document.getElementById('nw-snapshots');
+      if (snaps.length === 0) {
+        el.innerHTML = '<p style="color:var(--text-muted);font-size:0.8rem;">No snapshots yet. Save one to start tracking.</p>';
+        return;
+      }
+      let html = '<div style="display:flex;flex-direction:column;gap:0.5rem;">';
+      snaps.slice().reverse().forEach(function(s) {
+        const d = new Date(s.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+        const nwColor = s.netWorth >= 0 ? 'var(--brand-success)' : 'var(--brand-danger)';
+        html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0.75rem;background:var(--bg-secondary);border-radius:var(--radius-sm);border:1px solid var(--border-primary);">';
+        html += '<span style="color:var(--text-secondary);">' + d + '</span>';
+        html += '<span class="mono" style="font-weight:600;color:' + nwColor + ';">' + fmtFull(s.netWorth) + '</span>';
+        html += '</div>';
+      });
+      html += '</div>';
+      html += '<button class="btn btn-ghost btn-sm" style="margin-top:0.75rem;color:var(--brand-danger);font-size:0.72rem;" onclick="if(confirm(\'Clear all snapshots?\')){localStorage.removeItem(\'nw-snapshots\');loadNetWorthSnapshots();}">Clear All Snapshots</button>';
+      el.innerHTML = html;
+    }
   </script>
 </body>
 </html>
