@@ -1614,8 +1614,22 @@
 
     /* ── Print / PDF Export ─────────────────────────────── */
     @media print {
-      body { background: white !important; color: black !important; }
-      .nav-bar, .cookie-banner, .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 12pt; }
+      .nav-bar, .cookie-banner, .no-print, .footer, .btn, .action-buttons,
+      .theme-toggle, .mobile-menu-btn, .newsletter-section, .hero-cta { display: none !important; }
+      * { box-shadow: none !important; text-shadow: none !important; }
+      .page { display: block !important; }
+      .glass-card, .result-card, .tool-card { background: white !important; border: 1px solid #ddd !important; break-inside: avoid; }
+      .section, .calc-container { page-break-inside: avoid; }
+      h1, h2, h3 { page-break-after: avoid; color: #1a1a2e !important; -webkit-text-fill-color: #1a1a2e !important; }
+      .result-value { -webkit-text-fill-color: #333 !important; color: #333 !important; }
+      a { text-decoration: underline; color: #333 !important; }
+      @page { margin: 2cm; }
+      .page.active::before {
+        content: "Babaganoush — Smart Financial Tools";
+        display: block; text-align: center; font-size: 14pt; font-weight: 700;
+        color: #6366f1; border-bottom: 2px solid #6366f1; padding-bottom: 0.5rem; margin-bottom: 1.5rem;
+      }
     }
     .action-buttons { display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap; }
     .action-buttons .btn { font-size: 0.78rem; padding: 0.5rem 1rem; }
@@ -1781,6 +1795,8 @@
         <li><a href="#" onclick="showPage('compound'); return false;">Compound</a></li>
         <li><a href="#" onclick="showPage('salary'); return false;">Salary</a></li>
         <li><a href="#" onclick="showPage('debt'); return false;">Debt</a></li>
+        <li><a href="#" onclick="showPage('compare'); return false;">Compare</a></li>
+        <li><a href="#" onclick="showPage('currency'); return false;">Currency</a></li>
       </ul>
       
       <div class="nav-actions">
@@ -1833,12 +1849,12 @@
         
         <div class="hero-stats">
           <div class="hero-stat">
-            <div class="hero-stat-value" data-count="8">0</div>
+            <div class="hero-stat-value" data-count="12">0</div>
             <div class="hero-stat-label">Free Tools</div>
           </div>
           <div class="hero-stat">
-            <div class="hero-stat-value" data-count="100">0</div>
-            <div class="hero-stat-label">Calculations / Day</div>
+            <div class="hero-stat-value" id="global-calc-counter">0</div>
+            <div class="hero-stat-label">Calculations Run</div>
           </div>
           <div class="hero-stat">
             <div class="hero-stat-value">$0</div>
@@ -2004,6 +2020,29 @@
             <span class="metric-pill neutral">Snowball</span>
           </div>
         </div>
+
+        <!-- Side-by-Side Comparison -->
+        <div class="tool-card reveal" onclick="showPage('compare')" role="button" tabindex="0" aria-label="Side-by-Side Comparison">
+          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(168, 85, 247, 0.05));">⚖️</div>
+          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Side-by-Side Compare</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Compare two mortgage or investment scenarios side by side. See which option saves you more.</p>
+          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
+            <span class="metric-pill neutral">Mortgage</span>
+            <span class="metric-pill neutral">A vs B</span>
+          </div>
+        </div>
+
+        <!-- Currency Converter -->
+        <div class="tool-card reveal" onclick="showPage('currency')" role="button" tabindex="0" aria-label="Currency Converter" style="position: relative;">
+          <div style="position: absolute; top: 0.75rem; right: 0.75rem; background: var(--brand-primary); color: white; font-size: 0.65rem; padding: 0.15rem 0.5rem; border-radius: 999px; font-weight: 600;">Quick Tool</div>
+          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(20, 184, 166, 0.05));">💱</div>
+          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Currency Converter</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Instantly convert CAD to USD, EUR, GBP, INR, and JPY with approximate rates.</p>
+          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
+            <span class="metric-pill neutral">CAD</span>
+            <span class="metric-pill neutral">5 Currencies</span>
+          </div>
+        </div>
       </div>
     </section>
     
@@ -2146,6 +2185,17 @@
           <button class="btn btn-primary" onclick="subscribeNewsletter()">Subscribe</button>
         </div>
         <p class="newsletter-social-proof">✓ Join 2,000+ finance professionals · No spam, ever</p>
+      </div>
+    </section>
+
+    <!-- Built By -->
+    <section style="padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid var(--border-color);">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.1rem;">RK</div>
+        <div style="text-align: left;">
+          <p style="font-size: 0.9rem; color: var(--text-primary); margin: 0; font-weight: 500;">Built by a finance professional with 15+ years in M&A and corporate development</p>
+          <a href="#" style="font-size: 0.8rem; color: var(--brand-primary); text-decoration: none;">Connect on LinkedIn →</a>
+        </div>
       </div>
     </section>
 
@@ -3318,6 +3368,114 @@
   </div>
 
   <!-- ═══════════════════════════════════════════════════════
+       SIDE-BY-SIDE COMPARISON
+       ═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-compare" role="region" aria-label="Side-by-Side Comparison">
+    <div class="calc-container" style="padding-top: 6rem; max-width: 1100px;">
+      <div class="calc-back" onclick="showPage('home')" role="button" tabindex="0" aria-label="Back to Tools">← Back to Tools</div>
+
+      <div class="calc-header animate-fade-up">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚖️</div>
+        <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">Side-by-Side Comparison</h1>
+        <p style="color: var(--text-secondary); max-width: 540px; margin: 0 auto;">Compare two mortgage scenarios to see which option saves you more money.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem;">
+        <!-- Scenario A -->
+        <div class="glass-card" style="padding: var(--space-xl);">
+          <h3 style="font-size: 1rem; margin-bottom: 1rem; color: var(--brand-primary);">🅰️ Scenario A</h3>
+          <div class="input-group"><label>Home Price ($)</label><input type="number" id="cmp-a-price" value="600000" oninput="calculateComparison()" /></div>
+          <div class="input-group"><label>Interest Rate (%)</label><input type="number" id="cmp-a-rate" value="5.5" step="0.01" oninput="calculateComparison()" /></div>
+          <div class="input-group"><label>Amortization (years)</label><input type="number" id="cmp-a-amort" value="25" oninput="calculateComparison()" /></div>
+          <div class="input-group"><label>Down Payment (%)</label><input type="number" id="cmp-a-down" value="20" oninput="calculateComparison()" /></div>
+        </div>
+        <!-- Scenario B -->
+        <div class="glass-card" style="padding: var(--space-xl);">
+          <h3 style="font-size: 1rem; margin-bottom: 1rem; color: var(--brand-accent);">🅱️ Scenario B</h3>
+          <div class="input-group"><label>Home Price ($)</label><input type="number" id="cmp-b-price" value="550000" oninput="calculateComparison()" /></div>
+          <div class="input-group"><label>Interest Rate (%)</label><input type="number" id="cmp-b-rate" value="4.8" step="0.01" oninput="calculateComparison()" /></div>
+          <div class="input-group"><label>Amortization (years)</label><input type="number" id="cmp-b-amort" value="30" oninput="calculateComparison()" /></div>
+          <div class="input-group"><label>Down Payment (%)</label><input type="number" id="cmp-b-down" value="20" oninput="calculateComparison()" /></div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem;">
+        <div class="result-card" style="text-align: center;">
+          <div class="result-label">🅰️ Monthly Payment</div>
+          <div class="result-value" id="cmp-a-payment" style="font-size: 1.5rem;">$0</div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">Total Interest: <span id="cmp-a-interest">$0</span></div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary);">Total Cost: <span id="cmp-a-total">$0</span></div>
+        </div>
+        <div class="result-card" style="text-align: center;">
+          <div class="result-label">🅱️ Monthly Payment</div>
+          <div class="result-value" id="cmp-b-payment" style="font-size: 1.5rem;">$0</div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">Total Interest: <span id="cmp-b-interest">$0</span></div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary);">Total Cost: <span id="cmp-b-total">$0</span></div>
+        </div>
+      </div>
+
+      <!-- Verdict -->
+      <div class="result-card" style="margin-top: 1.5rem; text-align: center; padding: var(--space-xl);">
+        <div class="result-label" style="font-size: 1.1rem;">🏆 Verdict</div>
+        <div class="result-value" id="cmp-verdict" style="font-size: 1.2rem; line-height: 1.6;">Enter values to compare</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CURRENCY CONVERTER
+       ═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-currency" role="region" aria-label="Currency Converter">
+    <div class="calc-container" style="padding-top: 6rem; max-width: 700px;">
+      <div class="calc-back" onclick="showPage('home')" role="button" tabindex="0" aria-label="Back to Tools">← Back to Tools</div>
+
+      <div class="calc-header animate-fade-up">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">💱</div>
+        <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">Currency Converter</h1>
+        <p style="color: var(--text-secondary); max-width: 540px; margin: 0 auto;">Convert Canadian Dollars to major world currencies. Rates are approximate.</p>
+      </div>
+
+      <div class="glass-card" style="padding: var(--space-xl); margin-top: 2rem;">
+        <div class="input-group">
+          <label>Amount in CAD ($)</label>
+          <input type="number" id="currency-amount" value="1000" oninput="convertCurrency()" style="font-size: 1.2rem; text-align: center;" />
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;" id="currency-results">
+        <div class="result-card" style="text-align: center;">
+          <div class="result-label">🇺🇸 US Dollar (USD)</div>
+          <div class="result-value" id="cur-usd" style="font-size: 1.4rem;">$0</div>
+          <div style="font-size: 0.75rem; color: var(--text-secondary);">1 CAD = 0.7353 USD</div>
+        </div>
+        <div class="result-card" style="text-align: center;">
+          <div class="result-label">🇪🇺 Euro (EUR)</div>
+          <div class="result-value" id="cur-eur" style="font-size: 1.4rem;">€0</div>
+          <div style="font-size: 0.75rem; color: var(--text-secondary);">1 CAD = 0.6803 EUR</div>
+        </div>
+        <div class="result-card" style="text-align: center;">
+          <div class="result-label">🇬🇧 British Pound (GBP)</div>
+          <div class="result-value" id="cur-gbp" style="font-size: 1.4rem;">£0</div>
+          <div style="font-size: 0.75rem; color: var(--text-secondary);">1 CAD = 0.5814 GBP</div>
+        </div>
+        <div class="result-card" style="text-align: center;">
+          <div class="result-label">🇮🇳 Indian Rupee (INR)</div>
+          <div class="result-value" id="cur-inr" style="font-size: 1.4rem;">₹0</div>
+          <div style="font-size: 0.75rem; color: var(--text-secondary);">1 CAD = 62.50 INR</div>
+        </div>
+        <div class="result-card" style="text-align: center; grid-column: 1 / -1;">
+          <div class="result-label">🇯🇵 Japanese Yen (JPY)</div>
+          <div class="result-value" id="cur-jpy" style="font-size: 1.4rem;">¥0</div>
+          <div style="font-size: 0.75rem; color: var(--text-secondary);">1 CAD = 111.11 JPY</div>
+        </div>
+      </div>
+
+      <p style="text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 1.5rem;">⚠️ Rates are approximate and for reference only. Based on: USD 1.36, EUR 1.47, GBP 1.72, INR 0.016, JPY 0.009 per CAD.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
        JAVASCRIPT ENGINE
        ═══════════════════════════════════════════════════════ -->
   <script>
@@ -3359,6 +3517,8 @@
       if (pageId === 'networth') { calculateNetWorth(); loadNetWorthSnapshots(); }
       if (pageId === 'salary') calculateSalary();
       if (pageId === 'debt') calculateDebt();
+      if (pageId === 'compare') calculateComparison();
+      if (pageId === 'currency') convertCurrency();
     }
     
     // ── Theme Toggle ──────────────────────────────────────
@@ -3402,7 +3562,7 @@
     // ── Hero Counter Animation ────────────────────────────
     function animateCounters() {
       document.querySelectorAll('[data-count]').forEach(el => {
-        const target = parseInt(el.dataset.count);
+        const target = parseInt(el.dataset.count) || 0;
         let current = 0;
         const increment = target / 40;
         const timer = setInterval(() => {
@@ -3450,10 +3610,10 @@
     // ═══════════════════════════════════════════════════════
     function calculateDCF() {
       const fcf = parseFloat(document.getElementById('dcf-fcf').value) || 0;
-      const growth = parseFloat(document.getElementById('dcf-growth').value) / 100;
-      const terminal = parseFloat(document.getElementById('dcf-terminal').value) / 100;
-      const wacc = parseFloat(document.getElementById('dcf-wacc').value) / 100;
-      const years = parseInt(document.getElementById('dcf-years').value);
+      const growth = (parseFloat(document.getElementById('dcf-growth').value) || 0) / 100;
+      const terminal = (parseFloat(document.getElementById('dcf-terminal').value) || 0) / 100;
+      const wacc = (parseFloat(document.getElementById('dcf-wacc').value) || 0) / 100;
+      const years = parseInt(document.getElementById('dcf-years').value) || 5;
       const debt = parseFloat(document.getElementById('dcf-debt').value) || 0;
       
       if (wacc <= terminal) {
@@ -3601,9 +3761,9 @@
       const revenue = parseFloat(document.getElementById('mult-revenue').value) || 0;
       const ebitda = parseFloat(document.getElementById('mult-ebitda').value) || 0;
       const income = parseFloat(document.getElementById('mult-income').value) || 0;
-      const evRev = parseFloat(document.getElementById('mult-ev-rev').value);
-      const evEbitda = parseFloat(document.getElementById('mult-ev-ebitda').value);
-      const pe = parseFloat(document.getElementById('mult-pe').value);
+      const evRev = parseFloat(document.getElementById('mult-ev-rev').value) || 0;
+      const evEbitda = parseFloat(document.getElementById('mult-ev-ebitda').value) || 0;
+      const pe = parseFloat(document.getElementById('mult-pe').value) || 0;
       
       const valRevenue = revenue * evRev;
       const valEbitda = ebitda * evEbitda;
@@ -3751,10 +3911,10 @@
     // ═══════════════════════════════════════════════════════
     function calculateMortgage() {
       const price = parseFloat(document.getElementById('mort-price').value) || 0;
-      const downPct = parseFloat(document.getElementById('mort-down').value) / 100;
-      const rate = parseFloat(document.getElementById('mort-rate').value) / 100;
-      const amort = parseInt(document.getElementById('mort-amort').value);
-      const freq = parseInt(document.getElementById('mort-freq').value);
+      const downPct = (parseFloat(document.getElementById('mort-down').value) || 0) / 100;
+      const rate = (parseFloat(document.getElementById('mort-rate').value) || 0) / 100;
+      const amort = parseInt(document.getElementById('mort-amort').value) || 25;
+      const freq = parseInt(document.getElementById('mort-freq').value) || 12;
       const province = document.getElementById('mort-province').value;
       
       const downPayment = price * downPct;
@@ -4007,8 +4167,8 @@
     // ═══════════════════════════════════════════════════════
     function calculateDCA() {
       const monthly = parseFloat(document.getElementById('dca-monthly').value) || 0;
-      const annualReturn = parseFloat(document.getElementById('dca-return').value) / 100;
-      const years = parseInt(document.getElementById('dca-years').value);
+      const annualReturn = (parseFloat(document.getElementById('dca-return').value) || 0) / 100;
+      const years = parseInt(document.getElementById('dca-years').value) || 1;
       const initial = parseFloat(document.getElementById('dca-initial').value) || 0;
       
       const monthlyRate = Math.pow(1 + annualReturn, 1 / 12) - 1;
@@ -4027,7 +4187,7 @@
       }
       
       const totalEarnings = balance - totalContributed;
-      const inflationRate = parseFloat(document.getElementById('dca-inflation').value) / 100;
+      const inflationRate = (parseFloat(document.getElementById('dca-inflation').value) || 0) / 100;
       const realValue = balance / Math.pow(1 + inflationRate, years);
       
       document.getElementById('dca-results').innerHTML = `
@@ -4107,7 +4267,7 @@
       const contribution = parseFloat(document.getElementById('ret-contribution').value) || 0;
       const age = parseInt(document.getElementById('ret-age').value) || 30;
       const retireAge = parseInt(document.getElementById('ret-retire-age').value) || 65;
-      const annualReturn = parseFloat(document.getElementById('ret-return').value) / 100;
+      const annualReturn = (parseFloat(document.getElementById('ret-return').value) || 0) / 100;
       const retireIncome = parseFloat(document.getElementById('ret-retire-income').value) || 0;
       const province = document.getElementById('ret-province').value;
       
@@ -4248,9 +4408,9 @@
     function calculateCompound() {
       const initial = parseFloat(document.getElementById('comp-initial').value) || 0;
       const monthly = parseFloat(document.getElementById('comp-monthly').value) || 0;
-      const rate = parseFloat(document.getElementById('comp-rate').value) / 100;
-      const years = parseInt(document.getElementById('comp-years').value);
-      const freq = parseInt(document.getElementById('comp-freq').value);
+      const rate = (parseFloat(document.getElementById('comp-rate').value) || 0) / 100;
+      const years = parseInt(document.getElementById('comp-years').value) || 1;
+      const freq = parseInt(document.getElementById('comp-freq').value) || 1;
       
       const periodicRate = rate / freq;
       const totalPeriods = years * freq;
@@ -5446,10 +5606,10 @@
       // DCF value
       try {
         const fcf = parseFloat(document.getElementById('dcf-fcf').value) || 0;
-        const growth = parseFloat(document.getElementById('dcf-growth').value) / 100;
-        const terminal = parseFloat(document.getElementById('dcf-terminal').value) / 100;
-        const wacc = parseFloat(document.getElementById('dcf-wacc').value) / 100;
-        const years = parseInt(document.getElementById('dcf-years').value);
+        const growth = (parseFloat(document.getElementById('dcf-growth').value) || 0) / 100;
+        const terminal = (parseFloat(document.getElementById('dcf-terminal').value) || 0) / 100;
+        const wacc = (parseFloat(document.getElementById('dcf-wacc').value) || 0) / 100;
+        const years = parseInt(document.getElementById('dcf-years').value) || 5;
         const debt = parseFloat(document.getElementById('dcf-debt').value) || 0;
         if (wacc > terminal && fcf > 0) {
           let pv = 0;
@@ -5466,9 +5626,9 @@
         const rev = parseFloat(document.getElementById('mult-revenue').value) || 0;
         const ebitda = parseFloat(document.getElementById('mult-ebitda').value) || 0;
         const income = parseFloat(document.getElementById('mult-income').value) || 0;
-        const evRev = parseFloat(document.getElementById('mult-ev-rev').value);
-        const evEb = parseFloat(document.getElementById('mult-ev-ebitda').value);
-        const pe = parseFloat(document.getElementById('mult-pe').value);
+        const evRev = parseFloat(document.getElementById('mult-ev-rev').value) || 0;
+        const evEb = parseFloat(document.getElementById('mult-ev-ebitda').value) || 0;
+        const pe = parseFloat(document.getElementById('mult-pe').value) || 0;
         const avg = (rev * evRev + ebitda * evEb + income * pe) / 3;
         if (avg > 0) values.push({ label: 'Multiples (Avg)', value: avg, color: '#8b5cf6' });
       } catch(e) {}
@@ -5578,6 +5738,101 @@
         if (toolMap[e.key]) {
           e.preventDefault();
           showPage(toolMap[e.key]);
+        }
+      });
+    })();
+
+    // ── Global Calculation Counter ─────────────────────────
+    function incrementCalcCounter() {
+      var count = parseInt(localStorage.getItem('babaganoush-calc-count') || '0', 10) + 1;
+      localStorage.setItem('babaganoush-calc-count', count.toString());
+      var el = document.getElementById('global-calc-counter');
+      if (el) el.textContent = count.toLocaleString();
+    }
+    (function initCounter() {
+      var count = parseInt(localStorage.getItem('babaganoush-calc-count') || '0', 10);
+      var el = document.getElementById('global-calc-counter');
+      if (el) el.textContent = count > 0 ? count.toLocaleString() : '0';
+    })();
+
+    // ── Side-by-Side Comparison ──────────────────────────
+    function calcMortgagePayment(principal, annualRate, amortYears) {
+      // Canadian semi-annual compounding
+      var semiRate = annualRate / 100 / 2;
+      var monthlyRate = Math.pow(1 + semiRate, 1/6) - 1;
+      var n = amortYears * 12;
+      if (monthlyRate === 0) return { payment: principal / n, totalInterest: 0, totalCost: principal };
+      var payment = principal * monthlyRate * Math.pow(1 + monthlyRate, n) / (Math.pow(1 + monthlyRate, n) - 1);
+      var totalCost = payment * n;
+      return { payment: payment, totalInterest: totalCost - principal, totalCost: totalCost };
+    }
+
+    function calculateComparison() {
+      incrementCalcCounter();
+      var aPrice = parseFloat(document.getElementById('cmp-a-price').value) || 0;
+      var aRate = parseFloat(document.getElementById('cmp-a-rate').value) || 0;
+      var aAmort = parseInt(document.getElementById('cmp-a-amort').value) || 25;
+      var aDown = parseFloat(document.getElementById('cmp-a-down').value) || 0;
+      var bPrice = parseFloat(document.getElementById('cmp-b-price').value) || 0;
+      var bRate = parseFloat(document.getElementById('cmp-b-rate').value) || 0;
+      var bAmort = parseInt(document.getElementById('cmp-b-amort').value) || 25;
+      var bDown = parseFloat(document.getElementById('cmp-b-down').value) || 0;
+
+      var aPrincipal = aPrice * (1 - aDown / 100);
+      var bPrincipal = bPrice * (1 - bDown / 100);
+      var a = calcMortgagePayment(aPrincipal, aRate, aAmort);
+      var b = calcMortgagePayment(bPrincipal, bRate, bAmort);
+
+      document.getElementById('cmp-a-payment').textContent = fmtFull(a.payment);
+      document.getElementById('cmp-b-payment').textContent = fmtFull(b.payment);
+      document.getElementById('cmp-a-interest').textContent = fmtFull(a.totalInterest);
+      document.getElementById('cmp-b-interest').textContent = fmtFull(b.totalInterest);
+      document.getElementById('cmp-a-total').textContent = fmtFull(a.totalCost);
+      document.getElementById('cmp-b-total').textContent = fmtFull(b.totalCost);
+
+      var diff = Math.abs(a.totalCost - b.totalCost);
+      var verdict = '';
+      if (a.totalCost < b.totalCost) {
+        verdict = '🅰️ Scenario A saves you ' + fmtFull(diff) + ' in total cost over its term!';
+      } else if (b.totalCost < a.totalCost) {
+        verdict = '🅱️ Scenario B saves you ' + fmtFull(diff) + ' in total cost over its term!';
+      } else {
+        verdict = 'Both scenarios have the same total cost.';
+      }
+      var pmtDiff = Math.abs(a.payment - b.payment);
+      verdict += '\nMonthly payment difference: ' + fmtFull(pmtDiff);
+      document.getElementById('cmp-verdict').innerHTML = verdict.replace(/\n/g, '<br>');
+    }
+
+    // ── Currency Converter ───────────────────────────────
+    function convertCurrency() {
+      incrementCalcCounter();
+      var cad = parseFloat(document.getElementById('currency-amount').value) || 0;
+      // Rates: how many foreign units per 1 CAD (derived from "how many CAD per 1 foreign")
+      var usd = cad / 1.36;
+      var eur = cad / 1.47;
+      var gbp = cad / 1.72;
+      var inr = cad / 0.016;
+      var jpy = cad / 0.009;
+      document.getElementById('cur-usd').textContent = '$' + usd.toFixed(2);
+      document.getElementById('cur-eur').textContent = '€' + eur.toFixed(2);
+      document.getElementById('cur-gbp').textContent = '£' + gbp.toFixed(2);
+      document.getElementById('cur-inr').textContent = '₹' + Math.round(inr).toLocaleString();
+      document.getElementById('cur-jpy').textContent = '¥' + Math.round(jpy).toLocaleString();
+    }
+
+    // ── Patch existing calculators to increment counter ──
+    (function patchCounters() {
+      var fns = ['calculateDCF','calculateMultiples','calculateAsset','calculateMortgage',
+        'calculateCAGR','calculateDCA','calculateRetirement','calculateCompound',
+        'calculateMA','calculateRunway','calculateNetWorth','calculateSalary','calculateDebt'];
+      fns.forEach(function(name) {
+        var orig = window[name];
+        if (typeof orig === 'function') {
+          window[name] = function() {
+            incrementCalcCounter();
+            return orig.apply(this, arguments);
+          };
         }
       });
     })();
