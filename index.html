@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Babaganoush | Smart Financial Tools</title>
-  <meta name="description" content="Free premium financial calculators — business valuation, M&A analysis, mortgage calculator, investment returns, RRSP/TFSA optimizer. Built by finance professionals, for everyone." />
+  <title>CalcStack | The Financial Toolkit That Actually Gets It Done</title>
+  <meta name="description" content="Free premium financial calculators — business valuation, M&A analysis, Canadian mortgage, investment returns, RRSP/TFSA optimizer, tax estimator. Smart money decisions start here." />
   <meta name="keywords" content="financial calculator, business valuation, DCF calculator, mortgage calculator Canada, M&A accretion dilution, RRSP TFSA, investment returns, compound interest" />
-  <meta property="og:title" content="Babaganoush | Smart Financial Tools" />
-  <meta property="og:description" content="Free premium financial calculators built by finance professionals." />
+  <meta property="og:title" content="CalcStack | The Financial Toolkit That Actually Gets It Done" />
+  <meta property="og:description" content="Free premium financial calculators — smart money decisions start here." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://rajkcho.github.io/Babaganoush/" />
+  <meta property="og:url" content="https://rajkcho.github.io/CalcStack/" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://rajkcho.github.io/Babaganoush/" />
+  <link rel="canonical" href="https://rajkcho.github.io/CalcStack/" />
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,9 +41,9 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Babaganoush",
+    "name": "CalcStack",
     "description": "Free premium financial calculators — business valuation, M&A analysis, mortgage calculator, investment returns, RRSP/TFSA optimizer, compound interest, startup runway, net worth tracker.",
-    "url": "https://rajkcho.github.io/Babaganoush/",
+    "url": "https://rajkcho.github.io/CalcStack/",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "Any",
     "offers": {
@@ -62,10 +62,10 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Is Babaganoush free to use?",
+        "name": "Is CalcStack free to use?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, all financial calculators on Babaganoush are 100% free with no sign-up required."
+          "text": "Yes, all financial calculators on CalcStack are 100% free with no sign-up required."
         }
       },
       {
@@ -81,7 +81,7 @@
         "name": "What calculators are available?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Babaganoush includes 8 professional-grade calculators: Business Valuation (DCF, Multiples, Asset-based), M&A Deal Analyzer, Canadian Mortgage Calculator, Investment Returns (CAGR & DCA), RRSP vs TFSA Optimizer, Compound Interest Visualizer, Startup Runway Calculator, and Net Worth Tracker."
+          "text": "CalcStack includes 8 professional-grade calculators: Business Valuation (DCF, Multiples, Asset-based), M&A Deal Analyzer, Canadian Mortgage Calculator, Investment Returns (CAGR & DCA), RRSP vs TFSA Optimizer, Compound Interest Visualizer, Startup Runway Calculator, and Net Worth Tracker."
         }
       },
       {
@@ -1855,7 +1855,7 @@
       a { text-decoration: underline; color: #333 !important; }
       @page { margin: 2cm; }
       .page.active::before {
-        content: "Babaganoush — Smart Financial Tools";
+        content: "CalcStack — The Financial Toolkit That Actually Gets It Done";
         display: block; text-align: center; font-size: 14pt; font-weight: 700;
         color: #6366f1; border-bottom: 2px solid #6366f1; padding-bottom: 0.5rem; margin-bottom: 1.5rem;
       }
@@ -1980,6 +1980,122 @@
       min-width: 28px;
       text-align: center;
     }
+    /* ══ Showcase Carousel ══════════════════════════════ */
+    .showcase-scroll {
+      overflow-x: auto;
+      overflow-y: visible;
+      padding: 1rem 0 1.5rem;
+      margin: 0 -1.5rem;
+      padding-left: 1.5rem;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      scroll-snap-type: x proximity;
+    }
+    .showcase-scroll::-webkit-scrollbar { display: none; }
+    .showcase-track {
+      display: flex;
+      gap: 1.25rem;
+      padding-right: 1.5rem;
+    }
+    .showcase-card {
+      flex: 0 0 260px;
+      perspective: 800px;
+      cursor: pointer;
+      scroll-snap-align: start;
+    }
+    .showcase-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-primary);
+      background: var(--bg-card);
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s ease, border-color 0.4s ease;
+      transform-style: preserve-3d;
+    }
+    .showcase-card:hover .showcase-card-inner {
+      transform: scale(1.05) rotateY(-3deg) rotateX(2deg);
+      box-shadow: var(--shadow-xl), 0 0 40px rgba(99,102,241,0.12);
+      border-color: rgba(99,102,241,0.3);
+    }
+    .sc-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(15,17,23,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: var(--radius-lg);
+    }
+    .light .sc-overlay { background: rgba(255,255,255,0.85); }
+    .showcase-card:hover .sc-overlay { opacity: 1; }
+    .sc-overlay span {
+      font-weight: 700;
+      font-size: 1rem;
+      color: white;
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+      padding: 0.6rem 1.5rem;
+      border-radius: var(--radius-md);
+    }
+    .light .sc-overlay span { color: white; }
+    .sc-mini-ui { height: 100%; display: flex; flex-direction: column; }
+    .sc-mini-header {
+      padding: 0.65rem 0.85rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .sc-mini-body {
+      padding: 0.75rem 0.85rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .sc-mini-field {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.68rem;
+    }
+    .sc-label { color: var(--text-muted); }
+    .sc-value { font-family: 'JetBrains Mono', monospace; font-weight: 600; color: var(--text-primary); font-size: 0.7rem; }
+    .sc-mini-result {
+      margin-top: auto;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border-primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sc-result-label { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+    .sc-result-num { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 800; color: var(--text-primary); }
+    .sc-mini-bar {
+      height: 4px;
+      background: var(--border-primary);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 0.4rem;
+    }
+    .sc-bar-fill { height: 100%; border-radius: 2px; transition: width 1s ease; }
+
+    /* Feature grid responsive */
+    @media (max-width: 768px) {
+      [style*="grid-template-columns:repeat(4"] { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    @media (max-width: 480px) {
+      [style*="grid-template-columns:repeat(4"] { grid-template-columns: 1fr !important; }
+      .showcase-card { flex: 0 0 220px; }
+    }
+
+    /* Nav logo SVG */
+    .nav-logo-svg { flex-shrink: 0; }
   </style>
 </head>
 <body class="noise">
@@ -2013,8 +2129,24 @@
   <nav class="nav-bar" id="navbar">
     <div class="nav-inner">
       <a href="#" class="nav-logo" onclick="showPage('home'); return false;">
-        <div class="nav-logo-icon">B</div>
-        <span>Babaganoush</span>
+        <svg class="nav-logo-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="36" y2="36">
+              <stop offset="0%" stop-color="#6366f1"/>
+              <stop offset="100%" stop-color="#06b6d4"/>
+            </linearGradient>
+          </defs>
+          <rect x="4" y="18" width="28" height="16" rx="3" fill="url(#logoGrad)" opacity="0.3"/>
+          <rect x="4" y="10" width="28" height="16" rx="3" fill="url(#logoGrad)" opacity="0.55"/>
+          <rect x="4" y="2" width="28" height="16" rx="3" fill="url(#logoGrad)"/>
+          <rect x="10" y="6" width="4" height="3" rx="0.5" fill="white" opacity="0.9"/>
+          <rect x="16" y="6" width="4" height="3" rx="0.5" fill="white" opacity="0.9"/>
+          <rect x="22" y="6" width="4" height="3" rx="0.5" fill="white" opacity="0.9"/>
+          <rect x="10" y="11" width="4" height="3" rx="0.5" fill="white" opacity="0.6"/>
+          <rect x="16" y="11" width="4" height="3" rx="0.5" fill="white" opacity="0.6"/>
+          <rect x="22" y="11" width="4" height="3" rx="0.5" fill="white" opacity="0.6"/>
+        </svg>
+        <span>CalcStack</span>
       </a>
       
       <ul class="nav-links" id="nav-links">
@@ -2044,430 +2176,471 @@
        ═══════════════════════════════════════════════════════ -->
   <main id="main-content">
   <div class="page active" id="page-home">
-    
-    <!-- Hero -->
-    <section class="hero" id="hero">
+
+    <!-- ══ HERO ══ -->
+    <section class="hero" id="hero" style="min-height:50vh;max-height:50vh;padding-top:5rem;padding-bottom:2rem;">
       <div class="hero-bg">
         <div class="hero-blob hero-blob-1"></div>
         <div class="hero-blob hero-blob-2"></div>
         <div class="hero-blob hero-blob-3"></div>
         <div class="hero-grid"></div>
       </div>
-      <!-- Floating Particles -->
-      <div class="particles-container" id="hero-particles"></div>
-      <!-- Animated SVG Decorations -->
-      <svg class="hero-decoration" style="top:15%;left:5%;width:80px;height:80px;" viewBox="0 0 80 80"><polyline points="10,60 25,20 40,45 55,10 70,35" fill="none" stroke="var(--brand-primary)" stroke-width="2" stroke-linecap="round"><animate attributeName="stroke-dashoffset" from="200" to="0" dur="3s" fill="freeze"/></polyline></svg>
-      <svg class="hero-decoration" style="bottom:20%;right:8%;width:60px;height:60px;" viewBox="0 0 60 60"><circle cx="30" cy="30" r="22" fill="none" stroke="var(--brand-accent)" stroke-width="2" stroke-dasharray="4 4"><animateTransform attributeName="transform" type="rotate" values="0 30 30;360 30 30" dur="20s" repeatCount="indefinite"/></circle><circle cx="30" cy="30" r="8" fill="var(--brand-accent)" opacity="0.2"/></svg>
-      <svg class="hero-decoration" style="top:60%;left:12%;width:50px;height:50px;" viewBox="0 0 50 50"><rect x="10" y="10" width="12" height="30" rx="2" fill="var(--brand-secondary)" opacity="0.3"><animate attributeName="height" values="30;15;25;30" dur="3s" repeatCount="indefinite"/></rect><rect x="26" y="5" width="12" height="35" rx="2" fill="var(--brand-primary)" opacity="0.3"><animate attributeName="height" values="35;25;35;20;35" dur="4s" repeatCount="indefinite"/></rect></svg>
-      
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="pulse-dot"></span>
-          Free Forever · No Sign-up Required
+      <!-- Floating geometric shapes -->
+      <svg class="hero-decoration" style="top:12%;left:6%;width:70px;height:70px;opacity:0.06;" viewBox="0 0 70 70"><polygon points="35,5 65,60 5,60" fill="none" stroke="var(--brand-primary)" stroke-width="2"><animateTransform attributeName="transform" type="rotate" values="0 35 35;360 35 35" dur="30s" repeatCount="indefinite"/></polygon></svg>
+      <svg class="hero-decoration" style="top:25%;right:8%;width:50px;height:50px;opacity:0.06;" viewBox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="none" stroke="var(--brand-accent)" stroke-width="2" stroke-dasharray="6 4"><animateTransform attributeName="transform" type="rotate" values="0 25 25;-360 25 25" dur="25s" repeatCount="indefinite"/></circle></svg>
+      <svg class="hero-decoration" style="bottom:15%;left:15%;width:60px;height:60px;opacity:0.06;" viewBox="0 0 60 60"><polygon points="30,3 57,18 57,48 30,63 3,48 3,18" fill="none" stroke="var(--brand-secondary)" stroke-width="1.5"><animateTransform attributeName="transform" type="rotate" values="0 30 33;360 30 33" dur="40s" repeatCount="indefinite"/></polygon></svg>
+      <svg class="hero-decoration" style="bottom:20%;right:12%;width:40px;height:40px;opacity:0.05;" viewBox="0 0 40 40"><polygon points="20,2 38,32 2,32" fill="none" stroke="var(--brand-accent)" stroke-width="1.5"><animateTransform attributeName="transform" type="rotate" values="360 20 20;0 20 20" dur="35s" repeatCount="indefinite"/></polygon></svg>
+
+      <div class="hero-content" style="max-width:700px;">
+        <div style="display:flex;align-items:center;justify-content:center;gap:0.75rem;margin-bottom:1rem;animation:fadeInUp 0.6s ease both;">
+          <svg width="56" height="56" viewBox="0 0 36 36" fill="none">
+            <defs><linearGradient id="heroLogoGrad" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+            <rect x="4" y="18" width="28" height="16" rx="3" fill="url(#heroLogoGrad)" opacity="0.3"/>
+            <rect x="4" y="10" width="28" height="16" rx="3" fill="url(#heroLogoGrad)" opacity="0.55"/>
+            <rect x="4" y="2" width="28" height="16" rx="3" fill="url(#heroLogoGrad)"/>
+            <rect x="10" y="6" width="4" height="3" rx="0.5" fill="white" opacity="0.9"/>
+            <rect x="16" y="6" width="4" height="3" rx="0.5" fill="white" opacity="0.9"/>
+            <rect x="22" y="6" width="4" height="3" rx="0.5" fill="white" opacity="0.9"/>
+            <rect x="10" y="11" width="4" height="3" rx="0.5" fill="white" opacity="0.6"/>
+            <rect x="16" y="11" width="4" height="3" rx="0.5" fill="white" opacity="0.6"/>
+            <rect x="22" y="11" width="4" height="3" rx="0.5" fill="white" opacity="0.6"/>
+          </svg>
         </div>
-        
-        <h1>
-          Financial tools that<br />
-          <span class="gradient-text">actually make sense</span>
+        <h1 style="font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;letter-spacing:-0.04em;margin-bottom:0.5rem;animation:fadeInUp 0.6s ease 0.1s both;">
+          <span class="gradient-text">CalcStack</span>
         </h1>
-        
-        <p>
-          Professional-grade calculators for business valuation, M&A analysis, 
-          mortgage planning, and investment returns. Built by finance professionals 
-          with 15+ years of experience.
+        <p style="font-size:clamp(1rem,2vw,1.3rem);color:var(--text-secondary);font-weight:300;margin-bottom:2rem;animation:fadeInUp 0.6s ease 0.2s both;">
+          Smart money decisions start here
         </p>
-        
-        <div class="hero-cta">
-          <a href="#tools" class="btn btn-primary btn-lg">
+        <div style="animation:fadeInUp 0.6s ease 0.3s both;">
+          <a href="#showcase" class="btn btn-primary btn-lg" style="padding:1rem 2.5rem;font-size:1.05rem;border-radius:var(--radius-xl);">
             Explore Tools →
           </a>
-          <a href="#about" class="btn btn-secondary btn-lg">
-            Learn More
-          </a>
         </div>
-        
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <div class="hero-stat-value" data-count="14">0</div>
-            <div class="hero-stat-label">Free Tools</div>
+      </div>
+    </section>
+
+    <!-- ══ CALCULATOR SHOWCASE ══ -->
+    <section class="section" id="showcase" style="padding-top:3rem;padding-bottom:2rem;">
+      <div class="section-header reveal">
+        <div class="section-label"><span class="label-line"></span>Calculator Suite<span class="label-line"></span></div>
+        <h2 class="section-title" style="font-size:clamp(1.75rem,4vw,2.5rem);">The toolkit, <span class="gradient-text">at a glance</span></h2>
+      </div>
+
+      <!-- Category: Business & M&A -->
+      <div style="margin-bottom:2.5rem;">
+        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:1rem;" class="reveal">Business & M&A</p>
+        <div class="showcase-scroll reveal" id="carousel-business">
+          <div class="showcase-track">
+            <!-- Business Valuation -->
+            <div class="showcase-card" style="height:280px;" onclick="showPage('valuation')">
+              <div class="showcase-card-inner">
+                <div class="sc-mini-ui">
+                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">
+                    <span>🏢</span> Business Valuation
+                  </div>
+                  <div class="sc-mini-body">
+                    <div class="sc-mini-field"><span class="sc-label">Free Cash Flow</span><span class="sc-value">$1,000,000</span></div>
+                    <div class="sc-mini-field"><span class="sc-label">Growth Rate</span><span class="sc-value">10%</span></div>
+                    <div class="sc-mini-field"><span class="sc-label">WACC</span><span class="sc-value">12%</span></div>
+                    <div class="sc-mini-result"><span class="sc-result-label">Enterprise Value</span><span class="sc-result-num">$8.2M</span></div>
+                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:72%;background:linear-gradient(90deg,#6366f1,#8b5cf6);"></div></div>
+                  </div>
+                </div>
+                <div class="sc-overlay"><span>Try it →</span></div>
+              </div>
+            </div>
+            <!-- M&A Analyzer -->
+            <div class="showcase-card" style="height:260px;" onclick="showPage('merger')">
+              <div class="showcase-card-inner">
+                <div class="sc-mini-ui">
+                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">
+                    <span>🤝</span> M&A Deal Analyzer
+                  </div>
+                  <div class="sc-mini-body">
+                    <div class="sc-mini-field"><span class="sc-label">Deal Value</span><span class="sc-value">$50M</span></div>
+                    <div class="sc-mini-field"><span class="sc-label">Synergies</span><span class="sc-value">$3.2M</span></div>
+                    <div class="sc-mini-result"><span class="sc-result-label">EPS Impact</span><span class="sc-result-num" style="color:#10b981;">+12.4%</span></div>
+                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:62%;background:linear-gradient(90deg,#8b5cf6,#a78bfa);"></div></div>
+                  </div>
+                </div>
+                <div class="sc-overlay"><span>Try it →</span></div>
+              </div>
+            </div>
+            <!-- Startup Runway -->
+            <div class="showcase-card" style="height:250px;" onclick="showPage('runway')">
+              <div class="showcase-card-inner">
+                <div class="sc-mini-ui">
+                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#a855f7,#c084fc);">
+                    <span>🚀</span> Startup Runway
+                  </div>
+                  <div class="sc-mini-body">
+                    <div class="sc-mini-field"><span class="sc-label">Monthly Burn</span><span class="sc-value">$85K</span></div>
+                    <div class="sc-mini-field"><span class="sc-label">Cash Balance</span><span class="sc-value">$1.2M</span></div>
+                    <div class="sc-mini-result"><span class="sc-result-label">Runway</span><span class="sc-result-num">14.1 mo</span></div>
+                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:55%;background:linear-gradient(90deg,#a855f7,#c084fc);"></div></div>
+                  </div>
+                </div>
+                <div class="sc-overlay"><span>Try it →</span></div>
+              </div>
+            </div>
           </div>
-          <div class="hero-stat">
-            <div class="hero-stat-value" data-count="50000" data-suffix="+" id="global-calc-counter">0</div>
-            <div class="hero-stat-label">Calculations</div>
+        </div>
+      </div>
+
+      <!-- Category: Personal Finance -->
+      <div style="margin-bottom:2.5rem;">
+        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:1rem;" class="reveal">Personal Finance</p>
+        <div class="showcase-scroll reveal" id="carousel-personal">
+          <div class="showcase-track">
+            <!-- Mortgage -->
+            <div class="showcase-card" style="height:280px;" onclick="showPage('mortgage')">
+              <div class="showcase-card-inner">
+                <div class="sc-mini-ui">
+                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#06b6d4,#22d3ee);">
+                    <span>🏠</span> Canadian Mortgage
+                  </div>
+                  <div class="sc-mini-body">
+                    <div class="sc-mini-field"><span class="sc-label">Home Price</span><span class="sc-value">$750,000</span></div>
+                    <div class="sc-mini-field"><span class="sc-label">Down Payment</span><span class="sc-value">20%</span></div>
+                    <div class="sc-mini-field"><span class="sc-label">Rate</span><span class="sc-value">5.24%</span></div>
+                    <div class="sc-mini-result"><span class="sc-result-label">Monthly</span><span class="sc-result-num">$3,584</span></div>
+                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:80%;background:linear-gradient(90deg,#06b6d4,#22d3ee);"></div></div>
+                  </div>
+                </div>
+                <div class="sc-overlay"><span>Try it →</span></div>
+              </div>
+            </div>
+            <!-- Investment Returns -->
+            <div class="showcase-card" style="height:260px;" onclick="showPage('investment')">
+              <div class="showcase-card-inner">
+                <div class="sc-mini-ui">
+                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#10b981,#34d399);">
+                    <span>📈</span> Investment Returns
+                  </div>
+                  <div class="sc-mini-body">
+                    <div class="sc-mini-field"><span class="sc-label">Initial</span><span class="sc-value">$50,000</span></div>
+                    <div class="sc-mini-field"><span class="sc-label">Monthly Add</span><span class="sc-value">$500</span></div>
+                    <div class="sc-mini-result"><span class="sc-result-label">10yr Value</span><span class="sc-result-num">$198K</span></div>
+                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:68%;background:linear-gradient(90deg,#10b981,#34d399);"></div></div>
+                  </div>
+                </div>
+                <div class="sc-overlay"><span>Try it →</span></div>
+              </div>
+            </div>
+            <!-- Compound Interest -->
+            <div class="showcase-card" style="height:270px;" onclick="showPage('compound')">
+              <div class="showcase-card-inner">
+                <div class="sc-mini-ui">
+                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#ec4899,#f472b6);">
+                    <span>📊</span> Compound Interest
+                  </div>
+                  <div class="sc-mini-body">
+                    <div class="sc-mini-field"><span class="sc-label">Principal</span><span class="sc-value">$10,000</span></div>
+                    <div class="sc-mini-field"><span class="sc-label">Rate</span><span class="sc-value">7%</span></div>
+                    <div class="sc-mini-field"><span class="sc-label">Years</span><span class="sc-value">20</span></div>
+                    <div class="sc-mini-result"><span class="sc-result-label">Future Value</span><span class="sc-result-num">$38,697</span></div>
+                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:75%;background:linear-gradient(90deg,#ec4899,#f472b6);"></div></div>
+                  </div>
+                </div>
+                <div class="sc-overlay"><span>Try it →</span></div>
+              </div>
+            </div>
+            <!-- Net Worth -->
+            <div class="showcase-card" style="height:250px;" onclick="showPage('networth')">
+              <div class="showcase-card-inner">
+                <div class="sc-mini-ui">
+                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#22c55e,#4ade80);">
+                    <span>💰</span> Net Worth Tracker
+                  </div>
+                  <div class="sc-mini-body">
+                    <div class="sc-mini-field"><span class="sc-label">Assets</span><span class="sc-value" style="color:#10b981;">$485K</span></div>
+                    <div class="sc-mini-field"><span class="sc-label">Liabilities</span><span class="sc-value" style="color:#ef4444;">$210K</span></div>
+                    <div class="sc-mini-result"><span class="sc-result-label">Net Worth</span><span class="sc-result-num">$275K</span></div>
+                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:57%;background:linear-gradient(90deg,#22c55e,#4ade80);"></div></div>
+                  </div>
+                </div>
+                <div class="sc-overlay"><span>Try it →</span></div>
+              </div>
+            </div>
+            <!-- Salary -->
+            <div class="showcase-card" style="height:265px;" onclick="showPage('salary')">
+              <div class="showcase-card-inner">
+                <div class="sc-mini-ui">
+                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#14b8a6,#2dd4bf);">
+                    <span>💼</span> Salary & Comp
+                  </div>
+                  <div class="sc-mini-body">
+                    <div class="sc-mini-field"><span class="sc-label">Base Salary</span><span class="sc-value">$95,000</span></div>
+                    <div class="sc-mini-field"><span class="sc-label">Bonus</span><span class="sc-value">15%</span></div>
+                    <div class="sc-mini-result"><span class="sc-result-label">Take-Home</span><span class="sc-result-num">$6,820/mo</span></div>
+                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:64%;background:linear-gradient(90deg,#14b8a6,#2dd4bf);"></div></div>
+                  </div>
+                </div>
+                <div class="sc-overlay"><span>Try it →</span></div>
+              </div>
+            </div>
+            <!-- Debt -->
+            <div class="showcase-card" style="height:255px;" onclick="showPage('debt')">
+              <div class="showcase-card-inner">
+                <div class="sc-mini-ui">
+                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#ef4444,#f87171);">
+                    <span>💳</span> Debt Payoff
+                  </div>
+                  <div class="sc-mini-body">
+                    <div class="sc-mini-field"><span class="sc-label">Total Debt</span><span class="sc-value">$24,500</span></div>
+                    <div class="sc-mini-field"><span class="sc-label">Monthly Payment</span><span class="sc-value">$800</span></div>
+                    <div class="sc-mini-result"><span class="sc-result-label">Debt-Free In</span><span class="sc-result-num">34 mo</span></div>
+                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:48%;background:linear-gradient(90deg,#ef4444,#f87171);"></div></div>
+                  </div>
+                </div>
+                <div class="sc-overlay"><span>Try it →</span></div>
+              </div>
+            </div>
           </div>
-          <div class="hero-stat">
-            <div class="hero-stat-value" style="color: var(--brand-success);">100%</div>
-            <div class="hero-stat-label">Free Forever</div>
+        </div>
+      </div>
+
+      <!-- Category: Tax & Planning -->
+      <div style="margin-bottom:1rem;">
+        <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:1rem;" class="reveal">Tax & Planning</p>
+        <div class="showcase-scroll reveal" id="carousel-tax">
+          <div class="showcase-track">
+            <!-- RRSP vs TFSA -->
+            <div class="showcase-card" style="height:270px;" onclick="showPage('retirement')">
+              <div class="showcase-card-inner">
+                <div class="sc-mini-ui">
+                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">
+                    <span>🏦</span> RRSP vs TFSA
+                  </div>
+                  <div class="sc-mini-body">
+                    <div class="sc-mini-field"><span class="sc-label">Annual Contribution</span><span class="sc-value">$6,500</span></div>
+                    <div class="sc-mini-field"><span class="sc-label">Tax Bracket</span><span class="sc-value">33%</span></div>
+                    <div class="sc-mini-result"><span class="sc-result-label">Best Option</span><span class="sc-result-num" style="color:#10b981;">RRSP ✓</span></div>
+                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:70%;background:linear-gradient(90deg,#f59e0b,#fbbf24);"></div></div>
+                  </div>
+                </div>
+                <div class="sc-overlay"><span>Try it →</span></div>
+              </div>
+            </div>
+            <!-- Tax Estimator -->
+            <div class="showcase-card" style="height:280px;" onclick="showPage('tax')">
+              <div class="showcase-card-inner">
+                <div class="sc-mini-ui">
+                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#ef4444,#f87171);">
+                    <span>🧾</span> Canadian Tax Estimator
+                  </div>
+                  <div class="sc-mini-body">
+                    <div class="sc-mini-field"><span class="sc-label">Income</span><span class="sc-value">$120,000</span></div>
+                    <div class="sc-mini-field"><span class="sc-label">Province</span><span class="sc-value">Ontario</span></div>
+                    <div class="sc-mini-field"><span class="sc-label">Federal Tax</span><span class="sc-value">$18,270</span></div>
+                    <div class="sc-mini-result"><span class="sc-result-label">Effective Rate</span><span class="sc-result-num">28.7%</span></div>
+                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:60%;background:linear-gradient(90deg,#ef4444,#f87171);"></div></div>
+                  </div>
+                </div>
+                <div class="sc-overlay"><span>Try it →</span></div>
+              </div>
+            </div>
+            <!-- Lease vs Buy -->
+            <div class="showcase-card" style="height:260px;" onclick="showPage('lease')">
+              <div class="showcase-card-inner">
+                <div class="sc-mini-ui">
+                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">
+                    <span>🚗</span> Lease vs Buy
+                  </div>
+                  <div class="sc-mini-body">
+                    <div class="sc-mini-field"><span class="sc-label">Vehicle Price</span><span class="sc-value">$45,000</span></div>
+                    <div class="sc-mini-field"><span class="sc-label">Lease Term</span><span class="sc-value">48 mo</span></div>
+                    <div class="sc-mini-result"><span class="sc-result-label">Better Option</span><span class="sc-result-num" style="color:#10b981;">Buy ✓</span></div>
+                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:52%;background:linear-gradient(90deg,#f59e0b,#fbbf24);"></div></div>
+                  </div>
+                </div>
+                <div class="sc-overlay"><span>Try it →</span></div>
+              </div>
+            </div>
+            <!-- Currency -->
+            <div class="showcase-card" style="height:245px;" onclick="showPage('currency')">
+              <div class="showcase-card-inner">
+                <div class="sc-mini-ui">
+                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#14b8a6,#2dd4bf);">
+                    <span>💱</span> Currency Converter
+                  </div>
+                  <div class="sc-mini-body">
+                    <div class="sc-mini-field"><span class="sc-label">CAD Amount</span><span class="sc-value">$1,000</span></div>
+                    <div class="sc-mini-field"><span class="sc-label">To USD</span><span class="sc-value">$735.20</span></div>
+                    <div class="sc-mini-result"><span class="sc-result-label">Rate</span><span class="sc-result-num">0.7352</span></div>
+                  </div>
+                </div>
+                <div class="sc-overlay"><span>Try it →</span></div>
+              </div>
+            </div>
+            <!-- Compare -->
+            <div class="showcase-card" style="height:255px;" onclick="showPage('compare')">
+              <div class="showcase-card-inner">
+                <div class="sc-mini-ui">
+                  <div class="sc-mini-header" style="background:linear-gradient(135deg,#a855f7,#c084fc);">
+                    <span>⚖️</span> Side-by-Side Compare
+                  </div>
+                  <div class="sc-mini-body">
+                    <div class="sc-mini-field"><span class="sc-label">Option A</span><span class="sc-value">$3,200/mo</span></div>
+                    <div class="sc-mini-field"><span class="sc-label">Option B</span><span class="sc-value">$2,980/mo</span></div>
+                    <div class="sc-mini-result"><span class="sc-result-label">Savings</span><span class="sc-result-num" style="color:#10b981;">$26K</span></div>
+                    <div class="sc-mini-bar"><div class="sc-bar-fill" style="width:45%;background:linear-gradient(90deg,#a855f7,#c084fc);"></div></div>
+                  </div>
+                </div>
+                <div class="sc-overlay"><span>Try it →</span></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    
-    <!-- How It Works -->
-    <section class="section" style="padding-bottom: 2rem;">
-      <div class="section-header reveal">
-        <div class="section-label">
-          <span class="label-line"></span>
-          How It Works
-          <span class="label-line"></span>
+
+    <!-- ══ SOCIAL PROOF ══ -->
+    <section class="section" style="padding-top:1rem;padding-bottom:2rem;">
+      <div style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;margin-bottom:2.5rem;" class="reveal">
+        <div style="text-align:center;">
+          <div class="mono" style="font-size:2rem;font-weight:800;color:var(--text-primary);" data-count-up="10000" data-suffix="+">0</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.25rem;">Calculations</div>
         </div>
+        <div style="text-align:center;">
+          <div class="mono" style="font-size:2rem;font-weight:800;color:var(--brand-warning);" data-count-up="4.9" data-decimals="1">0</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.25rem;">★ Rating</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="mono" style="font-size:2rem;font-weight:800;color:var(--brand-success);">100%</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.25rem;">Free</div>
+        </div>
+      </div>
+
+      <div class="testimonial-grid" style="max-width:960px;margin:0 auto;">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"Replaced a $2,000/yr Bloomberg terminal for my small M&A practice. The DCF model is surprisingly robust."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JM</div>
+            <div><div class="testimonial-name">James M.</div><div class="testimonial-role">M&A Advisor, Toronto</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"The mortgage calculator with stress test saved me hours. Finally one that actually does Canadian semi-annual compounding right."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SP</div>
+            <div><div class="testimonial-name">Sarah P.</div><div class="testimonial-role">Mortgage Broker, Vancouver</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"I use the RRSP vs TFSA tool with every client meeting. Clean, fast, and the visuals actually help explain things."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">DK</div>
+            <div><div class="testimonial-name">David K.</div><div class="testimonial-role">Financial Planner, Calgary</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ HOW IT WORKS ══ -->
+    <section class="section" style="padding-top:1rem;padding-bottom:2rem;">
+      <div class="section-header reveal">
+        <div class="section-label"><span class="label-line"></span>How It Works<span class="label-line"></span></div>
         <h2 class="section-title">Three steps to <span class="gradient-text">smarter decisions</span></h2>
-        <p class="section-desc">No accounts, no downloads, no complexity. Just answers.</p>
       </div>
       <div class="how-it-works-steps">
         <div class="how-step reveal">
           <div class="how-connector"></div>
-          <div class="how-step-num">1</div>
-          <h3>Choose a tool</h3>
-          <p>Pick from 8 professional-grade calculators covering valuation, M&A, mortgage, and more.</p>
+          <div class="how-step-num">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </div>
+          <h3>Choose a calculator</h3>
+          <p>Pick from 14 professional-grade tools covering valuation, tax, mortgage, and more.</p>
         </div>
         <div class="how-step reveal">
           <div class="how-connector"></div>
-          <div class="how-step-num">2</div>
+          <div class="how-step-num">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M6 16h12"/></svg>
+          </div>
           <h3>Enter your numbers</h3>
-          <p>Fill in the inputs with your data. Smart defaults help you get started instantly.</p>
+          <p>Smart defaults get you started instantly. Adjust inputs and watch results update live.</p>
         </div>
         <div class="how-step reveal">
-          <div class="how-step-num">3</div>
+          <div class="how-step-num">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
           <h3>Get instant results</h3>
-          <p>See real-time calculations, sensitivity tables, and visual breakdowns — all in your browser.</p>
+          <p>Visual breakdowns, sensitivity tables, and exportable reports — all in your browser.</p>
         </div>
       </div>
     </section>
 
-    <!-- Featured Calculator Spotlight -->
-    <section class="section section-gradient-bg" style="padding-top: 1.5rem; padding-bottom: 2rem;">
+    <!-- ══ FEATURE HIGHLIGHTS ══ -->
+    <section class="section" style="padding-top:1rem;padding-bottom:2rem;" id="about">
       <div class="section-header reveal">
-        <div class="section-label">
-          <span class="label-line"></span>
-          Featured Tool
-          <span class="label-line"></span>
-        </div>
-        <h2 class="section-title">Try the <span class="gradient-text">Business Valuation</span> Calculator</h2>
-        <p class="section-desc">See how professionals value companies — live demo below</p>
+        <div class="section-label"><span class="label-line"></span>Why CalcStack<span class="label-line"></span></div>
+        <h2 class="section-title">Built <span class="gradient-text">different</span></h2>
       </div>
-      <div class="gradient-border-card reveal" style="max-width: 700px; margin: 0 auto;">
-        <div class="gradient-border-card-inner" style="padding: 2rem;">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center;">
-            <div>
-              <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🏢</div>
-              <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Quick DCF Valuation</h3>
-              <div class="input-group" style="margin-bottom: 0.75rem;">
-                <label>Annual Free Cash Flow</label>
-                <input type="number" id="featured-fcf" value="500000" oninput="updateFeaturedDemo()" style="font-size: 0.9rem;" />
-              </div>
-              <div class="input-group">
-                <label>Growth Rate: <span id="featured-growth-val" class="mono" style="color:var(--brand-primary);">8%</span></label>
-                <input type="range" id="featured-growth" min="0" max="25" value="8" step="0.5" oninput="updateFeaturedDemo(); document.getElementById('featured-growth-val').textContent=this.value+'%'" />
-              </div>
-            </div>
-            <div style="text-align: center;">
-              <div style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem;">Estimated Value</div>
-              <div class="result-value" id="featured-result" style="font-size: 2rem;">$0</div>
-              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;">Based on 5yr DCF @ 12% WACC</div>
-              <button class="btn btn-primary" style="margin-top: 1rem;" onclick="showPage('valuation')">Open Full Calculator →</button>
-            </div>
-          </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;max-width:1000px;margin:0 auto;">
+        <div class="glass-card reveal" style="padding:var(--space-xl);text-align:center;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin:0 auto 1rem;">
+            <rect width="48" height="48" rx="12" fill="url(#logoGrad)" opacity="0.1"/>
+            <text x="24" y="32" text-anchor="middle" font-size="24">🇨🇦</text>
+          </svg>
+          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Canadian-First</h3>
+          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.5;">Built for Canadian tax, mortgage, RRSP rules</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Tools Grid -->
-    <section class="section" id="tools">
-      <div class="section-header reveal">
-        <div class="section-label">
-          <span class="label-line"></span>
-          Calculator Suite
-          <span class="label-line"></span>
+        <div class="glass-card reveal" style="padding:var(--space-xl);text-align:center;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin:0 auto 1rem;">
+            <rect width="48" height="48" rx="12" fill="rgba(16,185,129,0.1)"/>
+            <text x="24" y="32" text-anchor="middle" font-size="24">🔓</text>
+          </svg>
+          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">No Sign-Up Required</h3>
+          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.5;">All tools free, no account needed</p>
         </div>
-        <h2 class="section-title">Everything you need, <span class="gradient-text">all in one place</span></h2>
-        <p class="section-desc">Professional financial calculators that would cost hundreds at a consulting firm. Free, instant, private.</p>
-      </div>
-      
-      <div class="tools-grid">
-        <!-- Business Valuation -->
-        <div class="tool-card reveal" onclick="showPage('valuation')" role="button" tabindex="0" aria-label="Business Valuation Calculator">
-          <span class="card-badge card-badge-popular">Popular</span>
-          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.05));">🏢</div>
-          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Business Valuation</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">DCF, multiples, and asset-based valuation. Perfect for M&A, fundraising, and exit planning.</p>
-          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
-            <span class="metric-pill neutral">DCF</span>
-            <span class="metric-pill neutral">Multiples</span>
-            <span class="metric-pill neutral">Asset</span>
-          </div>
+        <div class="glass-card reveal" style="padding:var(--space-xl);text-align:center;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin:0 auto 1rem;">
+            <rect width="48" height="48" rx="12" fill="rgba(99,102,241,0.1)"/>
+            <text x="24" y="32" text-anchor="middle" font-size="24">🔒</text>
+          </svg>
+          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Privacy-First</h3>
+          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.5;">All calculations run locally, nothing stored</p>
         </div>
-        
-        <!-- M&A Analyzer -->
-        <div class="tool-card reveal" onclick="showPage('merger')" role="button" tabindex="0" aria-label="M&A Deal Analyzer">
-          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05));">🤝</div>
-          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">M&A Deal Analyzer</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Accretion/dilution analysis, synergy valuation, and deal structure optimization.</p>
-          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
-            <span class="metric-pill neutral">EPS Impact</span>
-            <span class="metric-pill neutral">Synergies</span>
-          </div>
-        </div>
-        
-        <!-- Mortgage Calculator -->
-        <div class="tool-card reveal" onclick="showPage('mortgage')" role="button" tabindex="0" aria-label="Canadian Mortgage Calculator">
-          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.05));">🏠</div>
-          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Canadian Mortgage</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Mortgage payments with OSFI stress test, land transfer tax, and amortization schedule.</p>
-          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
-            <span class="metric-pill neutral">Stress Test</span>
-            <span class="metric-pill neutral">🇨🇦 Canada</span>
-          </div>
-        </div>
-        
-        <!-- Investment Returns -->
-        <div class="tool-card reveal" onclick="showPage('investment')" role="button" tabindex="0" aria-label="Investment Returns Calculator">
-          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05));">📈</div>
-          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Investment Returns</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">CAGR calculator, dollar-cost averaging simulator, and portfolio growth projections.</p>
-          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
-            <span class="metric-pill neutral">CAGR</span>
-            <span class="metric-pill neutral">DCA</span>
-          </div>
-        </div>
-        
-        <!-- RRSP vs TFSA -->
-        <div class="tool-card reveal" onclick="showPage('retirement')" role="button" tabindex="0" aria-label="RRSP vs TFSA Optimizer">
-          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.05));">🏦</div>
-          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">RRSP vs TFSA</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Optimize your Canadian retirement strategy. Compare tax-sheltered growth scenarios.</p>
-          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
-            <span class="metric-pill neutral">RRSP</span>
-            <span class="metric-pill neutral">TFSA</span>
-            <span class="metric-pill neutral">🇨🇦</span>
-          </div>
-        </div>
-        
-        <!-- Compound Interest -->
-        <div class="tool-card reveal" onclick="showPage('compound')" role="button" tabindex="0" aria-label="Compound Interest Visualizer">
-          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(236, 72, 153, 0.05));">📊</div>
-          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Compound Interest</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Visualize the power of compound growth. See how small contributions become fortunes.</p>
-          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
-            <span class="metric-pill neutral">Visual</span>
-            <span class="metric-pill neutral">Chart</span>
-          </div>
-        </div>
-        
-        <!-- Startup Runway -->
-        <div class="tool-card reveal" onclick="showPage('runway')" role="button" tabindex="0" aria-label="Startup Runway Calculator">
-          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(168, 85, 247, 0.05));">🚀</div>
-          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Startup Runway</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Calculate your burn rate, runway, and when you need to raise. Scenario planning included.</p>
-          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
-            <span class="metric-pill neutral">Burn Rate</span>
-            <span class="metric-pill neutral">Runway</span>
-          </div>
-        </div>
-        
-        <!-- Net Worth -->
-        <div class="tool-card reveal" onclick="showPage('networth')" role="button" tabindex="0" aria-label="Net Worth Tracker">
-          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.05));">💰</div>
-          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Net Worth Tracker</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Track assets vs liabilities. See your complete financial picture with visual breakdowns.</p>
-          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
-            <span class="metric-pill neutral">Assets</span>
-            <span class="metric-pill neutral">Liabilities</span>
-          </div>
-        </div>
-        
-        <!-- Salary & Compensation -->
-        <div class="tool-card reveal" onclick="showPage('salary')" role="button" tabindex="0" aria-label="Salary & Compensation Analyzer">
-          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(20, 184, 166, 0.05));">💼</div>
-          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Salary & Compensation</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Analyze total comp including base, bonus, equity, and benefits. Canadian tax estimates included.</p>
-          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
-            <span class="metric-pill neutral">Total Comp</span>
-            <span class="metric-pill neutral">Take-Home</span>
-          </div>
-        </div>
-        
-        <!-- Debt Payoff -->
-        <div class="tool-card reveal" onclick="showPage('debt')" role="button" tabindex="0" aria-label="Debt Payoff Calculator">
-          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(249, 115, 22, 0.05));">💳</div>
-          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Debt Payoff Calculator</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Compare avalanche vs snowball strategies. See your debt-free date and interest savings.</p>
-          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
-            <span class="metric-pill neutral">Avalanche</span>
-            <span class="metric-pill neutral">Snowball</span>
-          </div>
-        </div>
-
-        <!-- Side-by-Side Comparison -->
-        <div class="tool-card reveal" onclick="showPage('compare')" role="button" tabindex="0" aria-label="Side-by-Side Comparison">
-          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(168, 85, 247, 0.05));">⚖️</div>
-          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Side-by-Side Compare</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Compare two mortgage or investment scenarios side by side. See which option saves you more.</p>
-          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
-            <span class="metric-pill neutral">Mortgage</span>
-            <span class="metric-pill neutral">A vs B</span>
-          </div>
-        </div>
-
-        <!-- Currency Converter -->
-        <div class="tool-card reveal" onclick="showPage('currency')" role="button" tabindex="0" aria-label="Currency Converter" style="position: relative;">
-          <div style="position: absolute; top: 0.75rem; right: 0.75rem; background: var(--brand-primary); color: white; font-size: 0.65rem; padding: 0.15rem 0.5rem; border-radius: 999px; font-weight: 600;">Quick Tool</div>
-          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(20, 184, 166, 0.05));">💱</div>
-          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Currency Converter</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Instantly convert CAD to USD, EUR, GBP, INR, and JPY with approximate rates.</p>
-          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
-            <span class="metric-pill neutral">CAD</span>
-            <span class="metric-pill neutral">5 Currencies</span>
-          </div>
-        </div>
-
-        <!-- Lease vs Buy -->
-        <div class="tool-card reveal" onclick="showPage('lease')" role="button" tabindex="0" aria-label="Lease vs Buy Calculator">
-          <span class="card-badge card-badge-new">New</span>
-          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.05));">🚗</div>
-          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Lease vs Buy</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Compare the total cost of leasing vs buying a vehicle. Find your break-even point.</p>
-          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
-            <span class="metric-pill neutral">Lease</span>
-            <span class="metric-pill neutral">Buy</span>
-            <span class="metric-pill neutral">Compare</span>
-          </div>
-        </div>
-
-        <!-- Tax Estimator -->
-        <div class="tool-card reveal" onclick="showPage('tax')" role="button" tabindex="0" aria-label="Canadian Tax Estimator">
-          <span class="card-badge card-badge-new">New</span>
-          <div class="tool-icon" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.05));">🧾</div>
-          <h3 style="font-size: 1.1rem; margin: 0.75rem 0 0.5rem;">Canadian Tax Estimator</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Estimate federal and provincial income tax for all 10 Canadian provinces. 2025 brackets.</p>
-          <div style="display: flex; gap: 0.375rem; margin-top: 1rem; flex-wrap: wrap;">
-            <span class="metric-pill neutral">Federal</span>
-            <span class="metric-pill neutral">Provincial</span>
-            <span class="metric-pill neutral">🇨🇦</span>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Why Section -->
-    <section class="section" id="about">
-      <div class="section-header reveal">
-        <div class="section-label">
-          <span class="label-line"></span>
-          Why Babaganoush
-          <span class="label-line"></span>
-        </div>
-        <h2 class="section-title">Built different</h2>
-        <p class="section-desc">Financial tools built by someone who's spent 15+ years actually doing deals, not just building software.</p>
-      </div>
-      
-      <div class="tools-grid" style="grid-template-columns: repeat(3, 1fr);">
-        <div class="glass-card reveal" style="padding: var(--space-xl); text-align: center;">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">🔒</div>
-          <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">100% Private</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary);">All calculations run in your browser. Your data never leaves your device.</p>
-        </div>
-        <div class="glass-card reveal" style="padding: var(--space-xl); text-align: center;">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">⚡</div>
-          <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Instant Results</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary);">No loading, no servers. Calculations happen in real-time as you type.</p>
-        </div>
-        <div class="glass-card reveal" style="padding: var(--space-xl); text-align: center;">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">🎓</div>
-          <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">IB-Grade Models</h3>
-          <p style="font-size: 0.85rem; color: var(--text-secondary);">Same methodologies used at bulge bracket banks and top PE firms.</p>
-        </div>
-      </div>
-    </section>
-    
-    <!-- FAQ -->
-    <section class="section">
-      <div class="section-header reveal">
-        <div class="section-label">
-          <span class="label-line"></span>
-          FAQ
-          <span class="label-line"></span>
-        </div>
-        <h2 class="section-title">Frequently asked <span class="gradient-text">questions</span></h2>
-      </div>
-      <div class="faq-list">
-        <div class="accordion-item reveal">
-          <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
-            <span>Are these tools really free?</span>
-            <span class="accordion-arrow">▼</span>
-          </div>
-          <div class="accordion-body"><div class="accordion-body-inner" style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;">Yes, forever. All core calculators are completely free with no sign-up required. We monetize through optional premium exports — PDF reports and Excel downloads coming soon.</div></div>
-        </div>
-        <div class="accordion-item reveal">
-          <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
-            <span>Is my data safe?</span>
-            <span class="accordion-arrow">▼</span>
-          </div>
-          <div class="accordion-body"><div class="accordion-body-inner" style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;">Absolutely. All calculations run locally in your browser. We never see your numbers, and nothing is sent to any server. Your financial data stays on your device.</div></div>
-        </div>
-        <div class="accordion-item reveal">
-          <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
-            <span>How accurate are the calculations?</span>
-            <span class="accordion-arrow">▼</span>
-          </div>
-          <div class="accordion-body"><div class="accordion-body-inner" style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;">We use the same methodologies as investment banks and PE firms. Our DCF, accretion/dilution, and valuation models follow industry-standard formulas used in professional deal analysis.</div></div>
-        </div>
-        <div class="accordion-item reveal">
-          <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
-            <span>Can I export results?</span>
-            <span class="accordion-arrow">▼</span>
-          </div>
-          <div class="accordion-body"><div class="accordion-body-inner" style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;">PDF and Excel exports are coming soon for premium users. You'll be able to generate presentation-ready reports with a single click.</div></div>
-        </div>
-        <div class="accordion-item reveal">
-          <div class="accordion-header" onclick="this.parentElement.classList.toggle('open')">
-            <span>Who built this?</span>
-            <span class="accordion-arrow">▼</span>
-          </div>
-          <div class="accordion-body"><div class="accordion-body-inner" style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;">Finance professionals with 15+ years of M&A and corporate development experience. We built the tools we wished existed when we were doing deals.</div></div>
+        <div class="glass-card reveal" style="padding:var(--space-xl);text-align:center;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin:0 auto 1rem;">
+            <rect width="48" height="48" rx="12" fill="rgba(6,182,212,0.1)"/>
+            <text x="24" y="32" text-anchor="middle" font-size="24">📄</text>
+          </svg>
+          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Export & Share</h3>
+          <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.5;">PDF exports for professional use</p>
         </div>
       </div>
     </section>
 
-    <!-- Newsletter -->
-    <section class="section">
-      <div class="newsletter-section reveal">
-        <div style="font-size: 2rem; margin-bottom: 0.75rem;">📬</div>
-        <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Get weekly financial insights</h2>
-        <p style="color: var(--text-secondary); font-size: 0.9rem;">Valuation frameworks, deal analysis tips, and new tool updates — straight to your inbox.</p>
-        <div class="newsletter-form" id="newsletter-form">
-          <input type="email" id="newsletter-email" placeholder="you@company.com" aria-label="Email address" />
-          <button class="btn btn-primary" onclick="subscribeNewsletter()">Subscribe</button>
-        </div>
-        <p class="newsletter-social-proof">✓ Join 2,000+ finance professionals · No spam, ever</p>
-      </div>
-    </section>
-
-    <!-- Built By -->
-    <section style="padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid var(--border-color);">
-      <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-        <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent)); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.1rem;">RK</div>
-        <div style="text-align: left;">
-          <p style="font-size: 0.9rem; color: var(--text-primary); margin: 0; font-weight: 500;">Built by a finance professional with 15+ years in M&A and corporate development</p>
-          <a href="#" style="font-size: 0.8rem; color: var(--brand-primary); text-decoration: none;">Connect on LinkedIn →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- ══ FOOTER ══ -->
+    <footer class="footer" style="padding:2rem 1.5rem;">
       <div class="footer-content">
-        <div class="footer-brand gradient-text">Babaganoush</div>
-        <p class="footer-text">
-          Smart financial tools built by finance professionals. All calculations are for educational and informational purposes only. Not financial advice.
+        <div style="display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-bottom:0.75rem;">
+          <svg width="24" height="24" viewBox="0 0 36 36" fill="none">
+            <defs><linearGradient id="footLogoGrad" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+            <rect x="4" y="18" width="28" height="16" rx="3" fill="url(#footLogoGrad)" opacity="0.3"/>
+            <rect x="4" y="10" width="28" height="16" rx="3" fill="url(#footLogoGrad)" opacity="0.55"/>
+            <rect x="4" y="2" width="28" height="16" rx="3" fill="url(#footLogoGrad)"/>
+          </svg>
+          <span class="footer-brand gradient-text" style="margin-bottom:0;">CalcStack</span>
+        </div>
+        <p class="footer-text" style="margin-bottom:1rem;">
+          The financial toolkit that actually gets it done. All calculations for educational purposes only.
         </p>
-        <div class="footer-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-          <a href="#">Contact</a>
+        <div class="footer-links" style="margin-bottom:1rem;">
+          <a href="#" onclick="document.querySelector('#carousel-business').scrollIntoView({behavior:'smooth'});return false;">Business & M&A</a>
+          <a href="#" onclick="document.querySelector('#carousel-personal').scrollIntoView({behavior:'smooth'});return false;">Personal Finance</a>
+          <a href="#" onclick="document.querySelector('#carousel-tax').scrollIntoView({behavior:'smooth'});return false;">Tax & Planning</a>
           <a href="https://github.com/rajkcho/Babaganoush" target="_blank">GitHub</a>
         </div>
-        <p class="footer-made">© 2026 Babaganoush. Made in 🇨🇦 Canada.</p>
+        <div style="display:inline-flex;align-items:center;gap:0.375rem;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.15);border-radius:var(--radius-full);padding:0.3rem 0.75rem;font-size:0.72rem;color:var(--text-muted);font-weight:600;">
+          Built in Canada 🇨🇦
+        </div>
+        <p class="footer-made">© 2026 CalcStack</p>
       </div>
     </footer>
   </div>
@@ -3942,7 +4115,7 @@
        JAVASCRIPT ENGINE
        ═══════════════════════════════════════════════════════ -->
   <script>
-    console.log('Babaganoush v3.0 loaded — run runTests() in console to verify');
+    console.log('CalcStack v3.0 loaded — run runTests() in console to verify');
 
     // ── Floating Particles Generator ──────────────────────
     (function initParticles() {
@@ -4118,6 +4291,31 @@
     }, { threshold: 0.5 });
     const heroStats = document.querySelector('.hero-stats');
     if (heroStats) heroStatsObserver.observe(heroStats);
+
+    // ── Count-up animation for social proof numbers ──────
+    const countUpObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseFloat(el.getAttribute('data-count-up'));
+          const suffix = el.getAttribute('data-suffix') || '';
+          const decimals = parseInt(el.getAttribute('data-decimals') || '0');
+          const duration = 2000;
+          const start = performance.now();
+          function tick(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = eased * target;
+            el.textContent = (decimals > 0 ? current.toFixed(decimals) : Math.floor(current).toLocaleString()) + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+          countUpObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-count-up]').forEach(el => countUpObserver.observe(el));
     
     // ── Valuation Tab Switching ───────────────────────────
     function switchValTab(tab) {
@@ -5569,10 +5767,10 @@
       toggleTheme();
       assert('Theme: toggles isDark', isDark !== wasDark, `isDark changed to ${isDark}`);
       assert('Theme: light class toggles', document.documentElement.classList.contains('light') !== wasCls, '');
-      const themeStored = localStorage.getItem('babaganoush-theme');
+      const themeStored = localStorage.getItem('calcstack-theme');
       assert('Theme: persists to localStorage', themeStored !== null, `Stored: ${themeStored}`);
       toggleTheme(); // Reset
-      const themeReset = localStorage.getItem('babaganoush-theme');
+      const themeReset = localStorage.getItem('calcstack-theme');
       assert('Theme: localStorage updates on re-toggle', themeReset !== themeStored, `Now: ${themeReset}`);
       
       // Print results
@@ -6233,10 +6431,10 @@
       });
     })();
 
-    // 8. Easter Egg — type "babaganoush" anywhere
+    // 8. Easter Egg — type "calcstack" anywhere
     (function() {
       let buffer = '';
-      const secret = 'babaganoush';
+      const secret = 'calcstack';
       document.addEventListener('keypress', function(e) {
         buffer += e.key.toLowerCase();
         if (buffer.length > secret.length) buffer = buffer.slice(-secret.length);
@@ -6565,7 +6763,7 @@
 
       if (calcMap[calcName]) calcMap[calcName]();
 
-      const html = '<!DOCTYPE html><html><head><title>Babaganoush - ' + calcName + '</title><style>@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.no-print{display:none!important}}body{font-family:Segoe UI,Arial,sans-serif;max-width:700px;margin:0 auto;padding:2rem;color:#1a1a2e}.header{text-align:center;border-bottom:3px solid #6366f1;padding-bottom:1rem;margin-bottom:2rem}.header h1{color:#6366f1;margin:0;font-size:1.8rem}.header .brand{font-size:.9rem;color:#888;margin-top:.25rem}.header .date{font-size:.8rem;color:#999;margin-top:.5rem}h2{color:#333;font-size:1.1rem;border-bottom:1px solid #eee;padding-bottom:.5rem}table{width:100%;border-collapse:collapse;margin:1rem 0}td{padding:.5rem .75rem;border-bottom:1px solid #eee;font-size:.9rem}td:first-child{color:#666;width:50%}td:last-child{font-weight:600;text-align:right}.results{background:#f8f8ff;border-radius:8px;padding:1.5rem;margin:1.5rem 0;white-space:pre-line;font-size:.9rem;line-height:1.8}.disclaimer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;font-size:.72rem;color:#999;text-align:center}.print-btn{display:block;margin:1rem auto;padding:.75rem 2rem;background:#6366f1;color:white;border:none;border-radius:8px;font-size:1rem;cursor:pointer}</style></head><body><div class="header"><h1>\ud83e\uddee ' + calcName + '</h1><div class="brand">Babaganoush \u2014 Smart Financial Tools</div><div class="date">Generated: ' + date + '</div></div><h2>\ud83d\udccb Input Assumptions</h2><table>' + assumptions + '</table><h2>\ud83d\udcca Results</h2><div class="results">' + resultsText.replace(/\n/g, '<br>') + '</div><div class="disclaimer"><p><strong>Disclaimer:</strong> This report is for informational and educational purposes only. It does not constitute financial, investment, tax, or legal advice. Consult a qualified professional before making financial decisions.</p><p>\u00a9 ' + new Date().getFullYear() + ' Babaganoush \u00b7 babaganoush.ca</p></div><button class="print-btn no-print" onclick="window.print()">\ud83d\udda8\ufe0f Print / Save as PDF</button></body></html>';
+      const html = '<!DOCTYPE html><html><head><title>CalcStack - ' + calcName + '</title><style>@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.no-print{display:none!important}}body{font-family:Segoe UI,Arial,sans-serif;max-width:700px;margin:0 auto;padding:2rem;color:#1a1a2e}.header{text-align:center;border-bottom:3px solid #6366f1;padding-bottom:1rem;margin-bottom:2rem}.header h1{color:#6366f1;margin:0;font-size:1.8rem}.header .brand{font-size:.9rem;color:#888;margin-top:.25rem}.header .date{font-size:.8rem;color:#999;margin-top:.5rem}h2{color:#333;font-size:1.1rem;border-bottom:1px solid #eee;padding-bottom:.5rem}table{width:100%;border-collapse:collapse;margin:1rem 0}td{padding:.5rem .75rem;border-bottom:1px solid #eee;font-size:.9rem}td:first-child{color:#666;width:50%}td:last-child{font-weight:600;text-align:right}.results{background:#f8f8ff;border-radius:8px;padding:1.5rem;margin:1.5rem 0;white-space:pre-line;font-size:.9rem;line-height:1.8}.disclaimer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;font-size:.72rem;color:#999;text-align:center}.print-btn{display:block;margin:1rem auto;padding:.75rem 2rem;background:#6366f1;color:white;border:none;border-radius:8px;font-size:1rem;cursor:pointer}</style></head><body><div class="header"><h1>\ud83e\uddee ' + calcName + '</h1><div class="brand">CalcStack \u2014 Smart Financial Tools</div><div class="date">Generated: ' + date + '</div></div><h2>\ud83d\udccb Input Assumptions</h2><table>' + assumptions + '</table><h2>\ud83d\udcca Results</h2><div class="results">' + resultsText.replace(/\n/g, '<br>') + '</div><div class="disclaimer"><p><strong>Disclaimer:</strong> This report is for informational and educational purposes only. It does not constitute financial, investment, tax, or legal advice. Consult a qualified professional before making financial decisions.</p><p>\u00a9 ' + new Date().getFullYear() + ' CalcStack \u00b7 calcstack.ca</p></div><button class="print-btn no-print" onclick="window.print()">\ud83d\udda8\ufe0f Print / Save as PDF</button></body></html>';
 
       const w = window.open('', '_blank');
       w.document.write(html);
@@ -6573,7 +6771,7 @@
     }
 
     function copyResults(calcName) {
-      let text = '\ud83d\udcca ' + calcName + ' \u2014 Babaganoush Report\n' + '\u2500'.repeat(40) + '\n';
+      let text = '\ud83d\udcca ' + calcName + ' \u2014 CalcStack Report\n' + '\u2500'.repeat(40) + '\n';
       const resultIds = {
         'Business Valuation (DCF)': 'dcf-results',
         'Business Valuation (Multiples)': 'multiples-results',
@@ -6597,7 +6795,7 @@
         text += 'Liabilities: ' + document.getElementById('nw-total-liabilities').textContent + '\n';
         text += 'Net Worth: ' + document.getElementById('nw-networth').textContent + '\n';
       }
-      text += '\n' + '\u2500'.repeat(40) + '\nGenerated by Babaganoush \u00b7 babaganoush.ca';
+      text += '\n' + '\u2500'.repeat(40) + '\nGenerated by CalcStack \u00b7 calcstack.ca';
       navigator.clipboard.writeText(text).then(showCopyToast).catch(function() {
         const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showCopyToast();
       });
@@ -6766,13 +6964,13 @@
 
     // ── Global Calculation Counter ─────────────────────────
     function incrementCalcCounter() {
-      var count = parseInt(localStorage.getItem('babaganoush-calc-count') || '0', 10) + 1;
-      localStorage.setItem('babaganoush-calc-count', count.toString());
+      var count = parseInt(localStorage.getItem('calcstack-calc-count') || '0', 10) + 1;
+      localStorage.setItem('calcstack-calc-count', count.toString());
       var el = document.getElementById('global-calc-counter');
       if (el) el.textContent = count.toLocaleString();
     }
     (function initCounter() {
-      var count = parseInt(localStorage.getItem('babaganoush-calc-count') || '0', 10);
+      var count = parseInt(localStorage.getItem('calcstack-calc-count') || '0', 10);
       var el = document.getElementById('global-calc-counter');
       if (el) el.textContent = count > 0 ? count.toLocaleString() : '0';
     })();
