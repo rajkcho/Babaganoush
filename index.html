@@ -2002,29 +2002,352 @@
       <div class="calc-header animate-fade-up">
         <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🤝</div>
         <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">M&A Deal Analyzer</h1>
-        <p style="color: var(--text-secondary);">Coming soon — Accretion/dilution, synergy analysis, and deal structuring.</p>
+        <p style="color: var(--text-secondary);">Accretion/dilution analysis, synergy modeling, and deal structuring.</p>
+      </div>
+
+      <div class="calc-grid animate-fade-up" style="margin-top: 2rem;">
+        <!-- Inputs -->
+        <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
+          <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;">Acquirer</h3>
+
+          <div class="input-group">
+            <label>Earnings Per Share (EPS)
+              <span class="tooltip-wrapper"><span class="tooltip-icon">?</span><span class="tooltip-content">Acquirer's current diluted EPS</span></span>
+            </label>
+            <input type="number" id="ma-acq-eps" value="5.00" step="0.01" oninput="calculateMA()" />
+          </div>
+          <div class="input-group">
+            <label>Share Price ($)</label>
+            <input type="number" id="ma-acq-price" value="100" step="0.01" oninput="calculateMA()" />
+          </div>
+          <div class="input-group">
+            <label>Shares Outstanding (M)</label>
+            <input type="number" id="ma-acq-shares" value="500" step="1" oninput="calculateMA()" />
+          </div>
+          <div class="input-group">
+            <label>P/E Multiple
+              <span class="tooltip-wrapper"><span class="tooltip-icon">?</span><span class="tooltip-content">Acquirer's current price-to-earnings ratio</span></span>
+            </label>
+            <input type="number" id="ma-acq-pe" value="20" step="0.1" oninput="calculateMA()" />
+          </div>
+
+          <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 1.5rem 0 1rem;">Target</h3>
+
+          <div class="input-group">
+            <label>Earnings Per Share (EPS)</label>
+            <input type="number" id="ma-tgt-eps" value="2.50" step="0.01" oninput="calculateMA()" />
+          </div>
+          <div class="input-group">
+            <label>Share Price ($)</label>
+            <input type="number" id="ma-tgt-price" value="40" step="0.01" oninput="calculateMA()" />
+          </div>
+          <div class="input-group">
+            <label>Shares Outstanding (M)</label>
+            <input type="number" id="ma-tgt-shares" value="200" step="1" oninput="calculateMA()" />
+          </div>
+          <div class="input-group">
+            <label>Offer Premium</label>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <input type="range" id="ma-premium" min="10" max="50" value="25" step="1" oninput="calculateMA(); document.getElementById('ma-premium-val').textContent = this.value + '%'" />
+              <span id="ma-premium-val" class="mono" style="font-size: 0.85rem; min-width: 3.5rem; text-align: right; color: var(--brand-primary);">25%</span>
+            </div>
+          </div>
+
+          <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 1.5rem 0 1rem;">Deal Structure</h3>
+
+          <div class="input-group">
+            <label>Cash Portion</label>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <input type="range" id="ma-cash-pct" min="0" max="100" value="50" step="5" oninput="calculateMA(); document.getElementById('ma-cash-val').textContent = this.value + '% Cash / ' + (100 - this.value) + '% Stock'" />
+              <span id="ma-cash-val" class="mono" style="font-size: 0.85rem; min-width: 10rem; text-align: right; color: var(--brand-accent);">50% Cash / 50% Stock</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Cost of Debt (for Cash Financing)
+              <span class="tooltip-wrapper"><span class="tooltip-icon">?</span><span class="tooltip-content">Pre-tax interest rate on new debt raised to fund the cash portion</span></span>
+            </label>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <input type="range" id="ma-debt-cost" min="1" max="12" value="5" step="0.25" oninput="calculateMA(); document.getElementById('ma-debt-cost-val').textContent = this.value + '%'" />
+              <span id="ma-debt-cost-val" class="mono" style="font-size: 0.85rem; min-width: 3.5rem; text-align: right; color: var(--brand-warning);">5%</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Tax Rate</label>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <input type="range" id="ma-tax" min="0" max="40" value="25" step="1" oninput="calculateMA(); document.getElementById('ma-tax-val').textContent = this.value + '%'" />
+              <span id="ma-tax-val" class="mono" style="font-size: 0.85rem; min-width: 3.5rem; text-align: right; color: var(--brand-danger);">25%</span>
+            </div>
+          </div>
+
+          <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 1.5rem 0 1rem;">Synergies</h3>
+
+          <div class="input-group">
+            <label>Expected Revenue Synergies ($M)</label>
+            <input type="number" id="ma-rev-syn" value="0" step="1" oninput="calculateMA()" />
+          </div>
+          <div class="input-group">
+            <label>Expected Cost Synergies ($M)</label>
+            <input type="number" id="ma-cost-syn" value="50" step="1" oninput="calculateMA()" />
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="calc-results" id="ma-results">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Sensitivity Table -->
+      <div class="chart-container animate-fade-up" style="margin-top: 2rem;" id="ma-sensitivity">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Sources & Uses -->
+      <div class="chart-container animate-fade-up" style="margin-top: 1rem;" id="ma-sources-uses">
+        <!-- Populated by JS -->
       </div>
     </div>
   </div>
   
+  <!-- ═══════════════════════════════════════════════════════
+       STARTUP RUNWAY CALCULATOR
+       ═══════════════════════════════════════════════════════ -->
   <div class="page" id="page-runway">
-    <div class="calc-container" style="padding-top: 6rem;">
+    <div class="calc-container" style="padding-top: 6rem; max-width: 1000px;">
       <div class="calc-back" onclick="showPage('home')">← Back to Tools</div>
+
       <div class="calc-header animate-fade-up">
         <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🚀</div>
         <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">Startup Runway Calculator</h1>
-        <p style="color: var(--text-secondary);">Coming soon — Burn rate analysis, runway projections, and funding scenarios.</p>
+        <p style="color: var(--text-secondary); max-width: 540px; margin: 0 auto;">Calculate your burn rate, runway, and break-even point. Plan with multiple scenarios.</p>
+      </div>
+
+      <!-- Scenario Tabs -->
+      <div class="tabs" id="runway-tabs" style="max-width: 420px; margin: 0 auto 2rem;">
+        <button class="tab" onclick="switchRunwayTab('conservative')" id="runway-tab-conservative">Conservative</button>
+        <button class="tab active" onclick="switchRunwayTab('base')" id="runway-tab-base">Base Case</button>
+        <button class="tab" onclick="switchRunwayTab('aggressive')" id="runway-tab-aggressive">Aggressive</button>
+      </div>
+
+      <div class="calc-grid">
+        <!-- Inputs -->
+        <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
+          <h3 style="font-size: 0.95rem; margin-bottom: 1rem;">📥 Financial Inputs</h3>
+
+          <div class="input-group">
+            <label>Cash in Bank ($)</label>
+            <input type="number" id="rw-cash" value="500000" oninput="calculateRunway()" placeholder="500000" />
+          </div>
+
+          <div class="input-group">
+            <label>Monthly Revenue ($)</label>
+            <input type="number" id="rw-revenue" value="20000" oninput="calculateRunway()" placeholder="20000" />
+          </div>
+
+          <div class="input-group">
+            <label>Monthly Revenue Growth Rate: <span id="rw-growth-val" class="mono" style="color:var(--brand-primary);">5%</span></label>
+            <input type="range" id="rw-growth" min="0" max="30" step="0.5" value="5" oninput="document.getElementById('rw-growth-val').textContent=this.value+'%'; calculateRunway();" />
+            <div class="input-help">0% — 30% monthly growth</div>
+          </div>
+
+          <div class="input-group">
+            <label>Monthly Fixed Costs ($)</label>
+            <input type="number" id="rw-fixed" value="45000" oninput="calculateRunway()" placeholder="Rent, salaries, tools" />
+            <div class="input-help">Rent, salaries, tools, subscriptions</div>
+          </div>
+
+          <div class="input-group">
+            <label>Monthly Variable Costs ($)</label>
+            <input type="number" id="rw-variable" value="8000" oninput="calculateRunway()" placeholder="8000" />
+          </div>
+
+          <div class="input-group">
+            <label>One-Time Upcoming Expenses ($)</label>
+            <input type="number" id="rw-onetime" value="0" oninput="calculateRunway()" placeholder="0" />
+          </div>
+
+          <div class="input-group">
+            <label>Monthly Hiring Cost Increases ($)</label>
+            <input type="number" id="rw-hiring" value="2000" oninput="calculateRunway()" placeholder="Planned monthly increase" />
+            <div class="input-help">Added to costs each month cumulatively</div>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="calc-results">
+          <div class="result-card" style="text-align: center;">
+            <div class="result-label">Monthly Burn Rate</div>
+            <div class="result-value" id="rw-burn">$0</div>
+            <div class="input-help">Current costs − revenue</div>
+          </div>
+
+          <div class="result-card" style="text-align: center;">
+            <div class="result-label">Runway (No Growth)</div>
+            <div class="result-value" id="rw-runway-flat" style="font-size: 1.5rem;">0 months</div>
+          </div>
+
+          <div class="result-card" style="text-align: center;">
+            <div class="result-label">Runway (With Growth)</div>
+            <div class="result-value" id="rw-runway-growth" style="font-size: 1.5rem;">0 months</div>
+          </div>
+
+          <div class="result-card" style="text-align: center;">
+            <div class="result-label">Cash Zero Date</div>
+            <div class="result-value" id="rw-zero-date" style="font-size: 1.25rem;">—</div>
+          </div>
+
+          <div id="rw-safe-zone" class="result-card" style="text-align: center;">
+            <div class="result-label">Safety Zone</div>
+            <div class="result-value" id="rw-safe-text" style="font-size: 1.5rem;">—</div>
+          </div>
+
+          <div class="result-card" style="text-align: center;">
+            <div class="result-label">Break-Even Month</div>
+            <div class="result-value" id="rw-breakeven" style="font-size: 1.25rem;">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="chart-container" style="margin-top: 2rem;">
+        <h3 style="font-size: 0.95rem; margin-bottom: 1rem;">📊 Monthly Cash Balance Projection</h3>
+        <div id="rw-scenario-label" style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Base Case Scenario</div>
+        <div id="rw-chart" style="display: flex; align-items: flex-end; gap: 3px; height: 220px; position: relative; padding-bottom: 24px;">
+          <!-- bars injected by JS -->
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.75rem; font-size: 0.72rem; color: var(--text-muted);">
+          <span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;border-radius:2px;background:linear-gradient(135deg,var(--brand-primary),var(--brand-accent));display:inline-block;"></span> Positive Balance</span>
+          <span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;border-radius:2px;background:var(--brand-danger);display:inline-block;"></span> Negative / Danger</span>
+          <span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;border-radius:2px;background:var(--brand-success);display:inline-block;"></span> Break-Even Reached</span>
+        </div>
       </div>
     </div>
   </div>
-  
+
+  <!-- ═══════════════════════════════════════════════════════
+       NET WORTH TRACKER
+       ═══════════════════════════════════════════════════════ -->
   <div class="page" id="page-networth">
-    <div class="calc-container" style="padding-top: 6rem;">
+    <div class="calc-container" style="padding-top: 6rem; max-width: 1000px;">
       <div class="calc-back" onclick="showPage('home')">← Back to Tools</div>
+
       <div class="calc-header animate-fade-up">
         <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">💰</div>
         <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">Net Worth Tracker</h1>
-        <p style="color: var(--text-secondary);">Coming soon — Comprehensive asset and liability tracking with visual breakdowns.</p>
+        <p style="color: var(--text-secondary); max-width: 540px; margin: 0 auto;">Track your complete financial picture. Save snapshots to monitor progress over time.</p>
+      </div>
+
+      <div class="calc-grid">
+        <!-- Assets Column -->
+        <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
+          <h3 style="font-size: 0.95rem; margin-bottom: 1rem; color: var(--brand-success);">📈 Assets</h3>
+
+          <div class="input-group">
+            <label>Cash & Savings ($)</label>
+            <input type="number" id="nw-cash" value="0" oninput="calculateNetWorth()" />
+          </div>
+          <div class="input-group">
+            <label>TFSA ($)</label>
+            <input type="number" id="nw-tfsa" value="0" oninput="calculateNetWorth()" />
+          </div>
+          <div class="input-group">
+            <label>RRSP ($)</label>
+            <input type="number" id="nw-rrsp" value="0" oninput="calculateNetWorth()" />
+          </div>
+          <div class="input-group">
+            <label>Non-Registered Investments ($)</label>
+            <input type="number" id="nw-nonreg" value="0" oninput="calculateNetWorth()" />
+          </div>
+          <div class="input-group">
+            <label>Real Estate ($)</label>
+            <input type="number" id="nw-realestate" value="0" oninput="calculateNetWorth()" />
+            <div class="input-help">Primary residence market value</div>
+          </div>
+          <div class="input-group">
+            <label>Vehicles ($)</label>
+            <input type="number" id="nw-vehicles" value="0" oninput="calculateNetWorth()" />
+          </div>
+          <div class="input-group">
+            <label>Other Assets ($)</label>
+            <input type="number" id="nw-other-assets" value="0" oninput="calculateNetWorth()" />
+            <div class="input-help">Business equity, crypto, collectibles</div>
+          </div>
+        </div>
+
+        <!-- Liabilities Column -->
+        <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
+          <h3 style="font-size: 0.95rem; margin-bottom: 1rem; color: var(--brand-danger);">📉 Liabilities</h3>
+
+          <div class="input-group">
+            <label>Mortgage Balance ($)</label>
+            <input type="number" id="nw-mortgage" value="0" oninput="calculateNetWorth()" />
+          </div>
+          <div class="input-group">
+            <label>Car Loans ($)</label>
+            <input type="number" id="nw-carloans" value="0" oninput="calculateNetWorth()" />
+          </div>
+          <div class="input-group">
+            <label>Student Loans ($)</label>
+            <input type="number" id="nw-student" value="0" oninput="calculateNetWorth()" />
+          </div>
+          <div class="input-group">
+            <label>Credit Card Debt ($)</label>
+            <input type="number" id="nw-cc" value="0" oninput="calculateNetWorth()" />
+          </div>
+          <div class="input-group">
+            <label>Line of Credit ($)</label>
+            <input type="number" id="nw-loc" value="0" oninput="calculateNetWorth()" />
+          </div>
+          <div class="input-group">
+            <label>Other Debt ($)</label>
+            <input type="number" id="nw-other-debt" value="0" oninput="calculateNetWorth()" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 2rem;">
+        <div class="result-card" style="text-align: center;">
+          <div class="result-label">Total Assets</div>
+          <div class="result-value" id="nw-total-assets" style="font-size: 1.5rem; color: var(--brand-success); -webkit-text-fill-color: var(--brand-success);">$0</div>
+        </div>
+        <div class="result-card" style="text-align: center;">
+          <div class="result-label">Total Liabilities</div>
+          <div class="result-value" id="nw-total-liabilities" style="font-size: 1.5rem; color: var(--brand-danger); -webkit-text-fill-color: var(--brand-danger);">$0</div>
+        </div>
+        <div class="result-card" style="text-align: center;">
+          <div class="result-label">Liquid Net Worth</div>
+          <div class="result-value" id="nw-liquid" style="font-size: 1.5rem;">$0</div>
+          <div class="input-help">Excludes real estate & vehicles</div>
+        </div>
+      </div>
+
+      <!-- Big Net Worth Card -->
+      <div class="result-card" style="text-align: center; margin-top: 1.5rem; padding: var(--space-2xl);">
+        <div class="result-label" style="font-size: 0.9rem;">Net Worth</div>
+        <div class="result-value" id="nw-networth" style="font-size: 3rem;">$0</div>
+        <div id="nw-dta" style="margin-top: 0.75rem;"></div>
+      </div>
+
+      <!-- Pie Chart + Snapshot -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+        <!-- Asset Allocation Pie -->
+        <div class="chart-container">
+          <h3 style="font-size: 0.95rem; margin-bottom: 1rem;">🥧 Asset Allocation</h3>
+          <div style="display: flex; align-items: center; gap: 1.5rem;">
+            <div id="nw-pie" style="width: 150px; height: 150px; border-radius: 50%; flex-shrink: 0; background: var(--border-primary);"></div>
+            <div id="nw-pie-legend" style="font-size: 0.75rem; display: flex; flex-direction: column; gap: 0.375rem;"></div>
+          </div>
+        </div>
+
+        <!-- Snapshots -->
+        <div class="chart-container">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            <h3 style="font-size: 0.95rem;">📸 Snapshots</h3>
+            <button class="btn btn-primary btn-sm" onclick="saveNetWorthSnapshot()">Save Snapshot</button>
+          </div>
+          <div id="nw-snapshots" style="max-height: 250px; overflow-y: auto; font-size: 0.8rem;"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -2067,6 +2390,8 @@
       if (pageId === 'investment') calculateCAGR();
       if (pageId === 'retirement') calculateRetirement();
       if (pageId === 'compound') calculateCompound();
+      if (pageId === 'runway') calculateRunway();
+      if (pageId === 'networth') { calculateNetWorth(); loadNetWorthSnapshots(); }
     }
     
     // ── Theme Toggle ──────────────────────────────────────
@@ -3124,6 +3449,132 @@
     
     // Expose for manual testing
     window.runTests = runTests;
+
+    // ── M&A Deal Analyzer ──
+    function calculateMA() {
+      const v = id => parseFloat(document.getElementById(id).value) || 0;
+      const fmt = (n, d=1) => n.toLocaleString('en-US', {minimumFractionDigits:d, maximumFractionDigits:d});
+      const fmtM = n => '$' + fmt(n, 1) + 'M';
+      const fmtD = n => '$' + fmt(n, 2);
+
+      // Inputs
+      const acqEPS = v('ma-acq-eps'), acqPrice = v('ma-acq-price'), acqShares = v('ma-acq-shares'), acqPE = v('ma-acq-pe');
+      const tgtEPS = v('ma-tgt-eps'), tgtPrice = v('ma-tgt-price'), tgtShares = v('ma-tgt-shares');
+      const premium = v('ma-premium') / 100;
+      const cashPct = v('ma-cash-pct') / 100, stockPct = 1 - cashPct;
+      const debtCost = v('ma-debt-cost') / 100, taxRate = v('ma-tax') / 100;
+      const revSyn = v('ma-rev-syn'), costSyn = v('ma-cost-syn');
+
+      // Core calcs
+      const offerPrice = tgtPrice * (1 + premium);
+      const dealValue = offerPrice * tgtShares; // in $M
+      const cashPortion = dealValue * cashPct;
+      const stockPortion = dealValue * stockPct;
+      const newSharesIssued = acqPrice > 0 ? stockPortion / acqPrice : 0;
+      const proFormaShares = acqShares + newSharesIssued;
+
+      // Earnings
+      const acqNetIncome = acqEPS * acqShares;
+      const tgtNetIncome = tgtEPS * tgtShares;
+      const synergies = (revSyn + costSyn) * (1 - taxRate);
+      const interestExpense = cashPortion * debtCost * (1 - taxRate);
+      const proFormaNetIncome = acqNetIncome + tgtNetIncome + synergies - interestExpense;
+      const proFormaEPS = proFormaShares > 0 ? proFormaNetIncome / proFormaShares : 0;
+      const accretionDilution = acqEPS !== 0 ? ((proFormaEPS - acqEPS) / acqEPS) * 100 : 0;
+
+      // Goodwill
+      const tgtBookValue = tgtShares * tgtPrice; // simplified: book ≈ market pre-premium
+      const goodwill = dealValue - tgtBookValue;
+
+      // Combined P/E
+      const combinedPE = proFormaEPS > 0 ? acqPrice / proFormaEPS : 0;
+
+      // Break-even synergies: find synergies needed so accretion = 0
+      // proFormaEPS = acqEPS when synergies = S_be
+      // (acqNI + tgtNI + S_be*(1-t) - interest) / proFormaShares = acqEPS
+      const beNumerator = acqEPS * proFormaShares - acqNetIncome - tgtNetIncome + interestExpense;
+      const breakEvenSyn = (1 - taxRate) > 0 ? beNumerator / (1 - taxRate) : 0;
+
+      // Transaction fees
+      const txnFees = dealValue * 0.02;
+
+      const adColor = accretionDilution >= 0 ? 'var(--brand-success)' : 'var(--brand-danger)';
+      const adLabel = accretionDilution >= 0 ? 'Accretive' : 'Dilutive';
+
+      // Results
+      document.getElementById('ma-results').innerHTML = `
+        <div class="result-card glass-card" style="padding: var(--space-lg);">
+          <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;">Deal Summary</h3>
+          <div style="display: grid; gap: 1rem;">
+            <div><span style="color: var(--text-secondary); font-size: 0.85rem;">Offer Price / Share</span><div class="mono" style="font-size: 1.3rem; color: var(--brand-primary);">${fmtD(offerPrice)}</div></div>
+            <div><span style="color: var(--text-secondary); font-size: 0.85rem;">Total Deal Value</span><div class="mono" style="font-size: 1.3rem; color: var(--brand-primary);">${fmtM(dealValue)}</div></div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1rem;">
+              <span style="color: var(--text-secondary); font-size: 0.85rem;">Pro Forma EPS</span>
+              <div class="mono" style="font-size: 1.3rem; color: var(--brand-accent);">${fmtD(proFormaEPS)}</div>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">vs. standalone ${fmtD(acqEPS)}</span>
+            </div>
+            <div style="background: rgba(${accretionDilution >= 0 ? '46,204,113' : '231,76,60'},0.1); border-radius: 0.75rem; padding: 1rem; text-align: center;">
+              <span style="color: var(--text-secondary); font-size: 0.85rem;">${adLabel}</span>
+              <div class="mono" style="font-size: 1.8rem; font-weight: 700; color: ${adColor};">${accretionDilution >= 0 ? '+' : ''}${fmt(accretionDilution,2)}%</div>
+            </div>
+            <div><span style="color: var(--text-secondary); font-size: 0.85rem;">Goodwill Created</span><div class="mono" style="font-size: 1.1rem;">${fmtM(goodwill)}</div></div>
+            <div><span style="color: var(--text-secondary); font-size: 0.85rem;">Combined P/E</span><div class="mono" style="font-size: 1.1rem;">${fmt(combinedPE,1)}x</div></div>
+            <div><span style="color: var(--text-secondary); font-size: 0.85rem;">Break-even Synergies Needed</span><div class="mono" style="font-size: 1.1rem; color: ${breakEvenSyn > 0 ? 'var(--brand-warning)' : 'var(--brand-success)'};">${fmtM(breakEvenSyn)}</div></div>
+          </div>
+        </div>
+      `;
+
+      // Sensitivity table
+      const premiums = [10, 20, 30, 40];
+      const cashMixes = [0, 25, 50, 75, 100];
+      let tbl = '<h3 style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;">Sensitivity: Accretion / Dilution %</h3>';
+      tbl += '<table class="sensitivity-table"><thead><tr><th>Premium \\ Cash%</th>';
+      cashMixes.forEach(c => tbl += `<th>${c}%</th>`);
+      tbl += '</tr></thead><tbody>';
+      premiums.forEach(p => {
+        tbl += `<tr><td style="font-weight:600;">${p}%</td>`;
+        cashMixes.forEach(c => {
+          const op = tgtPrice * (1 + p/100);
+          const dv = op * tgtShares;
+          const cp = dv * c/100, sp = dv * (1 - c/100);
+          const ns = acqPrice > 0 ? sp / acqPrice : 0;
+          const pfs = acqShares + ns;
+          const ie = cp * debtCost * (1 - taxRate);
+          const pfni = acqNetIncome + tgtNetIncome + synergies - ie;
+          const pfeps = pfs > 0 ? pfni / pfs : 0;
+          const ad = acqEPS !== 0 ? ((pfeps - acqEPS) / acqEPS) * 100 : 0;
+          const cls = ad >= 0 ? 'positive-val' : 'negative-val';
+          const hl = (p === v('ma-premium') && c === v('ma-cash-pct')) ? ' highlight' : '';
+          tbl += `<td class="${cls}${hl}">${ad >= 0 ? '+' : ''}${ad.toFixed(1)}%</td>`;
+        });
+        tbl += '</tr>';
+      });
+      tbl += '</tbody></table>';
+      document.getElementById('ma-sensitivity').innerHTML = tbl;
+
+      // Sources & Uses
+      const cashOnHand = 0; // simplified
+      const newDebt = cashPortion;
+      const stockIssued = stockPortion;
+      let su = '<h3 style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;">Sources & Uses ($M)</h3>';
+      su += '<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">';
+      su += '<div><table class="sensitivity-table"><thead><tr><th colspan="2">Sources</th></tr></thead><tbody>';
+      su += `<tr><td>New Debt</td><td class="mono">${fmtM(newDebt)}</td></tr>`;
+      su += `<tr><td>Stock Issued</td><td class="mono">${fmtM(stockIssued)}</td></tr>`;
+      su += `<tr><td>Cash on Hand</td><td class="mono">${fmtM(cashOnHand)}</td></tr>`;
+      su += `<tr style="border-top:2px solid rgba(255,255,255,0.1);"><td style="font-weight:700;">Total Sources</td><td class="mono" style="font-weight:700;">${fmtM(newDebt + stockIssued + cashOnHand)}</td></tr>`;
+      su += '</tbody></table></div>';
+      su += '<div><table class="sensitivity-table"><thead><tr><th colspan="2">Uses</th></tr></thead><tbody>';
+      su += `<tr><td>Purchase Price</td><td class="mono">${fmtM(dealValue)}</td></tr>`;
+      su += `<tr><td>Transaction Fees (2%)</td><td class="mono">${fmtM(txnFees)}</td></tr>`;
+      su += `<tr><td>Refinancing</td><td class="mono">${fmtM(0)}</td></tr>`;
+      su += `<tr style="border-top:2px solid rgba(255,255,255,0.1);"><td style="font-weight:700;">Total Uses</td><td class="mono" style="font-weight:700;">${fmtM(dealValue + txnFees)}</td></tr>`;
+      su += '</tbody></table></div></div>';
+      document.getElementById('ma-sources-uses').innerHTML = su;
+    }
+
+    // Initialize M&A on page load
+    document.addEventListener('DOMContentLoaded', function() { if(document.getElementById('ma-acq-eps')) calculateMA(); });
   </script>
 </body>
 </html>
