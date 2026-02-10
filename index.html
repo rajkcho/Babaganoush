@@ -179,6 +179,87 @@
       --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.06);
     }
     
+    /* ── Light Mode Polish ─────────────────────────────── */
+    
+    /* 1. Tool Card Shadows */
+    .light .tool-card {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .light .tool-card:hover {
+      box-shadow: 0 8px 24px rgba(99,102,241,0.08), var(--shadow-glow);
+    }
+    
+    /* 2. Nav Bar */
+    .light .nav-bar {
+      background: rgba(255, 255, 255, 0.88);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .light .nav-bar.scrolled {
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* 3. Hero Gradient Text */
+    .light .gradient-text {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed, #0891b2);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    
+    /* 4. Button Refinement */
+    .light .btn-primary {
+      box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
+    }
+    .light .btn-primary:hover {
+      box-shadow: 0 8px 28px rgba(99, 102, 241, 0.4);
+    }
+    .light .btn-secondary {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid var(--border-hover);
+    }
+    .light .btn-secondary:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--brand-primary);
+    }
+    
+    /* 5. Result Cards */
+    .light .result-card {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.04), rgba(139, 92, 246, 0.02));
+      border: 1px solid rgba(99, 102, 241, 0.12);
+      border-left: 4px solid var(--brand-primary);
+    }
+    
+    /* 6. Section Dividers */
+    .light .section + .section::before {
+      content: '';
+      display: block;
+      height: 1px;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.15), transparent);
+    }
+    
+    /* 7. Footer Polish */
+    .light .footer {
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      background: rgba(248, 249, 252, 0.6);
+    }
+    .footer-made {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-primary);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    
+    /* 8. Glass Card */
+    .light .glass-card {
+      background: rgba(238, 240, 255, 0.55);
+      border: 1px solid rgba(99, 102, 241, 0.08);
+    }
+    .light .glass-card:hover {
+      background: rgba(238, 240, 255, 0.7);
+    }
+    
     /* ── Reset & Base ──────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     
@@ -991,7 +1072,8 @@
       transition: color 0.3s ease;
     }
     
-    .footer-links a:hover { color: var(--text-primary); }
+    .footer-links a:hover { color: var(--text-primary); text-decoration: underline; }
+    .light .footer-links a { color: var(--text-secondary); }
     
     /* ── Utility ───────────────────────────────────────── */
     .sr-only {
@@ -2169,7 +2251,7 @@
           <a href="#">Contact</a>
           <a href="https://github.com/rajkcho/Babaganoush" target="_blank">GitHub</a>
         </div>
-        <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 1.5rem;">© 2026 Babaganoush. Made in 🇨🇦 Canada.</p>
+        <p class="footer-made">© 2026 Babaganoush. Made in 🇨🇦 Canada.</p>
       </div>
     </footer>
   </div>
