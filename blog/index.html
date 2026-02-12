@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en-CA" class="scroll-smooth">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3447886014314572"
+     crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHP0GVPV8Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QHP0GVPV8Q');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FiggyBank Blog — Canadian Personal Finance Insights</title>
+  <meta name="description" content="Expert personal finance insights for Canadians. Tax planning, retirement strategies, real estate, debt management, and business valuation guides." />
+  <meta name="keywords" content="Canadian personal finance blog, RRSP vs TFSA, tax planning Canada, first-time home buyer Canada, debt payoff strategies, business valuation" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Rick Minji" />
+  <meta property="og:title" content="FiggyBank Blog — Canadian Personal Finance Insights" />
+  <meta property="og:description" content="Expert personal finance insights for Canadians covering tax planning, retirement, real estate, debt management, and business valuation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://figgybank.ca/blog/" />
+  <meta property="og:image" content="https://figgybank.ca/og-image.png" />
+  <link rel="canonical" href="https://figgybank.ca/blog/" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐷</text></svg>" />
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "FiggyBank Blog",
+    "description": "Canadian personal finance insights and strategies",
+    "url": "https://figgybank.ca/blog/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "FiggyBank",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://figgybank.ca/og-image.png"
+      }
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Rick Minji"
+    }
+  }
+  </script>
+  
+  <style>
+    :root {
+      --fg-purple: #2C087D;
+      --fg-purple-light: #4A1CA0;
+      --fg-coral: #FF6B6B;
+      --fg-gold: #F5A623;
+      --fg-cream: #FCFAF4;
+      --fg-green: #10b981;
+      --brand-primary: #2C087D;
+      --brand-accent: #FF6B6B;
+      --bg-primary: #FCFAF4;
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f9f8f5;
+      --border-primary: #e8e4dc;
+      --border-hover: #d4cfc5;
+      --text-primary: #2C087D;
+      --text-secondary: #5a4d7a;
+      --text-muted: #9b8fb5;
+      --shadow-sm: 0 1px 3px rgba(44, 8, 125, 0.04);
+      --shadow-md: 0 4px 16px rgba(44, 8, 125, 0.06);
+      --shadow-lg: 0 8px 32px rgba(44, 8, 125, 0.08);
+      --radius-md: 0.75rem;
+      --radius-lg: 1rem;
+      --radius-xl: 1.5rem;
+    }
+    
+    .dark {
+      --bg-primary: #0f0a1a;
+      --bg-secondary: #16102a;
+      --bg-card: #1a1330;
+      --bg-card-hover: #221a3d;
+      --border-primary: #2d2450;
+      --border-hover: #3d3466;
+      --text-primary: #f4f0ff;
+      --text-secondary: #b0a3cc;
+      --text-muted: #7a6b9e;
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(252, 250, 244, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-primary);
+      padding: 1rem 0;
+    }
+    .dark .nav-bar { background: rgba(15, 10, 26, 0.92); }
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    .nav-logo-svg { width: 36px; height: 36px; }
+    .theme-toggle {
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: 0.5rem;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      font-size: 1.25rem;
+      transition: all 0.3s ease;
+    }
+    .theme-toggle:hover { transform: scale(1.1); }
+    
+    .blog-header {
+      margin-top: 100px;
+      padding: 3rem 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(44, 8, 125, 0.05), rgba(255, 107, 107, 0.05));
+    }
+    .blog-header h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--fg-purple), var(--fg-coral));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .blog-header p {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .blog-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+    
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    
+    .article-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .article-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .article-category {
+      background: rgba(44, 8, 125, 0.1);
+      color: var(--brand-primary);
+      padding: 0.25rem 0.625rem;
+      border-radius: 0.375rem;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .article-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+    
+    .article-excerpt {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+    
+    .article-footer {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-primary);
+    }
+    .author-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 2px solid var(--border-primary);
+    }
+    .author-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.125rem;
+    }
+    .author-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .article-date {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      transition: color 0.3s ease;
+    }
+    .back-link:hover { color: var(--text-primary); }
+    
+    footer {
+      background: var(--fg-purple);
+      color: rgba(255,255,255,0.9);
+      padding: 3rem 2rem 1.5rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+    footer a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    footer a:hover { color: white; }
+    
+    @media (max-width: 768px) {
+      .articles-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav-bar">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo">
+        <svg class="nav-logo-svg" width="36" height="36" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="32" cy="36" rx="22" ry="18" fill="#FF8A8A"/>
+          <ellipse cx="32" cy="36" rx="22" ry="18" fill="url(#piggyGrad)" opacity="0.5"/>
+          <ellipse cx="16" cy="22" rx="6" ry="7" fill="#FF8A8A" transform="rotate(-15 16 22)"/>
+          <ellipse cx="16" cy="22" rx="4" ry="5" fill="#FFB5B5" transform="rotate(-15 16 22)"/>
+          <ellipse cx="48" cy="22" rx="6" ry="7" fill="#FF8A8A" transform="rotate(15 48 22)"/>
+          <ellipse cx="48" cy="22" rx="4" ry="5" fill="#FFB5B5" transform="rotate(15 48 22)"/>
+          <rect x="26" y="19" width="12" height="3" rx="1.5" fill="#F5A623"/>
+          <rect x="27" y="20" width="10" height="1" rx="0.5" fill="#D4891A"/>
+          <ellipse cx="32" cy="40" rx="8" ry="6" fill="#FFB5B5"/>
+          <circle cx="29" cy="39.5" r="1.5" fill="#E88A8A"/>
+          <circle cx="35" cy="39.5" r="1.5" fill="#E88A8A"/>
+          <circle cx="24" cy="32" r="2.5" fill="#2C087D"/>
+          <circle cx="40" cy="32" r="2.5" fill="#2C087D"/>
+          <circle cx="25" cy="31" r="1" fill="white"/>
+          <circle cx="41" cy="31" r="1" fill="white"/>
+          <path d="M28 43 Q32 46 36 43" stroke="#E88A8A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <rect x="20" y="50" width="5" height="6" rx="2.5" fill="#FF8A8A"/>
+          <rect x="39" y="50" width="5" height="6" rx="2.5" fill="#FF8A8A"/>
+          <path d="M54 34 Q58 30 56 26 Q54 22 58 20" stroke="#FF8A8A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="piggyGrad" x1="10" y1="18" x2="54" y2="54">
+              <stop offset="0%" stop-color="#FFD4D4"/>
+              <stop offset="100%" stop-color="#FF6B6B" stop-opacity="0.3"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>FiggyBank</span>
+      </a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">☀️</button>
+    </div>
+  </nav>
+
+  <header class="blog-header">
+    <h1>FiggyBank Blog</h1>
+    <p>Smart money moves made simple — Canadian personal finance insights, strategies, and guides.</p>
+  </header>
+
+  <main class="blog-container">
+    <a href="../" class="back-link">
+      ← Back to Calculators
+    </a>
+    
+    <div class="articles-grid" id="articles-grid">
+      <!-- Articles loaded via JavaScript -->
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 FiggyBank • <a href="../">Home</a> • <a href="mailto:hello@figgybank.ca">Contact</a></p>
+    <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.7;">Made with 🐷 for Canadians</p>
+  </footer>
+
+  <!-- Rick Minji Avatar SVG (used in article cards) -->
+  <svg id="rick-avatar-template" style="display:none;" width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Professional male avatar - warm colors, clean style -->
+    <circle cx="50" cy="50" r="48" fill="url(#avatarGrad)"/>
+    <!-- Head -->
+    <circle cx="50" cy="42" r="18" fill="#FDBCB4"/>
+    <!-- Hair -->
+    <path d="M32 38 Q32 22 50 20 Q68 22 68 38 L68 42 Q68 32 50 30 Q32 32 32 42 Z" fill="#4A3C2C"/>
+    <!-- Eyes -->
+    <circle cx="43" cy="40" r="2" fill="#2C2416"/>
+    <circle cx="57" cy="40" r="2" fill="#2C2416"/>
+    <circle cx="43.5" cy="39.5" r="0.8" fill="white"/>
+    <circle cx="57.5" cy="39.5" r="0.8" fill="white"/>
+    <!-- Eyebrows -->
+    <path d="M38 36 Q43 34 48 36" stroke="#4A3C2C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M52 36 Q57 34 62 36" stroke="#4A3C2C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <!-- Nose -->
+    <path d="M50 44 L48 48 L50 48.5 L52 48 Z" fill="#F5A699"/>
+    <!-- Mouth/smile -->
+    <path d="M44 50 Q50 53 56 50" stroke="#C87872" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <!-- Neck/shoulders -->
+    <ellipse cx="50" cy="64" rx="14" ry="8" fill="#FDBCB4"/>
+    <!-- Shirt -->
+    <path d="M36 68 Q36 78 50 80 Q64 78 64 68 L64 100 L36 100 Z" fill="#4A90E2"/>
+    <!-- Collar -->
+    <path d="M44 68 L48 72 L50 70 L52 72 L56 68" stroke="#3A7BC8" stroke-width="1.5" fill="none"/>
+    <defs>
+      <linearGradient id="avatarGrad" x1="0" y1="0" x2="100" y2="100">
+        <stop offset="0%" stop-color="#FFE5D9"/>
+        <stop offset="100%" stop-color="#FFD4C4"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <script>
+    // Rick Minji avatar as inline SVG string for article cards
+    const rickAvatarSVG = `<svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="48" fill="url(#avatarGrad)"/>
+      <circle cx="50" cy="42" r="18" fill="#FDBCB4"/>
+      <path d="M32 38 Q32 22 50 20 Q68 22 68 38 L68 42 Q68 32 50 30 Q32 32 32 42 Z" fill="#4A3C2C"/>
+      <circle cx="43" cy="40" r="2" fill="#2C2416"/>
+      <circle cx="57" cy="40" r="2" fill="#2C2416"/>
+      <circle cx="43.5" cy="39.5" r="0.8" fill="white"/>
+      <circle cx="57.5" cy="39.5" r="0.8" fill="white"/>
+      <path d="M38 36 Q43 34 48 36" stroke="#4A3C2C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <path d="M52 36 Q57 34 62 36" stroke="#4A3C2C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <path d="M50 44 L48 48 L50 48.5 L52 48 Z" fill="#F5A699"/>
+      <path d="M44 50 Q50 53 56 50" stroke="#C87872" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <ellipse cx="50" cy="64" rx="14" ry="8" fill="#FDBCB4"/>
+      <path d="M36 68 Q36 78 50 80 Q64 78 64 68 L64 100 L36 100 Z" fill="#4A90E2"/>
+      <path d="M44 68 L48 72 L50 70 L52 72 L56 68" stroke="#3A7BC8" stroke-width="1.5" fill="none"/>
+      <defs>
+        <linearGradient id="avatarGrad" x1="0" y1="0" x2="100" y2="100">
+          <stop offset="0%" stop-color="#FFE5D9"/>
+          <stop offset="100%" stop-color="#FFD4C4"/>
+        </linearGradient>
+      </defs>
+    </svg>`;
+
+    // Load articles from JSON
+    fetch('articles.json')
+      .then(response => response.json())
+      .then(articles => {
+        const grid = document.getElementById('articles-grid');
+        articles.forEach(article => {
+          const card = document.createElement('a');
+          card.href = `${article.slug}.html`;
+          card.className = 'article-card';
+          card.innerHTML = `
+            <div class="article-meta">
+              <span class="article-category">${article.category}</span>
+              <span>•</span>
+              <span>${article.readTime}</span>
+            </div>
+            <h2 class="article-title">${article.title}</h2>
+            <p class="article-excerpt">${article.excerpt}</p>
+            <div class="article-footer">
+              <div class="author-avatar">${rickAvatarSVG}</div>
+              <div class="author-info">
+                <div class="author-name">${article.author}</div>
+                <div class="article-date">${formatDate(article.date)}</div>
+              </div>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      });
+
+    function formatDate(dateStr) {
+      const date = new Date(dateStr);
+      return date.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    // Dark mode toggle
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      document.querySelector('.theme-toggle').textContent = isDark ? '🌙' : '☀️';
+    }
+
+    // Initialize theme from localStorage or system preference
+    (function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        document.querySelector('.theme-toggle').textContent = '🌙';
+      }
+    })();
+  </script>
+
+</body>
+</html>

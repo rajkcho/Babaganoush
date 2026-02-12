@@ -1,14 +1,14 @@
 {
   "name": "FiggyBank",
   "short_name": "FiggyBank",
-  "description": "Free premium financial calculators built by finance professionals.",
+  "description": "20+ free Canadian financial calculators: mortgage, FHSA, RESP, tax, business valuation, RRSP vs TFSA, rent vs buy, GIC ladder, CPP, capital gains, and more. Built by finance professionals.",
   "start_url": "/FiggyBank/",
   "display": "standalone",
   "theme_color": "#2C087D",
   "background_color": "#0a0a0f",
   "icons": [
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧮</text></svg>",
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐷</text></svg>",
       "sizes": "any",
       "type": "image/svg+xml"
     }

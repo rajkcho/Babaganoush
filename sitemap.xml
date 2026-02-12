@@ -1,18 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://figgybank.ca/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://figgybank.ca/#valuation</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://figgybank.ca/#mortgage</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://figgybank.ca/#investment</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://figgybank.ca/#retirement</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://figgybank.ca/#compound</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://figgybank.ca/#merger</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://figgybank.ca/#runway</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://figgybank.ca/#networth</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://figgybank.ca/#lease</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://figgybank.ca/#tax</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://figgybank.ca/#salary</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://figgybank.ca/#debt</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://figgybank.ca/#compare</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://figgybank.ca/#currency</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <!-- Homepage -->
+  <url>
+    <loc>https://figgybank.ca/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- High-priority calculators (frequently searched) -->
+  <url>
+    <loc>https://figgybank.ca/#mortgage</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/#valuation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/#tax</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/#retirement</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- New calculators (high search volume expected) -->
+  <url>
+    <loc>https://figgybank.ca/#fhsa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/#resp</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/#rentbuy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/#capitalgains</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- M&A and business tools -->
+  <url>
+    <loc>https://figgybank.ca/#merger</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/#runway</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Personal finance calculators -->
+  <url>
+    <loc>https://figgybank.ca/#investment</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/#compound</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/#networth</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/#salary</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/#debt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/#lease</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/#gic</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/#cpp</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Utility calculators -->
+  <url>
+    <loc>https://figgybank.ca/#currency</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/#compare</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Blog -->
+  <url>
+    <loc>https://figgybank.ca/blog/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/blog/rrsp-vs-tfsa-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/blog/canadian-tax-brackets-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/blog/first-time-home-buyer-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/blog/debt-payoff-strategies-canada.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/blog/small-business-valuation-canada.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
