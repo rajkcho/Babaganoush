@@ -2296,6 +2296,150 @@
       .hiw-timeline-line { transition: none !important; width: 100% !important; }
       .load-stagger { opacity: 1 !important; transform: none !important; }
     }
+
+    /* ═══ Affiliate Product Recommendations ═══ */
+    .affiliate-section {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-primary);
+    }
+    .affiliate-section h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .affiliate-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .affiliate-card {
+      display: flex;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+    }
+    .affiliate-card:hover {
+      border-color: var(--fg-purple);
+      box-shadow: 0 4px 12px rgba(44, 8, 125, 0.08);
+      transform: translateY(-2px);
+    }
+    .affiliate-card-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(44, 8, 125, 0.05);
+      border-radius: 8px;
+    }
+    .affiliate-card-info h5 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--text-primary);
+    }
+    .affiliate-card-info p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .affiliate-disclosure {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+    @media (max-width: 640px) {
+      .affiliate-cards { grid-template-columns: 1fr; }
+    }
+
+    /* ═══ AFFILIATE RESOURCES ═══ */
+    .affiliate-resources {
+      margin-top: 2.5rem;
+      padding: 2rem;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-primary);
+    }
+    .affiliate-resources h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+      color: var(--text-primary);
+    }
+    .affiliate-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .affiliate-card {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--bg-primary);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-primary);
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .affiliate-card:hover {
+      border-color: var(--fg-purple);
+      box-shadow: 0 2px 12px rgba(44, 8, 125, 0.1);
+    }
+    .affiliate-img {
+      width: 60px;
+      height: 80px;
+      object-fit: contain;
+      flex-shrink: 0;
+      border-radius: 4px;
+    }
+    .affiliate-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      min-width: 0;
+    }
+    .affiliate-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+    .affiliate-author {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+    .affiliate-why {
+      font-size: 0.8rem;
+      color: var(--text-tertiary);
+      line-height: 1.4;
+    }
+    .affiliate-disclosure {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      text-align: center;
+      font-style: italic;
+    }
+    @media (max-width: 600px) {
+      .affiliate-grid {
+        grid-template-columns: 1fr;
+      }
+      .affiliate-resources {
+        padding: 1.25rem;
+      }
+    }
   </style>
 
   <!-- PDF Export Libraries -->
@@ -3499,6 +3643,36 @@
           </div>
         </div>
       </div>
+
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/1591845823?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1591845823&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Built to Sell" class="affiliate-img" loading="lazy">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Built to Sell</span>
+              <span class="affiliate-author">John Warrillow</span>
+              <span class="affiliate-why">Canadian author on building a business worth buying</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/B00000JZKB?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B00000JZKB&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Texas Instruments BA II Plus" class="affiliate-img" loading="lazy">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Texas Instruments BA II Plus</span>
+              <span class="affiliate-why">The industry-standard financial calculator for valuation work</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1733478159?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1733478159&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="The Art of Selling Your Business" class="affiliate-img" loading="lazy">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Art of Selling Your Business</span>
+              <span class="affiliate-author">John Warrillow</span>
+              <span class="affiliate-why">Practical guide to maximizing your exit</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+      </div>
     </div>
   </div>
 
@@ -3608,6 +3782,28 @@
       <div class="chart-container" style="margin-top: 1rem;" id="mortgage-amort">
         <!-- Populated by JS -->
       </div>
+
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/0968394744?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0968394744&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="The Wealthy Barber Returns" class="affiliate-img" loading="lazy">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Wealthy Barber Returns</span>
+              <span class="affiliate-author">David Chilton</span>
+              <span class="affiliate-why">Classic Canadian personal finance — covers mortgages, saving, and spending wisely</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/B00UG9HB1Q?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B00UG9HB1Q&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Fireproof Document Safe" class="affiliate-img" loading="lazy">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Fireproof Document Safe</span>
+              <span class="affiliate-why">Protect your mortgage docs, title, and insurance papers</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+      </div>
     </div>
   </div>
 
@@ -3713,6 +3909,37 @@
         
         <div class="chart-container" style="margin-top: 2rem;" id="dca-chart"></div>
         <div class="chart-container" style="margin-top: 1rem;" id="dca-table"></div>
+
+        <div class="affiliate-resources">
+          <h3>📚 Recommended Resources</h3>
+          <div class="affiliate-grid">
+            <a href="https://www.amazon.ca/dp/0857197681?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+              <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0857197681&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="The Psychology of Money" class="affiliate-img" loading="lazy">
+              <div class="affiliate-info">
+                <span class="affiliate-title">The Psychology of Money</span>
+                <span class="affiliate-author">Morgan Housel</span>
+                <span class="affiliate-why">Timeless lessons on wealth, greed, and happiness</span>
+              </div>
+            </a>
+            <a href="https://www.amazon.ca/dp/1119356296?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+              <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1119356296&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Millionaire Teacher" class="affiliate-img" loading="lazy">
+              <div class="affiliate-info">
+                <span class="affiliate-title">Millionaire Teacher</span>
+                <span class="affiliate-author">Andrew Hallam</span>
+                <span class="affiliate-why">Build wealth on any salary — with Canadian examples</span>
+              </div>
+            </a>
+            <a href="https://www.amazon.ca/dp/1775343707?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+              <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1775343707&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Beat the Bank" class="affiliate-img" loading="lazy">
+              <div class="affiliate-info">
+                <span class="affiliate-title">Beat the Bank</span>
+                <span class="affiliate-author">Larry Bates</span>
+                <span class="affiliate-why">How Canadians can stop overpaying for investments</span>
+              </div>
+            </a>
+          </div>
+          <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -3783,6 +4010,36 @@
       </div>
       
       <div class="chart-container" style="margin-top: 2rem;" id="retirement-chart"></div>
+
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/0968394744?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0968394744&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="The Wealthy Barber Returns" class="affiliate-img" loading="lazy">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Wealthy Barber Returns</span>
+              <span class="affiliate-author">David Chilton</span>
+              <span class="affiliate-why">Canada's most-loved personal finance book — RRSP and TFSA essentials</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/B01B9A0XLA?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B01B9A0XLA&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Wealthing Like Rabbits" class="affiliate-img" loading="lazy">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Wealthing Like Rabbits</span>
+              <span class="affiliate-author">Robert Brown</span>
+              <span class="affiliate-why">Fun, accessible Canadian guide to retirement savings</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/B088FCSL6S?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B088FCSL6S&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Financial Goal Planner Journal" class="affiliate-img" loading="lazy">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Financial Goal Planner Journal</span>
+              <span class="affiliate-why">Track your RRSP and TFSA contributions on paper</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+      </div>
     </div>
   </div>
 
@@ -3874,6 +4131,29 @@
       
       <div class="chart-container" style="margin-top: 2rem;" id="compound-chart"></div>
       <div class="chart-container" style="margin-top: 1rem;" id="compound-comparison"></div>
+
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/0451499085?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0451499085&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="The Automatic Millionaire" class="affiliate-img" loading="lazy">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Automatic Millionaire</span>
+              <span class="affiliate-author">David Bach</span>
+              <span class="affiliate-why">Automate your finances and let compounding do the work</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1612681131?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1612681131&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Rich Dad Poor Dad" class="affiliate-img" loading="lazy">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Rich Dad Poor Dad</span>
+              <span class="affiliate-author">Robert Kiyosaki</span>
+              <span class="affiliate-why">The book that launched a million investors</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+      </div>
     </div>
   </div>
 
@@ -3993,6 +4273,36 @@
       <!-- Sources & Uses -->
       <div class="chart-container animate-fade-up" style="margin-top: 1rem;" id="ma-sources-uses">
         <!-- Populated by JS -->
+      </div>
+
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/1119706181?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1119706181&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Investment Banking" class="affiliate-img" loading="lazy">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Investment Banking</span>
+              <span class="affiliate-author">Rosenbaum & Pearl</span>
+              <span class="affiliate-why">The definitive IB guide — valuation, M&A, and LBOs</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0692928855?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0692928855&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="The Acquirer's Multiple" class="affiliate-img" loading="lazy">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Acquirer's Multiple</span>
+              <span class="affiliate-author">Tobias Carlisle</span>
+              <span class="affiliate-why">Deep value approach to finding acquisition targets</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/B0000YVENS?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0000YVENS&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="HP 12C Financial Calculator" class="affiliate-img" loading="lazy">
+            <div class="affiliate-info">
+              <span class="affiliate-title">HP 12C Financial Calculator</span>
+              <span class="affiliate-why">The legendary financial calculator trusted by deal-makers</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
       </div>
     </div>
   </div>
@@ -4127,6 +4437,29 @@
           <span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;border-radius:2px;background:var(--brand-success);display:inline-block;"></span> Break-Even Reached</span>
         </div>
       </div>
+
+      <div class="affiliate-resources">
+  <h3>📚 Recommended Resources</h3>
+  <div class="affiliate-grid">
+    <a href="https://www.amazon.ca/dp/0307887898?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+      <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0307887898&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="The Lean Startup" class="affiliate-img" loading="lazy">
+      <div class="affiliate-info">
+        <span class="affiliate-title">The Lean Startup</span>
+        <span class="affiliate-author">Eric Ries</span>
+        <span class="affiliate-why">Build, measure, learn — extend your runway intelligently</span>
+      </div>
+    </a>
+    <a href="https://www.amazon.ca/dp/073521414X?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+      <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=073521414X&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Profit First" class="affiliate-img" loading="lazy">
+      <div class="affiliate-info">
+        <span class="affiliate-title">Profit First</span>
+        <span class="affiliate-author">Mike Michalowicz</span>
+        <span class="affiliate-why">Transform your startup from cash-eating to profitable</span>
+      </div>
+    </a>
+  </div>
+  <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+</div>
     </div>
   </div>
 
@@ -4267,6 +4600,35 @@
         <h3 style="font-size: 0.95rem; margin-bottom: 1rem;">📈 Net Worth Over Time</h3>
         <div id="nw-trend-chart"></div>
       </div>
+
+      <div class="affiliate-resources">
+  <h3>📚 Recommended Resources</h3>
+  <div class="affiliate-grid">
+    <a href="https://www.amazon.ca/dp/0143115766?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+      <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0143115766&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Your Money or Your Life" class="affiliate-img" loading="lazy">
+      <div class="affiliate-info">
+        <span class="affiliate-title">Your Money or Your Life</span>
+        <span class="affiliate-author">Vicki Robin</span>
+        <span class="affiliate-why">Rethink your relationship with money and track what matters</span>
+      </div>
+    </a>
+    <a href="https://www.amazon.ca/dp/B088FCSL6S?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+      <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B088FCSL6S&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Financial Goal Planner Journal" class="affiliate-img" loading="lazy">
+      <div class="affiliate-info">
+        <span class="affiliate-title">Financial Goal Planner Journal</span>
+        <span class="affiliate-why">Track your net worth progress month by month</span>
+      </div>
+    </a>
+    <a href="https://www.amazon.ca/dp/B00UG9HB1Q?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+      <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B00UG9HB1Q&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Fireproof Document Safe" class="affiliate-img" loading="lazy">
+      <div class="affiliate-info">
+        <span class="affiliate-title">Fireproof Document Safe</span>
+        <span class="affiliate-why">Protect your financial records and important documents</span>
+      </div>
+    </a>
+  </div>
+  <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+</div>
     </div>
   </div>
 
@@ -4334,6 +4696,21 @@
         <div class="calc-results" id="lease-buy-results" aria-live="polite"></div>
       </div>
       <div class="chart-container" style="margin-top: 2rem;" id="lease-buy-chart"></div>
+
+      <div class="affiliate-resources">
+  <h3>📚 Recommended Resources</h3>
+  <div class="affiliate-grid">
+    <a href="https://www.amazon.ca/dp/0968394744?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+      <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0968394744&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="The Wealthy Barber Returns" class="affiliate-img" loading="lazy">
+      <div class="affiliate-info">
+        <span class="affiliate-title">The Wealthy Barber Returns</span>
+        <span class="affiliate-author">David Chilton</span>
+        <span class="affiliate-why">Smart Canadian thinking on big purchases like vehicles</span>
+      </div>
+    </a>
+  </div>
+  <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+</div>
     </div>
   </div>
 
@@ -4401,6 +4778,20 @@
       </div>
       <div class="chart-container" style="margin-top: 2rem;" id="tax-chart"></div>
       <div class="chart-container" style="margin-top: 1rem;" id="tax-province-compare"></div>
+
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/B08PH5Q51P?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B08PH5Q51P&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Fujitsu ScanSnap Scanner" class="affiliate-img" loading="lazy">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Fujitsu ScanSnap Scanner</span>
+              <span class="affiliate-why">Digitize receipts and tax documents — never lose a deduction</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+      </div>
     </div>
   </div>
 
@@ -4548,6 +4939,29 @@
           <div id="sal-comparison" style="font-size: 0.85rem;"></div>
         </div>
       </div>
+
+      <div class="affiliate-resources">
+  <h3>📚 Recommended Resources</h3>
+  <div class="affiliate-grid">
+    <a href="https://www.amazon.ca/dp/1523505745?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+      <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1523505745&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="I Will Teach You to Be Rich" class="affiliate-img" loading="lazy">
+      <div class="affiliate-info">
+        <span class="affiliate-title">I Will Teach You to Be Rich</span>
+        <span class="affiliate-author">Ramit Sethi</span>
+        <span class="affiliate-why">Negotiate your salary and automate your money</span>
+      </div>
+    </a>
+    <a href="https://www.amazon.ca/dp/0062407805?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+      <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0062407805&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Never Split the Difference" class="affiliate-img" loading="lazy">
+      <div class="affiliate-info">
+        <span class="affiliate-title">Never Split the Difference</span>
+        <span class="affiliate-author">Chris Voss</span>
+        <span class="affiliate-why">FBI negotiation tactics for your next salary conversation</span>
+      </div>
+    </a>
+  </div>
+  <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+</div>
     </div>
   </div>
 
@@ -4644,6 +5058,28 @@
         <h3 style="font-size: 0.95rem; margin-bottom: 1rem;">📈 Payoff Timeline</h3>
         <div id="debt-timeline-chart" style="height: 250px; position: relative;"></div>
       </div>
+
+      <div class="affiliate-resources">
+  <h3>📚 Recommended Resources</h3>
+  <div class="affiliate-grid">
+    <a href="https://www.amazon.ca/dp/1595555277?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+      <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1595555277&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="The Total Money Makeover" class="affiliate-img" loading="lazy">
+      <div class="affiliate-info">
+        <span class="affiliate-title">The Total Money Makeover</span>
+        <span class="affiliate-author">Dave Ramsey</span>
+        <span class="affiliate-why">The proven plan for getting out of debt</span>
+      </div>
+    </a>
+    <a href="https://www.amazon.ca/dp/B088FCSL6S?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+      <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B088FCSL6S&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Budget Planner & Expense Tracker" class="affiliate-img" loading="lazy">
+      <div class="affiliate-info">
+        <span class="affiliate-title">Budget Planner & Expense Tracker</span>
+        <span class="affiliate-why">Track every dollar on your debt-free journey</span>
+      </div>
+    </a>
+  </div>
+  <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+</div>
     </div>
   </div>
 
@@ -4706,6 +5142,27 @@
         <div class="result-label" style="font-size: 1.1rem;">🏆 Verdict</div>
         <div class="result-value" id="cmp-verdict" style="font-size: 1.2rem; line-height: 1.6;">Enter values to compare</div>
       </div>
+
+      <div class="affiliate-resources">
+  <h3>📚 Recommended Resources</h3>
+  <div class="affiliate-grid">
+    <a href="https://www.amazon.ca/dp/B00000JZKB?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+      <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B00000JZKB&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Texas Instruments BA II Plus" class="affiliate-img" loading="lazy">
+      <div class="affiliate-info">
+        <span class="affiliate-title">Texas Instruments BA II Plus</span>
+        <span class="affiliate-why">Run your own calculations alongside the comparison</span>
+      </div>
+    </a>
+    <a href="https://www.amazon.ca/dp/B088FCSL6S?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+      <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B088FCSL6S&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Budget Planner Journal" class="affiliate-img" loading="lazy">
+      <div class="affiliate-info">
+        <span class="affiliate-title">Budget Planner Journal</span>
+        <span class="affiliate-why">Track and compare your financial scenarios on paper</span>
+      </div>
+    </a>
+  </div>
+  <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+</div>
     </div>
   </div>
 
@@ -4769,6 +5226,21 @@
       </div>
 
       <p style="text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 1.5rem;">⚠️ Rates are approximate and for reference only. Check a live source for current rates.</p>
+
+      <div class="affiliate-resources">
+  <h3>📚 Recommended Resources</h3>
+  <div class="affiliate-grid">
+    <a href="https://www.amazon.ca/dp/0060555661?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+      <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0060555661&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="The Intelligent Investor" class="affiliate-img" loading="lazy">
+      <div class="affiliate-info">
+        <span class="affiliate-title">The Intelligent Investor</span>
+        <span class="affiliate-author">Benjamin Graham</span>
+        <span class="affiliate-why">The foundational text on value investing and global markets</span>
+      </div>
+    </a>
+  </div>
+  <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+</div>
     </div>
   </div>
 
@@ -4841,6 +5313,28 @@
       
       <div class="chart-container" style="margin-top: 2rem;" id="fhsa-chart">
         <!-- Chart populated by JS -->
+      </div>
+
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/0968394744?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0968394744&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="The Wealthy Barber Returns" class="affiliate-img" loading="lazy">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Wealthy Barber Returns</span>
+              <span class="affiliate-author">David Chilton</span>
+              <span class="affiliate-why">Essential Canadian financial literacy for first-time buyers</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1119715911?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1119715911&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Home Buying for Canadians for Dummies" class="affiliate-img" loading="lazy">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Home Buying for Canadians for Dummies</span>
+              <span class="affiliate-why">Step-by-step guide to buying your first home in Canada</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
       </div>
     </div>
   </div>
@@ -4916,6 +5410,21 @@
       
       <div class="chart-container" style="margin-top: 2rem;" id="resp-chart">
         <!-- Chart populated by JS -->
+      </div>
+
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/B01B9A0XLA?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B01B9A0XLA&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Wealthing Like Rabbits" class="affiliate-img" loading="lazy">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Wealthing Like Rabbits</span>
+              <span class="affiliate-author">Robert Brown</span>
+              <span class="affiliate-why">Makes saving for your kids' future feel achievable</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
       </div>
     </div>
   </div>
@@ -5030,6 +5539,29 @@
       <div class="chart-container" style="margin-top: 2rem;" id="rb-chart">
         <!-- Chart populated by JS -->
       </div>
+
+      <div class="affiliate-resources">
+  <h3>📚 Recommended Resources</h3>
+  <div class="affiliate-grid">
+    <a href="https://www.amazon.ca/dp/0968394744?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+      <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0968394744&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="The Wealthy Barber Returns" class="affiliate-img" loading="lazy">
+      <div class="affiliate-info">
+        <span class="affiliate-title">The Wealthy Barber Returns</span>
+        <span class="affiliate-author">David Chilton</span>
+        <span class="affiliate-why">Classic Canadian guide to smart housing and money decisions</span>
+      </div>
+    </a>
+    <a href="https://www.amazon.ca/dp/1119356296?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+      <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1119356296&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Millionaire Teacher" class="affiliate-img" loading="lazy">
+      <div class="affiliate-info">
+        <span class="affiliate-title">Millionaire Teacher</span>
+        <span class="affiliate-author">Andrew Hallam</span>
+        <span class="affiliate-why">Build wealth on any salary — with Canadian examples</span>
+      </div>
+    </a>
+  </div>
+  <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+</div>
     </div>
   </div>
 
@@ -5096,6 +5628,21 @@
       <div class="chart-container" style="margin-top: 2rem;" id="gic-chart">
         <!-- Chart populated by JS -->
       </div>
+
+      <div class="affiliate-resources">
+  <h3>📚 Recommended Resources</h3>
+  <div class="affiliate-grid">
+    <a href="https://www.amazon.ca/dp/1775343707?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+      <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1775343707&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Beat the Bank" class="affiliate-img" loading="lazy">
+      <div class="affiliate-info">
+        <span class="affiliate-title">Beat the Bank</span>
+        <span class="affiliate-author">Larry Bates</span>
+        <span class="affiliate-why">Understand the true cost of financial products in Canada</span>
+      </div>
+    </a>
+  </div>
+  <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+</div>
     </div>
   </div>
 
@@ -5178,6 +5725,29 @@
       <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);" id="cpp-comparison">
         <!-- Comparison table populated by JS -->
       </div>
+
+      <div class="affiliate-resources">
+  <h3>📚 Recommended Resources</h3>
+  <div class="affiliate-grid">
+    <a href="https://www.amazon.ca/dp/0968394744?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+      <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0968394744&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="The Wealthy Barber Returns" class="affiliate-img" loading="lazy">
+      <div class="affiliate-info">
+        <span class="affiliate-title">The Wealthy Barber Returns</span>
+        <span class="affiliate-author">David Chilton</span>
+        <span class="affiliate-why">Canada's most-loved finance book — covers CPP, OAS, and retirement planning</span>
+      </div>
+    </a>
+    <a href="https://www.amazon.ca/dp/B01B9A0XLA?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+      <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B01B9A0XLA&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Wealthing Like Rabbits" class="affiliate-img" loading="lazy">
+      <div class="affiliate-info">
+        <span class="affiliate-title">Wealthing Like Rabbits</span>
+        <span class="affiliate-author">Robert Brown</span>
+        <span class="affiliate-why">Fun, accessible Canadian guide to retirement savings</span>
+      </div>
+    </a>
+  </div>
+  <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+</div>
     </div>
   </div>
 
@@ -5249,6 +5819,21 @@
       
       <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);" id="cg-breakdown">
         <!-- Breakdown populated by JS -->
+      </div>
+
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/1119356296?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <img src="https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=1119356296&Format=_SL160_&ID=AsinImage&ServiceVersion=20070822&WS=1" alt="Millionaire Teacher" class="affiliate-img" loading="lazy">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Millionaire Teacher</span>
+              <span class="affiliate-author">Andrew Hallam</span>
+              <span class="affiliate-why">Build wealth on any salary — with Canadian examples</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
       </div>
     </div>
   </div>
