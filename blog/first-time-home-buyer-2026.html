@@ -513,43 +513,6 @@
       box-shadow: 0 6px 20px rgba(44, 8, 125, 0.3);
     }
     
-    .author-bio {
-      background: var(--bg-card);
-      border: 1px solid var(--border-primary);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      margin-top: 3rem;
-      display: flex;
-      gap: 1.5rem;
-      align-items: flex-start;
-    }
-    .author-bio-avatar {
-      flex-shrink: 0;
-    }
-    .author-bio-content h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
-    .author-bio-content p {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-    
-    footer {
-      background: var(--fg-purple);
-      color: rgba(255,255,255,0.9);
-      padding: 3rem 2rem 1.5rem;
-      text-align: center;
-      margin-top: 4rem;
-    }
-    footer a {
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    footer a:hover { color: white; }
-    
     @media (max-width: 1024px) {
       .toc-sidebar {
         position: fixed;
@@ -582,7 +545,6 @@
     
     @media (max-width: 768px) {
       .article-content { font-size: 1rem; }
-      .author-bio { flex-direction: column; }
       .related-grid { grid-template-columns: 1fr; }
       .back-to-top {
         bottom: 1rem;
@@ -1211,47 +1173,8 @@
 
         <p><em>Ready to crunch the numbers? Use our <strong><a href="https://figgybank.ca">Canadian Mortgage Calculator</a></strong> to see exactly what you can afford, compare scenarios, and plan your path to homeownership. Takes less than 3 minutes and gives you complete clarity on your home buying budget.</em></p>
       </div>
-      
-      <aside class="author-bio">
-        <div class="author-bio-avatar">
-          <svg width="64" height="64" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="50" cy="50" r="48" fill="url(#avatarGrad)"/>
-    <circle cx="50" cy="42" r="18" fill="#FDBCB4"/>
-    <path d="M32 38 Q32 22 50 20 Q68 22 68 38 L68 42 Q68 32 50 30 Q32 32 32 42 Z" fill="#4A3C2C"/>
-    <circle cx="43" cy="40" r="2" fill="#2C2416"/>
-    <circle cx="57" cy="40" r="2" fill="#2C2416"/>
-    <circle cx="43.5" cy="39.5" r="0.8" fill="white"/>
-    <circle cx="57.5" cy="39.5" r="0.8" fill="white"/>
-    <path d="M38 36 Q43 34 48 36" stroke="#4A3C2C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-    <path d="M52 36 Q57 34 62 36" stroke="#4A3C2C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-    <path d="M50 44 L48 48 L50 48.5 L52 48 Z" fill="#F5A699"/>
-    <path d="M44 50 Q50 53 56 50" stroke="#C87872" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-    <ellipse cx="50" cy="64" rx="14" ry="8" fill="#FDBCB4"/>
-    <path d="M36 68 Q36 78 50 80 Q64 78 64 68 L64 100 L36 100 Z" fill="#4A90E2"/>
-    <path d="M44 68 L48 72 L50 70 L52 72 L56 68" stroke="#3A7BC8" stroke-width="1.5" fill="none"/>
-    <defs>
-      <linearGradient id="avatarGrad" x1="0" y1="0" x2="100" y2="100">
-        <stop offset="0%" stop-color="#FFE5D9"/>
-        <stop offset="100%" stop-color="#FFD4C4"/>
-      </linearGradient>
-    </defs>
-  </svg>
-        </div>
-        <div class="author-bio-content">
-          <h3>About Rick Minji</h3>
-          <p>Rick Minji is a financial technology specialist focused on making Canadian personal finance accessible and actionable. In his spare time, he loves to go on hikes with his 4 kids and fly fish whenever possible.</p>
-        </div>
-      </aside>
     </article>
   </div>
-
-  <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
-
-  <footer>
-    <p>© 2026 FiggyBank • <a href="../">Home</a> • <a href="index.html">Blog</a> • <a href="mailto:hello@figgybank.ca">Contact</a></p>
-    <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.7;">Made with 🐷 for Canadians</p>
-    <p style="margin-top: 1rem; font-size: 0.7rem; color: #999; line-height: 1.5;"><strong>Disclaimer:</strong> This report is for informational and educational purposes only. It does not constitute financial, investment, tax, or legal advice. Consult a qualified professional before making financial decisions.</p>
-  </footer>
 
   <script>
 
