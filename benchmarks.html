@@ -55,57 +55,9 @@
             padding-top: 80px;
         }
         
-        body.dark-mode {
+        .dark {
             background-color: var(--dark-bg);
             color: var(--dark-text);
-        }
-        
-        /* Navbar */
-        .navbar {
-            background-color: var(--purple);
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .navbar-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            font-size: 1.3rem;
-        }
-        
-        .logo-svg {
-            width: 40px;
-            height: 40px;
-            margin-right: 0.5rem;
-        }
-        
-        .dark-mode-toggle {
-            background: rgba(255,255,255,0.2);
-            border: none;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: background 0.3s;
-        }
-        
-        .dark-mode-toggle:hover {
-            background: rgba(255,255,255,0.3);
         }
         
         /* Main Container */
@@ -126,7 +78,7 @@
             margin-bottom: 1rem;
         }
         
-        body.dark-mode .hero h1 {
+        .dark .hero h1 {
             color: var(--coral);
         }
         
@@ -135,7 +87,7 @@
             color: #666;
         }
         
-        body.dark-mode .hero p {
+        .dark .hero p {
             color: #aaa;
         }
         
@@ -148,7 +100,7 @@
             margin-bottom: 2rem;
         }
         
-        body.dark-mode .input-card {
+        .dark .input-card {
             background: var(--dark-card);
         }
         
@@ -170,7 +122,7 @@
             color: var(--purple);
         }
         
-        body.dark-mode .input-group label {
+        .dark .input-group label {
             color: var(--coral);
         }
         
@@ -185,7 +137,7 @@
             transition: border-color 0.3s;
         }
         
-        body.dark-mode .input-group select {
+        .dark .input-group select {
             background: var(--dark-bg);
             border-color: #444;
             color: var(--dark-text);
@@ -196,7 +148,7 @@
             border-color: var(--purple);
         }
         
-        body.dark-mode .input-group select:focus {
+        .dark .input-group select:focus {
             border-color: var(--coral);
         }
         
@@ -243,7 +195,7 @@
             box-shadow: 0 4px 20px rgba(44,8,125,0.3);
         }
         
-        body.dark-mode .summary-card {
+        .dark .summary-card {
             background: linear-gradient(135deg, var(--coral), #ff8585);
         }
         
@@ -270,7 +222,7 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
         
-        body.dark-mode .metric-card {
+        .dark .metric-card {
             background: var(--dark-card);
         }
         
@@ -287,7 +239,7 @@
             color: var(--purple);
         }
         
-        body.dark-mode .metric-name {
+        .dark .metric-name {
             color: var(--coral);
         }
         
@@ -296,7 +248,7 @@
             color: #666;
         }
         
-        body.dark-mode .metric-values {
+        .dark .metric-values {
             color: #aaa;
         }
         
@@ -332,7 +284,7 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
-        body.dark-mode .marker-label {
+        .dark .marker-label {
             background: var(--dark-bg);
         }
         
@@ -345,11 +297,11 @@
             border: 2px solid var(--purple);
         }
         
-        body.dark-mode .marker-you {
+        .dark .marker-you {
             background: var(--coral);
         }
         
-        body.dark-mode .marker-you .marker-label {
+        .dark .marker-you .marker-label {
             color: var(--coral);
             border: 2px solid var(--coral);
         }
@@ -363,7 +315,7 @@
             border: 2px solid #333;
         }
         
-        body.dark-mode .marker-avg .marker-label {
+        .dark .marker-avg .marker-label {
             color: white;
             border: 2px solid white;
         }
@@ -374,7 +326,7 @@
             margin-top: 0.5rem;
         }
         
-        body.dark-mode .metric-description {
+        .dark .metric-description {
             color: #aaa;
         }
         
@@ -387,7 +339,7 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
         
-        body.dark-mode .related-tools {
+        .dark .related-tools {
             background: var(--dark-card);
         }
         
@@ -396,7 +348,7 @@
             margin-bottom: 1rem;
         }
         
-        body.dark-mode .related-tools h3 {
+        .dark .related-tools h3 {
             color: var(--coral);
         }
         
@@ -418,7 +370,7 @@
             transition: transform 0.2s, box-shadow 0.2s;
         }
         
-        body.dark-mode .tool-link {
+        .dark .tool-link {
             background: var(--dark-bg);
             color: var(--coral);
         }
@@ -429,27 +381,6 @@
         }
         
         /* Footer */
-        footer {
-            background: var(--purple);
-            color: white;
-            padding: 2rem;
-            margin-top: 4rem;
-            text-align: center;
-        }
-        
-        footer p {
-            margin: 0.5rem 0;
-        }
-        
-        footer a {
-            color: var(--coral);
-            text-decoration: none;
-        }
-        
-        footer a:hover {
-            text-decoration: underline;
-        }
-        
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -527,6 +458,29 @@
       .nav-dropdown-grid { grid-template-columns: 1fr 1fr; }
       .nav-links.mobile-open .nav-dropdown-menu { display: block; }
     }
+
+    /* Footer v6 */
+    .figgy-footer-v6 {
+      background: linear-gradient(180deg, #1a0e3a, #0f0a1a); color: rgba(255,255,255,0.9);
+      padding: 4rem 2rem 2rem; text-align: center; position: relative; overflow: hidden;
+    }
+    .figgy-footer-v6::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(270deg, rgba(44,8,125,0.2), transparent, rgba(255,107,107,0.1));
+      background-size: 400% 400%; animation: gradientShift 12s ease infinite;
+    }
+    @keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+    /* Scroll-to-top piggy */
+    .scroll-top-piggy {
+      position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px;
+      border-radius: 50%; background: var(--fg-purple, #2C087D); color: white; border: none;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; box-shadow: 0 4px 20px rgba(44,8,125,0.3);
+      opacity: 0; transform: translateY(20px); transition: all 0.3s ease; z-index: 100;
+    }
+    .scroll-top-piggy.visible { opacity: 1; transform: translateY(0); }
+    .scroll-top-piggy.hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(44,8,125,0.4); }
 
   </style>
 </head>
@@ -714,10 +668,37 @@
     </div>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 FiggyBank.ca - Canadian Financial Calculators & Tools</p>
-        <p>Data sourced from Statistics Canada. For informational purposes only.</p>
-        <p><a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms of Service</a> | <a href="../about.html">About</a></p>
+    <footer class="figgy-footer-v6">
+      <div style="max-width:800px;margin:0 auto;position:relative;z-index:1;">
+        <div style="margin-bottom:1.5rem;">
+          <svg width="56" height="56" viewBox="0 0 64 64" fill="none">
+            <ellipse cx="32" cy="36" rx="22" ry="18" fill="#FF8A8A"/>
+            <ellipse cx="16" cy="22" rx="6" ry="7" fill="#FF8A8A" transform="rotate(-15 16 22)"/>
+            <ellipse cx="48" cy="22" rx="6" ry="7" fill="#FF8A8A" transform="rotate(15 48 22)"/>
+            <rect x="26" y="19" width="12" height="3" rx="1.5" fill="#F5A623"/>
+            <ellipse cx="32" cy="40" rx="8" ry="6" fill="#FFB5B5"/>
+            <circle cx="29" cy="39.5" r="1.5" fill="#E88A8A"/>
+            <circle cx="35" cy="39.5" r="1.5" fill="#E88A8A"/>
+            <circle cx="24" cy="32" r="2.5" fill="white"/>
+            <circle cx="40" cy="32" r="2.5" fill="white"/>
+            <circle cx="25" cy="31" r="1" fill="#2C087D"/>
+            <circle cx="41" cy="31" r="1" fill="#2C087D"/>
+          </svg>
+        </div>
+        <h2 style="color:white;font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:1rem;">Your money. Your math. Your move.</h2>
+        <p style="color:rgba(255,255,255,0.55);margin-bottom:2rem;font-size:1.05rem;">Smart money moves made simple — start crunching numbers today.</p>
+        <div style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;">
+          <a href="/" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;">Calculators</a>
+          <a href="/glossary.html" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;">Glossary</a>
+          <a href="/quiz.html" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;">Financial Quiz</a>
+          <a href="/blog/" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;">Blog</a>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:1.5rem;">
+          <p style="font-size:0.7rem;color:rgba(255,255,255,0.3);max-width:600px;margin:0 auto 1rem;line-height:1.6;">⚠️ <strong>Disclaimer:</strong> All calculations provided by FiggyBank are for illustrative and educational purposes only. They do not constitute financial, tax, legal, or investment advice. Always verify results independently and consult a qualified professional before making financial decisions.</p>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.35);">Built with ❤️ in Canada 🇨🇦</p>
+          <p style="margin-top:0.5rem;font-size:0.8rem;color:rgba(255,255,255,0.35);">© 2026 FiggyBank</p>
+        </div>
+      </div>
     </footer>
 
     <script>
@@ -1016,25 +997,35 @@
         }
     </script>
 
+  <!-- Scroll-to-top piggy -->
+  <button class="scroll-top-piggy" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">🐷</button>
+
   <script>
+    // Theme
+    let savedTheme = localStorage.getItem('figgybank-theme');
+    let isDark = savedTheme !== null ? savedTheme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
     function toggleTheme() {
-      document.documentElement.classList.toggle('dark');
-      const isDark = document.documentElement.classList.contains('dark');
-      localStorage.setItem('figgybank-theme', isDark ? 'dark' : 'light');
+      isDark = !isDark;
+      document.documentElement.classList.toggle('dark', isDark);
       document.querySelector('.theme-toggle').textContent = isDark ? '🌙' : '☀️';
+      localStorage.setItem('figgybank-theme', isDark ? 'dark' : 'light');
     }
+    if (isDark) { document.documentElement.classList.add('dark'); }
+    // Set initial icon after DOM ready
+    document.addEventListener('DOMContentLoaded', function() {
+      var btn = document.querySelector('.theme-toggle');
+      if (btn) btn.textContent = isDark ? '🌙' : '☀️';
+    });
+
     function toggleMobileMenu() {
       document.getElementById('nav-links').classList.toggle('mobile-open');
     }
-    (function initTheme() {
-      const saved = localStorage.getItem('figgybank-theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (saved === 'dark' || (!saved && prefersDark)) {
-        document.documentElement.classList.add('dark');
-        const btn = document.querySelector('.theme-toggle');
-        if (btn) btn.textContent = '🌙';
-      }
-    })();
+
+    // Scroll-to-top piggy
+    window.addEventListener('scroll', function() {
+      var piggy = document.querySelector('.scroll-top-piggy');
+      if (piggy) piggy.classList.toggle('visible', window.scrollY > 300);
+    });
   </script>
 </body>
 </html>
