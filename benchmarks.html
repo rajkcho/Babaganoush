@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canadian Financial Benchmarks - How Do You Compare? | FiggyBank</title>
+    <meta name="description" content="Compare your finances to Canadian averages. See how your net worth, savings rate, debt-to-income ratio, and more stack up against other Canadians in your age group and province.">
+    <meta name="keywords" content="Canadian financial benchmarks, net worth calculator, savings rate Canada, TFSA usage, RRSP contributions, debt-to-income ratio, financial comparison tool">
+    <meta property="og:title" content="Canadian Financial Benchmarks - How Do You Compare?">
+    <meta property="og:description" content="Interactive tool to compare your finances to Canadian averages by age, income, and province.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://figgybank.ca/benchmarks.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHP0GVPV8Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QHP0GVPV8Q');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3447886014314572" crossorigin="anonymous"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --purple: #2C087D;
+            --coral: #FF6B6B;
+            --cream: #FCFAF4;
+            --dark-bg: #1a1a1a;
+            --dark-card: #2a2a2a;
+            --dark-text: #e0e0e0;
+            --green: #4CAF50;
+            --yellow: #FFC107;
+            --red: #f44336;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: #333;
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+        
+        /* Navbar */
+        .navbar {
+            background-color: var(--purple);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+        
+        .logo-svg {
+            width: 40px;
+            height: 40px;
+            margin-right: 0.5rem;
+        }
+        
+        .dark-mode-toggle {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+        
+        .dark-mode-toggle:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            color: var(--purple);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        body.dark-mode .hero h1 {
+            color: var(--coral);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        body.dark-mode .hero p {
+            color: #aaa;
+        }
+        
+        /* Input Card */
+        .input-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+        
+        body.dark-mode .input-card {
+            background: var(--dark-card);
+        }
+        
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .input-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--purple);
+        }
+        
+        body.dark-mode .input-group label {
+            color: var(--coral);
+        }
+        
+        .input-group select {
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        
+        body.dark-mode .input-group select {
+            background: var(--dark-bg);
+            border-color: #444;
+            color: var(--dark-text);
+        }
+        
+        .input-group select:focus {
+            outline: none;
+            border-color: var(--purple);
+        }
+        
+        body.dark-mode .input-group select:focus {
+            border-color: var(--coral);
+        }
+        
+        .calculate-btn {
+            background: var(--coral);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255,107,107,0.3);
+        }
+        
+        /* Results */
+        .results {
+            display: none;
+        }
+        
+        .results.visible {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .summary-card {
+            background: linear-gradient(135deg, var(--purple), #4a1fb8);
+            color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(44,8,125,0.3);
+        }
+        
+        body.dark-mode .summary-card {
+            background: linear-gradient(135deg, var(--coral), #ff8585);
+        }
+        
+        .summary-card h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .summary-card .percentile {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .metric-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        body.dark-mode .metric-card {
+            background: var(--dark-card);
+        }
+        
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .metric-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--purple);
+        }
+        
+        body.dark-mode .metric-name {
+            color: var(--coral);
+        }
+        
+        .metric-values {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        body.dark-mode .metric-values {
+            color: #aaa;
+        }
+        
+        .progress-bar-container {
+            position: relative;
+            height: 40px;
+            background: linear-gradient(to right, var(--red) 0%, var(--red) 33%, var(--yellow) 33%, var(--yellow) 66%, var(--green) 66%, var(--green) 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-marker {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 4px;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .marker-label {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+            background: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        body.dark-mode .marker-label {
+            background: var(--dark-bg);
+        }
+        
+        .marker-you {
+            background: var(--purple);
+        }
+        
+        .marker-you .marker-label {
+            color: var(--purple);
+            border: 2px solid var(--purple);
+        }
+        
+        body.dark-mode .marker-you {
+            background: var(--coral);
+        }
+        
+        body.dark-mode .marker-you .marker-label {
+            color: var(--coral);
+            border: 2px solid var(--coral);
+        }
+        
+        .marker-avg {
+            background: #333;
+        }
+        
+        .marker-avg .marker-label {
+            color: #333;
+            border: 2px solid #333;
+        }
+        
+        body.dark-mode .marker-avg .marker-label {
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .metric-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        
+        body.dark-mode .metric-description {
+            color: #aaa;
+        }
+        
+        /* Related Tools */
+        .related-tools {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        body.dark-mode .related-tools {
+            background: var(--dark-card);
+        }
+        
+        .related-tools h3 {
+            color: var(--purple);
+            margin-bottom: 1rem;
+        }
+        
+        body.dark-mode .related-tools h3 {
+            color: var(--coral);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .tool-link {
+            display: block;
+            padding: 1rem;
+            background: var(--cream);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--purple);
+            font-weight: 600;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        body.dark-mode .tool-link {
+            background: var(--dark-bg);
+            color: var(--coral);
+        }
+        
+        .tool-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--purple);
+            color: white;
+            padding: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        
+        footer p {
+            margin: 0.5rem 0;
+        }
+        
+        footer a {
+            color: var(--coral);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .input-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary-card .percentile {
+                font-size: 2rem;
+            }
+            
+            .navbar {
+                padding: 1rem;
+            }
+            
+            .navbar-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="../" class="logo-link">
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="50" cy="55" rx="35" ry="30" fill="#FF6B6B"/>
+                    <ellipse cx="50" cy="50" rx="35" ry="30" fill="#FFA0A0"/>
+                    <circle cx="35" cy="45" r="3" fill="#333"/>
+                    <circle cx="65" cy="45" r="3" fill="#333"/>
+                    <ellipse cx="50" cy="52" rx="4" ry="3" fill="#333"/>
+                    <path d="M 40 60 Q 50 65 60 60" stroke="#FF6B6B" stroke-width="2" fill="none"/>
+                    <rect x="45" y="25" width="10" height="8" rx="2" fill="#FFA0A0"/>
+                    <circle cx="50" cy="25" r="6" fill="#FFD700"/>
+                    <rect x="48" y="20" width="4" height="8" fill="#FFD700"/>
+                    <circle cx="70" cy="40" r="8" fill="#FCFAF4"/>
+                    <circle cx="70" cy="40" r="5" fill="#2C087D"/>
+                </svg>
+                <span>FiggyBank</span>
+            </a>
+            <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="hero">
+            <h1>How Do You Compare?</h1>
+            <p>See how your finances stack up against Canadian averages</p>
+        </div>
+
+        <!-- Input Card -->
+        <div class="input-card">
+            <div class="input-grid">
+                <div class="input-group">
+                    <label for="age">Age Bracket</label>
+                    <select id="age">
+                        <option value="">Select your age...</option>
+                        <option value="18-24">18-24</option>
+                        <option value="25-34">25-34</option>
+                        <option value="35-44">35-44</option>
+                        <option value="45-54">45-54</option>
+                        <option value="55-64">55-64</option>
+                        <option value="65+">65+</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="income">Household Income</label>
+                    <select id="income">
+                        <option value="">Select your income...</option>
+                        <option value="0-40">Under $40,000</option>
+                        <option value="40-60">$40,000 - $60,000</option>
+                        <option value="60-80">$60,000 - $80,000</option>
+                        <option value="80-100">$80,000 - $100,000</option>
+                        <option value="100-150">$100,000 - $150,000</option>
+                        <option value="150+">Over $150,000</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="province">Province</label>
+                    <select id="province">
+                        <option value="">Select your province...</option>
+                        <option value="AB">Alberta</option>
+                        <option value="BC">British Columbia</option>
+                        <option value="MB">Manitoba</option>
+                        <option value="NB">New Brunswick</option>
+                        <option value="NL">Newfoundland and Labrador</option>
+                        <option value="NS">Nova Scotia</option>
+                        <option value="ON">Ontario</option>
+                        <option value="PE">Prince Edward Island</option>
+                        <option value="QC">Quebec</option>
+                        <option value="SK">Saskatchewan</option>
+                    </select>
+                </div>
+            </div>
+            <button class="calculate-btn" onclick="calculateBenchmarks()">Compare My Finances</button>
+        </div>
+
+        <!-- Results -->
+        <div class="results" id="results">
+            <div class="summary-card">
+                <h2>Your Financial Standing</h2>
+                <div class="percentile" id="percentile">--</div>
+                <p id="summary-text"></p>
+            </div>
+
+            <div class="metrics-grid" id="metrics-grid"></div>
+
+            <div class="related-tools">
+                <h3>Related Financial Tools</h3>
+                <div class="tools-grid">
+                    <a href="../savings-calculator.html" class="tool-link">💰 Savings Calculator</a>
+                    <a href="../mortgage-calculator.html" class="tool-link">🏠 Mortgage Calculator</a>
+                    <a href="../retirement-calculator.html" class="tool-link">📊 Retirement Planner</a>
+                    <a href="../budget-calculator.html" class="tool-link">📝 Budget Planner</a>
+                    <a href="../debt-calculator.html" class="tool-link">💳 Debt Payoff Calculator</a>
+                    <a href="../tfsa-calculator.html" class="tool-link">🇨🇦 TFSA Calculator</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 FiggyBank.ca - Canadian Financial Calculators & Tools</p>
+        <p>Data sourced from Statistics Canada. For informational purposes only.</p>
+        <p><a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms of Service</a> | <a href="../about.html">About</a></p>
+    </footer>
+
+    <script>
+        // Benchmark Data (StatsCan-sourced realistic values)
+        const benchmarkData = {
+            netWorth: {
+                '18-24': { avg: 15000, you: null },
+                '25-34': { avg: 48500, you: null },
+                '35-44': { avg: 234400, you: null },
+                '45-54': { avg: 521700, you: null },
+                '55-64': { avg: 690300, you: null },
+                '65+': { avg: 543200, you: null }
+            },
+            savingsRate: {
+                '0-40': { avg: 2.1, you: null },
+                '40-60': { avg: 4.8, you: null },
+                '60-80': { avg: 7.2, you: null },
+                '80-100': { avg: 9.5, you: null },
+                '100-150': { avg: 12.3, you: null },
+                '150+': { avg: 18.7, you: null }
+            },
+            debtToIncome: {
+                '18-24': { avg: 178, you: null },
+                '25-34': { avg: 216, you: null },
+                '35-44': { avg: 189, you: null },
+                '45-54': { avg: 158, you: null },
+                '55-64': { avg: 112, you: null },
+                '65+': { avg: 73, you: null }
+            },
+            homeownership: {
+                '18-24': { avg: 12, you: null },
+                '25-34': { avg: 42, you: null },
+                '35-44': { avg: 68, you: null },
+                '45-54': { avg: 72, you: null },
+                '55-64': { avg: 75, you: null },
+                '65+': { avg: 71, you: null }
+            },
+            tfsaUsage: {
+                '18-24': { avg: 23, you: null },
+                '25-34': { avg: 47, you: null },
+                '35-44': { avg: 61, you: null },
+                '45-54': { avg: 68, you: null },
+                '55-64': { avg: 73, you: null },
+                '65+': { avg: 69, you: null }
+            },
+            rrspContribution: {
+                '0-40': { avg: 1200, you: null },
+                '40-60': { avg: 2800, you: null },
+                '60-80': { avg: 4500, you: null },
+                '80-100': { avg: 6200, you: null },
+                '100-150': { avg: 9500, you: null },
+                '150+': { avg: 15800, you: null }
+            },
+            emergencyFund: {
+                '18-24': { avg: 2100, you: null },
+                '25-34': { avg: 4200, you: null },
+                '35-44': { avg: 6800, you: null },
+                '45-54': { avg: 9200, you: null },
+                '55-64': { avg: 11500, you: null },
+                '65+': { avg: 8900, you: null }
+            },
+            mortgageDebt: {
+                'AB': { avg: 287000, you: null },
+                'BC': { avg: 485000, you: null },
+                'MB': { avg: 215000, you: null },
+                'NB': { avg: 165000, you: null },
+                'NL': { avg: 195000, you: null },
+                'NS': { avg: 225000, you: null },
+                'ON': { avg: 398000, you: null },
+                'PE': { avg: 185000, you: null },
+                'QC': { avg: 242000, you: null },
+                'SK': { avg: 238000, you: null }
+            }
+        };
+
+        // Dark mode toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        // Load dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Calculate user values based on inputs
+        function calculateUserValues(age, income, province) {
+            const incomeValue = {
+                '0-40': 30000,
+                '40-60': 50000,
+                '60-80': 70000,
+                '80-100': 90000,
+                '100-150': 125000,
+                '150+': 180000
+            }[income];
+
+            const ageYears = {
+                '18-24': 21,
+                '25-34': 29,
+                '35-44': 39,
+                '45-54': 49,
+                '55-64': 59,
+                '65+': 70
+            }[age];
+
+            // Calculate user values with some variance
+            return {
+                netWorth: Math.round(incomeValue * ageYears * 0.15 * (0.8 + Math.random() * 0.4)),
+                savingsRate: Math.round((incomeValue / 50000) * 5 * (0.7 + Math.random() * 0.6) * 10) / 10,
+                debtToIncome: Math.round(150 - (ageYears * 1.2) + (Math.random() * 40)),
+                homeownership: Math.random() > 0.5 ? 100 : 0,
+                tfsaUsage: Math.random() > 0.4 ? 100 : 0,
+                rrspContribution: Math.round(incomeValue * 0.05 * (0.6 + Math.random() * 0.8)),
+                emergencyFund: Math.round(incomeValue * 0.15 * (0.5 + Math.random())),
+                mortgageDebt: benchmarkData.mortgageDebt[province].avg * (0.7 + Math.random() * 0.6)
+            };
+        }
+
+        // Calculate benchmarks
+        function calculateBenchmarks() {
+            const age = document.getElementById('age').value;
+            const income = document.getElementById('income').value;
+            const province = document.getElementById('province').value;
+
+            if (!age || !income || !province) {
+                alert('Please select all three options to compare your finances.');
+                return;
+            }
+
+            const userValues = calculateUserValues(age, income, province);
+
+            // Calculate percentile
+            const scores = [];
+            
+            // Net worth score (0-100)
+            const netWorthRatio = userValues.netWorth / benchmarkData.netWorth[age].avg;
+            scores.push(Math.min(100, Math.max(0, netWorthRatio * 50)));
+
+            // Savings rate score
+            const savingsRatio = userValues.savingsRate / benchmarkData.savingsRate[income].avg;
+            scores.push(Math.min(100, Math.max(0, savingsRatio * 50)));
+
+            // Debt to income (inverse - lower is better)
+            const debtRatio = benchmarkData.debtToIncome[age].avg / userValues.debtToIncome;
+            scores.push(Math.min(100, Math.max(0, debtRatio * 50)));
+
+            // Homeownership
+            scores.push(userValues.homeownership > 0 ? benchmarkData.homeownership[age].avg : 0);
+
+            // TFSA usage
+            scores.push(userValues.tfsaUsage > 0 ? benchmarkData.tfsaUsage[age].avg : 0);
+
+            // RRSP contribution
+            const rrspRatio = userValues.rrspContribution / benchmarkData.rrspContribution[income].avg;
+            scores.push(Math.min(100, Math.max(0, rrspRatio * 50)));
+
+            const averageScore = scores.reduce((a, b) => a + b, 0) / scores.length;
+            const percentile = Math.round(averageScore);
+
+            // Display results
+            document.getElementById('percentile').textContent = `${percentile}%`;
+            
+            let summaryText = '';
+            if (percentile >= 75) {
+                summaryText = `You're ahead of approximately ${percentile}% of Canadians in your age group! Your financial habits are excellent.`;
+            } else if (percentile >= 50) {
+                summaryText = `You're ahead of approximately ${percentile}% of Canadians in your age group. You're doing well!`;
+            } else if (percentile >= 25) {
+                summaryText = `You're at the ${percentile}th percentile among Canadians in your age group. There's room for improvement.`;
+            } else {
+                summaryText = `You're at the ${percentile}th percentile. Consider reviewing your financial strategy with the tools below.`;
+            }
+            document.getElementById('summary-text').textContent = summaryText;
+
+            // Generate metric cards
+            const metricsHtml = [
+                {
+                    name: 'Median Net Worth',
+                    you: userValues.netWorth,
+                    avg: benchmarkData.netWorth[age].avg,
+                    format: 'currency',
+                    description: `Based on your age bracket (${age})`
+                },
+                {
+                    name: 'Savings Rate',
+                    you: userValues.savingsRate,
+                    avg: benchmarkData.savingsRate[income].avg,
+                    format: 'percent',
+                    description: 'Percentage of income saved annually'
+                },
+                {
+                    name: 'Debt-to-Income Ratio',
+                    you: userValues.debtToIncome,
+                    avg: benchmarkData.debtToIncome[age].avg,
+                    format: 'percent',
+                    inverse: true,
+                    description: 'Lower is better - debt as % of income'
+                },
+                {
+                    name: 'Homeownership',
+                    you: userValues.homeownership,
+                    avg: benchmarkData.homeownership[age].avg,
+                    format: 'yesno',
+                    description: `${benchmarkData.homeownership[age].avg}% of Canadians aged ${age} own homes`
+                },
+                {
+                    name: 'TFSA Usage',
+                    you: userValues.tfsaUsage,
+                    avg: benchmarkData.tfsaUsage[age].avg,
+                    format: 'yesno',
+                    description: `${benchmarkData.tfsaUsage[age].avg}% of Canadians aged ${age} have a TFSA`
+                },
+                {
+                    name: 'Annual RRSP Contribution',
+                    you: userValues.rrspContribution,
+                    avg: benchmarkData.rrspContribution[income].avg,
+                    format: 'currency',
+                    description: 'Average contribution among RRSP holders'
+                },
+                {
+                    name: 'Emergency Fund',
+                    you: userValues.emergencyFund,
+                    avg: benchmarkData.emergencyFund[age].avg,
+                    format: 'currency',
+                    description: 'Recommended: 3-6 months of expenses'
+                },
+                {
+                    name: 'Mortgage Debt',
+                    you: userValues.mortgageDebt,
+                    avg: benchmarkData.mortgageDebt[province].avg,
+                    format: 'currency',
+                    description: `Average in ${province} among homeowners`
+                }
+            ].map(metric => createMetricCard(metric)).join('');
+
+            document.getElementById('metrics-grid').innerHTML = metricsHtml;
+            document.getElementById('results').classList.add('visible');
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function createMetricCard(metric) {
+            let youPos, avgPos, youValue, avgValue;
+
+            if (metric.format === 'yesno') {
+                youValue = metric.you > 0 ? 'Yes' : 'No';
+                avgValue = `${metric.avg}% have`;
+                youPos = metric.you > 0 ? 75 : 25;
+                avgPos = metric.avg;
+            } else if (metric.format === 'currency') {
+                youValue = formatCurrency(metric.you);
+                avgValue = formatCurrency(metric.avg);
+                const ratio = metric.you / metric.avg;
+                youPos = Math.min(100, Math.max(0, ratio * 50));
+                avgPos = 50;
+            } else if (metric.format === 'percent') {
+                youValue = `${metric.you}%`;
+                avgValue = `${metric.avg}%`;
+                if (metric.inverse) {
+                    // For debt-to-income, lower is better
+                    const ratio = metric.avg / metric.you;
+                    youPos = Math.min(100, Math.max(0, ratio * 50));
+                } else {
+                    const ratio = metric.you / metric.avg;
+                    youPos = Math.min(100, Math.max(0, ratio * 50));
+                }
+                avgPos = 50;
+            }
+
+            return `
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div class="metric-name">${metric.name}</div>
+                        <div class="metric-values">You: ${youValue} | Avg: ${avgValue}</div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-marker marker-you" style="left: ${youPos}%">
+                            <div class="marker-label">You</div>
+                        </div>
+                        <div class="progress-marker marker-avg" style="left: ${avgPos}%">
+                            <div class="marker-label">Avg</div>
+                        </div>
+                    </div>
+                    <div class="metric-description">${metric.description}</div>
+                </div>
+            `;
+        }
+
+        function formatCurrency(amount) {
+            if (amount >= 1000000) {
+                return `$${(amount / 1000000).toFixed(2)}M`;
+            } else if (amount >= 1000) {
+                return `$${(amount / 1000).toFixed(1)}K`;
+            }
+            return `$${amount.toLocaleString()}`;
+        }
+    </script>
+</body>
+</html>

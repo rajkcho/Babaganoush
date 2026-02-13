@@ -184,10 +184,232 @@
     }
     .theme-toggle:hover { transform: scale(1.1); }
     
-    .article-container {
-      max-width: 760px;
+    /* Reading Progress Bar */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--fg-purple), var(--fg-coral), var(--fg-gold));
+      z-index: 101;
+      transition: width 0.1s ease;
+    }
+    
+    /* TOC Sidebar */
+    .content-wrapper {
+      max-width: 1280px;
       margin: 100px auto 0;
       padding: 2rem;
+      display: flex;
+      gap: 3rem;
+      position: relative;
+    }
+    
+    .toc-sidebar {
+      position: sticky;
+      top: 100px;
+      width: 240px;
+      height: fit-content;
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    
+    .toc-sidebar h4 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .toc-sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .toc-sidebar li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .toc-sidebar a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      display: block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.375rem;
+      transition: all 0.2s ease;
+    }
+    
+    .toc-sidebar a:hover {
+      background: rgba(44, 8, 125, 0.05);
+      color: var(--text-primary);
+    }
+    
+    .toc-sidebar a.active {
+      background: rgba(44, 8, 125, 0.1);
+      color: var(--brand-primary);
+      font-weight: 600;
+    }
+    
+    /* Callout Boxes */
+    .callout-box {
+      margin: 1.5rem 0;
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-md);
+      border-left: 4px solid;
+      background: var(--bg-card);
+    }
+    
+    .callout-tip {
+      border-left-color: #10b981;
+      background: rgba(16, 185, 129, 0.05);
+    }
+    
+    .callout-tip::before {
+      content: "💡 ";
+      font-size: 1.2em;
+      margin-right: 0.5rem;
+    }
+    
+    .callout-warning {
+      border-left-color: #f59e0b;
+      background: rgba(245, 158, 11, 0.05);
+    }
+    
+    .callout-warning::before {
+      content: "⚠️ ";
+      font-size: 1.2em;
+      margin-right: 0.5rem;
+    }
+    
+    .callout-fact {
+      border-left-color: #8b5cf6;
+      background: rgba(139, 92, 246, 0.05);
+    }
+    
+    .callout-fact::before {
+      content: "📊 ";
+      font-size: 1.2em;
+      margin-right: 0.5rem;
+    }
+    
+    /* Key Takeaway Box */
+    .key-takeaway {
+      background: linear-gradient(135deg, rgba(44, 8, 125, 0.08), rgba(255, 107, 107, 0.08));
+      border: 2px solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin: 2.5rem 0;
+    }
+    
+    .key-takeaway h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--brand-primary);
+    }
+    
+    .key-takeaway ul {
+      margin-top: 1rem;
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: var(--brand-primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 99;
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(44, 8, 125, 0.2);
+    }
+    
+    /* Related Articles */
+    .related-articles {
+      margin-top: 3rem;
+      padding: 2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-lg);
+    }
+    
+    .related-articles h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+    }
+    
+    .related-articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .article-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+      display: block;
+    }
+    
+    .article-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-hover);
+    }
+    
+    .article-card-category {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--brand-primary);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .article-card h4 {
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    
+    .article-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    
+    .article-container {
+      flex: 1;
+      max-width: 760px;
     }
     
     .back-link {
@@ -241,6 +463,7 @@
       margin-top: 2.5rem;
       margin-bottom: 1rem;
       color: var(--text-primary);
+      scroll-margin-top: 100px;
     }
     .article-content h3 {
       font-size: 1.375rem;
@@ -323,14 +546,38 @@
     }
     footer a:hover { color: white; }
     
+    @media (max-width: 1024px) {
+      .content-wrapper {
+        flex-direction: column;
+      }
+      
+      .toc-sidebar {
+        position: relative;
+        top: 0;
+        width: 100%;
+        order: -1;
+      }
+    }
+    
     @media (max-width: 768px) {
-      .article-container { padding: 1.5rem; }
+      .content-wrapper { padding: 1.5rem; }
       .article-content { font-size: 1rem; }
       .author-bio { flex-direction: column; }
+      .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
+      }
+      .related-articles-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
+
+  <div class="reading-progress" id="readingProgress"></div>
 
   <nav class="nav-bar">
     <div class="nav-inner">
@@ -368,565 +615,611 @@
     </div>
   </nav>
 
-  <article class="article-container">
-    <a href="index.html" class="back-link">
-      ← Back to Blog
-    </a>
-    
-    <header class="article-header">
-      <span class="article-category">Business Finance</span>
-      <h1>How to Value a Small Business in Canada: A Practical Guide</h1>
-      <div class="article-meta-info">
-        <span>Rick Minji</span>
-        <span>•</span>
-        <span>February 1, 2026</span>
-        <span>•</span>
-        <span>13 min read</span>
-      </div>
-    </header>
-    
-    <div class="article-content">
-      
-
-<h1>How to Value a Small Business in Canada: A Practical Guide</h1>
-
-<strong>Author: Rick Minji</strong>
-
-<p>Whether you're buying a business, selling your company, bringing in a partner, or simply curious about what you've built, understanding business valuation is critical. Unlike publicly traded companies with daily stock prices, small business valuations are part art, part science—requiring financial analysis, industry knowledge, and negotiation skills.</p>
-
-<p>This comprehensive guide walks you through the most common valuation methods used in Canada, provides industry-specific rules of thumb, and explains the tax implications you need to consider when buying or selling a business. Use our <a href="https://figgybank.ca/#valuation" style="color:#2C087D;font-weight:600;">Business Valuation Calculator</a> to estimate your company's value using DCF, multiples, and asset-based approaches, or try our <a href="https://figgybank.ca/#merger" style="color:#2C087D;font-weight:600;">M&A Deal Analyzer</a> for acquisition scenarios.</p>
-
-<h2>Why Business Valuation Matters</h2>
-
-<p>You need a business valuation for:</p>
-
-<ul><li><strong>Selling your business:</strong> Setting a realistic asking price</li>
-<li><strong>Buying a business:</strong> Determining a fair offer</li>
-<li><strong>Partnership agreements:</strong> Establishing buy-sell provisions</li>
-<li><strong>Divorce settlements:</strong> Dividing business assets</li>
-<li><strong>Estate planning:</strong> Understanding the value for tax and inheritance purposes</li>
-<li><strong>Securing financing:</strong> Banks often require valuations for business loans</li>
-<li><strong>Performance tracking:</strong> Monitoring how strategic decisions affect value</li>
-
-<h2>The Three Main Valuation Approaches</h2>
-
-<p>Professional business valuators typically use one or more of these three approaches:</p>
-
-<h3>1. Income-Based Approach (Discounted Cash Flow)</h3>
-
-<p>The <strong>Discounted Cash Flow (DCF)</strong> method values a business based on its expected future cash flows, discounted back to present value.</p>
-
-<p>#### How DCF Works</p>
-
-<strong>Step 1:</strong> Project future cash flows (typically 5-10 years)
-
-<strong>Step 2:</strong> Determine an appropriate discount rate (required rate of return)
-
-<strong>Step 3:</strong> Calculate present value of those cash flows
-
-<strong>Step 4:</strong> Add a terminal value (the business's value beyond the projection period)
-
-<p>#### DCF Example</p>
-
-<p>Sarah owns a marketing agency generating consistent cash flow:</p>
-
-<li>Year 1 projected free cash flow: $120,000</li>
-<li>Year 2: $130,000</li>
-<li>Year 3: $142,000</li>
-<li>Year 4: $155,000</li>
-<li>Year 5: $168,000</li>
-<li>Discount rate: 15% (reflecting risk)</li>
-<li>Terminal growth rate: 3%</li>
-
-<strong>Present Value Calculation:</strong>
-<li>PV of Year 1: $120,000 / 1.15 = $104,348</li>
-<li>PV of Year 2: $130,000 / 1.15² = $98,307</li>
-<li>PV of Year 3: $142,000 / 1.15³ = $93,368</li>
-<li>PV of Year 4: $155,000 / 1.15⁴ = $88,644</li>
-<li>PV of Year 5: $168,000 / 1.15⁵ = $83,547</li>
-
-<p>Terminal Value: $168,000 × 1.03 / (0.15 - 0.03) = $1,442,000</p>
-<p>PV of Terminal Value: $1,442,000 / 1.15⁵ = $717,217</p>
-
-<strong>Total Business Value:</strong> $104,348 + $98,307 + $93,368 + $88,644 + $83,547 + $717,217 = <strong>$1,185,431</strong>
-
-<p>#### Choosing the Discount Rate</p>
-
-<p>The discount rate reflects risk and opportunity cost. Typical ranges:</p>
-
-<li><strong>Established business, stable industry:</strong> 12-15%</li>
-<li><strong>Growing business, moderate risk:</strong> 15-20%</li>
-<li><strong>Startup or volatile industry:</strong> 20-30%+</li>
-
-<p>Consider:</p>
-<li>Industry risk</li>
-<li>Business size and maturity</li>
-<li>Customer concentration</li>
-<li>Management depth</li>
-<li>Economic conditions</li>
-
-<p>#### When to Use DCF</p>
-
-<strong>Best for:</strong>
-<li>Businesses with predictable cash flows</li>
-<li>Companies with strong historical financial data</li>
-<li>Service businesses and SaaS companies</li>
-<li>Valuing businesses you plan to operate (not flip)</li>
-
-<strong>Not ideal for:</strong>
-<li>Startups without revenue history</li>
-<li>Highly cyclical businesses</li>
-<li>Asset-heavy businesses (use asset-based instead)</li>
-
-<h3>2. Market-Based Approach (Comparable Multiples)</h3>
-
-<p>This approach values your business based on what similar businesses have sold for, using <strong>multiples</strong> of revenue, EBITDA, or other metrics.</p>
-
-<p>#### Common Valuation Multiples</p>
-
-<strong>Revenue Multiple:</strong>
-<p>Business Value = Annual Revenue × Industry Multiple</p>
-
-<strong>EBITDA Multiple (Most Common):</strong>
-<p>Business Value = EBITDA × Industry Multiple</p>
-
-<p>(EBITDA = Earnings Before Interest, Taxes, Depreciation, and Amortization)</p>
-
-<strong>SDE Multiple (For Small Businesses):</strong>
-<p>Business Value = Seller's Discretionary Earnings × Multiple</p>
-
-<p>(SDE = EBITDA + Owner's Salary + Owner's Benefits)</p>
-
-<p>#### Multiple Example</p>
-
-<p>Tom owns a local plumbing business:</p>
-<li>Annual Revenue: $850,000</li>
-<li>EBITDA: $220,000</li>
-<li>Industry EBITDA multiple: 3.5x</li>
-
-<strong>Valuation:</strong> $220,000 × 3.5 = <strong>$770,000</strong>
-
-<p>If using SDE instead:</p>
-<li>SDE: $220,000 + $80,000 (owner salary) + $15,000 (owner benefits) = $315,000</li>
-<li>SDE multiple: 2.5x (typically lower than EBITDA multiple)</li>
-<li><strong>Valuation:</strong> $315,000 × 2.5 = <strong>$787,500</strong></li>
-
-<p>#### Where to Find Comparables</p>
-
-<p>Finding actual sale data is challenging for private businesses:</p>
-
-<li><strong>BizBuySell Canada:</strong> Online marketplace with sold listing data</li>
-<li><strong>IBBA (International Business Brokers Association):</strong> Market research and statistics</li>
-<li><strong>CVCA (Canadian Venture Capital Association):</strong> For higher-growth companies</li>
-<li><strong>Industry associations:</strong> Often track transaction data</li>
-<li><strong>Business brokers:</strong> Have access to closed deal data</li>
-<li><strong>Your accountant or valuator:</strong> Professional networks and databases</li>
-
-<p>#### When to Use Comparable Multiples</p>
-
-<strong>Best for:</strong>
-<li>Businesses in industries with active M&A markets</li>
-<li>Companies similar to recently sold businesses</li>
-<li>Quick "sanity check" valuations</li>
-<li>Negotiating starting points</li>
-
-<strong>Not ideal for:</strong>
-<li>Unique or niche businesses without comparables</li>
-<li>Businesses with unusual characteristics</li>
-<li>Highly customized operations</li>
-
-<h3>3. Asset-Based Approach</h3>
-
-<p>This method values a business based on its net assets (assets minus liabilities).</p>
-
-<p>#### Two Asset-Based Methods</p>
-
-<strong>Book Value Method:</strong>
-<p>Uses values from the balance sheet (what you paid for assets)</p>
-
-<strong>Adjusted Net Asset Method:</strong>
-<p>Uses fair market value of assets (what you could sell them for today)</p>
-
-<p>#### Asset-Based Example</p>
-
-<p>Jennifer's retail store balance sheet:</p>
-<li>Inventory: $85,000 (current value)</li>
-<li>Equipment: $40,000 (book value) → $28,000 (fair market value)</li>
-<li>Fixtures: $15,000 (book value) → $8,000 (fair market value)</li>
-<li>Real estate: $0 (leased)</li>
-<li>Accounts receivable: $12,000 → $10,000 (after expected bad debts)</li>
-<li>Liabilities: $35,000</li>
-
-<strong>Adjusted Net Assets:</strong> ($85,000 + $28,000 + $8,000 + $10,000) - $35,000 = <strong>$96,000</strong>
-
-<p>This represents the liquidation floor—the minimum value if you sold everything and paid debts.</p>
-
-<p>#### When to Use Asset-Based Valuation</p>
-
-<strong>Best for:</strong>
-<li>Asset-heavy businesses (manufacturing, real estate holding companies)</li>
-<li>Businesses being liquidated</li>
-<li>Companies with minimal goodwill</li>
-<li>Unprofitable businesses</li>
-
-<strong>Not ideal for:</strong>
-<li>Service businesses with few tangible assets</li>
-<li>Profitable businesses (ignores earning power)</li>
-<li>Companies with significant intangible value</li>
-
-<h2>Industry-Specific Rules of Thumb</h2>
-
-<p>While not as rigorous as formal valuations, industry rules of thumb provide quick ballpark estimates.</p>
-
-<h3>Service Industries</h3>
-
-<strong>Accounting Firms:</strong>
-<li>0.8x to 1.2x annual gross revenue</li>
-<li>Often higher for firms with strong client retention</li>
-
-<strong>Law Firms:</strong>
-<li>0.5x to 1.0x annual gross revenue</li>
-<li>Depends heavily on practice area and client base</li>
-
-<strong>Insurance Agencies:</strong>
-<li>1.5x to 3.0x annual commission revenue</li>
-<li>Higher multiples for recurring commission books</li>
-
-<strong>Marketing/Advertising Agencies:</strong>
-<li>0.4x to 0.8x annual revenue</li>
-<li>3x to 5x EBITDA</li>
-
-<strong>Medical/Dental Practices:</strong>
-<li>0.6x to 1.0x annual gross revenue</li>
-<li>Heavily dependent on payer mix and location</li>
-
-<h3>Retail and Hospitality</h3>
-
-<strong>Restaurants:</strong>
-<li>0.3x to 0.5x annual revenue</li>
-<li>2x to 3x SDE (seller's discretionary earnings)</li>
-<li>Highly variable based on concept, location, lease terms</li>
-
-<strong>Bars/Nightclubs:</strong>
-<li>2x to 3x SDE</li>
-<li>Lower multiples than restaurants due to higher risk</li>
-
-<strong>Retail Stores:</strong>
-<li>0.15x to 0.4x revenue</li>
-<li>1.5x to 3x SDE</li>
-<li>Plus inventory at cost</li>
-
-<strong>Gas Stations/Convenience Stores:</strong>
-<li>2.5x to 4x SDE</li>
-<li>Plus inventory</li>
-<li>Gas volume and location critical</li>
-
-<h3>Skilled Trades</h3>
-
-<strong>HVAC Companies:</strong>
-<li>2.5x to 4x SDE</li>
-<li>Recurring maintenance contracts add significant value</li>
-
-<strong>Plumbing/Electrical:</strong>
-<li>2x to 3.5x SDE</li>
-<li>Commercial work typically valued higher than residential</li>
-
-<strong>Landscaping:</strong>
-<li>1.5x to 3x SDE</li>
-<li>Maintenance contracts more valuable than one-time jobs</li>
-
-<h3>Technology and Online</h3>
-
-<strong>SaaS Companies:</strong>
-<li>4x to 10x annual recurring revenue (ARR)</li>
-<li>Higher multiples for high growth and low churn</li>
-
-<strong>E-commerce:</strong>
-<li>2.5x to 4x SDE</li>
-<li>0.5x to 1.5x revenue</li>
-<li>Amazon FBA businesses: 3x to 4x annual profit</li>
-
-<strong>Content/Affiliate Sites:</strong>
-<li>30x to 40x monthly profit</li>
-<li>Higher multiples for diversified traffic</li>
-
-<h3>Manufacturing and Distribution</h3>
-
-<strong>Manufacturing:</strong>
-<li>3x to 5x EBITDA</li>
-<li>Equipment condition and customer concentration crucial</li>
-
-<strong>Wholesale Distribution:</strong>
-<li>0.15x to 0.35x revenue</li>
-<li>3x to 5x EBITDA</li>
-
-<strong>Important:</strong> These are rough guidelines only. Actual values vary significantly based on financial performance, growth trends, customer base, competition, location, and dozens of other factors.
-
-<h2>Understanding Goodwill</h2>
-
-<strong>Goodwill</strong> is the excess value beyond tangible assets—the intangible value of reputation, customer relationships, brand, location, and earning power.
-
-<h3>Calculating Goodwill</h3>
-
-<p>Goodwill = Purchase Price - Fair Market Value of Net Tangible Assets</p>
-
-<strong>Example:</strong> Mark buys a coffee shop:
-<li>Purchase price: $350,000</li>
-<li>Equipment fair value: $65,000</li>
-<li>Inventory: $8,000</li>
-<li>Liabilities assumed: $15,000</li>
-<li>Net tangible assets: $58,000</li>
-
-<strong>Goodwill:</strong> $350,000 - $58,000 = <strong>$292,000</strong>
-
-<h3>What Creates Goodwill?</h3>
-
-<li><strong>Brand recognition and reputation</strong></li>
-<li><strong>Customer loyalty and repeat business</strong></li>
-<li><strong>Proprietary processes or recipes</strong></li>
-<li><strong>Trained workforce</strong></li>
-<li><strong>Strategic location</strong></li>
-<li><strong>Supplier relationships</strong></li>
-<li><strong>Digital assets</strong> (domain names, social media following)</li>
-<li><strong>Proprietary software or technology</strong></li>
-
-<h3>Goodwill Risk Factors</h3>
-
-<p>Not all goodwill is created equal. Consider:</p>
-
-<strong>Transferable vs. Personal Goodwill:</strong>
-<li>Business tied to owner's personal reputation? (Risky)</li>
-<li>Systems and brand-based? (Valuable)</li>
-
-<strong>Example:</strong> A consulting business where all clients work directly with the owner has high personal goodwill risk. If the owner leaves, value evaporates. A franchise with systems and brand recognition has more transferable goodwill.
-
-<h2>CRA Tax Implications of Buying or Selling</h2>
-
-<p>Understanding tax implications is crucial for both buyers and sellers.</p>
-
-<h3>For Sellers: Capital Gains Treatment</h3>
-
-<p>When you sell a Canadian small business, different components face different tax treatment:</p>
-
-<strong>Eligible for Capital Gains (50% inclusion rate):</strong>
-<li>Sale of shares (if structured as share sale)</li>
-<li>Eligible for <strong>Lifetime Capital Gains Exemption (LCGE)</strong> of up to $1,016,836 (2026) on qualified small business corporation shares</li>
-<li>Only 50% of capital gains are taxable</li>
-
-<strong>Example:</strong> Sarah sells her incorporated business for $1,000,000:
-<li>If eligible for LCGE: <strong>$0 tax</strong> (entirely sheltered)</li>
-<li>If not eligible for LCGE: $500,000 taxable capital gain × 45% marginal rate = <strong>$225,000 tax</strong></li>
-
-<strong>Fully Taxable (100% inclusion):</strong>
-<li>Non-compete agreements</li>
-<li>Consulting agreements</li>
-<li>Employment income</li>
-
-<strong>Asset Sale Implications:</strong>
-<p>Different assets have different tax treatment:</p>
-<li>Inventory: Ordinary income</li>
-<li>Depreciable assets: Recapture taxed as income, excess as capital gain</li>
-<li>Eligible capital property (goodwill, customer lists): 50% inclusion</li>
-<li>Real estate: Capital gains treatment</li>
-
-<h3>For Buyers: Asset vs. Share Purchase</h3>
-
-<strong>Asset Purchase (Preferred by Buyers):</strong>
-<li>Higher tax deduction through depreciation of purchased assets</li>
-<li>Can "step up" asset values to purchase price</li>
-<li>Avoid inheriting seller's tax liabilities</li>
-<li>More complex transaction</li>
-
-<strong>Share Purchase (Often Preferred by Sellers):</strong>
-<li>Simpler transaction</li>
-<li>Seller gets capital gains treatment</li>
-<li>Buyer inherits tax attributes (and potential liabilities)</li>
-<li>Lower depreciation benefit for buyer</li>
-
-<strong>The Price Difference:</strong>
-<p>Because of different tax treatments, buyers often pay <strong>10-20% more for asset purchases</strong> than share purchases of the same business.</p>
-
-<h3>Allocation of Purchase Price</h3>
-
-<p>The CRA requires both parties to allocate the purchase price among asset classes. This allocation should be agreed upon in the purchase agreement.</p>
-
-<strong>Example allocation for $500,000 purchase:</strong>
-<li>Inventory: $60,000</li>
-<li>Equipment: $120,000</li>
-<li>Goodwill/intangibles: $320,000</li>
-
-<p>The allocation affects:</p>
-<li><strong>Seller's tax:</strong> How much is capital gains vs. ordinary income</li>
-<li><strong>Buyer's tax:</strong> Depreciation schedules and rates</li>
-<li>Both parties must use consistent allocation</li>
-
-<strong>CRA Form T2057:</strong> Buyer must file this form reporting the allocation. Mismatches between buyer and seller reporting trigger CRA scrutiny.
-
-<h2>The Valuation Process: Step by Step</h2>
-
-<h3>1. Gather Financial Information (3 Years Minimum)</h3>
-
-<li>Income statements</li>
-<li>Balance sheets</li>
-<li>Cash flow statements</li>
-<li>Tax returns</li>
-<li>Detailed revenue by customer/product</li>
-<li>Normalized adjustments (personal expenses, one-time items)</li>
-
-<h3>2. Normalize Earnings</h3>
-
-<p>Remove:</p>
-<li>One-time expenses (lawsuit, major repair)</li>
-<li>Owner's excessive salary (replace with market rate)</li>
-<li>Personal expenses run through business (car, travel)</li>
-<li>Non-operating income/expenses</li>
-
-<strong>Example:</strong>
-<li>Reported EBITDA: $180,000</li>
-<li>Add back: Owner's excess salary (over market): +$40,000</li>
-<li>Add back: Owner's personal vehicle: +$12,000</li>
-<li>Remove: One-time legal settlement: +$25,000</li>
-<li><strong>Normalized EBITDA:</strong> $257,000</li>
-
-<p>This normalization is critical—it shows true economic earning power.</p>
-
-<h3>3. Choose Appropriate Method(s)</h3>
-
-<li><strong>Service businesses:</strong> DCF or EBITDA multiples</li>
-<li><strong>Asset-heavy:</strong> Asset-based plus income approach</li>
-<li><strong>Retailers:</strong> SDE multiples plus inventory</li>
-<li><strong>Most businesses:</strong> Use 2-3 methods and triangulate</li>
-
-<h3>4. Apply Method and Calculate</h3>
-
-<p>Run the numbers using your chosen approach(es).</p>
-
-<h3>5. Apply Adjustments</h3>
-
-<strong>Discounts for:</strong>
-<li>Lack of marketability (private company)</li>
-<li>Minority interest (if selling <50%)</li>
-<li>Customer concentration risk</li>
-<li>Owner dependency</li>
-<li>Industry decline</li>
-
-<strong>Premiums for:</strong>
-<li>Strategic value to specific buyer</li>
-<li>Proprietary technology</li>
-<li>Strong management team</li>
-<li>Diversified customer base</li>
-
-<p>Typical discounts: 10-30% for lack of marketability</p>
-
-<h3>6. Sanity Check</h3>
-
-<p>Does the value make sense?</p>
-<li>Can the business cash flow support debt payments at this price?</li>
-<li>Would you buy it at this price?</li>
-<li>How does it compare to industry norms?</li>
-
-<h2>When to Hire a Professional Valuator</h2>
-
-<p>Consider hiring a <strong>Chartered Business Valuator (CBV)</strong> when:</p>
-
-<li>Transaction value exceeds $500,000</li>
-<li>Dealing with CRA (tax disputes, estate planning)</li>
-<li>Partnership disputes or divorce</li>
-<li>Court proceedings</li>
-<li>Securing business financing</li>
-<li>You need a defensible, credible valuation</li>
-
-<strong>Cost:</strong> Professional valuations range from $5,000 to $50,000+ depending on complexity.
-
-<strong>ROI:</strong> A professional valuation often pays for itself through better negotiation outcomes and tax optimization.
-
-<h2>Common Valuation Mistakes</h2>
-
-<h3>Mistake #1: Using Top-Line Revenue Only</h3>
-
-<p>Revenue doesn't equal value. A $2M revenue business with $100K profit is worth far less than a $1M revenue business with $300K profit.</p>
-
-<h3>Mistake #2: Ignoring Working Capital Needs</h3>
-
-<p>Some businesses require significant working capital (inventory, receivables). Factor this into value and deal structure.</p>
-
-<h3>Mistake #3: Overpaying for Personal Goodwill</h3>
-
-<p>If customers come because of the owner's relationships, how much will remain after they leave? Discount accordingly.</p>
-
-<h3>Mistake #4: Not Planning for Tax Optimization</h3>
-
-<p>The structure of the deal (asset vs. share purchase, allocation, earnouts) can swing tax bills by 6 figures. Plan with advisors before negotiating.</p>
-
-<h3>Mistake #5: Emotional Pricing</h3>
-
-<p>Sellers often overvalue businesses based on years of hard work. Buyers only pay for future economic benefit, not past effort.</p>
-
-<h2>Quick Valuation Estimate</h2>
-
-<p>Want to get a quick, professional estimate of your business value based on your financial metrics?</p>
-
-<strong>Use FiggyBank's Business Valuation Calculator at <a href="https://figgybank.ca">figgybank.ca</a></strong> to:
-<li>Input your revenue, EBITDA, or SDE</li>
-<li>Select your industry for appropriate multiples</li>
-<li>See multiple valuation approaches</li>
-<li>Get a defensible range for negotiations</li>
-<li>Understand how different factors affect value</li>
-<li>Model different scenarios</li>
-
-<p>It's free, designed for Canadian businesses, and takes less than 5 minutes to generate a comprehensive valuation estimate.</p>
-
-<h2>The Bottom Line</h2>
-
-<p>Valuing a small business is complex, combining financial analysis with industry knowledge and negotiation dynamics. The three main approaches—income-based (DCF), market-based (multiples), and asset-based—each have strengths and appropriate use cases.</p>
-
-<p>Key takeaways:</p>
-<li><strong>Use multiple methods</strong> and triangulate to a reasonable range</li>
-<li><strong>Normalize financial statements</strong> to show true earning power</li>
-<li><strong>Understand your industry's typical multiples</strong> but adjust for your specific circumstances</li>
-<li><strong>Consider tax implications</strong> in deal structure—they dramatically affect net proceeds</li>
-<li><strong>Goodwill is valuable but risky</strong>—ensure it's transferable, not personal</li>
-<li><strong>Professional help pays off</strong> for significant transactions</li>
-</ul>
-<p>Whether you're buying, selling, or simply understanding what you've built, a solid grasp of business valuation principles empowers you to make informed decisions and negotiate effectively.</p>
-
----
-
-<em>Ready to estimate your business value? Try our <strong><a href="https://figgybank.ca">Business Valuation Calculator</a></strong> with industry-specific multiples and comprehensive valuation approaches. Get a defensible range in minutes, completely free.</em>
-
-    </div>
-    
-    <aside class="author-bio">
-      <div class="author-bio-avatar">
-        <svg width="64" height="64" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="50" cy="50" r="48" fill="url(#avatarGrad)"/>
-  <circle cx="50" cy="42" r="18" fill="#FDBCB4"/>
-  <path d="M32 38 Q32 22 50 20 Q68 22 68 38 L68 42 Q68 32 50 30 Q32 32 32 42 Z" fill="#4A3C2C"/>
-  <circle cx="43" cy="40" r="2" fill="#2C2416"/>
-  <circle cx="57" cy="40" r="2" fill="#2C2416"/>
-  <circle cx="43.5" cy="39.5" r="0.8" fill="white"/>
-  <circle cx="57.5" cy="39.5" r="0.8" fill="white"/>
-  <path d="M38 36 Q43 34 48 36" stroke="#4A3C2C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M52 36 Q57 34 62 36" stroke="#4A3C2C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M50 44 L48 48 L50 48.5 L52 48 Z" fill="#F5A699"/>
-  <path d="M44 50 Q50 53 56 50" stroke="#C87872" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <ellipse cx="50" cy="64" rx="14" ry="8" fill="#FDBCB4"/>
-  <path d="M36 68 Q36 78 50 80 Q64 78 64 68 L64 100 L36 100 Z" fill="#4A90E2"/>
-  <path d="M44 68 L48 72 L50 70 L52 72 L56 68" stroke="#3A7BC8" stroke-width="1.5" fill="none"/>
-  <defs>
-    <linearGradient id="avatarGrad" x1="0" y1="0" x2="100" y2="100">
-      <stop offset="0%" stop-color="#FFE5D9"/>
-      <stop offset="100%" stop-color="#FFD4C4"/>
-    </linearGradient>
-  </defs>
-</svg>
-      </div>
-      <div class="author-bio-content">
-        <h3>About Rick Minji</h3>
-        <p>Rick Minji is a financial technology specialist focused on making Canadian personal finance accessible and actionable. In his spare time, he loves to go on hikes with his 4 kids and fly fish whenever possible.</p>
-      </div>
+  <div class="content-wrapper">
+    <aside class="toc-sidebar">
+      <h4>Table of Contents</h4>
+      <ul id="tocList">
+        <li><a href="#why-business-valuation-matters">Why Business Valuation Matters</a></li>
+        <li><a href="#the-three-main-valuation-approaches">The Three Main Valuation Approaches</a></li>
+        <li><a href="#industry-specific-rules-of-thumb">Industry-Specific Rules of Thumb</a></li>
+        <li><a href="#understanding-goodwill">Understanding Goodwill</a></li>
+        <li><a href="#cra-tax-implications-of-buying-or-selling">CRA Tax Implications</a></li>
+        <li><a href="#the-valuation-process-step-by-step">The Valuation Process</a></li>
+        <li><a href="#when-to-hire-a-professional-valuator">When to Hire a Professional</a></li>
+        <li><a href="#common-valuation-mistakes">Common Valuation Mistakes</a></li>
+        <li><a href="#quick-valuation-estimate">Quick Valuation Estimate</a></li>
+        <li><a href="#the-bottom-line">The Bottom Line</a></li>
+      </ul>
     </aside>
-  </article>
+    
+    <article class="article-container">
+      <a href="index.html" class="back-link">
+        ← Back to Blog
+      </a>
+      
+      <header class="article-header">
+        <span class="article-category">Business Finance</span>
+        <h1>How to Value a Small Business in Canada: A Practical Guide</h1>
+        <div class="article-meta-info">
+          <span>Rick Minji</span>
+          <span>•</span>
+          <span>February 1, 2026</span>
+          <span>•</span>
+          <span>13 min read</span>
+        </div>
+      </header>
+      
+      <div class="article-content">
+        <p>Whether you're buying a business, selling your company, bringing in a partner, or simply curious about what you've built, understanding business valuation is critical. Unlike publicly traded companies with daily stock prices, small business valuations are part art, part science—requiring financial analysis, industry knowledge, and negotiation skills.</p>
+
+        <p>This comprehensive guide walks you through the most common valuation methods used in Canada, provides industry-specific rules of thumb, and explains the tax implications you need to consider when buying or selling a business. Use our <a href="https://figgybank.ca/#valuation" style="color:#2C087D;font-weight:600;">Business Valuation Calculator</a> to estimate your company's value using DCF, multiples, and asset-based approaches, or try our <a href="https://figgybank.ca/#merger" style="color:#2C087D;font-weight:600;">M&A Deal Analyzer</a> for acquisition scenarios.</p>
+
+        <h2 id="why-business-valuation-matters">Why Business Valuation Matters</h2>
+
+        <p>You need a business valuation for:</p>
+
+        <ul><li><strong>Selling your business:</strong> Setting a realistic asking price</li>
+        <li><strong>Buying a business:</strong> Determining a fair offer</li>
+        <li><strong>Partnership agreements:</strong> Establishing buy-sell provisions</li>
+        <li><strong>Divorce settlements:</strong> Dividing business assets</li>
+        <li><strong>Estate planning:</strong> Understanding the value for tax and inheritance purposes</li>
+        <li><strong>Securing financing:</strong> Banks often require valuations for business loans</li>
+        <li><strong>Performance tracking:</strong> Monitoring how strategic decisions affect value</li>
+        </ul>
+
+        <h2 id="the-three-main-valuation-approaches">The Three Main Valuation Approaches</h2>
+
+        <p>Professional business valuators typically use one or more of these three approaches:</p>
+
+        <h3>1. Income-Based Approach (Discounted Cash Flow)</h3>
+
+        <p>The <strong>Discounted Cash Flow (DCF)</strong> method values a business based on its expected future cash flows, discounted back to present value.</p>
+
+        <div class="callout-tip">
+          <strong>DCF is best for:</strong> Businesses with predictable cash flows, strong historical data, and service businesses. It tells you what the business is worth based on the money it will generate for you as the owner.
+        </div>
+
+        <p>#### How DCF Works</p>
+
+        <strong>Step 1:</strong> Project future cash flows (typically 5-10 years)
+
+        <strong>Step 2:</strong> Determine an appropriate discount rate (required rate of return)
+
+        <strong>Step 3:</strong> Calculate present value of those cash flows
+
+        <strong>Step 4:</strong> Add a terminal value (the business's value beyond the projection period)
+
+        <p>#### DCF Example</p>
+
+        <p>Sarah owns a marketing agency generating consistent cash flow:</p>
+
+        <li>Year 1 projected free cash flow: $120,000</li>
+        <li>Year 2: $130,000</li>
+        <li>Year 3: $142,000</li>
+        <li>Year 4: $155,000</li>
+        <li>Year 5: $168,000</li>
+        <li>Discount rate: 15% (reflecting risk)</li>
+        <li>Terminal growth rate: 3%</li>
+
+        <strong>Present Value Calculation:</strong>
+        <li>PV of Year 1: $120,000 / 1.15 = $104,348</li>
+        <li>PV of Year 2: $130,000 / 1.15² = $98,307</li>
+        <li>PV of Year 3: $142,000 / 1.15³ = $93,368</li>
+        <li>PV of Year 4: $155,000 / 1.15⁴ = $88,644</li>
+        <li>PV of Year 5: $168,000 / 1.15⁵ = $83,547</li>
+
+        <p>Terminal Value: $168,000 × 1.03 / (0.15 - 0.03) = $1,442,000</p>
+        <p>PV of Terminal Value: $1,442,000 / 1.15⁵ = $717,217</p>
+
+        <strong>Total Business Value:</strong> $104,348 + $98,307 + $93,368 + $88,644 + $83,547 + $717,217 = <strong>$1,185,431</strong>
+
+        <p>#### Choosing the Discount Rate</p>
+
+        <p>The discount rate reflects risk and opportunity cost. Typical ranges:</p>
+
+        <li><strong>Established business, stable industry:</strong> 12-15%</li>
+        <li><strong>Growing business, moderate risk:</strong> 15-20%</li>
+        <li><strong>Startup or volatile industry:</strong> 20-30%+</li>
+
+        <p>Consider:</p>
+        <li>Industry risk</li>
+        <li>Business size and maturity</li>
+        <li>Customer concentration</li>
+        <li>Management depth</li>
+        <li>Economic conditions</li>
+
+        <p>#### When to Use DCF</p>
+
+        <strong>Best for:</strong>
+        <li>Businesses with predictable cash flows</li>
+        <li>Companies with strong historical financial data</li>
+        <li>Service businesses and SaaS companies</li>
+        <li>Valuing businesses you plan to operate (not flip)</li>
+
+        <strong>Not ideal for:</strong>
+        <li>Startups without revenue history</li>
+        <li>Highly cyclical businesses</li>
+        <li>Asset-heavy businesses (use asset-based instead)</li>
+
+        <h3>2. Market-Based Approach (Comparable Multiples)</h3>
+
+        <p>This approach values your business based on what similar businesses have sold for, using <strong>multiples</strong> of revenue, EBITDA, or other metrics.</p>
+
+        <p>#### Common Valuation Multiples</p>
+
+        <strong>Revenue Multiple:</strong>
+        <p>Business Value = Annual Revenue × Industry Multiple</p>
+
+        <strong>EBITDA Multiple (Most Common):</strong>
+        <p>Business Value = EBITDA × Industry Multiple</p>
+
+        <p>(EBITDA = Earnings Before Interest, Taxes, Depreciation, and Amortization)</p>
+
+        <strong>SDE Multiple (For Small Businesses):</strong>
+        <p>Business Value = Seller's Discretionary Earnings × Multiple</p>
+
+        <p>(SDE = EBITDA + Owner's Salary + Owner's Benefits)</p>
+
+        <p>#### Multiple Example</p>
+
+        <p>Tom owns a local plumbing business:</p>
+        <li>Annual Revenue: $850,000</li>
+        <li>EBITDA: $220,000</li>
+        <li>Industry EBITDA multiple: 3.5x</li>
+
+        <strong>Valuation:</strong> $220,000 × 3.5 = <strong>$770,000</strong>
+
+        <p>If using SDE instead:</p>
+        <li>SDE: $220,000 + $80,000 (owner salary) + $15,000 (owner benefits) = $315,000</li>
+        <li>SDE multiple: 2.5x (typically lower than EBITDA multiple)</li>
+        <li><strong>Valuation:</strong> $315,000 × 2.5 = <strong>$787,500</strong></li>
+
+        <p>#### Where to Find Comparables</p>
+
+        <p>Finding actual sale data is challenging for private businesses:</p>
+
+        <li><strong>BizBuySell Canada:</strong> Online marketplace with sold listing data</li>
+        <li><strong>IBBA (International Business Brokers Association):</strong> Market research and statistics</li>
+        <li><strong>CVCA (Canadian Venture Capital Association):</strong> For higher-growth companies</li>
+        <li><strong>Industry associations:</strong> Often track transaction data</li>
+        <li><strong>Business brokers:</strong> Have access to closed deal data</li>
+        <li><strong>Your accountant or valuator:</strong> Professional networks and databases</li>
+
+        <p>#### When to Use Comparable Multiples</p>
+
+        <strong>Best for:</strong>
+        <li>Businesses in industries with active M&A markets</li>
+        <li>Companies similar to recently sold businesses</li>
+        <li>Quick "sanity check" valuations</li>
+        <li>Negotiating starting points</li>
+
+        <strong>Not ideal for:</strong>
+        <li>Unique or niche businesses without comparables</li>
+        <li>Businesses with unusual characteristics</li>
+        <li>Highly customized operations</li>
+
+        <h3>3. Asset-Based Approach</h3>
+
+        <p>This method values a business based on its net assets (assets minus liabilities).</p>
+
+        <p>#### Two Asset-Based Methods</p>
+
+        <strong>Book Value Method:</strong>
+        <p>Uses values from the balance sheet (what you paid for assets)</p>
+
+        <strong>Adjusted Net Asset Method:</strong>
+        <p>Uses fair market value of assets (what you could sell them for today)</p>
+
+        <p>#### Asset-Based Example</p>
+
+        <p>Jennifer's retail store balance sheet:</p>
+        <li>Inventory: $85,000 (current value)</li>
+        <li>Equipment: $40,000 (book value) → $28,000 (fair market value)</li>
+        <li>Fixtures: $15,000 (book value) → $8,000 (fair market value)</li>
+        <li>Real estate: $0 (leased)</li>
+        <li>Accounts receivable: $12,000 → $10,000 (after expected bad debts)</li>
+        <li>Liabilities: $35,000</li>
+
+        <strong>Adjusted Net Assets:</strong> ($85,000 + $28,000 + $8,000 + $10,000) - $35,000 = <strong>$96,000</strong>
+
+        <p>This represents the liquidation floor—the minimum value if you sold everything and paid debts.</p>
+
+        <p>#### When to Use Asset-Based Valuation</p>
+
+        <strong>Best for:</strong>
+        <li>Asset-heavy businesses (manufacturing, real estate holding companies)</li>
+        <li>Businesses being liquidated</li>
+        <li>Companies with minimal goodwill</li>
+        <li>Unprofitable businesses</li>
+
+        <strong>Not ideal for:</strong>
+        <li>Service businesses with few tangible assets</li>
+        <li>Profitable businesses (ignores earning power)</li>
+        <li>Companies with significant intangible value</li>
+
+        <h2 id="industry-specific-rules-of-thumb">Industry-Specific Rules of Thumb</h2>
+
+        <div class="callout-warning">
+          <strong>Important:</strong> These are rough guidelines only. Actual values vary significantly based on financial performance, growth trends, customer base, competition, location, and dozens of other factors.
+        </div>
+
+        <p>While not as rigorous as formal valuations, industry rules of thumb provide quick ballpark estimates.</p>
+
+        <h3>Service Industries</h3>
+
+        <strong>Accounting Firms:</strong>
+        <li>0.8x to 1.2x annual gross revenue</li>
+        <li>Often higher for firms with strong client retention</li>
+
+        <strong>Law Firms:</strong>
+        <li>0.5x to 1.0x annual gross revenue</li>
+        <li>Depends heavily on practice area and client base</li>
+
+        <strong>Insurance Agencies:</strong>
+        <li>1.5x to 3.0x annual commission revenue</li>
+        <li>Higher multiples for recurring commission books</li>
+
+        <strong>Marketing/Advertising Agencies:</strong>
+        <li>0.4x to 0.8x annual revenue</li>
+        <li>3x to 5x EBITDA</li>
+
+        <strong>Medical/Dental Practices:</strong>
+        <li>0.6x to 1.0x annual gross revenue</li>
+        <li>Heavily dependent on payer mix and location</li>
+
+        <h3>Retail and Hospitality</h3>
+
+        <strong>Restaurants:</strong>
+        <li>0.3x to 0.5x annual revenue</li>
+        <li>2x to 3x SDE (seller's discretionary earnings)</li>
+        <li>Highly variable based on concept, location, lease terms</li>
+
+        <strong>Bars/Nightclubs:</strong>
+        <li>2x to 3x SDE</li>
+        <li>Lower multiples than restaurants due to higher risk</li>
+
+        <strong>Retail Stores:</strong>
+        <li>0.15x to 0.4x revenue</li>
+        <li>1.5x to 3x SDE</li>
+        <li>Plus inventory at cost</li>
+
+        <strong>Gas Stations/Convenience Stores:</strong>
+        <li>2.5x to 4x SDE</li>
+        <li>Plus inventory</li>
+        <li>Gas volume and location critical</li>
+
+        <h3>Skilled Trades</h3>
+
+        <strong>HVAC Companies:</strong>
+        <li>2.5x to 4x SDE</li>
+        <li>Recurring maintenance contracts add significant value</li>
+
+        <strong>Plumbing/Electrical:</strong>
+        <li>2x to 3.5x SDE</li>
+        <li>Commercial work typically valued higher than residential</li>
+
+        <strong>Landscaping:</strong>
+        <li>1.5x to 3x SDE</li>
+        <li>Maintenance contracts more valuable than one-time jobs</li>
+
+        <h3>Technology and Online</h3>
+
+        <strong>SaaS Companies:</strong>
+        <li>4x to 10x annual recurring revenue (ARR)</li>
+        <li>Higher multiples for high growth and low churn</li>
+
+        <strong>E-commerce:</strong>
+        <li>2.5x to 4x SDE</li>
+        <li>0.5x to 1.5x revenue</li>
+        <li>Amazon FBA businesses: 3x to 4x annual profit</li>
+
+        <strong>Content/Affiliate Sites:</strong>
+        <li>30x to 40x monthly profit</li>
+        <li>Higher multiples for diversified traffic</li>
+
+        <h3>Manufacturing and Distribution</h3>
+
+        <strong>Manufacturing:</strong>
+        <li>3x to 5x EBITDA</li>
+        <li>Equipment condition and customer concentration crucial</li>
+
+        <strong>Wholesale Distribution:</strong>
+        <li>0.15x to 0.35x revenue</li>
+        <li>3x to 5x EBITDA</li>
+
+        <h2 id="understanding-goodwill">Understanding Goodwill</h2>
+
+        <p><strong>Goodwill</strong> is the excess value beyond tangible assets—the intangible value of reputation, customer relationships, brand, location, and earning power.</p>
+
+        <h3>Calculating Goodwill</h3>
+
+        <p>Goodwill = Purchase Price - Fair Market Value of Net Tangible Assets</p>
+
+        <div class="callout-fact">
+          <strong>Example:</strong> Mark buys a coffee shop for $350,000. Equipment is worth $65,000, inventory $8,000, and he assumes $15,000 in liabilities. Net tangible assets = $58,000. Therefore, goodwill = $350,000 - $58,000 = <strong>$292,000</strong>
+        </div>
+
+        <h3>What Creates Goodwill?</h3>
+
+        <li><strong>Brand recognition and reputation</strong></li>
+        <li><strong>Customer loyalty and repeat business</strong></li>
+        <li><strong>Proprietary processes or recipes</strong></li>
+        <li><strong>Trained workforce</strong></li>
+        <li><strong>Strategic location</strong></li>
+        <li><strong>Supplier relationships</strong></li>
+        <li><strong>Digital assets</strong> (domain names, social media following)</li>
+        <li><strong>Proprietary software or technology</strong></li>
+
+        <h3>Goodwill Risk Factors</h3>
+
+        <p>Not all goodwill is created equal. Consider:</p>
+
+        <strong>Transferable vs. Personal Goodwill:</strong>
+        <li>Business tied to owner's personal reputation? (Risky)</li>
+        <li>Systems and brand-based? (Valuable)</li>
+
+        <strong>Example:</strong> A consulting business where all clients work directly with the owner has high personal goodwill risk. If the owner leaves, value evaporates. A franchise with systems and brand recognition has more transferable goodwill.
+
+        <h2 id="cra-tax-implications-of-buying-or-selling">CRA Tax Implications of Buying or Selling</h2>
+
+        <p>Understanding tax implications is crucial for both buyers and sellers.</p>
+
+        <h3>For Sellers: Capital Gains Treatment</h3>
+
+        <p>When you sell a Canadian small business, different components face different tax treatment:</p>
+
+        <strong>Eligible for Capital Gains (50% inclusion rate):</strong>
+        <li>Sale of shares (if structured as share sale)</li>
+        <li>Eligible for <strong>Lifetime Capital Gains Exemption (LCGE)</strong> of up to $1,016,836 (2026) on qualified small business corporation shares</li>
+        <li>Only 50% of capital gains are taxable</li>
+
+        <strong>Example:</strong> Sarah sells her incorporated business for $1,000,000:
+        <li>If eligible for LCGE: <strong>$0 tax</strong> (entirely sheltered)</li>
+        <li>If not eligible for LCGE: $500,000 taxable capital gain × 45% marginal rate = <strong>$225,000 tax</strong></li>
+
+        <strong>Fully Taxable (100% inclusion):</strong>
+        <li>Non-compete agreements</li>
+        <li>Consulting agreements</li>
+        <li>Employment income</li>
+
+        <strong>Asset Sale Implications:</strong>
+        <p>Different assets have different tax treatment:</p>
+        <li>Inventory: Ordinary income</li>
+        <li>Depreciable assets: Recapture taxed as income, excess as capital gain</li>
+        <li>Eligible capital property (goodwill, customer lists): 50% inclusion</li>
+        <li>Real estate: Capital gains treatment</li>
+
+        <h3>For Buyers: Asset vs. Share Purchase</h3>
+
+        <strong>Asset Purchase (Preferred by Buyers):</strong>
+        <li>Higher tax deduction through depreciation of purchased assets</li>
+        <li>Can "step up" asset values to purchase price</li>
+        <li>Avoid inheriting seller's tax liabilities</li>
+        <li>More complex transaction</li>
+
+        <strong>Share Purchase (Often Preferred by Sellers):</strong>
+        <li>Simpler transaction</li>
+        <li>Seller gets capital gains treatment</li>
+        <li>Buyer inherits tax attributes (and potential liabilities)</li>
+        <li>Lower depreciation benefit for buyer</li>
+
+        <strong>The Price Difference:</strong>
+        <p>Because of different tax treatments, buyers often pay <strong>10-20% more for asset purchases</strong> than share purchases of the same business.</p>
+
+        <h3>Allocation of Purchase Price</h3>
+
+        <p>The CRA requires both parties to allocate the purchase price among asset classes. This allocation should be agreed upon in the purchase agreement.</p>
+
+        <strong>Example allocation for $500,000 purchase:</strong>
+        <li>Inventory: $60,000</li>
+        <li>Equipment: $120,000</li>
+        <li>Goodwill/intangibles: $320,000</li>
+
+        <p>The allocation affects:</p>
+        <li><strong>Seller's tax:</strong> How much is capital gains vs. ordinary income</li>
+        <li><strong>Buyer's tax:</strong> Depreciation schedules and rates</li>
+        <li>Both parties must use consistent allocation</li>
+
+        <strong>CRA Form T2057:</strong> Buyer must file this form reporting the allocation. Mismatches between buyer and seller reporting trigger CRA scrutiny.
+
+        <h2 id="the-valuation-process-step-by-step">The Valuation Process: Step by Step</h2>
+
+        <h3>1. Gather Financial Information (3 Years Minimum)</h3>
+
+        <li>Income statements</li>
+        <li>Balance sheets</li>
+        <li>Cash flow statements</li>
+        <li>Tax returns</li>
+        <li>Detailed revenue by customer/product</li>
+        <li>Normalized adjustments (personal expenses, one-time items)</li>
+
+        <h3>2. Normalize Earnings</h3>
+
+        <p>Remove:</p>
+        <li>One-time expenses (lawsuit, major repair)</li>
+        <li>Owner's excessive salary (replace with market rate)</li>
+        <li>Personal expenses run through business (car, travel)</li>
+        <li>Non-operating income/expenses</li>
+
+        <strong>Example:</strong>
+        <li>Reported EBITDA: $180,000</li>
+        <li>Add back: Owner's excess salary (over market): +$40,000</li>
+        <li>Add back: Owner's personal vehicle: +$12,000</li>
+        <li>Remove: One-time legal settlement: +$25,000</li>
+        <li><strong>Normalized EBITDA:</strong> $257,000</li>
+
+        <p>This normalization is critical—it shows true economic earning power.</p>
+
+        <h3>3. Choose Appropriate Method(s)</h3>
+
+        <li><strong>Service businesses:</strong> DCF or EBITDA multiples</li>
+        <li><strong>Asset-heavy:</strong> Asset-based plus income approach</li>
+        <li><strong>Retailers:</strong> SDE multiples plus inventory</li>
+        <li><strong>Most businesses:</strong> Use 2-3 methods and triangulate</li>
+
+        <h3>4. Apply Method and Calculate</h3>
+
+        <p>Run the numbers using your chosen approach(es).</p>
+
+        <h3>5. Apply Adjustments</h3>
+
+        <strong>Discounts for:</strong>
+        <li>Lack of marketability (private company)</li>
+        <li>Minority interest (if selling <50%)</li>
+        <li>Customer concentration risk</li>
+        <li>Owner dependency</li>
+        <li>Industry decline</li>
+
+        <strong>Premiums for:</strong>
+        <li>Strategic value to specific buyer</li>
+        <li>Proprietary technology</li>
+        <li>Strong management team</li>
+        <li>Diversified customer base</li>
+
+        <p>Typical discounts: 10-30% for lack of marketability</p>
+
+        <h3>6. Sanity Check</h3>
+
+        <p>Does the value make sense?</p>
+        <li>Can the business cash flow support debt payments at this price?</li>
+        <li>Would you buy it at this price?</li>
+        <li>How does it compare to industry norms?</li>
+
+        <h2 id="when-to-hire-a-professional-valuator">When to Hire a Professional Valuator</h2>
+
+        <p>Consider hiring a <strong>Chartered Business Valuator (CBV)</strong> when:</p>
+
+        <li>Transaction value exceeds $500,000</li>
+        <li>Dealing with CRA (tax disputes, estate planning)</li>
+        <li>Partnership disputes or divorce</li>
+        <li>Court proceedings</li>
+        <li>Securing business financing</li>
+        <li>You need a defensible, credible valuation</li>
+
+        <strong>Cost:</strong> Professional valuations range from $5,000 to $50,000+ depending on complexity.
+
+        <strong>ROI:</strong> A professional valuation often pays for itself through better negotiation outcomes and tax optimization.
+
+        <h2 id="common-valuation-mistakes">Common Valuation Mistakes</h2>
+
+        <h3>Mistake #1: Using Top-Line Revenue Only</h3>
+
+        <p>Revenue doesn't equal value. A $2M revenue business with $100K profit is worth far less than a $1M revenue business with $300K profit.</p>
+
+        <h3>Mistake #2: Ignoring Working Capital Needs</h3>
+
+        <p>Some businesses require significant working capital (inventory, receivables). Factor this into value and deal structure.</p>
+
+        <h3>Mistake #3: Overpaying for Personal Goodwill</h3>
+
+        <p>If customers come because of the owner's relationships, how much will remain after they leave? Discount accordingly.</p>
+
+        <h3>Mistake #4: Not Planning for Tax Optimization</h3>
+
+        <p>The structure of the deal (asset vs. share purchase, allocation, earnouts) can swing tax bills by 6 figures. Plan with advisors before negotiating.</p>
+
+        <h3>Mistake #5: Emotional Pricing</h3>
+
+        <p>Sellers often overvalue businesses based on years of hard work. Buyers only pay for future economic benefit, not past effort.</p>
+
+        <h2 id="quick-valuation-estimate">Quick Valuation Estimate</h2>
+
+        <p>Want to get a quick, professional estimate of your business value based on your financial metrics?</p>
+
+        <strong>Use FiggyBank's Business Valuation Calculator at <a href="https://figgybank.ca">figgybank.ca</a></strong> to:
+        <li>Input your revenue, EBITDA, or SDE</li>
+        <li>Select your industry for appropriate multiples</li>
+        <li>See multiple valuation approaches</li>
+        <li>Get a defensible range for negotiations</li>
+        <li>Understand how different factors affect value</li>
+        <li>Model different scenarios</li>
+
+        <p>It's free, designed for Canadian businesses, and takes less than 5 minutes to generate a comprehensive valuation estimate.</p>
+
+        <h2 id="the-bottom-line">The Bottom Line</h2>
+
+        <div class="key-takeaway">
+          <h3>🎯 Key Takeaways</h3>
+          <ul>
+            <li><strong>Use multiple methods</strong> and triangulate to a reasonable range</li>
+            <li><strong>Normalize financial statements</strong> to show true earning power</li>
+            <li><strong>Understand your industry's typical multiples</strong> but adjust for your specific circumstances</li>
+            <li><strong>Consider tax implications</strong> in deal structure—they dramatically affect net proceeds</li>
+            <li><strong>Goodwill is valuable but risky</strong>—ensure it's transferable, not personal</li>
+            <li><strong>Professional help pays off</strong> for significant transactions</li>
+          </ul>
+        </div>
+
+        <p>Valuing a small business is complex, combining financial analysis with industry knowledge and negotiation dynamics. The three main approaches—income-based (DCF), market-based (multiples), and asset-based—each have strengths and appropriate use cases.</p>
+
+        <p>Whether you're buying, selling, or simply understanding what you've built, a solid grasp of business valuation principles empowers you to make informed decisions and negotiate effectively.</p>
+
+        <hr>
+
+        <em>Ready to estimate your business value? Try our <strong><a href="https://figgybank.ca">Business Valuation Calculator</a></strong> with industry-specific multiples and comprehensive valuation approaches. Get a defensible range in minutes, completely free.</em>
+
+      </div>
+      
+      <div class="related-articles">
+        <h3>📚 Related Articles</h3>
+        <div class="related-articles-grid">
+          <a href="rrsp-vs-tfsa-2026.html" class="article-card">
+            <div class="article-card-category">Personal Finance</div>
+            <h4>RRSP vs TFSA 2026: Which One Is Right for You?</h4>
+            <p>Complete comparison of Canada's two most powerful tax-advantaged savings accounts with 2026 contribution limits.</p>
+          </a>
+          <a href="first-time-home-buyer-2026.html" class="article-card">
+            <div class="article-card-category">Real Estate</div>
+            <h4>First-Time Home Buyer Guide for Canada 2026</h4>
+            <p>Navigate down payments, mortgages, and government incentives with this comprehensive Canadian home buying guide.</p>
+          </a>
+          <a href="debt-payoff-strategies-canada.html" class="article-card">
+            <div class="article-card-category">Debt Management</div>
+            <h4>Debt Payoff Strategies: Avalanche vs Snowball Method</h4>
+            <p>Compare proven debt payoff strategies to become debt-free faster and save thousands in interest.</p>
+          </a>
+          <a href="canadian-tax-brackets-2026.html" class="article-card">
+            <div class="article-card-category">Taxes</div>
+            <h4>Canadian Tax Brackets 2026: Complete Guide</h4>
+            <p>Federal and provincial tax rates, marginal vs effective rates, and strategies to reduce your tax bill.</p>
+          </a>
+        </div>
+      </div>
+      
+      <aside class="author-bio">
+        <div class="author-bio-avatar">
+          <svg width="64" height="64" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="48" fill="url(#avatarGrad)"/>
+    <circle cx="50" cy="42" r="18" fill="#FDBCB4"/>
+    <path d="M32 38 Q32 22 50 20 Q68 22 68 38 L68 42 Q68 32 50 30 Q32 32 32 42 Z" fill="#4A3C2C"/>
+    <circle cx="43" cy="40" r="2" fill="#2C2416"/>
+    <circle cx="57" cy="40" r="2" fill="#2C2416"/>
+    <circle cx="43.5" cy="39.5" r="0.8" fill="white"/>
+    <circle cx="57.5" cy="39.5" r="0.8" fill="white"/>
+    <path d="M38 36 Q43 34 48 36" stroke="#4A3C2C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M52 36 Q57 34 62 36" stroke="#4A3C2C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M50 44 L48 48 L50 48.5 L52 48 Z" fill="#F5A699"/>
+    <path d="M44 50 Q50 53 56 50" stroke="#C87872" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="50" cy="64" rx="14" ry="8" fill="#FDBCB4"/>
+    <path d="M36 68 Q36 78 50 80 Q64 78 64 68 L64 100 L36 100 Z" fill="#4A90E2"/>
+    <path d="M44 68 L48 72 L50 70 L52 72 L56 68" stroke="#3A7BC8" stroke-width="1.5" fill="none"/>
+    <defs>
+      <linearGradient id="avatarGrad" x1="0" y1="0" x2="100" y2="100">
+        <stop offset="0%" stop-color="#FFE5D9"/>
+        <stop offset="100%" stop-color="#FFD4C4"/>
+      </linearGradient>
+    </defs>
+  </svg>
+        </div>
+        <div class="author-bio-content">
+          <h3>About Rick Minji</h3>
+          <p>Rick Minji is a financial technology specialist focused on making Canadian personal finance accessible and actionable. In his spare time, he loves to go on hikes with his 4 kids and fly fish whenever possible.</p>
+        </div>
+      </aside>
+    </article>
+  </div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
   <footer>
     <p>© 2026 FiggyBank • <a href="../">Home</a> • <a href="index.html">Blog</a> • <a href="mailto:hello@figgybank.ca">Contact</a></p>
@@ -935,6 +1228,7 @@
   </footer>
 
   <script>
+    // Theme Toggle
     function toggleTheme() {
       document.documentElement.classList.toggle('dark');
       const isDark = document.documentElement.classList.contains('dark');
@@ -951,6 +1245,84 @@
         document.querySelector('.theme-toggle').textContent = '🌙';
       }
     })();
+
+    // Reading Progress Bar
+    function updateReadingProgress() {
+      const article = document.querySelector('.article-content');
+      const progressBar = document.getElementById('readingProgress');
+      
+      if (article && progressBar) {
+        const articleTop = article.offsetTop;
+        const articleHeight = article.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        const articleBottom = articleTop + articleHeight;
+        const readableHeight = articleHeight - windowHeight;
+        const scrolledInArticle = Math.max(0, scrollTop - articleTop);
+        
+        const progress = Math.min(100, (scrolledInArticle / readableHeight) * 100);
+        progressBar.style.width = progress + '%';
+      }
+    }
+
+    // TOC Active State
+    function updateTOCActiveState() {
+      const headings = document.querySelectorAll('.article-content h2[id]');
+      const tocLinks = document.querySelectorAll('.toc-sidebar a');
+      
+      let currentActive = null;
+      
+      headings.forEach(heading => {
+        const rect = heading.getBoundingClientRect();
+        if (rect.top <= 150 && rect.bottom >= 0) {
+          currentActive = heading.id;
+        }
+      });
+      
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (currentActive && link.getAttribute('href') === '#' + currentActive) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Back to Top Button Visibility
+    function updateBackToTopButton() {
+      const backToTop = document.getElementById('backToTop');
+      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (scrollPosition > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    }
+
+    // Back to Top Click Handler
+    document.getElementById('backToTop').addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Scroll Event Listener
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+      updateReadingProgress();
+      updateBackToTopButton();
+      
+      // Debounce TOC updates for performance
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(updateTOCActiveState, 50);
+    });
+
+    // Initial setup
+    updateReadingProgress();
+    updateTOCActiveState();
+    updateBackToTopButton();
   </script>
 
 </body>

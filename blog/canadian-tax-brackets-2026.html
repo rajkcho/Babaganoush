@@ -142,6 +142,18 @@
       transition: background-color 0.4s ease, color 0.4s ease;
     }
     
+    /* Reading Progress Bar */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--fg-purple), var(--fg-coral));
+      z-index: 1000;
+      transition: width 0.2s ease;
+    }
+    
     .nav-bar {
       position: fixed;
       top: 0;
@@ -152,6 +164,7 @@
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-primary);
       padding: 1rem 0;
+      margin-top: 4px;
     }
     .dark .nav-bar { background: rgba(15, 10, 26, 0.92); }
     .nav-inner {
@@ -184,9 +197,54 @@
     }
     .theme-toggle:hover { transform: scale(1.1); }
     
+    /* TOC Sidebar */
+    .toc-sidebar {
+      position: fixed;
+      left: 20px;
+      top: 140px;
+      width: 240px;
+      max-height: calc(100vh - 160px);
+      overflow-y: auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-md);
+    }
+    .toc-sidebar h3 {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+      color: var(--text-muted);
+    }
+    .toc-sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    .toc-sidebar li {
+      margin-bottom: 0.5rem;
+    }
+    .toc-sidebar a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      line-height: 1.4;
+      display: block;
+      padding: 0.25rem 0;
+      transition: color 0.2s;
+    }
+    .toc-sidebar a:hover {
+      color: var(--brand-primary);
+    }
+    .toc-sidebar a.active {
+      color: var(--brand-primary);
+      font-weight: 600;
+    }
+    
     .article-container {
       max-width: 760px;
-      margin: 100px auto 0;
+      margin: 104px auto 0;
       padding: 2rem;
     }
     
@@ -241,6 +299,7 @@
       margin-top: 2.5rem;
       margin-bottom: 1rem;
       color: var(--text-primary);
+      scroll-margin-top: 120px;
     }
     .article-content h3 {
       font-size: 1.375rem;
@@ -286,6 +345,123 @@
       font-size: 0.9em;
     }
     
+    /* Callout Boxes */
+    .callout {
+      margin: 1.5rem 0;
+      padding: 1.25rem;
+      border-left: 4px solid;
+      border-radius: 0.5rem;
+      background: var(--bg-card);
+    }
+    .callout-tip {
+      border-color: #10b981;
+      background: rgba(16, 185, 129, 0.05);
+    }
+    .callout-warning {
+      border-color: #f59e0b;
+      background: rgba(245, 158, 11, 0.05);
+    }
+    .callout-fact {
+      border-color: #8b5cf6;
+      background: rgba(139, 92, 246, 0.05);
+    }
+    .callout-icon {
+      font-size: 1.25rem;
+      margin-right: 0.5rem;
+    }
+    .callout-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Key Takeaway Box */
+    .key-takeaway {
+      background: linear-gradient(135deg, rgba(44, 8, 125, 0.05), rgba(255, 107, 107, 0.05));
+      border: 2px solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin: 3rem 0;
+    }
+    .key-takeaway h3 {
+      color: var(--brand-primary);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    .key-takeaway ul {
+      margin-bottom: 0;
+    }
+    
+    /* Related Articles */
+    .related-articles {
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin: 3rem 0;
+    }
+    .related-articles h3 {
+      margin-bottom: 1.25rem;
+      color: var(--text-primary);
+    }
+    .related-articles-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .related-article-card {
+      padding: 1rem;
+      border: 1px solid var(--border-primary);
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .related-article-card:hover {
+      border-color: var(--brand-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .related-article-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+    .related-article-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--brand-primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(44, 8, 125, 0.3);
+      z-index: 99;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(44, 8, 125, 0.4);
+    }
+    
     .author-bio {
       background: var(--bg-card);
       border: 1px solid var(--border-primary);
@@ -323,14 +499,26 @@
     }
     footer a:hover { color: white; }
     
+    @media (max-width: 1200px) {
+      .toc-sidebar { display: none; }
+    }
+    
     @media (max-width: 768px) {
       .article-container { padding: 1.5rem; }
       .article-content { font-size: 1rem; }
       .author-bio { flex-direction: column; }
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress" id="readingProgress"></div>
 
   <nav class="nav-bar">
     <div class="nav-inner">
@@ -368,6 +556,21 @@
     </div>
   </nav>
 
+  <!-- TOC Sidebar -->
+  <aside class="toc-sidebar">
+    <h3>Contents</h3>
+    <ul id="tocList">
+      <li><a href="#how-canadian-tax-brackets-work">How Tax Brackets Work</a></li>
+      <li><a href="#2026-federal-tax-brackets">2026 Federal Brackets</a></li>
+      <li><a href="#provincial-and-territorial-tax-brackets-for-2026">Provincial & Territorial</a></li>
+      <li><a href="#using-tax-brackets-for-financial-planning">Financial Planning</a></li>
+      <li><a href="#cross-border-considerations">Cross-Border</a></li>
+      <li><a href="#2026-changes-and-trends">2026 Changes</a></li>
+      <li><a href="#common-tax-planning-mistakes">Common Mistakes</a></li>
+      <li><a href="#calculate-your-tax-bill">Calculate Your Tax</a></li>
+    </ul>
+  </aside>
+
   <article class="article-container">
     <a href="index.html" class="back-link">
       ← Back to Blog
@@ -386,9 +589,6 @@
     </header>
     
     <div class="article-content">
-      
-
-<h1>2026 Canadian Tax Brackets Explained: Federal + Every Province</h1>
 
 <strong>Author: Rick Minji</strong>
 
@@ -396,7 +596,12 @@
 
 <p>This comprehensive guide breaks down the complete 2026 tax brackets for all Canadian jurisdictions, explains the CPP enhancement changes, and shows you how to use this information for smarter tax planning. Use our <a href="https://figgybank.ca/#tax" style="color:#2C087D;font-weight:600;">Canadian Tax Calculator</a> to instantly calculate your exact tax bill for any province or territory.</p>
 
-<h2>How Canadian Tax Brackets Work</h2>
+<div class="callout callout-tip">
+  <div class="callout-title"><span class="callout-icon">💡</span>Pro Tip</div>
+  <p>Your marginal tax rate (the rate on your next dollar of income) is what matters for financial decisions like RRSP contributions or accepting overtime—not your effective tax rate (average across all income).</p>
+</div>
+
+<h2 id="how-canadian-tax-brackets-work">How Canadian Tax Brackets Work</h2>
 
 <p>Canada uses a <strong>progressive tax system</strong> with both federal and provincial/territorial components. Here's what that means:</p>
 
@@ -406,10 +611,10 @@
 
 <strong>Effective Tax Rate:</strong> Your <em>average</em> tax rate across all income. This is always lower than your marginal rate.
 
-<strong>Example:</strong> Maria earns $95,000 in Ontario:
-<ul><li>Her <strong>marginal tax rate</strong> is 43.41% (combined federal + provincial)</li>
-<li>Her <strong>effective tax rate</strong> is approximately 27.5%</li>
-<li>This means an extra $1,000 of income costs her $434 in tax, even though her overall tax burden is much lower</li>
+<div class="callout callout-fact">
+  <div class="callout-title"><span class="callout-icon">📌</span>Example</div>
+  <p>Maria earns $95,000 in Ontario: Her <strong>marginal tax rate</strong> is 43.41% (combined federal + provincial). Her <strong>effective tax rate</strong> is approximately 27.5%. This means an extra $1,000 of income costs her $434 in tax, even though her overall tax burden is much lower.</p>
+</div>
 
 <h3>The Two-Layer System</h3>
 
@@ -419,7 +624,7 @@
 
 <p>Your total marginal rate is the sum of both.</p>
 
-<h2>2026 Federal Tax Brackets</h2>
+<h2 id="2026-federal-tax-brackets">2026 Federal Tax Brackets</h2>
 
 <p>The federal brackets for 2026, indexed for inflation:</p>
 
@@ -439,6 +644,11 @@
 
 <p>The CPP enhancement that began in 2019 continues its phased implementation:</p>
 
+<div class="callout callout-warning">
+  <div class="callout-title"><span class="callout-icon">⚠️</span>2026 CPP Changes</div>
+  <p><strong>Maximum total employee contribution:</strong> $4,634.90 (up from 2025). This includes both first tier ($4,238.90 on earnings up to $71,300) and second tier ($396 on earnings between $71,300 and $81,200). Self-employed Canadians pay double: $9,269.80.</p>
+</div>
+
 <strong>Employee CPP Contributions (2026):</strong>
 <li><strong>First earnings tier</strong> (up to YMPE of $71,300): 5.95% contribution rate</li>
 <li><strong>Second earnings tier</strong> (YMPE to upper limit of $81,200): Additional 4% contribution rate on earnings above $71,300</li>
@@ -452,7 +662,7 @@
 
 <strong>Employment Insurance (EI) Premium (2026):</strong> 1.66% on insurable earnings up to $63,200 (maximum premium: $1,049.12)
 
-<h2>Provincial and Territorial Tax Brackets for 2026</h2>
+<h2 id="provincial-and-territorial-tax-brackets-for-2026">Provincial and Territorial Tax Brackets for 2026</h2>
 
 <p>Now let's break down every province and territory. We'll show the brackets, rates, and combined marginal rates when you add federal tax.</p>
 
@@ -622,7 +832,7 @@
 
 <strong>Note:</strong> Nunavut has Canada's lowest top marginal rate and highest basic personal amount, reflecting the high cost of living.
 
-<h2>Using Tax Brackets for Financial Planning</h2>
+<h2 id="using-tax-brackets-for-financial-planning">Using Tax Brackets for Financial Planning</h2>
 
 <h3>RRSP Contribution Strategy</h3>
 
@@ -667,13 +877,13 @@
 
 <p>Eligible Canadian dividends get special treatment through the dividend tax credit, often resulting in lower effective rates than interest income.</p>
 
-<h2>Cross-Border Considerations</h2>
+<h2 id="cross-border-considerations">Cross-Border Considerations</h2>
 
 <p>If you moved provinces during 2026, your provincial tax is based on your residence on <strong>December 31, 2026</strong>.</p>
 
 <strong>Strategic consideration:</strong> If you're moving from a high-tax province (BC, Quebec, Nova Scotia) to a low-tax province (Alberta, Saskatchewan) late in the year, accelerate income into the new province year if possible. The reverse is true for moves to higher-tax provinces—defer income if you can.
 
-<h2>2026 Changes and Trends</h2>
+<h2 id="2026-changes-and-trends">2026 Changes and Trends</h2>
 
 <h3>Inflation Indexing</h3>
 
@@ -690,7 +900,7 @@
 <li><strong>Quebec</strong> has the most complex system with separate filing</li>
 <li>The <strong>Territories</strong> offer higher basic amounts to offset high cost of living</li>
 
-<h2>Common Tax Planning Mistakes</h2>
+<h2 id="common-tax-planning-mistakes">Common Tax Planning Mistakes</h2>
 
 <h3>Mistake #1: Focusing Only on Marginal Rate</h3>
 
@@ -715,7 +925,7 @@
 <li>Disability supports deduction</li>
 <li>Northern residents deduction (if applicable)</li>
 
-<h2>Calculate Your Tax Bill</h2>
+<h2 id="calculate-your-tax-bill">Calculate Your Tax Bill</h2>
 
 <p>Want to see exactly how much tax you'll pay on different income levels? Need to calculate the tax savings from RRSP contributions or compare provinces?</p>
 
@@ -729,25 +939,36 @@
 
 <p>It's free, updated for 2026 rates, and includes all provinces and territories.</p>
 
-<h2>The Bottom Line</h2>
+<div class="key-takeaway">
+  <h3>🎯 Key Takeaway</h3>
+  <p>Canadian tax brackets are complex, with significant variation across provinces. Understanding your marginal and effective rates is essential for:</p>
+  <ul>
+    <li>Federal rates range from 15% to 33%</li>
+    <li>Combined federal/provincial rates range from 19% (Nunavut, low income) to 53.53% (BC, high income)</li>
+    <li>CPP contributions increased with the second tier enhancement</li>
+    <li>Basic personal amounts increased with inflation</li>
+    <li>Your province of residence on December 31 determines your provincial tax</li>
+  </ul>
+  <p>Use this guide as a reference throughout the year, and run the actual numbers on your specific situation to make informed financial decisions.</p>
+</div>
 
-<p>Canadian tax brackets are complex, with significant variation across provinces. Understanding your marginal and effective rates is essential for:</p>
-
-<li>RRSP vs TFSA decisions</li>
-<li>Income splitting strategies</li>
-<li>Bonus and raise negotiations</li>
-<li>Relocation decisions</li>
-<li>Retirement planning</li>
-<li>Investment allocation (taxable vs registered accounts)</li>
-
-<p>The key takeaways for 2026:</p>
-<li>Federal rates range from 15% to 33%</li>
-<li>Combined federal/provincial rates range from 19% (Nunavut, low income) to 53.53% (BC, high income)</li>
-<li>CPP contributions increased with the second tier enhancement</li>
-<li>Basic personal amounts increased with inflation</li>
-<li>Your province of residence on December 31 determines your provincial tax</li>
-</ul>
-<p>Use this guide as a reference throughout the year, and run the actual numbers on your specific situation to make informed financial decisions.</p>
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <div class="related-articles-grid">
+    <a href="rrsp-vs-tfsa-2026.html" class="related-article-card">
+      <div class="related-article-title">RRSP vs TFSA: The Complete 2026 Guide</div>
+      <div class="related-article-desc">Understand which registered account is better for your financial goals</div>
+    </a>
+    <a href="first-time-home-buyer-2026.html" class="related-article-card">
+      <div class="related-article-title">First-Time Home Buyer Guide 2026</div>
+      <div class="related-article-desc">Navigate down payments, mortgages, and incentives in Canada</div>
+    </a>
+    <a href="debt-payoff-strategies-canada.html" class="related-article-card">
+      <div class="related-article-title">Avalanche vs Snowball Debt Payoff</div>
+      <div class="related-article-desc">Learn the best strategy to eliminate Canadian debt faster</div>
+    </a>
+  </div>
+</div>
 
 ---
 
@@ -787,6 +1008,9 @@
     </aside>
   </article>
 
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
   <footer>
     <p>© 2026 FiggyBank • <a href="../">Home</a> • <a href="index.html">Blog</a> • <a href="mailto:hello@figgybank.ca">Contact</a></p>
     <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.7;">Made with 🐷 for Canadians</p>
@@ -794,6 +1018,7 @@
   </footer>
 
   <script>
+    // Theme Toggle
     function toggleTheme() {
       document.documentElement.classList.toggle('dark');
       const isDark = document.documentElement.classList.contains('dark');
@@ -810,6 +1035,64 @@
         document.querySelector('.theme-toggle').textContent = '🌙';
       }
     })();
+
+    // Reading Progress Bar
+    function updateReadingProgress() {
+      const article = document.querySelector('.article-content');
+      const articleTop = article.offsetTop;
+      const articleHeight = article.offsetHeight;
+      const scrolled = window.scrollY - articleTop;
+      const progress = (scrolled / articleHeight) * 100;
+      const clampedProgress = Math.min(Math.max(progress, 0), 100);
+      document.getElementById('readingProgress').style.width = clampedProgress + '%';
+    }
+
+    // TOC Active State
+    function updateTOCActiveState() {
+      const headings = document.querySelectorAll('.article-content h2[id]');
+      const tocLinks = document.querySelectorAll('.toc-sidebar a');
+      
+      let currentActiveId = null;
+      headings.forEach(heading => {
+        const rect = heading.getBoundingClientRect();
+        if (rect.top <= 150 && rect.top >= -200) {
+          currentActiveId = heading.id;
+        }
+      });
+      
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (currentActiveId && link.getAttribute('href') === '#' + currentActiveId) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Back to Top Button
+    function updateBackToTop() {
+      const backToTop = document.getElementById('backToTop');
+      if (window.scrollY > 500) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    }
+
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Scroll Event Listener
+    window.addEventListener('scroll', () => {
+      updateReadingProgress();
+      updateTOCActiveState();
+      updateBackToTop();
+    });
+
+    // Initial calls
+    updateReadingProgress();
+    updateTOCActiveState();
+    updateBackToTop();
   </script>
 
 </body>

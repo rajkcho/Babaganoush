@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canadian Financial Glossary | FiggyBank - Learn Financial Terms</title>
+    <meta name="description" content="Comprehensive glossary of 100+ Canadian financial terms explained in plain English. Learn about TFSA, RRSP, FHSA, mortgages, investing, taxes, and more.">
+    <meta name="keywords" content="financial glossary, Canadian finance terms, TFSA, RRSP, FHSA, financial definitions, money terms Canada">
+    <meta property="og:title" content="Canadian Financial Glossary | FiggyBank">
+    <meta property="og:description" content="100+ Canadian financial terms explained in plain English">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://figgybank.ca/glossary/">
+    <link rel="canonical" href="https://figgybank.ca/glossary/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHP0GVPV8Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QHP0GVPV8Q');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3447886014314572" crossorigin="anonymous"></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Canadian Financial Glossary",
+        "description": "Comprehensive glossary of Canadian financial terms",
+        "publisher": {
+            "@type": "Organization",
+            "name": "FiggyBank",
+            "url": "https://figgybank.ca"
+        }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --purple: #2C087D;
+            --coral: #FF6B6B;
+            --cream: #FCFAF4;
+            --text-dark: #1a1a1a;
+            --text-light: #4a4a4a;
+            --border: #e0e0e0;
+            --bg-white: #ffffff;
+            --bg-light: #f8f8f8;
+        }
+        
+        .dark {
+            --cream: #1a1a1a;
+            --text-dark: #f0f0f0;
+            --text-light: #b0b0b0;
+            --border: #333;
+            --bg-white: #242424;
+            --bg-light: #2a2a2a;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Navbar */
+        nav {
+            background: var(--bg-white);
+            border-bottom: 2px solid var(--purple);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--purple);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+        
+        .logo svg {
+            width: 36px;
+            height: 36px;
+        }
+        
+        .dark-toggle {
+            background: var(--purple);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+        }
+        
+        .dark-toggle:hover {
+            opacity: 0.9;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--purple) 0%, #4a1ba8 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        
+        /* Search Bar */
+        .search-container {
+            max-width: 1400px;
+            margin: -2rem auto 2rem;
+            padding: 0 2rem;
+        }
+        
+        .search-box {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text-dark);
+            transition: border-color 0.3s;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--purple);
+        }
+        
+        .search-stats {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        /* Main Layout */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        
+        .alphabet-nav {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        
+        .alphabet-nav h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            color: var(--purple);
+        }
+        
+        .letter-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+        }
+        
+        .letter-link {
+            display: block;
+            text-align: center;
+            padding: 0.5rem;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            transition: all 0.2s;
+        }
+        
+        .letter-link:hover, .letter-link.active {
+            background: var(--purple);
+            color: white;
+        }
+        
+        .letter-link.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        /* Content */
+        .content {
+            min-width: 0;
+        }
+        
+        .letter-section {
+            margin-bottom: 3rem;
+        }
+        
+        .letter-header {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--coral);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .term-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            scroll-margin-top: 100px;
+        }
+        
+        .term-card.hidden {
+            display: none;
+        }
+        
+        .term-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin-bottom: 0.5rem;
+        }
+        
+        .term-abbr {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--coral);
+            margin-bottom: 0.75rem;
+        }
+        
+        .term-definition {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        
+        .related-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .calc-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--purple) 0%, #4a1ba8 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            transition: transform 0.2s;
+        }
+        
+        .calc-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Callout Boxes */
+        .callout {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid var(--coral);
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .dark .callout {
+            background: linear-gradient(135deg, #3a2a1a 0%, #4a3520 100%);
+        }
+        
+        .callout-title {
+            font-weight: 700;
+            color: var(--coral);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .callout-text {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--bg-white);
+            border-top: 2px solid var(--purple);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        footer p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .sidebar {
+                position: relative;
+                top: 0;
+            }
+            
+            .letter-links {
+                grid-template-columns: repeat(6, 1fr);
+            }
+            
+            header h1 {
+                font-size: 1.75rem;
+            }
+            
+            .search-container {
+                margin: -1.5rem auto 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <a href="../" class="logo">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="32" cy="36" rx="24" ry="20" fill="#FF6B6B"/>
+                    <ellipse cx="32" cy="34" rx="22" ry="18" fill="#FFB3B3"/>
+                    <circle cx="32" cy="28" r="3" fill="#2C087D"/>
+                    <rect x="28" y="12" width="8" height="6" rx="2" fill="#2C087D"/>
+                    <circle cx="24" cy="26" r="2" fill="#2C087D"/>
+                    <circle cx="40" cy="26" r="2" fill="#2C087D"/>
+                    <path d="M 26 32 Q 32 35 38 32" stroke="#2C087D" stroke-width="2" stroke-linecap="round" fill="none"/>
+                </svg>
+                <span>FiggyBank</span>
+            </a>
+            <button class="dark-toggle" onclick="toggleDark()">🌓 Toggle Dark</button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>📚 Canadian Financial Glossary</h1>
+        <p>100+ financial terms explained in plain English</p>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" class="search-input" id="searchInput" placeholder="🔍 Search for a term (e.g., TFSA, mortgage, RRSP)..." autocomplete="off">
+            <div class="search-stats" id="searchStats"></div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="alphabet-nav">
+                <h3>Jump to Letter</h3>
+                <div class="letter-links" id="letterNav"></div>
+            </nav>
+        </aside>
+
+        <!-- Content -->
+        <main class="content" id="glossaryContent">
+            <!-- A -->
+            <section class="letter-section" id="letter-a">
+                <h2 class="letter-header">A</h2>
+                
+                <article class="term-card" id="term-amortization">
+                    <h3 class="term-name">Amortization</h3>
+                    <p class="term-definition">The process of paying off a loan (like a mortgage) through regular scheduled payments over time. Each payment covers both the principal (the amount borrowed) and the interest. In the early years, most of your payment goes toward interest, but over time, more goes toward the principal.</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-mortgage" class="calc-link">→ Mortgage Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-apr">
+                    <h3 class="term-name">Annual Percentage Rate (APR)</h3>
+                    <p class="term-abbr">APR</p>
+                    <p class="term-definition">The yearly cost of borrowing money, expressed as a percentage. It includes not just the interest rate, but also fees and other charges. APR helps you compare the true cost of different loans or credit cards.</p>
+                </article>
+
+                <article class="term-card" id="term-asset-allocation">
+                    <h3 class="term-name">Asset Allocation</h3>
+                    <p class="term-definition">How you divide your investment portfolio among different types of assets—like stocks, bonds, and cash. The right mix depends on your age, goals, and risk tolerance. Generally, younger investors can take more risk with stocks, while those near retirement should hold more bonds.</p>
+                </article>
+
+                <article class="term-card" id="term-arr">
+                    <h3 class="term-name">Annual Recurring Revenue (ARR)</h3>
+                    <p class="term-abbr">ARR</p>
+                    <p class="term-definition">A business metric showing the yearly value of recurring revenue from subscriptions or contracts. Important for SaaS companies and subscription-based businesses to track predictable income streams.</p>
+                </article>
+            </section>
+
+            <!-- B -->
+            <section class="letter-section" id="letter-b">
+                <h2 class="letter-header">B</h2>
+                
+                <article class="term-card" id="term-bridge-loan">
+                    <h3 class="term-name">Bridge Loan</h3>
+                    <p class="term-definition">A short-term loan that "bridges" the gap between buying a new home and selling your old one. It lets you use the equity in your current home as a down payment on your new home before your old home sells. These loans typically have higher interest rates and are paid off once your original home sells.</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-mortgage" class="calc-link">→ Mortgage Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-break-even">
+                    <h3 class="term-name">Break-Even Point</h3>
+                    <p class="term-definition">The point where total revenue equals total costs—you're not making money, but you're not losing money either. For businesses, knowing your break-even point helps you understand how many units you need to sell to cover your expenses.</p>
+                </article>
+
+                <article class="term-card" id="term-burn-rate">
+                    <h3 class="term-name">Burn Rate</h3>
+                    <p class="term-definition">How quickly a company is spending its cash reserves, usually measured monthly. Startups watch this closely to understand how long they can operate before running out of money or needing more funding.</p>
+                </article>
+            </section>
+
+            <!-- C -->
+            <section class="letter-section" id="letter-c">
+                <h2 class="letter-header">C</h2>
+                
+                <article class="term-card" id="term-capital-gains">
+                    <h3 class="term-name">Capital Gains</h3>
+                    <p class="term-definition">The profit you make when you sell an investment or asset for more than you paid for it. In Canada, only 50% of capital gains are taxable (this is the "inclusion rate"). For example, if you make $10,000 from selling stocks, only $5,000 is added to your taxable income.</p>
+                    <div class="callout">
+                        <div class="callout-title">💡 Did you know?</div>
+                        <div class="callout-text">Capital gains from selling your primary residence are tax-free in Canada thanks to the Principal Residence Exemption!</div>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-capital-gains-inclusion">
+                    <h3 class="term-name">Capital Gains Inclusion Rate</h3>
+                    <p class="term-definition">The percentage of your capital gains that's added to your taxable income. In Canada, it's currently 50%—meaning if you have $10,000 in capital gains, only $5,000 is taxable. This rate has changed over the years and is subject to government policy.</p>
+                </article>
+
+                <article class="term-card" id="term-cap-rate">
+                    <h3 class="term-name">Capitalization Rate (Cap Rate)</h3>
+                    <p class="term-abbr">Cap Rate</p>
+                    <p class="term-definition">A measure used to evaluate rental properties. It's calculated by dividing the annual net operating income by the property's current market value. A higher cap rate generally means higher potential returns (but often higher risk). For example, a $500,000 property generating $30,000/year has a 6% cap rate.</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-rental" class="calc-link">→ Rental Property Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-cash-flow">
+                    <h3 class="term-name">Cash Flow</h3>
+                    <p class="term-definition">The movement of money in and out of a business or investment. Positive cash flow means more money is coming in than going out. For rental properties, it's the rental income minus all expenses (mortgage, taxes, maintenance).</p>
+                </article>
+
+                <article class="term-card" id="term-cmhc">
+                    <h3 class="term-name">Canada Mortgage and Housing Corporation (CMHC)</h3>
+                    <p class="term-abbr">CMHC</p>
+                    <p class="term-definition">A federal agency that provides mortgage loan insurance. If you put less than 20% down on a home purchase, you'll need CMHC insurance (or insurance from another provider like Sagen or Canada Guaranty). This protects the lender if you default on your mortgage, but you pay the premium.</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-mortgage" class="calc-link">→ Mortgage Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-compound-interest">
+                    <h3 class="term-name">Compound Interest</h3>
+                    <p class="term-definition">Interest earned on both your initial investment and the interest that accumulates over time—it's "interest on interest." This is the secret to long-term wealth building. For example, $10,000 invested at 7% annually becomes $19,672 in 10 years thanks to compounding.</p>
+                    <div class="callout">
+                        <div class="callout-title">💡 Did you know?</div>
+                        <div class="callout-text">Albert Einstein allegedly called compound interest "the eighth wonder of the world." Starting early makes a huge difference—a 25-year-old investing $500/month until 65 can accumulate more than a 35-year-old investing $1,000/month for the same period!</div>
+                    </div>
+                    <div class="related-links">
+                        <a href="../index.html#page-compound" class="calc-link">→ Compound Interest Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-cpp">
+                    <h3 class="term-name">Canada Pension Plan (CPP)</h3>
+                    <p class="term-abbr">CPP</p>
+                    <p class="term-definition">A mandatory retirement savings program that all working Canadians (except in Quebec, which has QPP) contribute to through payroll deductions. You become eligible for CPP retirement benefits as early as age 60, though waiting until 65 or even 70 increases your monthly payment significantly.</p>
+                </article>
+
+                <article class="term-card" id="term-closing-costs">
+                    <h3 class="term-name">Closing Costs</h3>
+                    <p class="term-definition">All the fees and expenses you pay when finalizing a real estate purchase, beyond the down payment. These include legal fees, title insurance, land transfer tax, home inspection, appraisal, and more. In Canada, budget 1.5-4% of the purchase price for closing costs.</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-closing" class="calc-link">→ Closing Costs Calculator</a>
+                    </div>
+                </article>
+            </section>
+
+            <!-- D -->
+            <section class="letter-section" id="letter-d">
+                <h2 class="letter-header">D</h2>
+                
+                <article class="term-card" id="term-dcf">
+                    <h3 class="term-name">Discounted Cash Flow (DCF)</h3>
+                    <p class="term-abbr">DCF</p>
+                    <p class="term-definition">A valuation method that estimates the value of an investment based on its expected future cash flows, adjusted for the time value of money. Used heavily in business valuations and investment analysis to determine if an asset is over- or under-valued.</p>
+                </article>
+
+                <article class="term-card" id="term-dividend-tax-credit">
+                    <h3 class="term-name">Dividend Tax Credit</h3>
+                    <p class="term-definition">A tax benefit for Canadians who receive dividends from Canadian corporations. It reduces the amount of tax you owe on dividend income, recognizing that the corporation already paid tax on its profits. This makes Canadian dividend-paying stocks tax-efficient for non-registered accounts.</p>
+                </article>
+
+                <article class="term-card" id="term-dollar-cost-averaging">
+                    <h3 class="term-name">Dollar-Cost Averaging</h3>
+                    <p class="term-definition">An investment strategy where you invest a fixed amount of money at regular intervals (like $500 every month), regardless of market conditions. This reduces the risk of investing a large sum right before a market crash and can lead to better average purchase prices over time.</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-investment" class="calc-link">→ Investment Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-drip">
+                    <h3 class="term-name">Dividend Reinvestment Plan (DRIP)</h3>
+                    <p class="term-abbr">DRIP</p>
+                    <p class="term-definition">A program that automatically uses the dividends you receive from stocks or funds to purchase more shares, instead of paying you cash. This harnesses the power of compound growth and is often offered with no commission fees.</p>
+                </article>
+            </section>
+
+            <!-- E -->
+            <section class="letter-section" id="letter-e">
+                <h2 class="letter-header">E</h2>
+                
+                <article class="term-card" id="term-ebitda">
+                    <h3 class="term-name">Earnings Before Interest, Taxes, Depreciation, and Amortization (EBITDA)</h3>
+                    <p class="term-abbr">EBITDA</p>
+                    <p class="term-definition">A measure of a company's operating performance that shows profitability before accounting for financing, tax strategies, and non-cash expenses. It's useful for comparing companies in the same industry or evaluating businesses for acquisition.</p>
+                </article>
+
+                <article class="term-card" id="term-ei">
+                    <h3 class="term-name">Employment Insurance (EI)</h3>
+                    <p class="term-abbr">EI</p>
+                    <p class="term-definition">A Canadian government program that provides temporary income support if you lose your job through no fault of your own. It also covers maternity/parental leave, sickness, and caregiving. Both employees and employers contribute to EI through payroll deductions.</p>
+                </article>
+
+                <article class="term-card" id="term-etf">
+                    <h3 class="term-name">Exchange-Traded Fund (ETF)</h3>
+                    <p class="term-abbr">ETF</p>
+                    <p class="term-definition">An investment fund that trades on stock exchanges, just like a stock. ETFs typically hold a basket of assets (stocks, bonds, commodities) and offer instant diversification. They're popular because they have lower fees than mutual funds and can be bought/sold anytime during market hours.</p>
+                    <div class="callout">
+                        <div class="callout-title">💡 Did you know?</div>
+                        <div class="callout-text">Canadian all-in-one ETFs like VGRO or XGRO can give you a globally diversified portfolio of thousands of stocks and bonds in a single purchase!</div>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-equity">
+                    <h3 class="term-name">Equity</h3>
+                    <p class="term-definition">The value of an asset minus any debts against it. For a home, it's the current market value minus your outstanding mortgage. For a business, it's the total assets minus total liabilities—essentially what the owners truly own.</p>
+                </article>
+            </section>
+
+            <!-- F -->
+            <section class="letter-section" id="letter-f">
+                <h2 class="letter-header">F</h2>
+                
+                <article class="term-card" id="term-fhsa">
+                    <h3 class="term-name">First Home Savings Account (FHSA)</h3>
+                    <p class="term-abbr">FHSA</p>
+                    <p class="term-definition">A new Canadian registered account (launched in 2023) designed for first-time home buyers. You can contribute up to $8,000 per year (lifetime max $40,000), get a tax deduction on contributions (like an RRSP), and withdraw the money tax-free for a home purchase (like a TFSA). It's the best of both worlds!</p>
+                    <div class="callout">
+                        <div class="callout-title">💡 Did you know?</div>
+                        <div class="callout-text">The FHSA is the only account in Canada that gives you both a tax deduction on the way in AND tax-free growth and withdrawals. That's powerful!</div>
+                    </div>
+                    <div class="related-links">
+                        <a href="../index.html#page-fhsa" class="calc-link">→ FHSA Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-fixed-rate-mortgage">
+                    <h3 class="term-name">Fixed-Rate Mortgage</h3>
+                    <p class="term-definition">A mortgage where the interest rate stays the same for the entire term (typically 1-5 years in Canada). Your payments remain constant, making budgeting easier. When the term ends, you renew at current rates. Fixed rates are usually higher than variable rates but offer stability.</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-mortgage" class="calc-link">→ Mortgage Calculator</a>
+                    </div>
+                </article>
+            </section>
+
+            <!-- G -->
+            <section class="letter-section" id="letter-g">
+                <h2 class="letter-header">G</h2>
+                
+                <article class="term-card" id="term-gds">
+                    <h3 class="term-name">Gross Debt Service (GDS) Ratio</h3>
+                    <p class="term-abbr">GDS</p>
+                    <p class="term-definition">The percentage of your gross monthly income that goes toward housing costs (mortgage payments, property taxes, heating, and 50% of condo fees). Lenders typically want your GDS to be below 32-39%. If your gross income is $6,000/month, your housing costs should ideally be under $1,920/month.</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-affordability" class="calc-link">→ Affordability Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-gic">
+                    <h3 class="term-name">Guaranteed Investment Certificate (GIC)</h3>
+                    <p class="term-abbr">GIC</p>
+                    <p class="term-definition">A safe investment where you lend money to a bank for a fixed period (from 30 days to 10 years) at a guaranteed interest rate. Your principal is 100% safe (insured by CDIC up to $100,000 per institution). Great for short-term savings or the conservative portion of your portfolio, but returns are modest.</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-gic" class="calc-link">→ GIC Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-gis">
+                    <h3 class="term-name">Guaranteed Income Supplement (GIS)</h3>
+                    <p class="term-abbr">GIS</p>
+                    <p class="term-definition">A monthly non-taxable benefit for low-income Old Age Security (OAS) recipients living in Canada. The amount you receive depends on your income and marital status. Unlike OAS and CPP, you don't contribute to GIS—it's funded by general tax revenue.</p>
+                </article>
+
+                <article class="term-card" id="term-goodwill">
+                    <h3 class="term-name">Goodwill</h3>
+                    <p class="term-definition">An intangible asset that represents the premium paid when buying a business beyond its tangible assets. It includes things like brand reputation, customer relationships, and employee expertise. Shows up on balance sheets after acquisitions.</p>
+                </article>
+
+                <article class="term-card" id="term-gross-income">
+                    <h3 class="term-name">Gross Income</h3>
+                    <p class="term-definition">Your total income before any deductions like taxes, CPP, EI, or RRSP contributions. This is what lenders use to calculate your borrowing capacity. If your gross income is $70,000 but you take home $50,000, lenders use the $70,000 figure.</p>
+                </article>
+            </section>
+
+            <!-- H -->
+            <section class="letter-section" id="letter-h">
+                <h2 class="letter-header">H</h2>
+                
+                <article class="term-card" id="term-hbp">
+                    <h3 class="term-name">Home Buyers' Plan (HBP)</h3>
+                    <p class="term-abbr">HBP</p>
+                    <p class="term-definition">A program that lets first-time home buyers withdraw up to $35,000 from their RRSP tax-free to buy or build a home. You have 15 years to repay the money back into your RRSP. If you don't repay the minimum amount each year, it gets added to your taxable income.</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-hbp" class="calc-link">→ HBP Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-heloc">
+                    <h3 class="term-name">Home Equity Line of Credit (HELOC)</h3>
+                    <p class="term-abbr">HELOC</p>
+                    <p class="term-definition">A revolving line of credit secured against the equity in your home. You can borrow up to 65% of your home's value minus your mortgage. Interest rates are typically lower than credit cards or personal loans. You only pay interest on what you borrow, and you can re-borrow as you pay it down.</p>
+                </article>
+            </section>
+
+            <!-- I -->
+            <section class="letter-section" id="letter-i">
+                <h2 class="letter-header">I</h2>
+                
+                <article class="term-card" id="term-inflation">
+                    <h3 class="term-name">Inflation</h3>
+                    <p class="term-definition">The rate at which prices for goods and services increase over time, reducing your purchasing power. If inflation is 3% per year, something that costs $100 today will cost $103 next year. The Bank of Canada targets 2% inflation as healthy for the economy. Your investments need to beat inflation to grow your real wealth.</p>
+                </article>
+
+                <article class="term-card" id="term-irr">
+                    <h3 class="term-name">Internal Rate of Return (IRR)</h3>
+                    <p class="term-abbr">IRR</p>
+                    <p class="term-definition">A metric used to estimate the profitability of an investment, expressed as a percentage. It's the annual growth rate that makes the net present value of all cash flows equal to zero. Higher IRR means better returns. Commonly used in real estate and private equity investing.</p>
+                </article>
+            </section>
+
+            <!-- L -->
+            <section class="letter-section" id="letter-l">
+                <h2 class="letter-header">L</h2>
+                
+                <article class="term-card" id="term-land-transfer-tax">
+                    <h3 class="term-name">Land Transfer Tax</h3>
+                    <p class="term-definition">A tax you pay to the provincial (and sometimes municipal) government when you buy property. The amount varies by province and property value. Toronto residents pay both provincial and municipal land transfer tax. First-time buyers often get rebates. For a $500,000 home in Ontario, expect around $6,475 in land transfer tax.</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-closing" class="calc-link">→ Closing Costs Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-lbo">
+                    <h3 class="term-name">Leveraged Buyout (LBO)</h3>
+                    <p class="term-abbr">LBO</p>
+                    <p class="term-definition">The acquisition of a company using a significant amount of borrowed money (bonds or loans) to meet the purchase cost. The assets of the company being acquired are often used as collateral. Private equity firms frequently use LBOs to acquire companies.</p>
+                </article>
+
+                <article class="term-card" id="term-liquidity">
+                    <h3 class="term-name">Liquidity</h3>
+                    <p class="term-definition">How quickly and easily you can convert an asset into cash without significantly affecting its value. Cash is perfectly liquid. Stocks are fairly liquid. Real estate is not very liquid. Emergency funds should be kept in liquid assets.</p>
+                </article>
+
+                <article class="term-card" id="term-ltv">
+                    <h3 class="term-name">Loan-to-Value (LTV) Ratio</h3>
+                    <p class="term-abbr">LTV</p>
+                    <p class="term-definition">The ratio of a loan amount to the value of the asset purchased, expressed as a percentage. If you buy a $500,000 home with a $400,000 mortgage, your LTV is 80%. In Canada, you need mortgage insurance (CMHC) if your LTV is above 80% (down payment less than 20%).</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-mortgage" class="calc-link">→ Mortgage Calculator</a>
+                    </div>
+                </article>
+            </section>
+
+            <!-- M -->
+            <section class="letter-section" id="letter-m">
+                <h2 class="letter-header">M</h2>
+                
+                <article class="term-card" id="term-ma">
+                    <h3 class="term-name">Mergers and Acquisitions (M&A)</h3>
+                    <p class="term-abbr">M&A</p>
+                    <p class="term-definition">The consolidation of companies through various types of financial transactions. A merger is when two companies combine to form a new entity. An acquisition is when one company purchases another. M&A activity can create value through synergies, market expansion, or cost savings.</p>
+                </article>
+
+                <article class="term-card" id="term-marginal-tax-rate">
+                    <h3 class="term-name">Marginal Tax Rate</h3>
+                    <p class="term-definition">The tax rate you pay on your next dollar of income. Canada uses a progressive tax system with brackets—the more you earn, the higher the rate on additional income. If you're in the 29.65% marginal bracket (combined federal/provincial), every extra dollar you earn is taxed at 29.65 cents.</p>
+                    <div class="callout">
+                        <div class="callout-title">💡 Did you know?</div>
+                        <div class="callout-text">Your marginal tax rate is almost always higher than your average tax rate. If you earn $80,000 and pay $18,000 in tax, your average rate is 22.5%, but your marginal rate might be 29.65%!</div>
+                    </div>
+                    <div class="related-links">
+                        <a href="../index.html#page-tax" class="calc-link">→ Tax Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-mer">
+                    <h3 class="term-name">Management Expense Ratio (MER)</h3>
+                    <p class="term-abbr">MER</p>
+                    <p class="term-definition">The total annual cost of owning a mutual fund or ETF, expressed as a percentage of your investment. This includes management fees, operating costs, and taxes. A fund with a 2% MER costs you $200 per year for every $10,000 invested. Lower is better—look for MERs under 0.5% for passive index funds.</p>
+                </article>
+
+                <article class="term-card" id="term-mortgage-stress-test">
+                    <h3 class="term-name">Mortgage Stress Test</h3>
+                    <p class="term-definition">A requirement that borrowers prove they can afford their mortgage at a higher interest rate than they're actually getting. You must qualify at the greater of: your contract rate + 2%, or 5.25%. This ensures you can still afford payments if rates rise. Applies to all mortgages, even if you have a 20%+ down payment.</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-affordability" class="calc-link">→ Affordability Calculator</a>
+                    </div>
+                </article>
+            </section>
+
+            <!-- N -->
+            <section class="letter-section" id="letter-n">
+                <h2 class="letter-header">N</h2>
+                
+                <article class="term-card" id="term-net-worth">
+                    <h3 class="term-name">Net Worth</h3>
+                    <p class="term-definition">Your total assets (everything you own) minus your total liabilities (everything you owe). It's the truest measure of your financial health. If you have $300,000 in assets (home equity, investments, savings) and $150,000 in debts (mortgage, car loan), your net worth is $150,000.</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-networth" class="calc-link">→ Net Worth Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-npv">
+                    <h3 class="term-name">Net Present Value (NPV)</h3>
+                    <p class="term-abbr">NPV</p>
+                    <p class="term-definition">The difference between the present value of cash inflows and outflows over time. A positive NPV means an investment is expected to be profitable; negative means it will lose money. Used in capital budgeting to evaluate potential projects or investments.</p>
+                </article>
+            </section>
+
+            <!-- O -->
+            <section class="letter-section" id="letter-o">
+                <h2 class="letter-header">O</h2>
+                
+                <article class="term-card" id="term-oas">
+                    <h3 class="term-name">Old Age Security (OAS)</h3>
+                    <p class="term-abbr">OAS</p>
+                    <p class="term-definition">A monthly payment available to Canadians 65 and older who meet residency requirements. Unlike CPP, you don't contribute to OAS during your working years—it's funded by general tax revenue. The amount can be "clawed back" if your income exceeds a certain threshold (around $90,000).</p>
+                </article>
+
+                <article class="term-card" id="term-opportunity-cost">
+                    <h3 class="term-name">Opportunity Cost</h3>
+                    <p class="term-definition">The potential benefit you miss out on when choosing one alternative over another. If you spend $50,000 on a car instead of investing it, the opportunity cost isn't just $50,000—it's the future investment returns you could have earned (potentially $100,000+ over 10-15 years).</p>
+                </article>
+            </section>
+
+            <!-- P -->
+            <section class="letter-section" id="letter-p">
+                <h2 class="letter-header">P</h2>
+                
+                <article class="term-card" id="term-pe-ratio">
+                    <h3 class="term-name">Price-to-Earnings (P/E) Ratio</h3>
+                    <p class="term-abbr">P/E Ratio</p>
+                    <p class="term-definition">A valuation metric that shows how much investors are willing to pay for each dollar of a company's earnings. Calculated by dividing share price by earnings per share. A P/E of 20 means you're paying $20 for every $1 of annual earnings. Lower P/E can indicate value; higher can indicate growth expectations.</p>
+                </article>
+
+                <article class="term-card" id="term-prime-rate">
+                    <h3 class="term-name">Prime Rate</h3>
+                    <p class="term-definition">The interest rate that banks charge their most creditworthy customers. It's a benchmark used to set rates for variable-rate mortgages, HELOCs, and lines of credit. When the Bank of Canada changes its policy rate, banks typically adjust their prime rate accordingly. As of recent years, Canadian prime has ranged from 2.45% to 7%+.</p>
+                </article>
+
+                <article class="term-card" id="term-principal">
+                    <h3 class="term-name">Principal</h3>
+                    <p class="term-definition">The original amount of money borrowed in a loan, or the amount invested, excluding interest or returns. In a mortgage, your payments go toward both principal and interest. In the early years, most goes to interest; later, most goes to principal.</p>
+                </article>
+            </section>
+
+            <!-- R -->
+            <section class="letter-section" id="letter-r">
+                <h2 class="letter-header">R</h2>
+                
+                <article class="term-card" id="term-resp">
+                    <h3 class="term-name">Registered Education Savings Plan (RESP)</h3>
+                    <p class="term-abbr">RESP</p>
+                    <p class="term-definition">A tax-sheltered account for saving for a child's post-secondary education. The government adds 20% on the first $2,500 contributed annually (Canada Education Savings Grant = $500/year, max $7,200 lifetime). Investments grow tax-free, and withdrawals are taxed in the student's hands (usually little to no tax).</p>
+                    <div class="callout">
+                        <div class="callout-title">💡 Did you know?</div>
+                        <div class="callout-text">Low-income families can get an additional $2,000 Canada Learning Bond without contributing a single dollar! Check if you qualify.</div>
+                    </div>
+                    <div class="related-links">
+                        <a href="../index.html#page-resp" class="calc-link">→ RESP Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-roi">
+                    <h3 class="term-name">Return on Investment (ROI)</h3>
+                    <p class="term-abbr">ROI</p>
+                    <p class="term-definition">A measure of the profitability of an investment, calculated as (gain - cost) / cost × 100. If you invest $10,000 and it grows to $12,000, your ROI is 20%. Simple, widely used metric for comparing different investments.</p>
+                </article>
+
+                <article class="term-card" id="term-rrsp">
+                    <h3 class="term-name">Registered Retirement Savings Plan (RRSP)</h3>
+                    <p class="term-abbr">RRSP</p>
+                    <p class="term-definition">A tax-sheltered retirement savings account. Contributions are tax-deductible (reducing your taxable income now), and investments grow tax-free inside the account. You pay tax when you withdraw in retirement, ideally when you're in a lower tax bracket. You can contribute 18% of last year's income up to the annual limit (~$31,560 in 2024).</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-rrsp" class="calc-link">→ RRSP Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-risk-tolerance">
+                    <h3 class="term-name">Risk Tolerance</h3>
+                    <p class="term-definition">Your ability and willingness to endure losses in your investments. It depends on your age, income, financial goals, and personality. Higher risk tolerance means you can handle volatility in exchange for potentially higher returns (more stocks). Lower means you prefer stability (more bonds/GICs).</p>
+                </article>
+            </section>
+
+            <!-- S -->
+            <section class="letter-section" id="letter-s">
+                <h2 class="letter-header">S</h2>
+                
+                <article class="term-card" id="term-secured-loan">
+                    <h3 class="term-name">Secured Loan</h3>
+                    <p class="term-definition">A loan backed by collateral—an asset the lender can seize if you don't repay. Mortgages (secured by your home) and car loans (secured by your vehicle) are secured loans. Because there's less risk for the lender, interest rates are typically lower than unsecured loans.</p>
+                </article>
+
+                <article class="term-card" id="term-stock-split">
+                    <h3 class="term-name">Stock Split</h3>
+                    <p class="term-definition">When a company divides its existing shares into multiple shares to lower the price per share. In a 2-for-1 split, if you owned 100 shares at $100 each, you'd now own 200 shares at $50 each. Your total value stays the same, but shares become more affordable for smaller investors.</p>
+                </article>
+            </section>
+
+            <!-- T -->
+            <section class="letter-section" id="letter-t">
+                <h2 class="letter-header">T</h2>
+                
+                <article class="term-card" id="term-tds">
+                    <h3 class="term-name">Total Debt Service (TDS) Ratio</h3>
+                    <p class="term-abbr">TDS</p>
+                    <p class="term-definition">The percentage of your gross monthly income that goes toward all your debt obligations—housing costs plus car loans, credit cards, student loans, etc. Lenders typically want your TDS below 42-44%. If your gross income is $6,000/month, your total debt payments should ideally be under $2,520/month.</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-affordability" class="calc-link">→ Affordability Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-tfsa">
+                    <h3 class="term-name">Tax-Free Savings Account (TFSA)</h3>
+                    <p class="term-abbr">TFSA</p>
+                    <p class="term-definition">A flexible, tax-sheltered account for any savings goal. Contributions aren't tax-deductible, but all investment growth and withdrawals are 100% tax-free. You can hold stocks, bonds, ETFs, GICs, and cash. Annual contribution room accumulates ($7,000 in 2024), and unused room carries forward. Withdrawals add back to your room the following year.</p>
+                    <div class="callout">
+                        <div class="callout-title">💡 Did you know?</div>
+                        <div class="callout-text">If you were 18+ in 2009 when TFSA launched and never contributed, you'd have over $95,000 in contribution room by 2024!</div>
+                    </div>
+                    <div class="related-links">
+                        <a href="../index.html#page-tfsa" class="calc-link">→ TFSA Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-term-life-insurance">
+                    <h3 class="term-name">Term Life Insurance</h3>
+                    <p class="term-definition">Life insurance that covers you for a specific period (10, 20, or 30 years). If you die during the term, your beneficiaries receive the death benefit. If you outlive the term, coverage ends. Much cheaper than permanent life insurance and ideal for covering specific financial obligations like a mortgage.</p>
+                </article>
+            </section>
+
+            <!-- U -->
+            <section class="letter-section" id="letter-u">
+                <h2 class="letter-header">U</h2>
+                
+                <article class="term-card" id="term-unsecured-loan">
+                    <h3 class="term-name">Unsecured Loan</h3>
+                    <p class="term-definition">A loan not backed by collateral, relying only on your creditworthiness. Credit cards and personal lines of credit are common examples. Because lenders take on more risk, interest rates are higher than secured loans.</p>
+                </article>
+            </section>
+
+            <!-- V -->
+            <section class="letter-section" id="letter-v">
+                <h2 class="letter-header">V</h2>
+                
+                <article class="term-card" id="term-variable-rate-mortgage">
+                    <h3 class="term-name">Variable-Rate Mortgage</h3>
+                    <p class="term-definition">A mortgage where the interest rate fluctuates with the lender's prime rate. When prime goes up or down, so does your rate (and often your payment). Variable rates are typically lower than fixed rates initially but carry more risk if rates rise significantly.</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-mortgage" class="calc-link">→ Mortgage Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-volatility">
+                    <h3 class="term-name">Volatility</h3>
+                    <p class="term-definition">The degree of variation in an investment's price over time. High volatility means large price swings (more risk, but potentially higher returns). Low volatility means stable, predictable prices. Stocks are more volatile than bonds; bonds are more volatile than GICs.</p>
+                </article>
+            </section>
+
+            <!-- W -->
+            <section class="letter-section" id="letter-w">
+                <h2 class="letter-header">W</h2>
+                
+                <article class="term-card" id="term-wacc">
+                    <h3 class="term-name">Weighted Average Cost of Capital (WACC)</h3>
+                    <p class="term-abbr">WACC</p>
+                    <p class="term-definition">The average rate a company expects to pay to finance its assets, weighted by the proportion of debt and equity. Used as a hurdle rate for investment decisions—projects must return more than WACC to create value. Important in corporate finance and business valuation.</p>
+                </article>
+
+                <article class="term-card" id="term-working-capital">
+                    <h3 class="term-name">Working Capital</h3>
+                    <p class="term-definition">A measure of a company's short-term financial health, calculated as current assets minus current liabilities. Positive working capital means you have enough liquid assets to cover short-term obligations. Essential for day-to-day operations.</p>
+                </article>
+            </section>
+
+            <!-- Y -->
+            <section class="letter-section" id="letter-y">
+                <h2 class="letter-header">Y</h2>
+                
+                <article class="term-card" id="term-yield">
+                    <h3 class="term-name">Yield</h3>
+                    <p class="term-definition">The income return on an investment, expressed as a percentage. For stocks, it's the annual dividend divided by the share price. For bonds, it's the interest payment relative to the bond's current price. A 5% yield means you earn $5 annually for every $100 invested.</p>
+                </article>
+
+                <article class="term-card" id="term-ytd">
+                    <h3 class="term-name">Year-to-Date (YTD)</h3>
+                    <p class="term-abbr">YTD</p>
+                    <p class="term-definition">A period starting from the beginning of the current calendar year and continuing to the present date. Used to track investment returns, business performance, or financial metrics over the year so far.</p>
+                </article>
+            </section>
+
+            <!-- Additional Terms (to reach 100+) -->
+            
+            <!-- Additional A terms -->
+            <section class="letter-section" id="letter-a-more">
+                <article class="term-card" id="term-annual-fee">
+                    <h3 class="term-name">Annual Fee</h3>
+                    <p class="term-definition">A yearly charge for certain credit cards, bank accounts, or investment accounts. Credit cards with annual fees often offer rewards, cashback, or travel perks that can outweigh the cost if you use them wisely.</p>
+                </article>
+
+                <article class="term-card" id="term-appreciation">
+                    <h3 class="term-name">Appreciation</h3>
+                    <p class="term-definition">An increase in an asset's value over time. Real estate, stocks, and collectibles can all appreciate. The opposite is depreciation. Capital appreciation is a primary way investors build wealth.</p>
+                </article>
+            </section>
+
+            <!-- Additional B terms -->
+            <section class="letter-section" id="letter-b-more">
+                <article class="term-card" id="term-balance-sheet">
+                    <h3 class="term-name">Balance Sheet</h3>
+                    <p class="term-definition">A financial statement showing a company's assets, liabilities, and shareholders' equity at a specific point in time. It follows the equation: Assets = Liabilities + Equity. Essential for understanding a company's financial position.</p>
+                </article>
+
+                <article class="term-card" id="term-beneficiary">
+                    <h3 class="term-name">Beneficiary</h3>
+                    <p class="term-definition">A person or entity designated to receive benefits from a will, trust, insurance policy, or registered account upon your death. Keeping beneficiary designations up to date is crucial for estate planning.</p>
+                </article>
+
+                <article class="term-card" id="term-blue-chip-stock">
+                    <h3 class="term-name">Blue-Chip Stock</h3>
+                    <p class="term-definition">Shares of large, well-established companies with a history of reliable performance and financial stability. Examples in Canada include Royal Bank, TD, Enbridge, and Canadian National Railway. Often pay steady dividends.</p>
+                </article>
+
+                <article class="term-card" id="term-bond">
+                    <h3 class="term-name">Bond</h3>
+                    <p class="term-definition">A debt security where you lend money to a government or corporation for a set period at a fixed interest rate. Bonds are considered safer than stocks but typically offer lower returns. Government of Canada bonds are among the safest investments.</p>
+                </article>
+            </section>
+
+            <!-- Additional C terms -->
+            <section class="letter-section" id="letter-c-more">
+                <article class="term-card" id="term-credit-score">
+                    <h3 class="term-name">Credit Score</h3>
+                    <p class="term-definition">A three-digit number (300-900 in Canada) representing your creditworthiness. Based on payment history, credit utilization, length of credit history, and more. A score above 700 is generally considered good; above 800 is excellent. Affects loan approvals and interest rates.</p>
+                </article>
+
+                <article class="term-card" id="term-creditor">
+                    <h3 class="term-name">Creditor</h3>
+                    <p class="term-definition">A person or institution that lends money or extends credit. Banks, credit card companies, and mortgage lenders are all creditors. You're the debtor.</p>
+                </article>
+            </section>
+
+            <!-- Additional D terms -->
+            <section class="letter-section" id="letter-d-more">
+                <article class="term-card" id="term-deductible">
+                    <h3 class="term-name">Deductible</h3>
+                    <p class="term-definition">The amount you must pay out-of-pocket before insurance coverage kicks in. Higher deductibles usually mean lower insurance premiums. Common in health, home, and auto insurance.</p>
+                </article>
+
+                <article class="term-card" id="term-deflation">
+                    <h3 class="term-name">Deflation</h3>
+                    <p class="term-definition">The opposite of inflation—a general decrease in prices over time. While it sounds good, deflation can be harmful to the economy as people delay purchases expecting lower prices, which reduces demand and can lead to recession.</p>
+                </article>
+
+                <article class="term-card" id="term-depreciation">
+                    <h3 class="term-name">Depreciation</h3>
+                    <p class="term-definition">A decrease in an asset's value over time. Cars typically depreciate rapidly—losing 20-30% of value in the first year. In accounting, it's the systematic allocation of an asset's cost over its useful life.</p>
+                </article>
+
+                <article class="term-card" id="term-diversification">
+                    <h3 class="term-name">Diversification</h3>
+                    <p class="term-definition">Spreading your investments across different asset classes, sectors, and geographies to reduce risk. The investment equivalent of "don't put all your eggs in one basket." Reduces the impact of any single investment performing poorly.</p>
+                </article>
+
+                <article class="term-card" id="term-down-payment">
+                    <h3 class="term-name">Down Payment</h3>
+                    <p class="term-definition">The upfront cash payment you make when buying a home or car, expressed as a percentage of the purchase price. In Canada, the minimum down payment for a home is 5% for purchases under $500,000, but 20% avoids mortgage insurance.</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-mortgage" class="calc-link">→ Mortgage Calculator</a>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Additional E terms -->
+            <section class="letter-section" id="letter-e-more">
+                <article class="term-card" id="term-emergency-fund">
+                    <h3 class="term-name">Emergency Fund</h3>
+                    <p class="term-definition">Money set aside to cover unexpected expenses or loss of income. Financial experts recommend 3-6 months of living expenses in a high-interest savings account or TFSA. This protects you from going into debt during emergencies.</p>
+                    <div class="callout">
+                        <div class="callout-title">💡 Did you know?</div>
+                        <div class="callout-text">Nearly 50% of Canadians are $200 or less away from financial insolvency each month. An emergency fund is your financial safety net!</div>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-estate">
+                    <h3 class="term-name">Estate</h3>
+                    <p class="term-definition">All the assets and liabilities you leave behind when you die. Proper estate planning (wills, beneficiary designations, powers of attorney) ensures your assets go where you want them to and minimizes taxes and family disputes.</p>
+                </article>
+            </section>
+
+            <!-- Additional F terms -->
+            <section class="letter-section" id="letter-f-more">
+                <article class="term-card" id="term-fiduciary">
+                    <h3 class="term-name">Fiduciary</h3>
+                    <p class="term-definition">A person legally obligated to act in your best financial interest. Fee-only financial planners and some investment advisors are fiduciaries. Not all financial professionals have fiduciary duty—some work on commission and may have conflicts of interest.</p>
+                </article>
+
+                <article class="term-card" id="term-forecast">
+                    <h3 class="term-name">Forecast</h3>
+                    <p class="term-definition">A prediction of future financial performance based on historical data and assumptions. Companies issue earnings forecasts; economists forecast GDP growth. Forecasts are educated guesses, not guarantees.</p>
+                </article>
+            </section>
+
+            <!-- Additional G terms -->
+            <section class="letter-section" id="letter-g-more">
+                <article class="term-card" id="term-grace-period">
+                    <h3 class="term-name">Grace Period</h3>
+                    <p class="term-definition">A set time after a payment due date during which you can pay without penalty. Credit cards typically offer a 21-day grace period on purchases if you pay your balance in full each month, meaning you pay no interest.</p>
+                </article>
+
+                <article class="term-card" id="term-gross-profit">
+                    <h3 class="term-name">Gross Profit</h3>
+                    <p class="term-definition">Revenue minus the direct costs of producing goods or services (cost of goods sold). It measures how efficiently a company produces its products before accounting for operating expenses, interest, and taxes.</p>
+                </article>
+            </section>
+
+            <!-- Additional I terms -->
+            <section class="letter-section" id="letter-i-more">
+                <article class="term-card" id="term-income-statement">
+                    <h3 class="term-name">Income Statement</h3>
+                    <p class="term-definition">A financial statement showing a company's revenues, expenses, and profit over a specific period. Also called a profit and loss (P&L) statement. Shows whether a company is making or losing money.</p>
+                </article>
+
+                <article class="term-card" id="term-index-fund">
+                    <h3 class="term-name">Index Fund</h3>
+                    <p class="term-definition">A mutual fund or ETF designed to track a specific market index (like the S&P 500 or S&P/TSX Composite). They offer instant diversification, low fees, and historically outperform most actively managed funds over the long term.</p>
+                </article>
+
+                <article class="term-card" id="term-interest">
+                    <h3 class="term-name">Interest</h3>
+                    <p class="term-definition">The cost of borrowing money or the return earned on savings/investments. Expressed as a percentage (interest rate). When you borrow, you pay interest. When you save or invest, you earn it.</p>
+                </article>
+            </section>
+
+            <!-- Additional L terms -->
+            <section class="letter-section" id="letter-l-more">
+                <article class="term-card" id="term-liabilities">
+                    <h3 class="term-name">Liabilities</h3>
+                    <p class="term-definition">Everything you owe—debts and financial obligations. Includes mortgages, car loans, credit card balances, student loans, and unpaid bills. Your net worth equals assets minus liabilities.</p>
+                </article>
+
+                <article class="term-card" id="term-line-of-credit">
+                    <h3 class="term-name">Line of Credit</h3>
+                    <p class="term-definition">A flexible loan that lets you borrow money up to a set limit, repay it, and borrow again. You only pay interest on what you borrow. Personal lines of credit are unsecured; HELOCs are secured by your home.</p>
+                </article>
+            </section>
+
+            <!-- Additional M terms -->
+            <section class="letter-section" id="letter-m-more">
+                <article class="term-card" id="term-market-cap">
+                    <h3 class="term-name">Market Capitalization</h3>
+                    <p class="term-definition">The total value of a company's outstanding shares, calculated by multiplying share price by number of shares. Companies are classified as large-cap (>$10B), mid-cap ($2-10B), or small-cap (&lt;$2B).</p>
+                </article>
+
+                <article class="term-card" id="term-maturity-date">
+                    <h3 class="term-name">Maturity Date</h3>
+                    <p class="term-definition">The date when a financial instrument (like a GIC or bond) expires and you receive your principal back. For mortgages, it's when your term ends and you need to renew or pay off the balance.</p>
+                </article>
+
+                <article class="term-card" id="term-mutual-fund">
+                    <h3 class="term-name">Mutual Fund</h3>
+                    <p class="term-definition">An investment vehicle that pools money from many investors to buy a diversified portfolio of stocks, bonds, or other securities. Managed by professional portfolio managers. Canadian mutual funds typically charge higher fees (MERs of 2%+) than ETFs.</p>
+                </article>
+            </section>
+
+            <!-- Additional P terms -->
+            <section class="letter-section" id="letter-p-more">
+                <article class="term-card" id="term-portfolio">
+                    <h3 class="term-name">Portfolio</h3>
+                    <p class="term-definition">Your collection of investments—stocks, bonds, ETFs, real estate, etc. A well-balanced portfolio is diversified across asset classes and aligned with your risk tolerance and financial goals.</p>
+                </article>
+
+                <article class="term-card" id="term-pre-approval">
+                    <h3 class="term-name">Pre-Approval (Mortgage)</h3>
+                    <p class="term-definition">A conditional commitment from a lender stating how much they're willing to lend you, at what rate, and for what term. Valid for 90-120 days. Gives you negotiating power and a realistic budget when house hunting. Not a guarantee—final approval requires property appraisal.</p>
+                </article>
+            </section>
+
+            <!-- Additional R terms -->
+            <section class="letter-section" id="letter-r-more">
+                <article class="term-card" id="term-rebalancing">
+                    <h3 class="term-name">Rebalancing</h3>
+                    <p class="term-definition">Adjusting your portfolio back to its target asset allocation. If stocks outperform bonds, you might sell some stocks and buy bonds to maintain your desired 60/40 split. Helps control risk and forces you to "buy low, sell high."</p>
+                </article>
+
+                <article class="term-card" id="term-recession">
+                    <h3 class="term-name">Recession</h3>
+                    <p class="term-definition">A significant decline in economic activity lasting more than a few months, typically defined as two consecutive quarters of negative GDP growth. Characterized by rising unemployment, falling incomes, and reduced spending.</p>
+                </article>
+
+                <article class="term-card" id="term-refinancing">
+                    <h3 class="term-name">Refinancing</h3>
+                    <p class="term-definition">Replacing your existing loan with a new one, usually to get a better interest rate, change the term, or access equity. Common with mortgages. Can save thousands in interest but may involve fees.</p>
+                </article>
+            </section>
+
+            <!-- Additional S terms -->
+            <section class="letter-section" id="letter-s-more">
+                <article class="term-card" id="term-savings-rate">
+                    <h3 class="term-name">Savings Rate</h3>
+                    <p class="term-definition">The percentage of your after-tax income that you save and invest. A higher savings rate accelerates wealth building and early retirement. Aim for at least 10-20%; financial independence seekers often save 50%+.</p>
+                </article>
+
+                <article class="term-card" id="term-spousal-rrsp">
+                    <h3 class="term-name">Spousal RRSP</h3>
+                    <p class="term-definition">An RRSP where one spouse contributes but the other spouse owns the account. Used for income splitting in retirement—the lower-income spouse withdraws the funds and pays tax at their (presumably lower) rate. An effective tax-planning strategy for couples.</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-rrsp" class="calc-link">→ RRSP Calculator</a>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Additional T terms -->
+            <section class="letter-section" id="letter-t-more">
+                <article class="term-card" id="term-tax-bracket">
+                    <h3 class="term-name">Tax Bracket</h3>
+                    <p class="term-definition">A range of income taxed at a specific rate in Canada's progressive tax system. As your income increases, you move into higher tax brackets, but only the income in each bracket is taxed at that bracket's rate. Federal brackets range from 15% to 33%.</p>
+                    <div class="related-links">
+                        <a href="../index.html#page-tax" class="calc-link">→ Tax Calculator</a>
+                    </div>
+                </article>
+
+                <article class="term-card" id="term-tax-refund">
+                    <h3 class="term-name">Tax Refund</h3>
+                    <p class="term-definition">Money returned by the government when you've paid more tax than you owe. Common if you have payroll deductions or made RRSP contributions. While refunds feel good, they're essentially interest-free loans you gave the government—it's better to owe a small amount.</p>
+                </article>
+            </section>
+
+            <!-- Additional V terms -->
+            <section class="letter-section" id="letter-v-more">
+                <article class="term-card" id="term-vesting">
+                    <h3 class="term-name">Vesting</h3>
+                    <p class="term-definition">The process by which you gain ownership of employer contributions to your retirement plan or stock options. Common vesting schedules are 3-5 years. If you leave before fully vested, you forfeit unvested amounts.</p>
+                </article>
+            </section>
+
+            <!-- Additional W terms -->
+            <section class="letter-section" id="letter-w-more">
+                <article class="term-card" id="term-will">
+                    <h3 class="term-name">Will</h3>
+                    <p class="term-definition">A legal document that specifies how you want your assets distributed after death and who will care for minor children. Dying without a will (intestate) means provincial law decides—often not what you'd want. Every adult should have a will.</p>
+                </article>
+
+                <article class="term-card" id="term-withholding-tax">
+                    <h3 class="term-name">Withholding Tax</h3>
+                    <p class="term-definition">Tax deducted at source before you receive income. Employers withhold income tax, CPP, and EI from paychecks. RRSP withdrawals have withholding tax (10-30% depending on amount). Doesn't necessarily equal your final tax owing—that's settled when you file your return.</p>
+                </article>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 FiggyBank. Made with 🐷 in Canada. <a href="../" style="color: var(--purple);">Home</a> | <a href="mailto:hello@figgybank.ca" style="color: var(--purple);">Contact</a></p>
+    </footer>
+
+    <script>
+        // Dark mode toggle
+        function toggleDark() {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark'));
+        }
+
+        // Load dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark');
+        }
+
+        // Generate alphabet navigation
+        const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+        const letterNav = document.getElementById('letterNav');
+        const letterSections = document.querySelectorAll('.letter-section');
+        const availableLetters = new Set(
+            Array.from(letterSections).map(section => section.id.replace('letter-', '').charAt(0).toUpperCase())
+        );
+
+        alphabet.forEach(letter => {
+            const link = document.createElement('a');
+            link.href = `#letter-${letter.toLowerCase()}`;
+            link.className = 'letter-link';
+            link.textContent = letter;
+            
+            if (!availableLetters.has(letter)) {
+                link.classList.add('disabled');
+            }
+            
+            letterNav.appendChild(link);
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchStats = document.getElementById('searchStats');
+        const termCards = document.querySelectorAll('.term-card');
+        let totalTerms = termCards.length;
+
+        searchInput.addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            termCards.forEach(card => {
+                const termName = card.querySelector('.term-name').textContent.toLowerCase();
+                const termAbbr = card.querySelector('.term-abbr')?.textContent.toLowerCase() || '';
+                const termDefinition = card.querySelector('.term-definition').textContent.toLowerCase();
+                
+                const matches = termName.includes(query) || 
+                               termAbbr.includes(query) || 
+                               termDefinition.includes(query) ||
+                               query === '';
+
+                if (matches) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            if (query === '') {
+                searchStats.textContent = `${totalTerms} terms available`;
+            } else {
+                searchStats.textContent = `Found ${visibleCount} of ${totalTerms} terms matching "${e.target.value}"`;
+            }
+        });
+
+        // Initialize search stats
+        searchStats.textContent = `${totalTerms} terms available`;
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Highlight active letter in navigation
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '-100px 0px -50% 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const letter = entry.target.id.replace('letter-', '').charAt(0).toUpperCase();
+                    document.querySelectorAll('.letter-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.textContent === letter) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        letterSections.forEach(section => observer.observe(section));
+    </script>
+</body>
+</html>

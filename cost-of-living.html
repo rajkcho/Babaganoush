@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canadian Cost of Living Comparison - FiggyBank</title>
+    <meta name="description" content="Compare the cost of living between Canadian cities. Analyze home prices, rent, groceries, transportation, childcare, taxes, and more across 15+ major cities.">
+    <meta name="keywords" content="Canadian cost of living, city comparison, housing costs Canada, rent prices Canada, cost comparison tool">
+    <meta property="og:title" content="Canadian Cost of Living Comparison - FiggyBank">
+    <meta property="og:description" content="Interactive tool to compare living costs across major Canadian cities including Toronto, Vancouver, Montreal, and more.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHP0GVPV8Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QHP0GVPV8Q');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3447886014314572" crossorigin="anonymous"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --purple: #2C087D;
+            --coral: #FF6B6B;
+            --cream: #FCFAF4;
+            --dark-bg: #1a1a1a;
+            --dark-card: #2a2a2a;
+            --dark-text: #e0e0e0;
+            --dark-border: #3a3a3a;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: #333;
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+        
+        /* Navbar */
+        nav {
+            background-color: var(--purple);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            gap: 0.75rem;
+        }
+        
+        .logo-svg {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .dark-mode-toggle {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        
+        .dark-mode-toggle:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        h1 {
+            color: var(--purple);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        body.dark-mode h1 {
+            color: var(--coral);
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+        
+        /* City Selectors */
+        .city-selector-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        body.dark-mode .city-selector-container {
+            background: var(--dark-card);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .city-selector {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .city-selector label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--purple);
+        }
+        
+        body.dark-mode .city-selector label {
+            color: var(--coral);
+        }
+        
+        .city-selector select {
+            padding: 0.75rem;
+            border: 2px solid var(--purple);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        body.dark-mode .city-selector select {
+            background: var(--dark-bg);
+            color: var(--dark-text);
+            border-color: var(--coral);
+        }
+        
+        .city-selector select:hover {
+            border-color: var(--coral);
+        }
+        
+        /* Cost Index Cards */
+        .cost-index-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .cost-index-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        
+        body.dark-mode .cost-index-card {
+            background: var(--dark-card);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .cost-index-card h3 {
+            color: var(--purple);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        body.dark-mode .cost-index-card h3 {
+            color: var(--coral);
+        }
+        
+        .cost-index-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--purple);
+        }
+        
+        body.dark-mode .cost-index-value {
+            color: var(--coral);
+        }
+        
+        .cost-index-baseline {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
+        
+        /* Comparison Grid */
+        .comparison-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        body.dark-mode .comparison-container {
+            background: var(--dark-card);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .comparison-item {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        body.dark-mode .comparison-item {
+            border-bottom-color: var(--dark-border);
+        }
+        
+        .comparison-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .comparison-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .comparison-label {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--purple);
+        }
+        
+        body.dark-mode .comparison-label {
+            color: var(--coral);
+        }
+        
+        .comparison-diff {
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+        }
+        
+        .comparison-diff.cheaper {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .comparison-diff.expensive {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        body.dark-mode .comparison-diff.cheaper {
+            background: #1a4d2e;
+            color: #90ee90;
+        }
+        
+        body.dark-mode .comparison-diff.expensive {
+            background: #4d1a1a;
+            color: #ff9999;
+        }
+        
+        .comparison-bars {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .bar-container {
+            position: relative;
+        }
+        
+        .bar-label {
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+            opacity: 0.8;
+        }
+        
+        .bar-wrapper {
+            position: relative;
+            height: 40px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        body.dark-mode .bar-wrapper {
+            background: var(--dark-bg);
+        }
+        
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(135deg, var(--purple), var(--coral));
+            border-radius: 8px;
+            transition: width 0.8s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 0.75rem;
+        }
+        
+        .bar-value {
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--purple);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        footer a {
+            color: var(--coral);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .city-selector-container,
+            .cost-index-container,
+            .comparison-bars {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            nav {
+                padding: 1rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .logo-link {
+                font-size: 1.2rem;
+            }
+            
+            .cost-index-value {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="../" class="logo-link">
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="50" cy="55" rx="35" ry="30" fill="#FF6B6B"/>
+                    <circle cx="35" cy="45" r="3" fill="#2C087D"/>
+                    <ellipse cx="25" cy="40" rx="8" ry="10" fill="#FF9999"/>
+                    <ellipse cx="75" cy="40" rx="8" ry="10" fill="#FF9999"/>
+                    <rect x="45" y="30" width="10" height="8" rx="2" fill="#2C087D"/>
+                    <path d="M 30 65 Q 50 75 70 65" stroke="#2C087D" stroke-width="2" fill="none"/>
+                    <circle cx="50" cy="20" r="6" fill="#FFD700"/>
+                    <rect x="48" y="10" width="4" height="12" fill="#FFD700"/>
+                </svg>
+                FiggyBank
+            </a>
+            <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Canadian Cost of Living Comparison</h1>
+        <p class="subtitle">Compare living costs between major Canadian cities to make informed decisions about where to live.</p>
+        
+        <!-- City Selectors -->
+        <div class="city-selector-container">
+            <div class="city-selector">
+                <label for="city1">City 1</label>
+                <select id="city1" onchange="comparecities()">
+                    <option value="Toronto">Toronto, ON</option>
+                    <option value="Vancouver">Vancouver, BC</option>
+                    <option value="Montreal">Montreal, QC</option>
+                    <option value="Calgary">Calgary, AB</option>
+                    <option value="Edmonton">Edmonton, AB</option>
+                    <option value="Ottawa">Ottawa, ON</option>
+                    <option value="Winnipeg">Winnipeg, MB</option>
+                    <option value="Halifax">Halifax, NS</option>
+                    <option value="Victoria">Victoria, BC</option>
+                    <option value="Hamilton">Hamilton, ON</option>
+                    <option value="Kitchener">Kitchener-Waterloo, ON</option>
+                    <option value="London">London, ON</option>
+                    <option value="Quebec City">Quebec City, QC</option>
+                    <option value="Burlington">Burlington, ON</option>
+                    <option value="Kelowna">Kelowna, BC</option>
+                    <option value="Saskatoon">Saskatoon, SK</option>
+                    <option value="Regina">Regina, SK</option>
+                </select>
+            </div>
+            <div class="city-selector">
+                <label for="city2">City 2</label>
+                <select id="city2" onchange="compareCities()">
+                    <option value="Toronto">Toronto, ON</option>
+                    <option value="Vancouver" selected>Vancouver, BC</option>
+                    <option value="Montreal">Montreal, QC</option>
+                    <option value="Calgary">Calgary, AB</option>
+                    <option value="Edmonton">Edmonton, AB</option>
+                    <option value="Ottawa">Ottawa, ON</option>
+                    <option value="Winnipeg">Winnipeg, MB</option>
+                    <option value="Halifax">Halifax, NS</option>
+                    <option value="Victoria">Victoria, BC</option>
+                    <option value="Hamilton">Hamilton, ON</option>
+                    <option value="Kitchener">Kitchener-Waterloo, ON</option>
+                    <option value="London">London, ON</option>
+                    <option value="Quebec City">Quebec City, QC</option>
+                    <option value="Burlington">Burlington, ON</option>
+                    <option value="Kelowna">Kelowna, BC</option>
+                    <option value="Saskatoon">Saskatoon, SK</option>
+                    <option value="Regina">Regina, SK</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Cost Index -->
+        <div class="cost-index-container">
+            <div class="cost-index-card">
+                <h3 id="city1-name">Toronto</h3>
+                <div class="cost-index-value" id="city1-index">100</div>
+                <div class="cost-index-baseline">Cost Index (100 = baseline)</div>
+            </div>
+            <div class="cost-index-card">
+                <h3 id="city2-name">Vancouver</h3>
+                <div class="cost-index-value" id="city2-index">105</div>
+                <div class="cost-index-baseline">Cost Index (100 = baseline)</div>
+            </div>
+        </div>
+        
+        <!-- Comparison Details -->
+        <div class="comparison-container" id="comparison-details">
+            <!-- Will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 FiggyBank. Empowering Canadians with financial tools and insights.</p>
+        <p style="margin-top: 0.5rem;">Data is approximate and for comparison purposes. Always verify current costs.</p>
+    </footer>
+
+    <script>
+        // City data (all values in CAD)
+        const cityData = {
+            Toronto: {
+                homePrice: 1100000,
+                rent1BR: 2400,
+                rent2BR: 3200,
+                groceries: 450,
+                gas: 155,
+                transitPass: 156,
+                childcare: 1750,
+                householdIncome: 102000,
+                provincialTax: 11160,
+                utilities: 150,
+                restaurantMeal: 75
+            },
+            Vancouver: {
+                homePrice: 1250000,
+                rent1BR: 2600,
+                rent2BR: 3600,
+                groceries: 475,
+                gas: 180,
+                transitPass: 136,
+                childcare: 1400,
+                householdIncome: 98000,
+                provincialTax: 9360,
+                utilities: 120,
+                restaurantMeal: 80
+            },
+            Montreal: {
+                homePrice: 550000,
+                rent1BR: 1650,
+                rent2BR: 2200,
+                groceries: 400,
+                gas: 165,
+                transitPass: 94,
+                childcare: 190,
+                householdIncome: 85000,
+                provincialTax: 15180,
+                utilities: 110,
+                restaurantMeal: 65
+            },
+            Calgary: {
+                homePrice: 575000,
+                rent1BR: 1650,
+                rent2BR: 2100,
+                groceries: 425,
+                gas: 145,
+                transitPass: 112,
+                childcare: 1150,
+                householdIncome: 105000,
+                provincialTax: 10000,
+                utilities: 180,
+                restaurantMeal: 70
+            },
+            Edmonton: {
+                homePrice: 425000,
+                rent1BR: 1350,
+                rent2BR: 1750,
+                groceries: 410,
+                gas: 145,
+                transitPass: 100,
+                childcare: 1050,
+                householdIncome: 100000,
+                provincialTax: 10000,
+                utilities: 190,
+                restaurantMeal: 65
+            },
+            Ottawa: {
+                homePrice: 650000,
+                rent1BR: 1950,
+                rent2BR: 2500,
+                groceries: 440,
+                gas: 155,
+                transitPass: 128,
+                childcare: 1300,
+                householdIncome: 110000,
+                provincialTax: 11160,
+                utilities: 140,
+                restaurantMeal: 70
+            },
+            Winnipeg: {
+                homePrice: 375000,
+                rent1BR: 1250,
+                rent2BR: 1600,
+                groceries: 390,
+                gas: 150,
+                transitPass: 108,
+                childcare: 650,
+                householdIncome: 85000,
+                provincialTax: 12740,
+                utilities: 165,
+                restaurantMeal: 60
+            },
+            Halifax: {
+                homePrice: 485000,
+                rent1BR: 1750,
+                rent2BR: 2200,
+                groceries: 420,
+                gas: 165,
+                transitPass: 82,
+                childcare: 950,
+                householdIncome: 88000,
+                provincialTax: 13750,
+                utilities: 155,
+                restaurantMeal: 65
+            },
+            Victoria: {
+                homePrice: 950000,
+                rent1BR: 2200,
+                rent2BR: 2900,
+                groceries: 460,
+                gas: 175,
+                transitPass: 85,
+                childcare: 1350,
+                householdIncome: 95000,
+                provincialTax: 9360,
+                utilities: 115,
+                restaurantMeal: 75
+            },
+            Hamilton: {
+                homePrice: 850000,
+                rent1BR: 1950,
+                rent2BR: 2500,
+                groceries: 430,
+                gas: 155,
+                transitPass: 130,
+                childcare: 1650,
+                householdIncome: 95000,
+                provincialTax: 11160,
+                utilities: 145,
+                restaurantMeal: 70
+            },
+            Kitchener: {
+                homePrice: 750000,
+                rent1BR: 1800,
+                rent2BR: 2300,
+                groceries: 420,
+                gas: 155,
+                transitPass: 95,
+                childcare: 1500,
+                householdIncome: 92000,
+                provincialTax: 11160,
+                utilities: 150,
+                restaurantMeal: 65
+            },
+            London: {
+                homePrice: 625000,
+                rent1BR: 1650,
+                rent2BR: 2100,
+                groceries: 405,
+                gas: 155,
+                transitPass: 95,
+                childcare: 1400,
+                householdIncome: 88000,
+                provincialTax: 11160,
+                utilities: 155,
+                restaurantMeal: 60
+            },
+            "Quebec City": {
+                homePrice: 385000,
+                rent1BR: 1250,
+                rent2BR: 1650,
+                groceries: 385,
+                gas: 165,
+                transitPass: 94,
+                childcare: 190,
+                householdIncome: 82000,
+                provincialTax: 15180,
+                utilities: 105,
+                restaurantMeal: 60
+            },
+            Burlington: {
+                homePrice: 950000,
+                rent1BR: 2100,
+                rent2BR: 2700,
+                groceries: 440,
+                gas: 155,
+                transitPass: 130,
+                childcare: 1700,
+                householdIncome: 105000,
+                provincialTax: 11160,
+                utilities: 145,
+                restaurantMeal: 72
+            },
+            Kelowna: {
+                homePrice: 775000,
+                rent1BR: 1950,
+                rent2BR: 2500,
+                groceries: 440,
+                gas: 170,
+                transitPass: 60,
+                childcare: 1300,
+                householdIncome: 85000,
+                provincialTax: 9360,
+                utilities: 130,
+                restaurantMeal: 70
+            },
+            Saskatoon: {
+                homePrice: 365000,
+                rent1BR: 1200,
+                rent2BR: 1550,
+                groceries: 395,
+                gas: 150,
+                transitPass: 90,
+                childcare: 900,
+                householdIncome: 92000,
+                provincialTax: 10500,
+                utilities: 175,
+                restaurantMeal: 58
+            },
+            Regina: {
+                homePrice: 340000,
+                rent1BR: 1150,
+                rent2BR: 1500,
+                groceries: 390,
+                gas: 150,
+                transitPass: 85,
+                childcare: 850,
+                householdIncome: 95000,
+                provincialTax: 10500,
+                utilities: 170,
+                restaurantMeal: 55
+            }
+        };
+        
+        const categories = [
+            { key: 'homePrice', label: 'Average Home Price', format: 'currency', inverse: false },
+            { key: 'rent1BR', label: 'Monthly Rent (1 Bedroom)', format: 'currency', inverse: false },
+            { key: 'rent2BR', label: 'Monthly Rent (2 Bedroom)', format: 'currency', inverse: false },
+            { key: 'groceries', label: 'Monthly Groceries (per person)', format: 'currency', inverse: false },
+            { key: 'gas', label: 'Gas (per litre)', format: 'cents', inverse: false },
+            { key: 'transitPass', label: 'Monthly Transit Pass', format: 'currency', inverse: false },
+            { key: 'childcare', label: 'Monthly Childcare (per child)', format: 'currency', inverse: false },
+            { key: 'householdIncome', label: 'Median Household Income', format: 'currency', inverse: true },
+            { key: 'provincialTax', label: 'Provincial Tax on $100K Income', format: 'currency', inverse: false },
+            { key: 'utilities', label: 'Monthly Utilities (average)', format: 'currency', inverse: false },
+            { key: 'restaurantMeal', label: 'Restaurant Meal (mid-range)', format: 'currency', inverse: false }
+        ];
+        
+        function formatValue(value, format) {
+            if (format === 'currency') {
+                if (value >= 1000) {
+                    return '$' + (value / 1000).toFixed(value >= 10000 ? 0 : 1) + 'K';
+                }
+                return '$' + value.toLocaleString();
+            } else if (format === 'cents') {
+                return value + '¢';
+            }
+            return value.toString();
+        }
+        
+        function calculateCostIndex(cityName) {
+            const data = cityData[cityName];
+            // Weighted average of costs (excluding income)
+            const weights = {
+                homePrice: 0.25,
+                rent1BR: 0.15,
+                rent2BR: 0.10,
+                groceries: 0.10,
+                gas: 0.05,
+                transitPass: 0.05,
+                childcare: 0.10,
+                provincialTax: 0.10,
+                utilities: 0.05,
+                restaurantMeal: 0.05
+            };
+            
+            let totalCost = 0;
+            let baselineCost = 0;
+            const baseline = cityData['Toronto']; // Using Toronto as baseline
+            
+            Object.keys(weights).forEach(key => {
+                totalCost += data[key] * weights[key];
+                baselineCost += baseline[key] * weights[key];
+            });
+            
+            return Math.round((totalCost / baselineCost) * 100);
+        }
+        
+        function compareCities() {
+            const city1 = document.getElementById('city1').value;
+            const city2 = document.getElementById('city2').value;
+            
+            const data1 = cityData[city1];
+            const data2 = cityData[city2];
+            
+            // Update cost indices
+            document.getElementById('city1-name').textContent = city1;
+            document.getElementById('city2-name').textContent = city2;
+            document.getElementById('city1-index').textContent = calculateCostIndex(city1);
+            document.getElementById('city2-index').textContent = calculateCostIndex(city2);
+            
+            // Build comparison details
+            const comparisonContainer = document.getElementById('comparison-details');
+            comparisonContainer.innerHTML = '';
+            
+            categories.forEach(category => {
+                const val1 = data1[category.key];
+                const val2 = data2[category.key];
+                const max = Math.max(val1, val2);
+                
+                let diff = ((val2 - val1) / val1 * 100).toFixed(1);
+                let diffClass = '';
+                let diffText = '';
+                
+                if (category.inverse) {
+                    // For income, higher is better
+                    if (val2 > val1) {
+                        diffClass = 'cheaper';
+                        diffText = '+' + diff + '% higher';
+                    } else if (val2 < val1) {
+                        diffClass = 'expensive';
+                        diffText = Math.abs(diff) + '% lower';
+                    } else {
+                        diffClass = '';
+                        diffText = 'Same';
+                    }
+                } else {
+                    // For costs, lower is better
+                    if (val2 > val1) {
+                        diffClass = 'expensive';
+                        diffText = '+' + diff + '% more';
+                    } else if (val2 < val1) {
+                        diffClass = 'cheaper';
+                        diffText = Math.abs(diff) + '% less';
+                    } else {
+                        diffClass = '';
+                        diffText = 'Same';
+                    }
+                }
+                
+                const itemHTML = `
+                    <div class="comparison-item">
+                        <div class="comparison-header">
+                            <div class="comparison-label">${category.label}</div>
+                            ${diffText !== 'Same' ? `<div class="comparison-diff ${diffClass}">${diffText}</div>` : ''}
+                        </div>
+                        <div class="comparison-bars">
+                            <div class="bar-container">
+                                <div class="bar-label">${city1}</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: ${(val1/max)*100}%">
+                                        <div class="bar-value">${formatValue(val1, category.format)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bar-container">
+                                <div class="bar-label">${city2}</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: ${(val2/max)*100}%">
+                                        <div class="bar-value">${formatValue(val2, category.format)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                comparisonContainer.innerHTML += itemHTML;
+            });
+        }
+        
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+            
+            const btn = document.querySelector('.dark-mode-toggle');
+            btn.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+        }
+        
+        // Initialize dark mode from localStorage
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            document.querySelector('.dark-mode-toggle').textContent = '☀️ Light Mode';
+        }
+        
+        // Initialize comparison on load
+        compareCities();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FHSA vs RRSP for Your First Home: Which Should You Max Out First? | FiggyBank</title>
+    <meta name="description" content="Comparing FHSA ($8K/year, $40K lifetime) vs RRSP HBP ($60K withdrawal) for first-time home buyers. Worked examples at $50K, $80K, $120K income with decision flowchart and optimal strategies.">
+    <meta name="keywords" content="FHSA, RRSP, Home Buyers Plan, HBP, First Home Savings Account, first-time home buyer, Canadian real estate, down payment, tax deduction">
+    <meta name="author" content="FiggyBank Team">
+    <meta property="og:title" content="FHSA vs RRSP for Your First Home: Which Should You Max Out First?">
+    <meta property="og:description" content="Comparing FHSA ($8K/year, $40K lifetime) vs RRSP HBP ($60K withdrawal) for first-time home buyers. Worked examples and optimal strategies.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://figgybank.ca/blog/fhsa-vs-rrsp-first-home.html">
+    <meta property="og:image" content="https://figgybank.ca/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://figgybank.ca/blog/fhsa-vs-rrsp-first-home.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHP0GVPV8Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QHP0GVPV8Q');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3447886014314572" crossorigin="anonymous"></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "FHSA vs RRSP for Your First Home: Which Should You Max Out First?",
+        "description": "Comparing FHSA ($8K/year, $40K lifetime) vs RRSP HBP ($60K withdrawal) for first-time home buyers. Worked examples at $50K, $80K, $120K income with decision flowchart and optimal strategies.",
+        "author": {
+            "@type": "Organization",
+            "name": "FiggyBank Team"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FiggyBank",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://figgybank.ca/logo.png"
+            }
+        },
+        "datePublished": "2026-02-13",
+        "dateModified": "2026-02-13",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://figgybank.ca/blog/fhsa-vs-rrsp-first-home.html"
+        },
+        "keywords": ["FHSA", "RRSP", "Home Buyers Plan", "HBP", "First Home Savings Account", "first-time home buyer"],
+        "articleSection": "Real Estate",
+        "wordCount": 3500
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2C087D;
+            --accent: #FF6B6B;
+            --bg: #FCFAF4;
+            --bg-dark: #1a1a1a;
+            --text: #2C087D;
+            --text-dark: #FCFAF4;
+            --text-secondary: #5a5a5a;
+            --text-secondary-dark: #b0b0b0;
+            --border: #e0ddd4;
+            --border-dark: #333333;
+            --code-bg: #f5f2e8;
+            --code-bg-dark: #2a2a2a;
+            --callout-info: #e8f4ff;
+            --callout-info-dark: #1a3a4d;
+            --callout-success: #e8ffe8;
+            --callout-success-dark: #1a3d1a;
+            --callout-warning: #fff4e8;
+            --callout-warning-dark: #4d3a1a;
+            --shadow: rgba(44, 8, 125, 0.1);
+            --shadow-dark: rgba(0, 0, 0, 0.5);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        body.dark-mode {
+            background: var(--bg-dark);
+            color: var(--text-dark);
+        }
+        
+        /* Navigation */
+        nav {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+        
+        body.dark-mode nav {
+            background: #0f0f0f;
+            border-bottom-color: var(--border-dark);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        body.dark-mode .logo {
+            color: var(--text-dark);
+        }
+        
+        .logo svg {
+            width: 36px;
+            height: 36px;
+        }
+        
+        .theme-toggle {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: opacity 0.2s;
+        }
+        
+        .theme-toggle:hover {
+            opacity: 0.9;
+        }
+        
+        /* Breadcrumbs */
+        .breadcrumbs {
+            max-width: 1400px;
+            margin: 2rem auto 0;
+            padding: 0 2rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        body.dark-mode .breadcrumbs {
+            color: var(--text-secondary-dark);
+        }
+        
+        .breadcrumbs a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        body.dark-mode .breadcrumbs a {
+            color: var(--accent);
+        }
+        
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Layout */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+        
+        /* Table of Contents */
+        .toc {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 12px var(--shadow);
+        }
+        
+        body.dark-mode .toc {
+            background: #1a1a1a;
+            border-color: var(--border-dark);
+        }
+        
+        .toc h2 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        body.dark-mode .toc h2 {
+            color: var(--text-secondary-dark);
+        }
+        
+        .toc ul {
+            list-style: none;
+        }
+        
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .toc a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.9rem;
+            display: block;
+            padding: 0.25rem 0;
+            transition: color 0.2s;
+        }
+        
+        body.dark-mode .toc a {
+            color: var(--text-dark);
+        }
+        
+        .toc a:hover {
+            color: var(--accent);
+        }
+        
+        .toc a.active {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .toc-toggle {
+            display: none;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 1024px) {
+            .toc {
+                position: static;
+            }
+            
+            .toc-toggle {
+                display: block;
+            }
+            
+            .toc ul {
+                display: none;
+            }
+            
+            .toc.expanded ul {
+                display: block;
+            }
+        }
+        
+        /* Article */
+        article {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 2px 12px var(--shadow);
+            max-width: 900px;
+        }
+        
+        body.dark-mode article {
+            background: #1a1a1a;
+            border-color: var(--border-dark);
+        }
+        
+        .article-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+        }
+        
+        body.dark-mode .article-header {
+            border-bottom-color: var(--border-dark);
+        }
+        
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        body.dark-mode .article-title {
+            color: var(--text-dark);
+        }
+        
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        body.dark-mode .article-meta {
+            color: var(--text-secondary-dark);
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Typography */
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem;
+            color: var(--primary);
+            scroll-margin-top: 100px;
+        }
+        
+        body.dark-mode h2 {
+            color: var(--text-dark);
+        }
+        
+        h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--primary);
+            scroll-margin-top: 100px;
+        }
+        
+        body.dark-mode h3 {
+            color: var(--text-dark);
+        }
+        
+        h4 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--text);
+            scroll-margin-top: 100px;
+        }
+        
+        body.dark-mode h4 {
+            color: var(--text-dark);
+        }
+        
+        p {
+            margin-bottom: 1.25rem;
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        body.dark-mode a {
+            color: var(--accent);
+        }
+        
+        a:hover {
+            color: var(--accent);
+        }
+        
+        strong {
+            font-weight: 600;
+        }
+        
+        /* Callout Boxes */
+        .callout {
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+        }
+        
+        .callout-info {
+            background: var(--callout-info);
+            border-color: #3b82f6;
+        }
+        
+        body.dark-mode .callout-info {
+            background: var(--callout-info-dark);
+        }
+        
+        .callout-success {
+            background: var(--callout-success);
+            border-color: #10b981;
+        }
+        
+        body.dark-mode .callout-success {
+            background: var(--callout-success-dark);
+        }
+        
+        .callout-warning {
+            background: var(--callout-warning);
+            border-color: #f59e0b;
+        }
+        
+        body.dark-mode .callout-warning {
+            background: var(--callout-warning-dark);
+        }
+        
+        .callout-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        
+        body.dark-mode .table-wrapper {
+            border-color: var(--border-dark);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        body.dark-mode th,
+        body.dark-mode td {
+            border-bottom-color: var(--border-dark);
+        }
+        
+        th {
+            background: var(--code-bg);
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        body.dark-mode th {
+            background: var(--code-bg-dark);
+            color: var(--text-dark);
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tbody tr:hover {
+            background: var(--code-bg);
+        }
+        
+        body.dark-mode tbody tr:hover {
+            background: var(--code-bg-dark);
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Decision Flowchart */
+        .flowchart {
+            background: linear-gradient(135deg, var(--callout-info) 0%, var(--callout-success) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+        
+        body.dark-mode .flowchart {
+            background: linear-gradient(135deg, var(--callout-info-dark) 0%, var(--callout-success-dark) 100%);
+        }
+        
+        .flow-step {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+        
+        body.dark-mode .flow-step {
+            background: #2a2a2a;
+        }
+        
+        .flow-step:last-child {
+            margin-bottom: 0;
+        }
+        
+        .flow-question {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+        
+        body.dark-mode .flow-question {
+            color: var(--text-dark);
+        }
+        
+        .flow-answer {
+            margin-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .flow-arrow {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin: 0.5rem 0;
+        }
+        
+        /* Example Boxes */
+        .example {
+            background: var(--code-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border);
+        }
+        
+        body.dark-mode .example {
+            background: var(--code-bg-dark);
+            border-color: var(--border-dark);
+        }
+        
+        .example-title {
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Related Articles */
+        .related-articles {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border);
+        }
+        
+        body.dark-mode .related-articles {
+            border-top-color: var(--border-dark);
+        }
+        
+        .related-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        body.dark-mode .related-title {
+            color: var(--text-dark);
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .related-card {
+            background: var(--code-bg);
+            padding: 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text);
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        body.dark-mode .related-card {
+            background: var(--code-bg-dark);
+            border-color: var(--border-dark);
+            color: var(--text-dark);
+        }
+        
+        .related-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+        
+        .related-card-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        body.dark-mode .related-card-title {
+            color: var(--accent);
+        }
+        
+        .related-card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        body.dark-mode .related-card-desc {
+            color: var(--text-secondary-dark);
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+            
+            .breadcrumbs {
+                padding: 0 1rem;
+                font-size: 0.85rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            article {
+                padding: 1.5rem;
+            }
+            
+            .article-title {
+                font-size: 1.75rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+            
+            .table-wrapper {
+                font-size: 0.85rem;
+            }
+            
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../" class="logo">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="32" cy="38" rx="24" ry="20" fill="#FF6B6B"/>
+                    <ellipse cx="32" cy="38" rx="20" ry="16" fill="#2C087D"/>
+                    <circle cx="32" cy="28" r="3" fill="#FCFAF4"/>
+                    <rect x="28" y="12" width="8" height="6" rx="2" fill="#FF6B6B"/>
+                    <circle cx="24" cy="32" r="2" fill="#FCFAF4"/>
+                    <circle cx="40" cy="32" r="2" fill="#FCFAF4"/>
+                </svg>
+                <span>FiggyBank</span>
+            </a>
+            <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+        </div>
+    </nav>
+    
+    <div class="breadcrumbs">
+        <a href="../">Home</a> / <a href="../#page-fhsa">First Home Savings</a> / FHSA vs RRSP for Your First Home
+    </div>
+    
+    <div class="container">
+        <aside class="toc">
+            <button class="toc-toggle" onclick="toggleTOC()">📑 Table of Contents</button>
+            <h2>Contents</h2>
+            <ul id="toc-list">
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#fhsa-overview">FHSA Overview</a></li>
+                <li><a href="#rrsp-hbp-overview">RRSP HBP Overview</a></li>
+                <li><a href="#key-differences">Key Differences</a></li>
+                <li><a href="#worked-examples">Worked Examples</a></li>
+                <li><a href="#decision-flowchart">Decision Flowchart</a></li>
+                <li><a href="#optimal-strategy">Optimal Strategy</a></li>
+                <li><a href="#combining-both">Combining Both</a></li>
+                <li><a href="#common-mistakes">Common Mistakes</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+            </ul>
+        </aside>
+        
+        <article>
+            <header class="article-header">
+                <h1 class="article-title">FHSA vs RRSP for Your First Home: Which Should You Max Out First?</h1>
+                <div class="article-meta">
+                    <div class="meta-item">
+                        <span>✍️</span>
+                        <span>FiggyBank Team</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>📅</span>
+                        <span>February 13, 2026</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>⏱️</span>
+                        <span>12 min read</span>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="callout callout-success">
+                <div class="callout-title">🎯 Key Takeaway</div>
+                <p><strong>For most first-time home buyers:</strong> Max out your FHSA first ($8,000/year, $40,000 lifetime), then use RRSP HBP to fill any remaining gap (up to $60,000 withdrawal). The FHSA offers better flexibility—no repayment requirements and tax-free withdrawals. Only prioritize RRSP if you're planning to buy within 1-2 years and need to access funds immediately.</p>
+            </div>
+            
+            <section id="introduction">
+                <h2>Introduction</h2>
+                <p>You're saving for your first home in Canada, and you've heard about two powerful tools: the <strong>First Home Savings Account (FHSA)</strong> and the <strong>RRSP Home Buyers' Plan (HBP)</strong>. Both offer tax advantages, but they work very differently—and choosing the wrong one to prioritize could cost you thousands of dollars.</p>
+                
+                <p>The FHSA allows you to contribute up to <strong>$8,000 per year</strong> (maximum $40,000 lifetime), get an immediate tax deduction, and withdraw everything tax-free for your first home—with no repayment requirement. The RRSP HBP lets you withdraw up to <strong>$60,000</strong> from your RRSP, but you must repay it over 15 years or face tax consequences.</p>
+                
+                <p>In this guide, we'll compare both strategies using real examples at $50,000, $80,000, and $120,000 income levels, show you exactly when to use each, and provide a decision flowchart to optimize your down payment savings.</p>
+            </section>
+            
+            <section id="fhsa-overview">
+                <h2>FHSA Overview</h2>
+                
+                <h3>How It Works</h3>
+                <p>The First Home Savings Account (FHSA) is Canada's newest registered account, introduced in 2023 specifically for first-time home buyers. It combines the best features of an RRSP and TFSA:</p>
+                
+                <ul>
+                    <li><strong>Tax-deductible contributions</strong> (like an RRSP)</li>
+                    <li><strong>Tax-free withdrawals for your first home</strong> (like a TFSA)</li>
+                    <li><strong>No repayment requirement</strong> (unlike RRSP HBP)</li>
+                    <li>Tax-free investment growth while money sits in the account</li>
+                </ul>
+                
+                <h3>Contribution Limits</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Limit Type</th>
+                                <th>Amount</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Annual Contribution</strong></td>
+                                <td>$8,000</td>
+                                <td>Per calendar year</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lifetime Maximum</strong></td>
+                                <td>$40,000</td>
+                                <td>Total you can ever contribute</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Participation Period</strong></td>
+                                <td>15 years</td>
+                                <td>From account opening (or until age 71)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Unused Room</strong></td>
+                                <td>Carries forward</td>
+                                <td>$8K/year accumulates if not used</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="callout callout-info">
+                    <div class="callout-title">💡 Unused Contribution Room</div>
+                    <p>If you open an FHSA in 2026 but don't contribute, you'll have $16,000 of room in 2027 ($8K from 2026 + $8K from 2027). This accumulates annually until you reach the $40,000 lifetime limit.</p>
+                </div>
+                
+                <h3>Eligibility Requirements</h3>
+                <ul>
+                    <li>Must be a Canadian resident</li>
+                    <li>Age 18 or older (but under 71)</li>
+                    <li><strong>First-time home buyer</strong> (haven't owned a home in the current year or previous 4 calendar years)</li>
+                    <li>Valid Social Insurance Number</li>
+                </ul>
+                
+                <h3>Tax Treatment</h3>
+                <p><strong>Contributions:</strong> Tax-deductible in the year contributed. If you contribute $8,000 and earn $80,000, your taxable income drops to $72,000.</p>
+                
+                <p><strong>Withdrawals:</strong> Completely tax-free if used to buy a qualifying first home. No repayment required. If you withdraw for non-home purposes, it's taxed as regular income.</p>
+                
+                <p><strong>Investment growth:</strong> Any interest, dividends, or capital gains grow tax-free inside the account.</p>
+            </section>
+            
+            <section id="rrsp-hbp-overview">
+                <h2>RRSP Home Buyers' Plan (HBP) Overview</h2>
+                
+                <h3>How It Works</h3>
+                <p>The Home Buyers' Plan allows you to <strong>borrow</strong> from your own RRSP to buy your first home. You withdraw the money tax-free, but you must repay it back into your RRSP over 15 years—or pay tax on the amount you fail to repay each year.</p>
+                
+                <h3>Contribution & Withdrawal Limits</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Limit</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Maximum Withdrawal</strong></td>
+                                <td>$60,000</td>
+                                <td>Increased from $35K in 2024</td>
+                            </tr>
+                            <tr>
+                                <td><strong>90-Day Rule</strong></td>
+                                <td>Required</td>
+                                <td>Funds must be in RRSP for 90+ days before withdrawal</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Repayment Period</strong></td>
+                                <td>15 years</td>
+                                <td>Starting the 2nd year after withdrawal</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Annual Repayment</strong></td>
+                                <td>1/15 of withdrawal</td>
+                                <td>$4,000/year if you withdrew $60K</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>Eligibility Requirements</h3>
+                <ul>
+                    <li>Must be a Canadian resident</li>
+                    <li><strong>First-time home buyer</strong> (no home ownership in the past 4 years)</li>
+                    <li>Written agreement to buy or build a qualifying home</li>
+                    <li>Intend to occupy the home as principal residence within 1 year</li>
+                    <li>Funds must remain in RRSP for at least 90 days before withdrawal</li>
+                </ul>
+                
+                <h3>Repayment Rules</h3>
+                <p>This is where the RRSP HBP gets tricky—and expensive if you're not careful:</p>
+                
+                <ul>
+                    <li><strong>Repayment starts</strong> in the second year after your withdrawal</li>
+                    <li>You must repay <strong>at least 1/15 of the borrowed amount</strong> each year</li>
+                    <li>If you withdraw $60,000, minimum annual repayment = $4,000</li>
+                    <li><strong>Missed repayments are added to your taxable income</strong> for that year</li>
+                    <li>Repayments do NOT create new RRSP contribution room</li>
+                </ul>
+                
+                <div class="callout callout-warning">
+                    <div class="callout-title">⚠️ Repayment Trap</div>
+                    <p>If you withdraw $60,000 via HBP but fail to repay the required $4,000 in a given year, that $4,000 gets added to your taxable income. At a 30% marginal rate, you'd owe $1,200 in extra taxes—<strong>plus</strong> you've permanently lost that RRSP contribution room.</p>
+                </div>
+                
+                <h3>Tax Treatment</h3>
+                <p><strong>Contributions:</strong> Tax-deductible when you originally contribute to your RRSP.</p>
+                
+                <p><strong>Withdrawals (HBP):</strong> Tax-free at withdrawal, but must be repaid.</p>
+                
+                <p><strong>Missed repayments:</strong> Added to your taxable income in the year they're missed, and taxed at your marginal rate.</p>
+            </section>
+            
+            <section id="key-differences">
+                <h2>Key Differences: FHSA vs RRSP HBP</h2>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>FHSA</th>
+                                <th>RRSP HBP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Maximum Amount</strong></td>
+                                <td>$40,000 lifetime</td>
+                                <td>$60,000 withdrawal</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Annual Limit</strong></td>
+                                <td>$8,000/year</td>
+                                <td>No annual limit (use existing RRSP)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Contribution Tax Benefit</strong></td>
+                                <td>✅ Yes (deductible)</td>
+                                <td>✅ Yes (deductible)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Withdrawal Tax</strong></td>
+                                <td>❌ No (tax-free)</td>
+                                <td>❌ No (but must repay)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Repayment Required</strong></td>
+                                <td>❌ No</td>
+                                <td>✅ Yes (over 15 years)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Timeline Flexibility</strong></td>
+                                <td>15 years max</td>
+                                <td>Immediate (if 90-day rule met)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Investment Growth</strong></td>
+                                <td>Tax-free</td>
+                                <td>Tax-deferred</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Risk of Missed Repayment</strong></td>
+                                <td>None</td>
+                                <td>Added to taxable income</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="callout callout-success">
+                    <div class="callout-title">🏆 Winner: FHSA (in most cases)</div>
+                    <p>The FHSA offers nearly identical tax benefits on contribution, but <strong>no repayment burden</strong>. This makes it the superior choice for most first-time buyers who have 3-5+ years before purchasing.</p>
+                </div>
+            </section>
+            
+            <section id="worked-examples">
+                <h2>Worked Examples at Different Income Levels</h2>
+                
+                <p>Let's see how FHSA vs RRSP HBP plays out for buyers at three income levels. We'll assume they need a $50,000 down payment and want to know which account to prioritize.</p>
+                
+                <h3>Example 1: $50,000 Income Earner</h3>
+                
+                <div class="example">
+                    <div class="example-title">📊 Scenario: Alex, Age 28, Salary $50,000</div>
+                    <p><strong>Goal:</strong> Save $50,000 for down payment over 5 years</p>
+                    <p><strong>Tax rate:</strong> ~26% marginal (federal + provincial, Ontario)</p>
+                    <p><strong>Current savings:</strong> $5,000</p>
+                    
+                    <h4>Strategy: Max FHSA First</h4>
+                    <ul>
+                        <li><strong>Year 1-5:</strong> Contribute $8,000/year to FHSA ($40,000 total)</li>
+                        <li><strong>Tax refund each year:</strong> $8,000 × 26% = $2,080</li>
+                        <li><strong>Total tax savings:</strong> $2,080 × 5 = $10,400</li>
+                        <li><strong>Remaining needed:</strong> $50,000 - $40,000 - $5,000 (initial savings) = $5,000</li>
+                        <li><strong>Solution:</strong> Save additional $1,000/year in TFSA or contribute to RRSP for HBP</li>
+                    </ul>
+                    
+                    <h4>Result</h4>
+                    <p>✅ <strong>$50,000 down payment achieved</strong><br>
+                    ✅ <strong>$10,400 in tax savings</strong><br>
+                    ✅ <strong>No repayment obligation</strong><br>
+                    ✅ Tax refunds can be reinvested or used for closing costs</p>
+                </div>
+                
+                <h3>Example 2: $80,000 Income Earner</h3>
+                
+                <div class="example">
+                    <div class="example-title">📊 Scenario: Jamie, Age 32, Salary $80,000</div>
+                    <p><strong>Goal:</strong> Save $50,000 for down payment over 4 years</p>
+                    <p><strong>Tax rate:</strong> ~31.5% marginal (federal + provincial, Ontario)</p>
+                    <p><strong>Current savings:</strong> $10,000 in TFSA</p>
+                    
+                    <h4>Strategy: FHSA + Small RRSP HBP</h4>
+                    <ul>
+                        <li><strong>Year 1:</strong> Open FHSA, contribute $8,000 → Tax refund $2,520</li>
+                        <li><strong>Year 2:</strong> Contribute $8,000 FHSA → Tax refund $2,520</li>
+                        <li><strong>Year 3:</strong> Contribute $8,000 FHSA → Tax refund $2,520</li>
+                        <li><strong>Year 4:</strong> Contribute $8,000 FHSA + $8,000 to RRSP → Tax refunds $5,040</li>
+                        <li><strong>Total from FHSA:</strong> $40,000 (tax-free withdrawal)</li>
+                        <li><strong>Total from RRSP HBP:</strong> $8,000 withdrawal (minimal repayment: ~$533/year)</li>
+                        <li><strong>Total down payment:</strong> $40,000 + $8,000 + $10,000 (TFSA) = $58,000</li>
+                    </ul>
+                    
+                    <h4>Result</h4>
+                    <p>✅ <strong>$58,000 down payment (exceeds goal)</strong><br>
+                    ✅ <strong>$12,600 in tax savings</strong><br>
+                    ✅ <strong>Minimal repayment burden</strong> ($533/year for 15 years on RRSP portion)<br>
+                    ✅ Extra funds can cover land transfer tax or furnishings</p>
+                </div>
+                
+                <h3>Example 3: $120,000 Income Earner</h3>
+                
+                <div class="example">
+                    <div class="example-title">📊 Scenario: Morgan, Age 35, Salary $120,000</div>
+                    <p><strong>Goal:</strong> Save $80,000 for down payment over 3 years (buying in expensive market like Toronto/Vancouver)</p>
+                    <p><strong>Tax rate:</strong> ~43% marginal (federal + provincial, Ontario)</p>
+                    <p><strong>Current savings:</strong> $15,000</p>
+                    
+                    <h4>Strategy: FHSA + Full RRSP HBP</h4>
+                    <ul>
+                        <li><strong>Year 1:</strong> Contribute $8,000 FHSA + $15,000 RRSP → Tax refund $9,890</li>
+                        <li><strong>Year 2:</strong> Contribute $8,000 FHSA + $20,000 RRSP → Tax refund $12,040</li>
+                        <li><strong>Year 3:</strong> Contribute $8,000 FHSA + $17,000 RRSP → Tax refund $10,750</li>
+                        <li><strong>Total FHSA:</strong> $24,000 (3 years × $8K)</li>
+                        <li><strong>Total RRSP:</strong> $52,000 (withdraw via HBP)</li>
+                        <li><strong>Available funds:</strong> $24,000 + $52,000 + $15,000 (initial) = $91,000</li>
+                    </ul>
+                    
+                    <h4>Result</h4>
+                    <p>✅ <strong>$91,000 down payment</strong><br>
+                    ✅ <strong>$32,680 in tax savings</strong> (reinvest refunds!)<br>
+                    ⚠️ <strong>Must repay $3,467/year to RRSP</strong> (manageable at $120K income)<br>
+                    💡 Continue contributing $16K/year to FHSA for remaining room ($40K - $24K = $16K over 2 more years)</p>
+                </div>
+                
+                <div class="callout callout-info">
+                    <div class="callout-title">💡 Tax Refund Strategy</div>
+                    <p>In all three examples, the tax refunds themselves can be reinvested into your savings plan. A $2,500 refund invested at 5% annual return grows to ~$2,750 by year's end—accelerating your down payment timeline.</p>
+                </div>
+            </section>
+            
+            <section id="decision-flowchart">
+                <h2>Decision Flowchart: FHSA or RRSP First?</h2>
+                
+                <div class="flowchart">
+                    <div class="flow-step">
+                        <div class="flow-question">1. Are you eligible for an FHSA?</div>
+                        <div class="flow-answer">✅ <strong>YES:</strong> First-time buyer, Canadian resident, under 71 → Continue to #2</div>
+                        <div class="flow-answer">❌ <strong>NO:</strong> Already owned a home in last 4 years → Use RRSP HBP only (if eligible) or TFSA</div>
+                    </div>
+                    
+                    <div class="flow-arrow">⬇️</div>
+                    
+                    <div class="flow-step">
+                        <div class="flow-question">2. When are you planning to buy?</div>
+                        <div class="flow-answer">🏠 <strong>Within 1-2 years:</strong> If you already have significant RRSP savings → Consider RRSP HBP for immediate access</div>
+                        <div class="flow-answer">🏠 <strong>3+ years away:</strong> Max FHSA first ($8K/year) → Continue to #3</div>
+                    </div>
+                    
+                    <div class="flow-arrow">⬇️</div>
+                    
+                    <div class="flow-step">
+                        <div class="flow-question">3. How much do you need for your down payment?</div>
+                        <div class="flow-answer">💰 <strong>$40,000 or less:</strong> FHSA alone is sufficient → Max it out, no RRSP needed</div>
+                        <div class="flow-answer">💰 <strong>$40,001 - $100,000:</strong> Max FHSA first, then supplement with RRSP HBP → Continue to #4</div>
+                    </div>
+                    
+                    <div class="flow-arrow">⬇️</div>
+                    
+                    <div class="flow-step">
+                        <div class="flow-question">4. Can you afford the RRSP HBP repayments?</div>
+                        <div class="flow-answer">✅ <strong>YES:</strong> Use FHSA + RRSP HBP (max combined: $100K)</div>
+                        <div class="flow-answer">❌ <strong>NO:</strong> Stick to FHSA only, save additional funds in TFSA (no repayment required)</div>
+                    </div>
+                    
+                    <div class="flow-arrow">⬇️</div>
+                    
+                    <div class="flow-step">
+                        <div class="flow-question">5. What's your marginal tax rate?</div>
+                        <div class="flow-answer">📊 <strong>&lt;26%:</strong> Tax benefits modest → Still prioritize FHSA for flexibility</div>
+                        <div class="flow-answer">📊 <strong>26-40%:</strong> Strong tax benefits → Max both FHSA and RRSP aggressively</div>
+                        <div class="flow-answer">📊 <strong>&gt;40%:</strong> Excellent tax savings → Consider maxing RRSP beyond HBP needs (for retirement)</div>
+                    </div>
+                </div>
+                
+                <div class="callout callout-success">
+                    <div class="callout-title">🎯 Quick Decision Rule</div>
+                    <p><strong>Default strategy for 90% of buyers:</strong> Max your FHSA first ($8,000/year until you hit $40,000), then supplement with RRSP HBP only if you need more than $40K for your down payment. This minimizes repayment obligations while maximizing tax benefits.</p>
+                </div>
+            </section>
+            
+            <section id="optimal-strategy">
+                <h2>Optimal Strategy: How to Maximize Both</h2>
+                
+                <p>For buyers who need more than $40,000 for their down payment, here's the optimal sequencing strategy:</p>
+                
+                <h3>Phase 1: Foundation (Years 1-5)</h3>
+                <ol>
+                    <li><strong>Open an FHSA immediately</strong> (even if you don't contribute yet—starts your 15-year clock)</li>
+                    <li><strong>Contribute $8,000/year to FHSA</strong> until you hit $40,000 lifetime maximum</li>
+                    <li>Use tax refunds to accelerate savings or invest in TFSA</li>
+                    <li>Aim to complete FHSA contributions within 5 years</li>
+                </ol>
+                
+                <h3>Phase 2: Supplemental (If Needed)</h3>
+                <ol start="5">
+                    <li><strong>Calculate remaining down payment gap:</strong> Target down payment minus FHSA savings</li>
+                    <li><strong>If gap ≤ $60,000:</strong> Contribute to RRSP, wait 90 days, then withdraw via HBP</li>
+                    <li><strong>If gap &gt; $60,000:</strong> Combine FHSA ($40K) + RRSP HBP ($60K) + TFSA savings</li>
+                </ol>
+                
+                <h3>Phase 3: After Home Purchase</h3>
+                <ol start="8">
+                    <li><strong>Close your FHSA</strong> (required after first home purchase)</li>
+                    <li><strong>Begin RRSP HBP repayments</strong> in Year 2 after withdrawal</li>
+                    <li><strong>Redirect former FHSA contributions</strong> ($8K/year) toward RRSP repayments</li>
+                    <li>Continue building retirement savings via RRSP and/or TFSA</li>
+                </ol>
+                
+                <div class="example">
+                    <div class="example-title">📊 Optimal Timeline Example</div>
+                    <p><strong>Goal:</strong> $75,000 down payment over 5 years</p>
+                    
+                    <h4>Year-by-Year Plan</h4>
+                    <ul>
+                        <li><strong>2026:</strong> Open FHSA, contribute $8,000 → Tax refund ~$2,500</li>
+                        <li><strong>2027:</strong> FHSA $8,000 → Tax refund ~$2,500</li>
+                        <li><strong>2028:</strong> FHSA $8,000 + start RRSP contributions → Tax refunds ~$5,000</li>
+                        <li><strong>2029:</strong> FHSA $8,000 + RRSP $10,000 → Tax refunds ~$6,000</li>
+                        <li><strong>2030:</strong> FHSA $8,000 + RRSP $25,000 → Tax refunds ~$10,000</li>
+                    </ul>
+                    
+                    <h4>At Purchase (2030)</h4>
+                    <ul>
+                        <li>FHSA withdrawal: $40,000 (tax-free, no repayment)</li>
+                        <li>RRSP HBP withdrawal: $35,000</li>
+                        <li>Total: $75,000 ✅</li>
+                        <li>Tax refunds earned: ~$26,000 (reinvested or used for closing costs)</li>
+                    </ul>
+                    
+                    <h4>After Purchase (2031-2045)</h4>
+                    <ul>
+                        <li>Annual RRSP HBP repayment: $2,333 (1/15 of $35K)</li>
+                        <li>Easily manageable—redirect former FHSA contribution ($8K/year) toward repayment + retirement savings</li>
+                    </ul>
+                </div>
+                
+                <h3>Advanced Tip: Front-Load Your FHSA</h3>
+                <p>Because FHSA contribution room accumulates from the year you open the account (not when you turn 18), there's a powerful strategy:</p>
+                
+                <ol>
+                    <li><strong>Open FHSA as early as possible</strong> (even at 18, even if you contribute $0)</li>
+                    <li>Let contribution room accumulate: $8K/year</li>
+                    <li>When you're ready to save aggressively (e.g., 3-4 years later), you'll have $24K-$32K of room available</li>
+                    <li>Make large lump-sum contributions and get massive tax refunds</li>
+                </ol>
+                
+                <div class="callout callout-warning">
+                    <div class="callout-title">⚠️ 15-Year Participation Limit</div>
+                    <p>Your FHSA must be closed within 15 years of opening (or by December 31 of the year you turn 71). Don't wait too long—open it when you're serious about buying within the next decade, not "someday maybe."</p>
+                </div>
+            </section>
+            
+            <section id="combining-both">
+                <h2>Combining FHSA + RRSP HBP: The Power Move</h2>
+                
+                <p>The real magic happens when you use both accounts together. Here's why this combination is so powerful:</p>
+                
+                <h3>Maximum Firepower: $100,000</h3>
+                <p>By maxing both accounts, you can access up to <strong>$100,000</strong> for your down payment:</p>
+                
+                <ul>
+                    <li>FHSA: $40,000 (tax-free withdrawal, no repayment)</li>
+                    <li>RRSP HBP: $60,000 (tax-free withdrawal, 15-year repayment)</li>
+                    <li><strong>Total: $100,000</strong></li>
+                </ul>
+                
+                <p>This is enough for a 20% down payment on a $500,000 home (avoiding CMHC insurance), or 10% on a $1 million property.</p>
+                
+                <h3>Tax Benefits on Both Sides</h3>
+                <p>You get tax deductions on contributions to both accounts. At a 35% marginal rate:</p>
+                
+                <ul>
+                    <li>$40,000 FHSA contributions → $14,000 in tax refunds</li>
+                    <li>$60,000 RRSP contributions → $21,000 in tax refunds</li>
+                    <li><strong>Total tax savings: $35,000</strong></li>
+                </ul>
+                
+                <p>That's essentially a 35% "bonus" from the government on your down payment savings!</p>
+                
+                <h3>Flexibility for Different Markets</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Market</th>
+                                <th>Typical Down Payment</th>
+                                <th>Recommended Strategy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Affordable Cities</strong><br>(e.g., Montreal, Winnipeg, Halifax)</td>
+                                <td>$30,000 - $50,000</td>
+                                <td>FHSA alone likely sufficient</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mid-Tier Markets</strong><br>(e.g., Ottawa, Calgary, Edmonton)</td>
+                                <td>$50,000 - $80,000</td>
+                                <td>FHSA + partial RRSP HBP</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Expensive Markets</strong><br>(Toronto, Vancouver, GTA)</td>
+                                <td>$80,000 - $150,000+</td>
+                                <td>FHSA + full RRSP HBP + TFSA</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>Couple's Strategy: Double Everything</h3>
+                <p>If you're buying with a spouse or partner, you can <strong>each</strong> open your own FHSA and use your own RRSP HBP:</p>
+                
+                <ul>
+                    <li><strong>Combined FHSA:</strong> $80,000 ($40K each)</li>
+                    <li><strong>Combined RRSP HBP:</strong> $120,000 ($60K each)</li>
+                    <li><strong>Total available: $200,000</strong></li>
+                </ul>
+                
+                <p>This is a game-changer for expensive markets. A couple earning $80K each can realistically save $200K for a down payment within 5-7 years using these accounts.</p>
+                
+                <div class="callout callout-success">
+                    <div class="callout-title">🏆 Couples' Power Strategy</div>
+                    <p><strong>Both partners:</strong> Max FHSA ($8K/year each = $16K/year combined) + contribute to RRSPs. After 5 years: $80K from FHSAs + up to $120K from RRSP HBP = $200K down payment. At a combined income of $160K, the tax refunds alone could be $50K+ over those 5 years.</p>
+                </div>
+            </section>
+            
+            <section id="common-mistakes">
+                <h2>Common Mistakes to Avoid</h2>
+                
+                <h3>Mistake #1: Prioritizing RRSP HBP Over FHSA</h3>
+                <p><strong>The error:</strong> Putting money into RRSP first because "you can withdraw more" ($60K vs $40K).</p>
+                
+                <p><strong>Why it's wrong:</strong> RRSP HBP requires 15 years of repayments. If you miss payments, you face immediate tax consequences. FHSA has no repayment—it's free money.</p>
+                
+                <p><strong>Fix:</strong> Always max FHSA first, then use RRSP HBP only for amounts beyond $40K.</p>
+                
+                <h3>Mistake #2: Not Opening FHSA Early Enough</h3>
+                <p><strong>The error:</strong> Waiting until you're "ready to save" to open an FHSA.</p>
+                
+                <p><strong>Why it's wrong:</strong> Contribution room only starts accumulating from the year you open the account. If you open it 3 years late, you've lost $24K of contribution room.</p>
+                
+                <p><strong>Fix:</strong> Open your FHSA as soon as you're eligible and thinking about homeownership (even if 5-10 years away). You don't have to contribute immediately.</p>
+                
+                <h3>Mistake #3: Forgetting the RRSP 90-Day Rule</h3>
+                <p><strong>The error:</strong> Contributing to RRSP and immediately withdrawing via HBP.</p>
+                
+                <p><strong>Why it's wrong:</strong> CRA requires funds to stay in your RRSP for at least 90 days before HBP withdrawal. If you withdraw too early, it's considered a taxable withdrawal.</p>
+                
+                <p><strong>Fix:</strong> Plan ahead. Contribute to RRSP at least 90 days (3+ months) before you need to access funds for closing.</p>
+                
+                <h3>Mistake #4: Ignoring RRSP HBP Repayment Deadlines</h3>
+                <p><strong>The error:</strong> Forgetting to make annual HBP repayments or thinking "I'll catch up later."</p>
+                
+                <p><strong>Why it's wrong:</strong> Every dollar of missed repayment is added to your taxable income that year. At a 30% tax rate, a $4K missed repayment costs you $1,200 in taxes—plus you permanently lose that RRSP room.</p>
+                
+                <p><strong>Fix:</strong> Set up automatic monthly transfers to repay HBP. If you borrowed $60K, schedule $333/month ($4K/year) starting in Year 2 after withdrawal.</p>
+                
+                <h3>Mistake #5: Using FHSA for Non-Home Purposes</h3>
+                <p><strong>The error:</strong> Withdrawing FHSA funds for something other than a qualifying first home purchase.</p>
+                
+                <p><strong>Why it's wrong:</strong> Non-qualifying withdrawals are fully taxable as income. You lose the entire tax benefit.</p>
+                
+                <p><strong>Fix:</strong> If your plans change and you're not buying a home, transfer FHSA funds to RRSP or TFSA (tax-free) rather than withdrawing as cash.</p>
+                
+                <h3>Mistake #6: Maxing Out Too Fast Without Investment Growth</h3>
+                <p><strong>The error:</strong> Dumping $40K into FHSA in Year 1, leaving it in cash, then buying a home in Year 2.</p>
+                
+                <p><strong>Why it's wrong:</strong> You miss years of potential investment growth. Even at 5% annual return, $40K invested over 5 years (vs 1 year) generates thousands more in tax-free gains.</p>
+                
+                <p><strong>Fix:</strong> Contribute steadily over multiple years ($8K/year) and invest in balanced funds. The longer your timeline, the more aggressive your investments can be.</p>
+                
+                <div class="callout callout-warning">
+                    <div class="callout-title">⚠️ Biggest Mistake: Analysis Paralysis</div>
+                    <p>The worst mistake is <strong>waiting too long to start</strong> because you're trying to optimize perfectly. Start with FHSA contributions today—even if your strategy isn't perfect, the tax benefits and compound growth from starting early far outweigh minor optimization gains.</p>
+                </div>
+            </section>
+            
+            <section id="conclusion">
+                <h2>Conclusion: Your Action Plan</h2>
+                
+                <p>For most Canadian first-time home buyers, the decision is clear: <strong>max out your FHSA first</strong>, then supplement with RRSP HBP only if you need more than $40,000 for your down payment.</p>
+                
+                <h3>Your Next Steps (This Week)</h3>
+                <ol>
+                    <li><strong>Open an FHSA</strong> at your bank or online brokerage (Questrade, Wealthsimple, TD Direct Investing, etc.)</li>
+                    <li><strong>Set up automatic contributions</strong> of $666/month ($8,000/year) to your FHSA</li>
+                    <li><strong>Invest your contributions</strong> in a balanced portfolio appropriate for your timeline (3-5 years = balanced fund; 7+ years = equity-heavy)</li>
+                    <li><strong>Calculate your tax refund</strong> and decide whether to reinvest it or use for other goals</li>
+                </ol>
+                
+                <h3>If You Need More Than $40K</h3>
+                <ol start="5">
+                    <li><strong>Calculate the gap:</strong> Target down payment minus FHSA maximum</li>
+                    <li><strong>Open an RRSP</strong> if you don't have one already</li>
+                    <li><strong>Contribute to RRSP</strong> to cover the gap (up to $60K for HBP)</li>
+                    <li><strong>Plan for repayments:</strong> Budget $333-$400/month for 15 years starting Year 2 after purchase</li>
+                </ol>
+                
+                <h3>Remember the Core Principles</h3>
+                <ul>
+                    <li>✅ <strong>FHSA first</strong> — no repayment, maximum flexibility</li>
+                    <li>✅ <strong>RRSP HBP second</strong> — only for amounts beyond $40K</li>
+                    <li>✅ <strong>Start early</strong> — contribution room accumulates from account opening</li>
+                    <li>✅ <strong>Invest wisely</strong> — don't leave contributions in cash</li>
+                    <li>✅ <strong>Plan for repayments</strong> — automate RRSP HBP repayments to avoid tax penalties</li>
+                    <li>✅ <strong>Use tax refunds strategically</strong> — reinvest or accelerate savings</li>
+                </ul>
+                
+                <p>With proper planning and the right strategy, the FHSA and RRSP HBP can help you save tens of thousands in taxes while building your down payment faster than you thought possible.</p>
+                
+                <div class="callout callout-success">
+                    <div class="callout-title">🎯 Final Word</div>
+                    <p>The best time to open your FHSA was yesterday. The second-best time is today. Don't wait—every month you delay is contribution room you can never get back. Start now, even with a small amount, and let Canada's most powerful first-time home buyer tools work for you.</p>
+                </div>
+            </section>
+            
+            <div class="related-articles">
+                <h2 class="related-title">Related Articles</h2>
+                <div class="related-grid">
+                    <a href="../index.html#page-fhsa" class="related-card">
+                        <div class="related-card-title">First Home Savings Account (FHSA) Guide</div>
+                        <div class="related-card-desc">Everything you need to know about Canada's newest registered account for first-time home buyers.</div>
+                    </a>
+                    <a href="../index.html#page-retirement" class="related-card">
+                        <div class="related-card-title">RRSP vs TFSA: Which to Max First?</div>
+                        <div class="related-card-desc">Compare Canada's two most popular registered accounts and learn the optimal contribution strategy.</div>
+                    </a>
+                    <a href="../index.html#page-mortgage" class="related-card">
+                        <div class="related-card-title">Mortgage Basics for First-Time Buyers</div>
+                        <div class="related-card-desc">Understand down payments, CMHC insurance, stress tests, and how to get approved for your first mortgage.</div>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+    
+    <script>
+        // Dark mode toggle
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            document.querySelector('.theme-toggle').textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+        }
+        
+        // Load saved theme
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.querySelector('.theme-toggle').textContent = '☀️ Light Mode';
+        }
+        
+        // TOC toggle for mobile
+        function toggleTOC() {
+            document.querySelector('.toc').classList.toggle('expanded');
+        }
+        
+        // Highlight active TOC item on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                const tocLink = document.querySelector(`.toc a[href="#${id}"]`);
+                if (entry.intersectionRatio > 0) {
+                    document.querySelectorAll('.toc a').forEach(link => link.classList.remove('active'));
+                    if (tocLink) tocLink.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-100px 0px -80% 0px' });
+        
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Smooth scroll for TOC links
+        document.querySelectorAll('.toc a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // Close TOC on mobile after click
+                if (window.innerWidth <= 1024) {
+                    document.querySelector('.toc').classList.remove('expanded');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Checklists - FiggyBank Canadian Financial Planning</title>
+    <meta name="description" content="Interactive Canadian financial checklists for first-time home buyers, new parents, retirement planning, tax prep, and entrepreneurs. Track your progress with our free tools.">
+    <meta name="keywords" content="Canadian financial checklist, home buyer checklist, retirement planning, tax prep, business startup, financial planning Canada">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHP0GVPV8Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QHP0GVPV8Q');
+    </script>
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3447886014314572" crossorigin="anonymous"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --purple: #2C087D;
+            --coral: #FF6B6B;
+            --cream: #FCFAF4;
+            --white: #FFFFFF;
+            --gray-light: #F5F5F5;
+            --gray-mid: #999;
+            --gray-dark: #333;
+            --shadow: rgba(44, 8, 125, 0.1);
+        }
+        
+        [data-theme="dark"] {
+            --cream: #1a1a1a;
+            --white: #2d2d2d;
+            --gray-light: #3a3a3a;
+            --gray-mid: #aaa;
+            --gray-dark: #e0e0e0;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--gray-dark);
+            line-height: 1.6;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: var(--purple);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--cream);
+            gap: 0.75rem;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+        
+        .logo-svg {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .header h1 {
+            color: var(--purple);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            color: var(--gray-mid);
+            font-size: 1.1rem;
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+        
+        .tab {
+            background: var(--white);
+            border: 2px solid var(--gray-light);
+            color: var(--gray-dark);
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .tab:hover {
+            border-color: var(--purple);
+        }
+        
+        .tab.active {
+            background: var(--purple);
+            color: white;
+            border-color: var(--purple);
+        }
+        
+        /* Checklist Container */
+        .checklist-container {
+            display: none;
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+        
+        .checklist-container.active {
+            display: block;
+        }
+        
+        .checklist-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .checklist-header h2 {
+            color: var(--purple);
+            font-size: 1.75rem;
+        }
+        
+        .checklist-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-reset {
+            background: var(--coral);
+            color: white;
+        }
+        
+        .btn-reset:hover {
+            background: #e85555;
+        }
+        
+        .btn-print {
+            background: var(--purple);
+            color: white;
+        }
+        
+        .btn-print:hover {
+            background: #1f0558;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 2rem;
+        }
+        
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--gray-mid);
+        }
+        
+        .progress-bar-bg {
+            background: var(--gray-light);
+            height: 12px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, var(--purple), var(--coral));
+            height: 100%;
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+        
+        /* Checklist Items */
+        .checklist-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .checklist-item {
+            border: 2px solid var(--gray-light);
+            border-radius: 10px;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .checklist-item:hover {
+            border-color: var(--purple);
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+        
+        .item-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            cursor: pointer;
+        }
+        
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            padding-top: 0.2rem;
+        }
+        
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            accent-color: var(--purple);
+        }
+        
+        .item-content {
+            flex: 1;
+        }
+        
+        .item-title {
+            font-weight: 600;
+            color: var(--gray-dark);
+            margin-bottom: 0.25rem;
+        }
+        
+        .item-checked .item-title {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+        
+        .item-expand {
+            color: var(--coral);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .item-details {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .item-details.open {
+            display: block;
+        }
+        
+        .item-description {
+            color: var(--gray-mid);
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+        
+        .item-link {
+            display: inline-block;
+            color: var(--purple);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .item-link:hover {
+            color: var(--coral);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--white);
+            margin-top: 4rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 -2px 10px var(--shadow);
+        }
+        
+        .footer p {
+            color: var(--gray-mid);
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer a {
+            color: var(--purple);
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: var(--coral);
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .navbar, .theme-toggle, .tabs, .btn, .footer {
+                display: none !important;
+            }
+            
+            .checklist-container {
+                display: block !important;
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+            
+            .item-details {
+                display: block !important;
+            }
+            
+            .item-expand {
+                display: none;
+            }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+            
+            .logo-link {
+                font-size: 1rem;
+            }
+            
+            .logo-svg {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .header h1 {
+                font-size: 1.75rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .tabs {
+                flex-wrap: nowrap;
+            }
+            
+            .tab {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .checklist-container {
+                padding: 1.5rem;
+            }
+            
+            .checklist-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .checklist-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .item-header {
+                gap: 0.75rem;
+            }
+            
+            .container {
+                padding: 0 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="../" class="logo-link">
+                <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="50" cy="55" rx="35" ry="30" fill="#FF6B6B"/>
+                    <ellipse cx="50" cy="55" rx="28" ry="24" fill="#FCFAF4"/>
+                    <circle cx="35" cy="45" r="4" fill="#2C087D"/>
+                    <circle cx="65" cy="45" r="4" fill="#2C087D"/>
+                    <path d="M 40 58 Q 50 65 60 58" stroke="#FF6B6B" stroke-width="2" fill="none"/>
+                    <rect x="45" y="25" width="10" height="8" rx="2" fill="#FF6B6B"/>
+                    <circle cx="50" cy="25" r="6" fill="#FCFAF4"/>
+                    <path d="M 48 70 L 45 85 M 52 70 L 55 85" stroke="#FF6B6B" stroke-width="3" stroke-linecap="round"/>
+                    <ellipse cx="43" cy="87" rx="5" ry="3" fill="#2C087D"/>
+                    <ellipse cx="57" cy="87" rx="5" ry="3" fill="#2C087D"/>
+                </svg>
+                <span>FiggyBank</span>
+            </a>
+            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="header">
+            <h1>Financial Checklists</h1>
+            <p>Track your financial milestones with our interactive Canadian financial planning checklists</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" onclick="showChecklist('home-buyer')">First-Time Home Buyer</button>
+            <button class="tab" onclick="showChecklist('new-baby')">New Baby Plan</button>
+            <button class="tab" onclick="showChecklist('retirement')">Retirement Readiness</button>
+            <button class="tab" onclick="showChecklist('tax-prep')">Year-End Tax Prep</button>
+            <button class="tab" onclick="showChecklist('business')">Starting a Business</button>
+        </div>
+
+        <!-- First-Time Home Buyer Checklist -->
+        <div class="checklist-container active" id="home-buyer">
+            <div class="checklist-header">
+                <h2>First-Time Home Buyer Checklist</h2>
+                <div class="checklist-actions">
+                    <button class="btn btn-reset" onclick="resetChecklist('home-buyer')">Reset</button>
+                    <button class="btn btn-print" onclick="window.print()">Print</button>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-info">
+                    <span>Progress</span>
+                    <span class="progress-text">0 of 20 complete</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar" style="width: 0%"></div>
+                </div>
+            </div>
+            <div class="checklist-items"></div>
+        </div>
+
+        <!-- New Baby Financial Plan -->
+        <div class="checklist-container" id="new-baby">
+            <div class="checklist-header">
+                <h2>New Baby Financial Plan Checklist</h2>
+                <div class="checklist-actions">
+                    <button class="btn btn-reset" onclick="resetChecklist('new-baby')">Reset</button>
+                    <button class="btn btn-print" onclick="window.print()">Print</button>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-info">
+                    <span>Progress</span>
+                    <span class="progress-text">0 of 18 complete</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar" style="width: 0%"></div>
+                </div>
+            </div>
+            <div class="checklist-items"></div>
+        </div>
+
+        <!-- Retirement Readiness -->
+        <div class="checklist-container" id="retirement">
+            <div class="checklist-header">
+                <h2>Retirement Readiness Checklist</h2>
+                <div class="checklist-actions">
+                    <button class="btn btn-reset" onclick="resetChecklist('retirement')">Reset</button>
+                    <button class="btn btn-print" onclick="window.print()">Print</button>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-info">
+                    <span>Progress</span>
+                    <span class="progress-text">0 of 20 complete</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar" style="width: 0%"></div>
+                </div>
+            </div>
+            <div class="checklist-items"></div>
+        </div>
+
+        <!-- Year-End Tax Prep -->
+        <div class="checklist-container" id="tax-prep">
+            <div class="checklist-header">
+                <h2>Year-End Tax Prep Checklist</h2>
+                <div class="checklist-actions">
+                    <button class="btn btn-reset" onclick="resetChecklist('tax-prep')">Reset</button>
+                    <button class="btn btn-print" onclick="window.print()">Print</button>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-info">
+                    <span>Progress</span>
+                    <span class="progress-text">0 of 18 complete</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar" style="width: 0%"></div>
+                </div>
+            </div>
+            <div class="checklist-items"></div>
+        </div>
+
+        <!-- Starting a Business -->
+        <div class="checklist-container" id="business">
+            <div class="checklist-header">
+                <h2>Starting a Business Checklist</h2>
+                <div class="checklist-actions">
+                    <button class="btn btn-reset" onclick="resetChecklist('business')">Reset</button>
+                    <button class="btn btn-print" onclick="window.print()">Print</button>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-info">
+                    <span>Progress</span>
+                    <span class="progress-text">0 of 18 complete</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar" style="width: 0%"></div>
+                </div>
+            </div>
+            <div class="checklist-items"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 FiggyBank.ca - Canadian Financial Planning Tools</p>
+        <p>Making financial planning accessible for all Canadians | <a href="../">Home</a> | <a href="../#about">About</a></p>
+    </footer>
+
+    <script>
+        // Checklist Data
+        const checklistData = {
+            'home-buyer': [
+                { title: 'Check your credit score and report', description: 'Your credit score affects mortgage rates. Get a free report from Equifax or TransUnion Canada. Aim for 680+ for best rates.', link: '../index.html#page-mortgage' },
+                { title: 'Calculate your budget and affordability', description: 'Determine how much house you can afford. Factor in down payment, closing costs, and ongoing expenses.', link: '../index.html#page-mortgage' },
+                { title: 'Save for down payment (minimum 5%)', description: 'Save at least 5% for homes under $500k. 20% down avoids CMHC insurance. Consider using FHSA for tax-free savings.', link: '../index.html#page-fhsa' },
+                { title: 'Open a First Home Savings Account (FHSA)', description: 'Contribute up to $8,000/year (lifetime $40,000). Tax-deductible contributions and tax-free withdrawals for first home.', link: '../index.html#page-fhsa' },
+                { title: 'Check Home Buyers\' Plan (HBP) eligibility', description: 'Withdraw up to $60,000 from RRSP tax-free for home purchase. Must repay over 15 years.', link: '../index.html#page-rrsp' },
+                { title: 'Get pre-approved for a mortgage', description: 'Know your borrowing power before house hunting. Pre-approval valid for 90-120 days and shows sellers you\'re serious.', link: '../index.html#page-mortgage' },
+                { title: 'Research mortgage rates and types', description: 'Compare fixed vs variable rates. Consider term length (1-5 years). Shop around for best rates from multiple lenders.', link: '../index.html#page-mortgage' },
+                { title: 'Budget for closing costs (2-4% of purchase)', description: 'Include land transfer tax, legal fees, home inspection, title insurance, and moving costs. Budget $10,000-15,000 minimum.', link: '../index.html#page-mortgage' },
+                { title: 'Research First-Time Home Buyer incentives', description: 'Check provincial rebates, HST rebates, and federal incentives. Some provinces offer land transfer tax rebates.', link: '../index.html#page-fhsa' },
+                { title: 'Find a real estate agent', description: 'Choose an experienced agent who knows your target area. Buyers\' agents are typically paid by sellers in Canada.', link: '' },
+                { title: 'Get pre-approved for homeowner insurance', description: 'Shop for insurance quotes before closing. Required by mortgage lenders. Compare rates from multiple providers.', link: '' },
+                { title: 'Plan for property taxes and utilities', description: 'Budget for annual property taxes, water, electricity, gas, internet. Taxes vary significantly by municipality.', link: '' },
+                { title: 'Budget for home maintenance (1-3% annually)', description: 'Set aside funds for repairs, maintenance, and emergencies. Older homes require larger maintenance budgets.', link: '' },
+                { title: 'Research neighborhoods and commute times', description: 'Consider proximity to work, schools, amenities. Visit areas at different times of day. Check transit options.', link: '' },
+                { title: 'Arrange home inspection contingency', description: 'Always include inspection clause in offer. Budget $400-700 for professional inspection. Walk through with inspector.', link: '' },
+                { title: 'Review your employment and income stability', description: 'Lenders prefer 2+ years stable employment. Self-employed buyers need additional documentation and larger down payments.', link: '' },
+                { title: 'Calculate debt-to-income ratios', description: 'Keep housing costs under 32% of gross income (GDS). Total debt under 40% of gross income (TDS). Lower is better.', link: '../index.html#page-mortgage' },
+                { title: 'Plan for moving expenses', description: 'Budget for movers, truck rental, packing supplies, deposits for utilities, address changes, and time off work.', link: '' },
+                { title: 'Review legal documents with a lawyer', description: 'Hire real estate lawyer for closing. They review purchase agreement, conduct title search, handle money transfers.', link: '' },
+                { title: 'Set up emergency fund for home repairs', description: 'Maintain 3-6 months expenses plus home emergency fund. Furnace, roof, plumbing emergencies are expensive.', link: '../index.html#page-savings' }
+            ],
+            'new-baby': [
+                { title: 'Register for Canada Child Benefit (CCB)', description: 'Apply within newborn registration. Up to $7,437/year per child under 6 (tax-free). Paid monthly based on income.', link: '' },
+                { title: 'Open a Registered Education Savings Plan (RESP)', description: 'Get 20% government grant on first $2,500/year (max $500). Lifetime grant max $7,200. Growth is tax-deferred.', link: '../index.html#page-resp' },
+                { title: 'Review parental leave and EI benefits', description: 'Standard 12-18 months leave available. EI pays up to 55% salary (max $668/week in 2024). Quebec has separate QPIP.', link: '' },
+                { title: 'Update life insurance coverage', description: 'Increase coverage to replace income and cover childcare. Consider 10-20x annual income. Term life is affordable.', link: '' },
+                { title: 'Add child to health and dental benefits', description: 'Notify employer within 30 days. Review coverage limits for pediatric care, orthodontics, and prescriptions.', link: '' },
+                { title: 'Create or update your will and guardianship', description: 'Designate guardian for minor children. Update beneficiaries on accounts. Consider testamentary trusts for children.', link: '' },
+                { title: 'Review and adjust household budget', description: 'Add expenses for diapers ($60-80/month), formula ($150-200/month if needed), childcare, clothing, and medical.', link: '../index.html#page-budget' },
+                { title: 'Plan for childcare costs', description: 'Daycare costs $800-2,000/month depending on province. Some provinces offer $10/day childcare. Research waitlists early.', link: '' },
+                { title: 'Maximize RESP contributions for grants', description: 'Contribute $2,500/year per child for maximum 20% CESG grant. Lower-income families get additional grants up to 40%.', link: '../index.html#page-resp' },
+                { title: 'Apply for birth certificate and SIN', description: 'Register birth within 30 days. Apply for Social Insurance Number for child. Needed for CCB and RESP.', link: '' },
+                { title: 'Review disability insurance coverage', description: 'Ensure income protection if you can\'t work. Especially important as sole income earner or self-employed.', link: '' },
+                { title: 'Update emergency fund for larger family', description: 'Increase emergency savings to cover 6 months expenses. Include higher medical costs and larger family needs.', link: '../index.html#page-savings' },
+                { title: 'Research Child Disability Benefit eligibility', description: 'If child has severe disability, can receive up to $3,322/year tax-free. Apply with CDB application form.', link: '' },
+                { title: 'Plan for reduced income during leave', description: 'EI provides 55% of salary. Budget for income gap. Consider topping up with savings or partner\'s income.', link: '' },
+                { title: 'Review tax credits and deductions', description: 'Claim childcare expenses (up to $8,000/year per child under 7). Medical expenses, children\'s fitness credits in some provinces.', link: '' },
+                { title: 'Set up automatic RESP contributions', description: 'Automate monthly deposits to maximize grants and compounding. Even $100-200/month adds up significantly.', link: '../index.html#page-resp' },
+                { title: 'Consider family income splitting strategies', description: 'Lower-income spouse claims childcare expenses. Review income splitting opportunities to reduce family tax burden.', link: '' },
+                { title: 'Purchase or budget for essential baby items', description: 'Crib, car seat, stroller, clothing. Many items available second-hand. Budget $2,000-5,000 for first year essentials.', link: '' }
+            ],
+            'retirement': [
+                { title: 'Calculate retirement income needs (70-80% of current)', description: 'Most retirees need 70-80% of pre-retirement income. Factor in reduced expenses but increased healthcare and leisure.', link: '../index.html#page-retirement' },
+                { title: 'Maximize RRSP contributions before deadline', description: 'Contribute up to 18% of previous year income (max $31,560 in 2024). Deadline March 1. Unused room carries forward.', link: '../index.html#page-rrsp' },
+                { title: 'Max out TFSA contributions', description: 'Contribute annual limit ($7,000 in 2024). Lifetime contribution room $95,000 if maxed since 2009. Tax-free growth and withdrawals.', link: '../index.html#page-tfsa' },
+                { title: 'Review CPP contribution and projection', description: 'Check My Service Canada Account for CPP estimate. Maximum at age 70 is $1,364/month. Can start 60-70.', link: '../index.html#page-cpp' },
+                { title: 'Estimate Old Age Security (OAS) benefits', description: 'Maximum $713/month at 65 (2024). Available to Canadian residents 65+ with 10+ years residency. Clawback starts at $90,997 income.', link: '../index.html#page-oas' },
+                { title: 'Review employer pension plan details', description: 'Understand your DB or DC plan. Check vesting, survivor benefits, early retirement penalties. Get pension estimate.', link: '' },
+                { title: 'Create retirement income withdrawal strategy', description: 'Plan optimal order: non-registered, RRSP/RRIF, TFSA. Consider CPP/OAS timing. Minimize taxes and clawbacks.', link: '../index.html#page-retirement' },
+                { title: 'Consider CPP timing (60, 65, or 70)', description: 'At 60: reduced 36%. At 65: full amount. At 70: increased 42%. Break-even around age 73-75. Consider health and longevity.', link: '../index.html#page-cpp' },
+                { title: 'Plan for RRSP to RRIF conversion at 71', description: 'Must convert RRSP to RRIF by Dec 31 of year you turn 71. Mandatory minimum withdrawals start at 72.', link: '../index.html#page-rrsp' },
+                { title: 'Review investment asset allocation', description: 'Shift to more conservative allocation as retirement approaches. Balance growth needs with risk tolerance. Consider target-date funds.', link: '' },
+                { title: 'Estimate healthcare costs in retirement', description: 'Provincial health covers basics but not drugs, dental, vision. Budget $5,000-10,000/year for out-of-pocket medical expenses.', link: '' },
+                { title: 'Plan for long-term care insurance', description: 'Costs $3,000-12,000/year depending on age and coverage. Alternatively, self-insure with savings or home equity.', link: '' },
+                { title: 'Review all retirement account beneficiaries', description: 'Update beneficiaries on RRSP, RRIF, TFSA, pensions, life insurance. Consider spousal rollover options for tax deferral.', link: '' },
+                { title: 'Eliminate high-interest debt before retirement', description: 'Pay off credit cards, lines of credit. Consider keeping low-rate mortgage if investment returns exceed rate.', link: '../index.html#page-debt' },
+                { title: 'Estimate government benefit clawbacks', description: 'OAS clawed back above $90,997 income. GIS income-tested. Plan withdrawals to minimize clawbacks and maximize benefits.', link: '../index.html#page-oas' },
+                { title: 'Plan pension income splitting with spouse', description: 'Split up to 50% of eligible pension income. Can save thousands in taxes. Both must elect on tax returns.', link: '' },
+                { title: 'Review housing plans (downsize, age in place)', description: 'Consider downsizing to free equity, reduce expenses. Plan for accessibility modifications. Evaluate retirement community costs.', link: '' },
+                { title: 'Create estate plan and power of attorney', description: 'Update will, appoint executor. Set up power of attorney for property and personal care. Consider living will.', link: '' },
+                { title: 'Calculate safe withdrawal rate', description: 'Traditional 4% rule may be aggressive. Consider 3-3.5% for Canadian retirees. Adjust annually based on portfolio performance.', link: '../index.html#page-retirement' },
+                { title: 'Review and update insurance coverage', description: 'Assess need for life insurance (reduce as dependents age). Maintain adequate home/auto insurance. Consider travel insurance.', link: '' }
+            ],
+            'tax-prep': [
+                { title: 'Gather T4 slips from all employers', description: 'Employment income slips. Employers must issue by end of February. Includes salary, taxable benefits, and deductions.', link: '' },
+                { title: 'Collect T5 and investment income slips', description: 'Interest, dividends, capital gains. Issued by banks and investment firms. Needed to report investment income.', link: '' },
+                { title: 'Obtain T4A for pension and other income', description: 'RRSP withdrawals, pension income, EI, scholarships. Multiple sources may issue T4As.', link: '' },
+                { title: 'Gather RRSP contribution receipts', description: 'Keep receipts from all RRSP contributions. Check contribution room on CRA Notice of Assessment. Deadline March 1.', link: '../index.html#page-rrsp' },
+                { title: 'Collect charitable donation receipts', description: 'Official receipts required for donations $20+. Get federal credit 15% first $200, 29% above. Keep receipts 6 years.', link: '' },
+                { title: 'Gather medical expense receipts', description: 'Claim expenses over 3% of net income. Include prescriptions, dental, vision, medical devices. 12-month period ending in tax year.', link: '' },
+                { title: 'Collect childcare expense receipts', description: 'Claim up to $8,000 per child under 7, $5,000 for ages 7-16. Need SIN of caregiver and receipts.', link: '' },
+                { title: 'Document work-from-home expenses', description: 'Claim $2/day up to $500 (simplified) or detailed method for larger claims. Keep home office records and receipts.', link: '' },
+                { title: 'Gather tuition tax credit forms (T2202)', description: 'Issued by educational institutions. Can transfer to spouse/parent or carry forward unused amounts.', link: '' },
+                { title: 'Record moving expenses if relocated for work/school', description: 'Claim if moved 40km+ closer to work/school. Include transportation, lodging, meals, legal fees, real estate commissions.', link: '' },
+                { title: 'Document rental income and expenses', description: 'Report all rental income. Deduct mortgage interest, property tax, repairs, insurance, utilities, property management.', link: '' },
+                { title: 'Track capital gains and losses from investments', description: 'Report 50% of capital gains. Carry forward capital losses to offset future gains. Keep purchase records.', link: '' },
+                { title: 'Review eligibility for Disability Tax Credit', description: 'Form T2201 certified by medical practitioner. Can claim up to $9,428 (2024). Can carry back 10 years if newly eligible.', link: '' },
+                { title: 'Check for unclaimed tax credits from prior years', description: 'Review Notice of Assessment. Carry forward tuition, donations, capital losses, RRSP room. Can amend returns 10 years back.', link: '' },
+                { title: 'Maximize spousal RRSP contributions', description: 'Contribute to spouse\'s RRSP using your deduction room. Income splitting strategy. Subject to 3-year attribution rule.', link: '../index.html#page-rrsp' },
+                { title: 'Claim home office expenses if self-employed', description: 'Deduct portion of rent, utilities, insurance, mortgage interest, repairs based on workspace percentage. Must be principal place.', link: '' },
+                { title: 'Review climate action incentive eligibility', description: 'Automatic payment in provinces with federal carbon tax. Higher amounts for rural residents. No need to claim.', link: '' },
+                { title: 'Organize business expenses if self-employed', description: 'Track vehicle, meals (50%), advertising, supplies, professional fees. Keep detailed records and receipts.', link: '' }
+            ],
+            'business': [
+                { title: 'Research business structure (sole proprietor, corp)', description: 'Sole proprietorship: simple, personal liability. Corporation: limited liability, tax advantages, more complex. Consult accountant.', link: '' },
+                { title: 'Register business name and get business number', description: 'Register provincially. Get federal Business Number (BN) from CRA. Needed for GST/HST, payroll, corporate taxes.', link: '' },
+                { title: 'Apply for GST/HST number if revenue over $30k', description: 'Mandatory registration at $30k revenue threshold. Can register voluntarily below. Charge GST/HST and claim input tax credits.', link: '' },
+                { title: 'Open separate business bank account', description: 'Essential for tracking income/expenses and separating personal/business finances. Required for corporations. Shop for business banking rates.', link: '' },
+                { title: 'Set up accounting and bookkeeping system', description: 'Use software like QuickBooks, Wave, or FreshBooks. Track all income and expenses. Maintain receipts. Consider hiring bookkeeper.', link: '' },
+                { title: 'Obtain necessary licenses and permits', description: 'Check municipal, provincial, federal requirements for your industry. Professional licenses, health permits, zoning approval.', link: '' },
+                { title: 'Get business liability insurance', description: 'Protect against lawsuits and claims. General liability covers accidents, property damage. Professional liability for errors/omissions.', link: '' },
+                { title: 'Create detailed business plan and projections', description: 'Outline business model, target market, competition, marketing, operations, financials. Essential for investors and loans.', link: '' },
+                { title: 'Understand quarterly tax installment requirements', description: 'If tax owing over $3,000, must pay quarterly installments. Dates: March 15, June 15, Sept 15, Dec 15. Avoid interest penalties.', link: '' },
+                { title: 'Set up Canada Revenue Agency My Business Account', description: 'Manage GST/HST, payroll, corporate taxes online. File returns, make payments, view correspondence. Essential CRA tool.', link: '' },
+                { title: 'Research startup grants and small business loans', description: 'Check CSBFP (up to $1M loans), BDC financing, provincial grants, industry-specific programs. Many resources for new businesses.', link: '' },
+                { title: 'Determine eligible business expense deductions', description: 'Home office, vehicle, meals (50%), supplies, advertising, professional fees, insurance. Keep detailed records and receipts.', link: '' },
+                { title: 'Understand CPP requirements for self-employed', description: 'Pay both employer and employee portions (11.9% on net income $3,500-$68,500). Claimed as deduction on personal return.', link: '../index.html#page-cpp' },
+                { title: 'Set pricing strategy and profit margins', description: 'Research competitor pricing. Calculate all costs including time. Aim for healthy profit margin (30-50% for service businesses).', link: '' },
+                { title: 'Create contracts and terms of service', description: 'Protect yourself with clear contracts. Include payment terms, scope, timelines, cancellation policy. Consult lawyer for templates.', link: '' },
+                { title: 'Set up payroll if hiring employees', description: 'Register for payroll account with CRA. Deduct CPP, EI, income tax. Remit to CRA. Issue T4s by Feb 28. Consider payroll service.', link: '' },
+                { title: 'Plan for irregular income and cash flow', description: 'Create cash flow projections. Build buffer for slow months. Invoice promptly and follow up. Consider line of credit for emergencies.', link: '' },
+                { title: 'Maintain separate emergency fund for business', description: 'Keep 3-6 months operating expenses available. Separate from personal emergency fund. Critical for weathering downturns.', link: '../index.html#page-savings' }
+            ]
+        };
+
+        // Initialize checklists
+        function initChecklists() {
+            Object.keys(checklistData).forEach(checklistId => {
+                const items = checklistData[checklistId];
+                const container = document.querySelector(`#${checklistId} .checklist-items`);
+                
+                items.forEach((item, index) => {
+                    const itemId = `${checklistId}-${index}`;
+                    const checked = localStorage.getItem(itemId) === 'true';
+                    
+                    const itemElement = document.createElement('div');
+                    itemElement.className = `checklist-item ${checked ? 'item-checked' : ''}`;
+                    itemElement.innerHTML = `
+                        <div class="item-header" onclick="toggleDetails('${itemId}')">
+                            <div class="checkbox-wrapper" onclick="event.stopPropagation()">
+                                <input type="checkbox" class="checkbox" id="${itemId}" ${checked ? 'checked' : ''} onchange="toggleItem('${checklistId}', '${itemId}')">
+                            </div>
+                            <div class="item-content">
+                                <div class="item-title">${item.title}</div>
+                                <div class="item-expand">+ Show details</div>
+                            </div>
+                        </div>
+                        <div class="item-details" id="${itemId}-details">
+                            <div class="item-description">${item.description}</div>
+                            ${item.link ? `<a href="${item.link}" class="item-link">→ Related calculator</a>` : ''}
+                        </div>
+                    `;
+                    
+                    container.appendChild(itemElement);
+                });
+                
+                updateProgress(checklistId);
+            });
+            
+            // Load theme preference
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+            updateThemeButton();
+        }
+
+        // Toggle checklist item
+        function toggleItem(checklistId, itemId) {
+            const checkbox = document.getElementById(itemId);
+            const item = checkbox.closest('.checklist-item');
+            
+            localStorage.setItem(itemId, checkbox.checked);
+            
+            if (checkbox.checked) {
+                item.classList.add('item-checked');
+            } else {
+                item.classList.remove('item-checked');
+            }
+            
+            updateProgress(checklistId);
+        }
+
+        // Toggle item details
+        function toggleDetails(itemId) {
+            const details = document.getElementById(`${itemId}-details`);
+            const expand = details.previousElementSibling.querySelector('.item-expand');
+            
+            details.classList.toggle('open');
+            expand.textContent = details.classList.contains('open') ? '- Hide details' : '+ Show details';
+        }
+
+        // Update progress bar
+        function updateProgress(checklistId) {
+            const items = checklistData[checklistId];
+            const total = items.length;
+            let checked = 0;
+            
+            items.forEach((item, index) => {
+                const itemId = `${checklistId}-${index}`;
+                if (localStorage.getItem(itemId) === 'true') {
+                    checked++;
+                }
+            });
+            
+            const percentage = (checked / total) * 100;
+            const container = document.getElementById(checklistId);
+            const progressBar = container.querySelector('.progress-bar');
+            const progressText = container.querySelector('.progress-text');
+            
+            progressBar.style.width = `${percentage}%`;
+            progressText.textContent = `${checked} of ${total} complete`;
+        }
+
+        // Reset checklist
+        function resetChecklist(checklistId) {
+            if (!confirm('Are you sure you want to reset this checklist? This will uncheck all items.')) {
+                return;
+            }
+            
+            const items = checklistData[checklistId];
+            items.forEach((item, index) => {
+                const itemId = `${checklistId}-${index}`;
+                localStorage.removeItem(itemId);
+                
+                const checkbox = document.getElementById(itemId);
+                if (checkbox) {
+                    checkbox.checked = false;
+                    checkbox.closest('.checklist-item').classList.remove('item-checked');
+                }
+            });
+            
+            updateProgress(checklistId);
+        }
+
+        // Show checklist
+        function showChecklist(checklistId) {
+            // Hide all checklists
+            document.querySelectorAll('.checklist-container').forEach(container => {
+                container.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected checklist
+            document.getElementById(checklistId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Toggle theme
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeButton();
+        }
+
+        // Update theme button text
+        function updateThemeButton() {
+            const theme = document.documentElement.getAttribute('data-theme');
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // Initialize on page load
+        initChecklists();
+    </script>
+</body>
+</html>

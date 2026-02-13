@@ -143,6 +143,18 @@
       transition: background-color 0.4s ease, color 0.4s ease;
     }
     
+    /* Reading Progress Bar */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--fg-purple), var(--fg-coral));
+      z-index: 1000;
+      transition: width 0.1s ease;
+    }
+    
     .nav-bar {
       position: fixed;
       top: 0;
@@ -153,6 +165,7 @@
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-primary);
       padding: 1rem 0;
+      margin-top: 4px;
     }
     .dark .nav-bar { background: rgba(15, 10, 26, 0.92); }
     .nav-inner {
@@ -185,10 +198,86 @@
     }
     .theme-toggle:hover { transform: scale(1.1); }
     
-    .article-container {
-      max-width: 760px;
+    /* Layout with Sidebar */
+    .content-wrapper {
+      display: flex;
+      max-width: 1400px;
       margin: 100px auto 0;
       padding: 2rem;
+      gap: 3rem;
+      position: relative;
+    }
+    
+    /* Table of Contents Sidebar */
+    .toc-sidebar {
+      flex: 0 0 280px;
+      height: fit-content;
+      position: sticky;
+      top: 100px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+    
+    .toc-title {
+      font-weight: 700;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .toc-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--text-primary);
+    }
+    
+    .toc-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .toc-list li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .toc-list a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: block;
+      padding: 0.4rem 0;
+      border-left: 2px solid transparent;
+      padding-left: 0.75rem;
+      transition: all 0.2s ease;
+    }
+    
+    .toc-list a:hover {
+      color: var(--brand-primary);
+      border-left-color: var(--brand-primary);
+    }
+    
+    .toc-list a.active {
+      color: var(--brand-primary);
+      border-left-color: var(--brand-primary);
+      font-weight: 600;
+    }
+    
+    .article-container {
+      flex: 1;
+      max-width: 760px;
+      min-width: 0;
     }
     
     .back-link {
@@ -242,6 +331,7 @@
       margin-top: 2.5rem;
       margin-bottom: 1rem;
       color: var(--text-primary);
+      scroll-margin-top: 100px;
     }
     .article-content h3 {
       font-size: 1.375rem;
@@ -287,6 +377,142 @@
       font-size: 0.9em;
     }
     
+    /* Callout Boxes */
+    .callout {
+      margin: 2rem 0;
+      padding: 1.25rem 1.25rem 1.25rem 3rem;
+      border-radius: var(--radius-md);
+      border-left: 4px solid;
+      position: relative;
+      background: var(--bg-card);
+    }
+    
+    .callout::before {
+      content: '';
+      position: absolute;
+      left: 1rem;
+      top: 1.25rem;
+      font-size: 1.5rem;
+    }
+    
+    .callout-tip {
+      border-left-color: #10b981;
+      background: rgba(16, 185, 129, 0.05);
+    }
+    .callout-tip::before { content: '💡'; }
+    
+    .callout-warning {
+      border-left-color: #f59e0b;
+      background: rgba(245, 158, 11, 0.05);
+    }
+    .callout-warning::before { content: '⚠️'; }
+    
+    .callout-fact {
+      border-left-color: #8b5cf6;
+      background: rgba(139, 92, 246, 0.05);
+    }
+    .callout-fact::before { content: '📌'; }
+    
+    /* Key Takeaway Box */
+    .key-takeaway {
+      background: linear-gradient(135deg, rgba(44, 8, 125, 0.05), rgba(255, 107, 107, 0.05));
+      border: 2px solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .key-takeaway h3 {
+      color: var(--brand-primary);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    .key-takeaway ul {
+      margin-bottom: 0;
+    }
+    
+    /* Related Articles */
+    .related-articles {
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .related-articles h3 {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+    }
+    
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    
+    .related-card {
+      padding: 1rem;
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: block;
+    }
+    
+    .related-card:hover {
+      border-color: var(--brand-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .related-card-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .related-card-category {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: var(--brand-primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-md);
+      z-index: 90;
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(44, 8, 125, 0.3);
+    }
+    
     .author-bio {
       background: var(--bg-card);
       border: 1px solid var(--border-primary);
@@ -324,14 +550,51 @@
     }
     footer a:hover { color: white; }
     
+    @media (max-width: 1024px) {
+      .toc-sidebar {
+        position: fixed;
+        top: 70px;
+        left: -300px;
+        width: 280px;
+        max-height: calc(100vh - 90px);
+        z-index: 95;
+        transition: left 0.3s ease;
+        box-shadow: var(--shadow-md);
+      }
+      
+      .toc-sidebar.open {
+        left: 0;
+      }
+      
+      .toc-toggle {
+        display: block;
+      }
+      
+      .content-wrapper {
+        flex-direction: column;
+        padding: 1.5rem;
+      }
+      
+      .article-container {
+        max-width: 100%;
+      }
+    }
+    
     @media (max-width: 768px) {
-      .article-container { padding: 1.5rem; }
       .article-content { font-size: 1rem; }
       .author-bio { flex-direction: column; }
+      .related-grid { grid-template-columns: 1fr; }
+      .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="reading-progress" id="readingProgress"></div>
 
   <nav class="nav-bar">
     <div class="nav-inner">
@@ -369,382 +632,481 @@
     </div>
   </nav>
 
-  <article class="article-container">
-    <a href="index.html" class="back-link">
-      ← Back to Blog
-    </a>
-    
-    <header class="article-header">
-      <span class="article-category">Real Estate</span>
-      <h1>First-Time Home Buyer's Guide to Canada in 2026</h1>
-      <div class="article-meta-info">
-        <span>Rick Minji</span>
-        <span>•</span>
-        <span>February 5, 2026</span>
-        <span>•</span>
-        <span>11 min read</span>
+  <div class="content-wrapper">
+    <aside class="toc-sidebar" id="tocSidebar">
+      <div class="toc-title">
+        Table of Contents
+        <button class="toc-toggle" onclick="toggleTOC()">✕</button>
       </div>
-    </header>
-    
-    <div class="article-content">
-      
-
-<h1>First-Time Home Buyer's Guide to Canada in 2026</h1>
-
-<strong>Author: Rick Minji</strong>
-
-<p>Buying your first home in Canada has become increasingly complex, but 2026 brings some relief with stabilizing prices in many markets and well-established government programs designed specifically for first-time buyers. Whether you're eyeing a condo in Toronto, a house in Calgary, or a townhome in Halifax, understanding the programs, rules, and strategies available to you can save tens of thousands of dollars.</p>
-
-<p>This comprehensive guide walks you through everything you need to know as a first-time home buyer in 2026, from saving your down payment to understanding the true costs of homeownership. Use our free <a href="https://figgybank.ca/#mortgage" style="color:#2C087D;font-weight:600;">Canadian Mortgage Calculator</a> to estimate your payments, and our <a href="https://figgybank.ca/#rentbuy" style="color:#2C087D;font-weight:600;">Rent vs Buy Calculator</a> to see if homeownership makes financial sense for you.</p>
-
-<h2>Who Qualifies as a First-Time Home Buyer?</h2>
-
-<p>In Canada, you're generally considered a first-time home buyer if:</p>
-<ul><li>You haven't owned a home that you occupied as your principal residence in the <strong>last four years</strong></li>
-<li>If you have a spouse or common-law partner, they also haven't owned a home you've lived in during the same period</li>
-
-<p>This means even if you owned property years ago, you may still qualify for first-time buyer programs today.</p>
-
-<h2>The First Home Savings Account (FHSA): Your Best Friend</h2>
-
-<p>The FHSA, introduced in 2023, has become the single most powerful tool for first-time home buyers in Canada. It combines the best features of both RRSPs and TFSAs. Use our <a href="https://figgybank.ca/#fhsa" style="color:#2C087D;font-weight:600;">FHSA Calculator</a> to plan your contributions and project your savings growth.</p>
-
-<h3>FHSA Basics for 2026</h3>
-
-<li><strong>Annual contribution limit:</strong> $8,000</li>
-<li><strong>Lifetime contribution limit:</strong> $40,000</li>
-<li><strong>Tax deduction:</strong> Yes, like an RRSP</li>
-<li><strong>Tax-free withdrawal:</strong> Yes, like a TFSA (when used for first home purchase)</li>
-<li><strong>Contribution room carry-forward:</strong> Unused annual limits carry forward (up to $8,000 per year)</li>
-
-<h3>Why the FHSA is Powerful</h3>
-
-<strong>Example:</strong> Sarah earns $75,000 and is in a 30% marginal tax bracket. Over five years, she contributes the maximum $40,000 to her FHSA:
-
-<li>Contributions: $40,000</li>
-<li>Tax refunds: $12,000 (at 30%)</li>
-<li>Investment growth (5% annually): ~$5,500</li>
-<li><strong>Total available for down payment:</strong> ~$57,500</li>
-
-<p>That's a $17,500 boost from the government and market returns—all withdrawn tax-free for her home purchase.</p>
-
-<h3>FHSA Strategy Tips</h3>
-
-<p>1. <strong>Open your FHSA as early as possible</strong>, even if you don't contribute immediately. The 15-year maximum holding period starts when you open it, not when you first contribute.</p>
-
-<p>2. <strong>Invest your FHSA funds</strong> in a diversified portfolio if you're 3+ years from buying. The growth is tax-free, so you want to maximize it.</p>
-
-<p>3. <strong>Coordinate with your partner.</strong> If you're buying with a spouse or partner who's also a first-time buyer, you can each have your own FHSA, potentially accessing $80,000+ in tax-advantaged savings.</p>
-
-<h2>The Home Buyers' Plan (HBP): Your Second Line of Defense</h2>
-
-<p>If you've already maximized your FHSA or need additional funds, the Home Buyers' Plan lets you borrow from your RRSP interest-free. (Learn more about RRSP vs TFSA strategies in our <a href="rrsp-vs-tfsa-2026.html" style="color:#2C087D;font-weight:600;">comprehensive guide</a>.)</p>
-
-<h3>HBP Rules for 2026</h3>
-
-<li><strong>Maximum withdrawal:</strong> $60,000 per person (increased from $35,000 in previous years)</li>
-<li><strong>Repayment period:</strong> 15 years, starting the second year after withdrawal</li>
-<li><strong>Interest:</strong> None, but you must repay to avoid tax</li>
-<li><strong>Minimum repayment:</strong> 1/15 of the amount withdrawn, annually</li>
-
-<h3>HBP Strategic Considerations</h3>
-
-<strong>The Two-Step RRSP Strategy:</strong> If you have contribution room but not actual RRSP savings:
-
-<p>1. Contribute to your RRSP and get the tax deduction</p>
-<p>2. Wait 90 days (required holding period)</p>
-<p>3. Withdraw the funds under HBP for your down payment</p>
-<p>4. Use your tax refund from step 1 to boost your down payment further</p>
-
-<strong>Example:</strong> Marcus contributes $25,000 to his RRSP in January. At a 35% tax rate, he gets an $8,750 refund. After 90 days, he withdraws the $25,000 under HBP for his home purchase and has the $8,750 refund as additional down payment funds.
-
-<strong>The Repayment Reality:</strong> While the HBP is interest-free, you must repay $4,000 annually if you withdrew $60,000. Missing a repayment means that amount is added to your taxable income that year. Budget for these repayments carefully.
-
-<h2>Down Payment Requirements and CMHC Insurance</h2>
-
-<h3>Minimum Down Payment Rules</h3>
-
-<p>In Canada, your required down payment depends on the purchase price:</p>
-
-<li><strong>Less than $500,000:</strong> 5% minimum</li>
-<li><strong>$500,000 to $999,999:</strong> 5% on first $500,000, 10% on the remainder</li>
-<li><strong>$1,000,000 or more:</strong> 20% minimum (no mortgage insurance available)</li>
-
-<strong>Example:</strong> For a $650,000 home:
-<li>First $500,000 = 5% = $25,000</li>
-<li>Remaining $150,000 = 10% = $15,000</li>
-<li><strong>Total minimum down payment: $40,000</strong></li>
-
-<h3>CMHC Mortgage Default Insurance</h3>
-
-<p>If your down payment is less than 20%, you must purchase mortgage default insurance from CMHC, Sagen, or Canada Guaranty. This protects the lender (not you) if you default.</p>
-
-<strong>CMHC Insurance Premiums (2026):</strong>
-<li>5% down payment: <strong>4.00%</strong> of mortgage amount</li>
-<li>10% down payment: <strong>3.10%</strong> of mortgage amount</li>
-<li>15% down payment: <strong>2.80%</strong> of mortgage amount</li>
-<li>20% or more: <strong>No insurance required</strong></li>
-
-<p>The insurance premium is typically added to your mortgage amount, not paid upfront.</p>
-
-<strong>Example:</strong> $500,000 home with 5% down ($25,000):
-<li>Mortgage amount: $475,000</li>
-<li>Insurance premium: $19,000 (4.00%)</li>
-<li>Total mortgage with insurance: $494,000</li>
-
-<p>That insurance adds roughly $90/month to your payment over 25 years—a significant cost that makes saving a larger down payment worthwhile if possible.</p>
-
-<h2>The Mortgage Stress Test</h2>
-
-<p>Since 2018, all federally regulated lenders must qualify you at the higher of:</p>
-<li>Your contract rate + 2%, or</li>
-<li>5.25% (the minimum qualifying rate for 2026)</li>
-
-<p>This means even if you're getting a 3.5% mortgage rate, the bank qualifies you as if you're paying 5.5%.</p>
-
-<h3>Stress Test Impact</h3>
-
-<strong>Example:</strong> A buyer with $90,000 household income:
-
-<li><strong>Without stress test:</strong> Could qualify for ~$525,000 mortgage</li>
-<li><strong>With stress test:</strong> Can qualify for ~$425,000 mortgage</li>
-<li><strong>Difference:</strong> $100,000 less buying power</li>
-
-<p>The stress test is frustrating but protective—it ensures you can still afford payments if rates rise.</p>
-
-<h3>Working Around the Stress Test</h3>
-
-<p>Strategies to maximize your qualification:</p>
-
-<p>1. <strong>Increase your down payment</strong> to reduce the mortgage amount needed</p>
-<p>2. <strong>Pay off debts</strong> before applying (car loans, credit cards, student loans all reduce your qualification)</p>
-<p>3. <strong>Consider a co-signer</strong> (parents or family member)</p>
-<p>4. <strong>Buy with a partner</strong> to combine incomes</p>
-<p>5. <strong>Extend amortization to 30 years</strong> if putting down 20%+ (not available with CMHC insurance)</p>
-
-<h2>Provincial Land Transfer Tax Rebates</h2>
-
-<p>Most provinces charge land transfer tax when you purchase property, but many offer rebates for first-time buyers.</p>
-
-<h3>Provincial Rebates (2026):</h3>
-
-<strong>Ontario:</strong>
-<li>Land transfer tax: 0.5% to 2.5% of purchase price</li>
-<li><strong>First-time buyer rebate:</strong> Up to <strong>$4,000</strong></li>
-<li><strong>Toronto additional rebate:</strong> Up to <strong>$4,475</strong> (if buying in Toronto)</li>
-<li>Maximum rebate applies to homes up to $368,000 (provincial) and $400,000 (Toronto)</li>
-
-<strong>British Columbia:</strong>
-<li>Property transfer tax: 1% to 3% of purchase price (increasing tiers)</li>
-<li><strong>First-time buyer exemption:</strong> Full exemption on homes up to <strong>$835,000</strong></li>
-<li>Partial exemption on homes up to $860,000</li>
-
-<strong>Prince Edward Island:</strong>
-<li>Land transfer tax: 1% of purchase price</li>
-<li><strong>First-time buyer rebate:</strong> 50% rebate (up to maximum of home value)</li>
-
-<strong>Quebec, Manitoba, Saskatchewan:</strong> Various registration and transfer fee reductions
-
-<strong>Alberta, New Brunswick, Nova Scotia, Newfoundland:</strong> No provincial land transfer tax (lucky you!)
-
-<strong>Example:</strong> A first-time buyer purchasing a $500,000 condo in Toronto would normally pay about $6,475 in land transfer taxes. With the combined provincial and Toronto rebates ($8,475 total), they pay <strong>nothing</strong>—a massive saving.
-
-<h2>Closing Costs: The Hidden Expense</h2>
-
-<p>Beyond your down payment, budget for 1.5% to 4% of the purchase price in closing costs:</p>
-
-<h3>Typical Closing Costs (on $500,000 purchase):</h3>
-
-<li><strong>Home inspection:</strong> $500-$800</li>
-<li><strong>Appraisal:</strong> $300-$500</li>
-<li><strong>Land survey (if required):</strong> $1,000-$2,000</li>
-<li><strong>Title insurance:</strong> $250-$400</li>
-<li><strong>Legal fees:</strong> $1,500-$2,500</li>
-<li><strong>Land transfer tax:</strong> $0-$8,000 (varies by province/rebate)</li>
-<li><strong>Property tax adjustment:</strong> Varies</li>
-<li><strong>CMHC insurance (if applicable):</strong> $0-$19,000</li>
-<li><strong>Moving costs:</strong> $500-$2,000</li>
-<li><strong>Immediate repairs/purchases:</strong> $2,000-$5,000</li>
-
-<strong>Total estimated closing costs:</strong> $7,500-$15,000+ (not including down payment)
-
-<p>Many first-time buyers underestimate these costs and find themselves cash-strapped immediately after purchase.</p>
-
-<h2>Down Payment Strategies for 2026</h2>
-
-<h3>The Optimal Savings Sequence</h3>
-
-<p>1. <strong>Maximize FHSA first:</strong> $8,000 annually, up to $40,000 lifetime</p>
-<p>2. <strong>Use TFSA as supplementary:</strong> Flexible, tax-free growth</p>
-<p>3. <strong>Consider RRSP/HBP:</strong> Up to $60,000 per person if needed</p>
-<p>4. <strong>Gift from family:</strong> Parents can gift down payment funds (must be documented as a gift, not a loan)</p>
-
-<h3>Timeline-Based Investment Strategy</h3>
-
-<strong>Buying in 1-2 years:</strong>
-<li>Keep funds in <strong>high-interest savings accounts</strong> or <strong>GICs</strong></li>
-<li>Current rates: 4.0-5.0% in early 2026</li>
-<li>Don't risk market volatility this close to purchase</li>
-
-<strong>Buying in 3-5 years:</strong>
-<li><strong>Balanced portfolio:</strong> 40-60% stocks, remainder in bonds/GICs</li>
-<li>Use your FHSA and TFSA for tax advantages</li>
-<li>Rebalance to safer assets as you approach purchase date</li>
-
-<strong>Buying in 5+ years:</strong>
-<li><strong>Growth portfolio:</strong> 70-80% stocks for maximum long-term growth</li>
-<li>Time horizon allows you to ride out market volatility</li>
-<li>The longer timeframe dramatically increases expected returns</li>
-
-<h2>Special Programs and Incentives</h2>
-
-<h3>First-Time Home Buyer Incentive (Paused)</h3>
-
-<p>The federal shared-equity program (where the government co-invested in your home) was discontinued in March 2024. It's not available in 2026.</p>
-
-<h3>GST/HST New Housing Rebate</h3>
-
-<p>If you're buying a newly constructed home or substantially renovated property:</p>
-<li><strong>Federal rebate:</strong> Up to $6,300 (for homes under $350,000)</li>
-<li><strong>Provincial rebates:</strong> Vary significantly by province</li>
-<li>Applies to owner-occupied properties only</li>
-
-<h3>Provincial Programs</h3>
-
-<p>Some provinces offer additional programs:</p>
-<li><strong>BC:</strong> BC Home Owner Mortgage and Equity Partnership</li>
-<li><strong>Ontario:</strong> Various municipal programs in specific areas</li>
-<li>Check your local municipality for additional grants or incentives</li>
-
-<h2>Common First-Time Buyer Mistakes to Avoid</h2>
-
-<h3>Mistake #1: Maxing Out Your Budget</h3>
-
-<p>Just because you're <em>approved</em> for $600,000 doesn't mean you should <em>spend</em> $600,000. Leave room for:</p>
-<li>Unexpected repairs</li>
-<li>Property tax increases</li>
-<li>Condo fee increases (if applicable)</li>
-<li>Interest rate increases at renewal</li>
-<li>Life changes (job loss, kids, etc.)</li>
-
-<p>A good rule: Keep housing costs (mortgage + property tax + utilities + insurance) under 30% of gross income.</p>
-
-<h3>Mistake #2: Skipping the Home Inspection</h3>
-
-<strong>Never waive the home inspection</strong> to make your offer more competitive. A $600 inspection can reveal $50,000 worth of problems. In the cooler 2026 market, most sellers will accept conditional offers.
-
-<h3>Mistake #3: Ignoring Condo Fees and Reserve Fund Status</h3>
-
-<p>For condos, investigate:</p>
-<li>Monthly condo fees (are they reasonable for the building?)</li>
-<li>Reserve fund status (is it adequately funded?)</li>
-<li>Special assessments planned (major repairs coming?)</li>
-<li>Condo board meeting minutes (any red flags?)</li>
-
-<p>A building with a depleted reserve fund may hit you with a $15,000 special assessment for roof repairs.</p>
-
-<h3>Mistake #4: Choosing the Wrong Mortgage</h3>
-
-<li><strong>Fixed vs. Variable:</strong> In 2026's moderating rate environment, consider your risk tolerance</li>
-<li><strong>Term length:</strong> 5-year terms are common but not always optimal</li>
-<li><strong>Prepayment options:</strong> Look for 15-20% annual prepayment privileges</li>
-<li><strong>Portability:</strong> Important if you might move before term ends</li>
-
-<h3>Mistake #5: Draining All Savings for Maximum Down Payment</h3>
-
-<p>Keep an emergency fund of 3-6 months expenses <em>separate</em> from your down payment. Homeownership brings unexpected costs—furnaces fail, roofs leak, appliances die. Don't be house-rich and cash-poor.</p>
-
-<h2>Your 2026 Action Plan</h2>
-
-<h3>12+ Months Before Buying:</h3>
-<p>1. Open your FHSA immediately</p>
-<p>2. Check credit score and fix any errors</p>
-<p>3. Pay down high-interest debt</p>
-<p>4. Start saving aggressively</p>
-<p>5. Research neighbourhoods and prices</p>
-
-<h3>6-12 Months Before:</h3>
-<p>1. Get mortgage pre-approval to know your budget</p>
-<p>2. Continue maximizing FHSA and TFSA contributions</p>
-<p>3. Engage with a real estate agent</p>
-<p>4. Attend open houses to calibrate expectations</p>
-<p>5. Line up a home inspector and real estate lawyer</p>
-
-<h3>3-6 Months Before:</h3>
-<p>1. Shift down payment funds to safe, liquid investments</p>
-<p>2. Avoid any major credit changes (new cars, credit cards, job changes)</p>
-<p>3. Intensify your house search</p>
-<p>4. Calculate all costs using a mortgage calculator</p>
-
-<h3>Ready to Buy:</h3>
-<p>1. Make your offer with financing and inspection conditions</p>
-<p>2. Complete home inspection</p>
-<p>3. Finalize mortgage with your lender</p>
-<p>4. Lawyer handles closing</p>
-<p>5. Move in and enjoy!</p>
-
-<h2>Calculate Your Affordability</h2>
-
-<p>Wondering how much home you can actually afford based on your income, down payment, and current rates? <strong>Use FiggyBank's Mortgage Calculator at <a href="https://figgybank.ca">figgybank.ca</a></strong> to:</p>
-
-<li>Calculate maximum purchase price based on your income</li>
-<li>See the impact of different down payment amounts</li>
-<li>Compare the total cost of CMHC insurance vs. larger down payments</li>
-<li>Model different interest rates and amortization periods</li>
-<li>Factor in property taxes and condo fees for total monthly cost</li>
-
-<p>It's free, designed specifically for Canadian buyers, and includes the stress test calculations.</p>
-
-<h2>The Bottom Line</h2>
-
-<p>Buying your first home in 2026 is absolutely achievable with the right preparation and knowledge. The combination of FHSA tax advantages, HBP flexibility, and various provincial rebates provides first-time buyers with more support than ever before.</p>
-
-<p>The keys to success:</p>
-<li><strong>Start saving early</strong> using tax-advantaged accounts</li>
-<li><strong>Understand all the costs</strong> beyond just the down payment</li>
-<li><strong>Get pre-approved</strong> to know your realistic budget</li>
-<li><strong>Don't rush</strong> into a purchase you can't comfortably afford</li>
-<li><strong>Use the tools available</strong> to run the numbers on your specific situation</li>
-</ul>
-<p>With Canadian home prices stabilizing in many markets and interest rates moderating from their 2023-2024 peaks, 2026 presents a realistic opportunity for prepared first-time buyers to enter the market successfully.</p>
-
----
-
-<em>Ready to crunch the numbers? Use our <strong><a href="https://figgybank.ca">Canadian Mortgage Calculator</a></strong> to see exactly what you can afford, compare scenarios, and plan your path to homeownership. Takes less than 3 minutes and gives you complete clarity on your home buying budget.</em>
-
-    </div>
-    
-    <aside class="author-bio">
-      <div class="author-bio-avatar">
-        <svg width="64" height="64" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="50" cy="50" r="48" fill="url(#avatarGrad)"/>
-  <circle cx="50" cy="42" r="18" fill="#FDBCB4"/>
-  <path d="M32 38 Q32 22 50 20 Q68 22 68 38 L68 42 Q68 32 50 30 Q32 32 32 42 Z" fill="#4A3C2C"/>
-  <circle cx="43" cy="40" r="2" fill="#2C2416"/>
-  <circle cx="57" cy="40" r="2" fill="#2C2416"/>
-  <circle cx="43.5" cy="39.5" r="0.8" fill="white"/>
-  <circle cx="57.5" cy="39.5" r="0.8" fill="white"/>
-  <path d="M38 36 Q43 34 48 36" stroke="#4A3C2C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M52 36 Q57 34 62 36" stroke="#4A3C2C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M50 44 L48 48 L50 48.5 L52 48 Z" fill="#F5A699"/>
-  <path d="M44 50 Q50 53 56 50" stroke="#C87872" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <ellipse cx="50" cy="64" rx="14" ry="8" fill="#FDBCB4"/>
-  <path d="M36 68 Q36 78 50 80 Q64 78 64 68 L64 100 L36 100 Z" fill="#4A90E2"/>
-  <path d="M44 68 L48 72 L50 70 L52 72 L56 68" stroke="#3A7BC8" stroke-width="1.5" fill="none"/>
-  <defs>
-    <linearGradient id="avatarGrad" x1="0" y1="0" x2="100" y2="100">
-      <stop offset="0%" stop-color="#FFE5D9"/>
-      <stop offset="100%" stop-color="#FFD4C4"/>
-    </linearGradient>
-  </defs>
-</svg>
-      </div>
-      <div class="author-bio-content">
-        <h3>About Rick Minji</h3>
-        <p>Rick Minji is a financial technology specialist focused on making Canadian personal finance accessible and actionable. In his spare time, he loves to go on hikes with his 4 kids and fly fish whenever possible.</p>
-      </div>
+      <ul class="toc-list" id="tocList"></ul>
     </aside>
-  </article>
+
+    <article class="article-container">
+      <a href="index.html" class="back-link">
+        ← Back to Blog
+      </a>
+      
+      <header class="article-header">
+        <span class="article-category">Real Estate</span>
+        <h1>First-Time Home Buyer's Guide to Canada in 2026</h1>
+        <div class="article-meta-info">
+          <span>Rick Minji</span>
+          <span>•</span>
+          <span>February 5, 2026</span>
+          <span>•</span>
+          <span>11 min read</span>
+        </div>
+      </header>
+      
+      <div class="article-content">
+        <p><strong>Author: Rick Minji</strong></p>
+
+        <p>Buying your first home in Canada has become increasingly complex, but 2026 brings some relief with stabilizing prices in many markets and well-established government programs designed specifically for first-time buyers. Whether you're eyeing a condo in Toronto, a house in Calgary, or a townhome in Halifax, understanding the programs, rules, and strategies available to you can save tens of thousands of dollars.</p>
+
+        <div class="callout callout-tip">
+          <p>This comprehensive guide walks you through everything you need to know as a first-time home buyer in 2026, from saving your down payment to understanding the true costs of homeownership. Use our free <a href="https://figgybank.ca/#mortgage" style="color:#2C087D;font-weight:600;">Canadian Mortgage Calculator</a> to estimate your payments, and our <a href="https://figgybank.ca/#rentbuy" style="color:#2C087D;font-weight:600;">Rent vs Buy Calculator</a> to see if homeownership makes financial sense for you.</p>
+        </div>
+
+        <h2 id="who-qualifies">Who Qualifies as a First-Time Home Buyer?</h2>
+
+        <p>In Canada, you're generally considered a first-time home buyer if:</p>
+        <ul>
+          <li>You haven't owned a home that you occupied as your principal residence in the <strong>last four years</strong></li>
+          <li>If you have a spouse or common-law partner, they also haven't owned a home you've lived in during the same period</li>
+        </ul>
+
+        <div class="callout callout-fact">
+          <p>This means even if you owned property years ago, you may still qualify for first-time buyer programs today.</p>
+        </div>
+
+        <h2 id="fhsa">The First Home Savings Account (FHSA): Your Best Friend</h2>
+
+        <p>The FHSA, introduced in 2023, has become the single most powerful tool for first-time home buyers in Canada. It combines the best features of both RRSPs and TFSAs. Use our <a href="https://figgybank.ca/#fhsa" style="color:#2C087D;font-weight:600;">FHSA Calculator</a> to plan your contributions and project your savings growth.</p>
+
+        <h3>FHSA Basics for 2026</h3>
+
+        <ul>
+          <li><strong>Annual contribution limit:</strong> $8,000</li>
+          <li><strong>Lifetime contribution limit:</strong> $40,000</li>
+          <li><strong>Tax deduction:</strong> Yes, like an RRSP</li>
+          <li><strong>Tax-free withdrawal:</strong> Yes, like a TFSA (when used for first home purchase)</li>
+          <li><strong>Contribution room carry-forward:</strong> Unused annual limits carry forward (up to $8,000 per year)</li>
+        </ul>
+
+        <h3>Why the FHSA is Powerful</h3>
+
+        <p><strong>Example:</strong> Sarah earns $75,000 and is in a 30% marginal tax bracket. Over five years, she contributes the maximum $40,000 to her FHSA:</p>
+
+        <ul>
+          <li>Contributions: $40,000</li>
+          <li>Tax refunds: $12,000 (at 30%)</li>
+          <li>Investment growth (5% annually): ~$5,500</li>
+          <li><strong>Total available for down payment:</strong> ~$57,500</li>
+        </ul>
+
+        <div class="callout callout-tip">
+          <p>That's a $17,500 boost from the government and market returns—all withdrawn tax-free for her home purchase.</p>
+        </div>
+
+        <h3>FHSA Strategy Tips</h3>
+
+        <p>1. <strong>Open your FHSA as early as possible</strong>, even if you don't contribute immediately. The 15-year maximum holding period starts when you open it, not when you first contribute.</p>
+
+        <p>2. <strong>Invest your FHSA funds</strong> in a diversified portfolio if you're 3+ years from buying. The growth is tax-free, so you want to maximize it.</p>
+
+        <p>3. <strong>Coordinate with your partner.</strong> If you're buying with a spouse or partner who's also a first-time buyer, you can each have your own FHSA, potentially accessing $80,000+ in tax-advantaged savings.</p>
+
+        <h2 id="hbp">The Home Buyers' Plan (HBP): Your Second Line of Defense</h2>
+
+        <p>If you've already maximized your FHSA or need additional funds, the Home Buyers' Plan lets you borrow from your RRSP interest-free. (Learn more about RRSP vs TFSA strategies in our <a href="rrsp-vs-tfsa-2026.html" style="color:#2C087D;font-weight:600;">comprehensive guide</a>.)</p>
+
+        <h3>HBP Rules for 2026</h3>
+
+        <ul>
+          <li><strong>Maximum withdrawal:</strong> $60,000 per person (increased from $35,000 in previous years)</li>
+          <li><strong>Repayment period:</strong> 15 years, starting the second year after withdrawal</li>
+          <li><strong>Interest:</strong> None, but you must repay to avoid tax</li>
+          <li><strong>Minimum repayment:</strong> 1/15 of the amount withdrawn, annually</li>
+        </ul>
+
+        <h3>HBP Strategic Considerations</h3>
+
+        <p><strong>The Two-Step RRSP Strategy:</strong> If you have contribution room but not actual RRSP savings:</p>
+
+        <p>1. Contribute to your RRSP and get the tax deduction</p>
+        <p>2. Wait 90 days (required holding period)</p>
+        <p>3. Withdraw the funds under HBP for your down payment</p>
+        <p>4. Use your tax refund from step 1 to boost your down payment further</p>
+
+        <div class="callout callout-warning">
+          <p><strong>The Repayment Reality:</strong> While the HBP is interest-free, you must repay $4,000 annually if you withdrew $60,000. Missing a repayment means that amount is added to your taxable income that year. Budget for these repayments carefully.</p>
+        </div>
+
+        <h2 id="down-payment">Down Payment Requirements and CMHC Insurance</h2>
+
+        <h3>Minimum Down Payment Rules</h3>
+
+        <p>In Canada, your required down payment depends on the purchase price:</p>
+
+        <ul>
+          <li><strong>Less than $500,000:</strong> 5% minimum</li>
+          <li><strong>$500,000 to $999,999:</strong> 5% on first $500,000, 10% on the remainder</li>
+          <li><strong>$1,000,000 or more:</strong> 20% minimum (no mortgage insurance available)</li>
+        </ul>
+
+        <p><strong>Example:</strong> For a $650,000 home:</p>
+        <ul>
+          <li>First $500,000 = 5% = $25,000</li>
+          <li>Remaining $150,000 = 10% = $15,000</li>
+          <li><strong>Total minimum down payment: $40,000</strong></li>
+        </ul>
+
+        <h3>CMHC Mortgage Default Insurance</h3>
+
+        <p>If your down payment is less than 20%, you must purchase mortgage default insurance from CMHC, Sagen, or Canada Guaranty. This protects the lender (not you) if you default.</p>
+
+        <div class="callout callout-fact">
+          <p><strong>CMHC Insurance Premiums (2026):</strong></p>
+          <ul>
+            <li>5% down payment: <strong>4.00%</strong> of mortgage amount</li>
+            <li>10% down payment: <strong>3.10%</strong> of mortgage amount</li>
+            <li>15% down payment: <strong>2.80%</strong> of mortgage amount</li>
+            <li>20% or more: <strong>No insurance required</strong></li>
+          </ul>
+        </div>
+
+        <p>The insurance premium is typically added to your mortgage amount, not paid upfront.</p>
+
+        <p><strong>Example:</strong> $500,000 home with 5% down ($25,000):</p>
+        <ul>
+          <li>Mortgage amount: $475,000</li>
+          <li>Insurance premium: $19,000 (4.00%)</li>
+          <li>Total mortgage with insurance: $494,000</li>
+        </ul>
+
+        <div class="callout callout-warning">
+          <p>That insurance adds roughly $90/month to your payment over 25 years—a significant cost that makes saving a larger down payment worthwhile if possible.</p>
+        </div>
+
+        <h2 id="stress-test">The Mortgage Stress Test</h2>
+
+        <p>Since 2018, all federally regulated lenders must qualify you at the higher of:</p>
+        <ul>
+          <li>Your contract rate + 2%, or</li>
+          <li>5.25% (the minimum qualifying rate for 2026)</li>
+        </ul>
+
+        <p>This means even if you're getting a 3.5% mortgage rate, the bank qualifies you as if you're paying 5.5%.</p>
+
+        <h3>Stress Test Impact</h3>
+
+        <p><strong>Example:</strong> A buyer with $90,000 household income:</p>
+
+        <ul>
+          <li><strong>Without stress test:</strong> Could qualify for ~$525,000 mortgage</li>
+          <li><strong>With stress test:</strong> Can qualify for ~$425,000 mortgage</li>
+          <li><strong>Difference:</strong> $100,000 less buying power</li>
+        </ul>
+
+        <div class="callout callout-tip">
+          <p>The stress test is frustrating but protective—it ensures you can still afford payments if rates rise.</p>
+        </div>
+
+        <h3>Working Around the Stress Test</h3>
+
+        <p>Strategies to maximize your qualification:</p>
+
+        <p>1. <strong>Increase your down payment</strong> to reduce the mortgage amount needed</p>
+        <p>2. <strong>Pay off debts</strong> before applying (car loans, credit cards, student loans all reduce your qualification)</p>
+        <p>3. <strong>Consider a co-signer</strong> (parents or family member)</p>
+        <p>4. <strong>Buy with a partner</strong> to combine incomes</p>
+        <p>5. <strong>Extend amortization to 30 years</strong> if putting down 20%+ (not available with CMHC insurance)</p>
+
+        <h2 id="provincial-rebates">Provincial Land Transfer Tax Rebates</h2>
+
+        <p>Most provinces charge land transfer tax when you purchase property, but many offer rebates for first-time buyers.</p>
+
+        <h3>Provincial Rebates (2026):</h3>
+
+        <p><strong>Ontario:</strong></p>
+        <ul>
+          <li>Land transfer tax: 0.5% to 2.5% of purchase price</li>
+          <li><strong>First-time buyer rebate:</strong> Up to <strong>$4,000</strong></li>
+          <li><strong>Toronto additional rebate:</strong> Up to <strong>$4,475</strong> (if buying in Toronto)</li>
+          <li>Maximum rebate applies to homes up to $368,000 (provincial) and $400,000 (Toronto)</li>
+        </ul>
+
+        <p><strong>British Columbia:</strong></p>
+        <ul>
+          <li>Property transfer tax: 1% to 3% of purchase price (increasing tiers)</li>
+          <li><strong>First-time buyer exemption:</strong> Full exemption on homes up to <strong>$835,000</strong></li>
+          <li>Partial exemption on homes up to $860,000</li>
+        </ul>
+
+        <p><strong>Prince Edward Island:</strong></p>
+        <ul>
+          <li>Land transfer tax: 1% of purchase price</li>
+          <li><strong>First-time buyer rebate:</strong> 50% rebate (up to maximum of home value)</li>
+        </ul>
+
+        <p><strong>Quebec, Manitoba, Saskatchewan:</strong> Various registration and transfer fee reductions</p>
+
+        <p><strong>Alberta, New Brunswick, Nova Scotia, Newfoundland:</strong> No provincial land transfer tax (lucky you!)</p>
+
+        <div class="callout callout-tip">
+          <p><strong>Example:</strong> A first-time buyer purchasing a $500,000 condo in Toronto would normally pay about $6,475 in land transfer taxes. With the combined provincial and Toronto rebates ($8,475 total), they pay <strong>nothing</strong>—a massive saving.</p>
+        </div>
+
+        <h2 id="closing-costs">Closing Costs: The Hidden Expense</h2>
+
+        <p>Beyond your down payment, budget for 1.5% to 4% of the purchase price in closing costs:</p>
+
+        <h3>Typical Closing Costs (on $500,000 purchase):</h3>
+
+        <ul>
+          <li><strong>Home inspection:</strong> $500-$800</li>
+          <li><strong>Appraisal:</strong> $300-$500</li>
+          <li><strong>Land survey (if required):</strong> $1,000-$2,000</li>
+          <li><strong>Title insurance:</strong> $250-$400</li>
+          <li><strong>Legal fees:</strong> $1,500-$2,500</li>
+          <li><strong>Land transfer tax:</strong> $0-$8,000 (varies by province/rebate)</li>
+          <li><strong>Property tax adjustment:</strong> Varies</li>
+          <li><strong>CMHC insurance (if applicable):</strong> $0-$19,000</li>
+          <li><strong>Moving costs:</strong> $500-$2,000</li>
+          <li><strong>Immediate repairs/purchases:</strong> $2,000-$5,000</li>
+        </ul>
+
+        <p><strong>Total estimated closing costs:</strong> $7,500-$15,000+ (not including down payment)</p>
+
+        <div class="callout callout-warning">
+          <p>Many first-time buyers underestimate these costs and find themselves cash-strapped immediately after purchase.</p>
+        </div>
+
+        <h2 id="down-payment-strategies">Down Payment Strategies for 2026</h2>
+
+        <h3>The Optimal Savings Sequence</h3>
+
+        <p>1. <strong>Maximize FHSA first:</strong> $8,000 annually, up to $40,000 lifetime</p>
+        <p>2. <strong>Use TFSA as supplementary:</strong> Flexible, tax-free growth</p>
+        <p>3. <strong>Consider RRSP/HBP:</strong> Up to $60,000 per person if needed</p>
+        <p>4. <strong>Gift from family:</strong> Parents can gift down payment funds (must be documented as a gift, not a loan)</p>
+
+        <h3>Timeline-Based Investment Strategy</h3>
+
+        <p><strong>Buying in 1-2 years:</strong></p>
+        <ul>
+          <li>Keep funds in <strong>high-interest savings accounts</strong> or <strong>GICs</strong></li>
+          <li>Current rates: 4.0-5.0% in early 2026</li>
+          <li>Don't risk market volatility this close to purchase</li>
+        </ul>
+
+        <p><strong>Buying in 3-5 years:</strong></p>
+        <ul>
+          <li><strong>Balanced portfolio:</strong> 40-60% stocks, remainder in bonds/GICs</li>
+          <li>Use your FHSA and TFSA for tax advantages</li>
+          <li>Rebalance to safer assets as you approach purchase date</li>
+        </ul>
+
+        <p><strong>Buying in 5+ years:</strong></p>
+        <ul>
+          <li><strong>Growth portfolio:</strong> 70-80% stocks for maximum long-term growth</li>
+          <li>Time horizon allows you to ride out market volatility</li>
+          <li>The longer timeframe dramatically increases expected returns</li>
+        </ul>
+
+        <h2 id="special-programs">Special Programs and Incentives</h2>
+
+        <h3>First-Time Home Buyer Incentive (Paused)</h3>
+
+        <p>The federal shared-equity program (where the government co-invested in your home) was discontinued in March 2024. It's not available in 2026.</p>
+
+        <h3>GST/HST New Housing Rebate</h3>
+
+        <p>If you're buying a newly constructed home or substantially renovated property:</p>
+        <ul>
+          <li><strong>Federal rebate:</strong> Up to $6,300 (for homes under $350,000)</li>
+          <li><strong>Provincial rebates:</strong> Vary significantly by province</li>
+          <li>Applies to owner-occupied properties only</li>
+        </ul>
+
+        <h3>Provincial Programs</h3>
+
+        <p>Some provinces offer additional programs:</p>
+        <ul>
+          <li><strong>BC:</strong> BC Home Owner Mortgage and Equity Partnership</li>
+          <li><strong>Ontario:</strong> Various municipal programs in specific areas</li>
+          <li>Check your local municipality for additional grants or incentives</li>
+        </ul>
+
+        <h2 id="common-mistakes">Common First-Time Buyer Mistakes to Avoid</h2>
+
+        <h3>Mistake #1: Maxing Out Your Budget</h3>
+
+        <div class="callout callout-warning">
+          <p>Just because you're <em>approved</em> for $600,000 doesn't mean you should <em>spend</em> $600,000. Leave room for:</p>
+          <ul>
+            <li>Unexpected repairs</li>
+            <li>Property tax increases</li>
+            <li>Condo fee increases (if applicable)</li>
+            <li>Interest rate increases at renewal</li>
+            <li>Life changes (job loss, kids, etc.)</li>
+          </ul>
+        </div>
+
+        <p>A good rule: Keep housing costs (mortgage + property tax + utilities + insurance) under 30% of gross income.</p>
+
+        <h3>Mistake #2: Skipping the Home Inspection</h3>
+
+        <p><strong>Never waive the home inspection</strong> to make your offer more competitive. A $600 inspection can reveal $50,000 worth of problems. In the cooler 2026 market, most sellers will accept conditional offers.</p>
+
+        <h3>Mistake #3: Ignoring Condo Fees and Reserve Fund Status</h3>
+
+        <p>For condos, investigate:</p>
+        <ul>
+          <li>Monthly condo fees (are they reasonable for the building?)</li>
+          <li>Reserve fund status (is it adequately funded?)</li>
+          <li>Special assessments planned (major repairs coming?)</li>
+          <li>Condo board meeting minutes (any red flags?)</li>
+        </ul>
+
+        <div class="callout callout-fact">
+          <p>A building with a depleted reserve fund may hit you with a $15,000 special assessment for roof repairs.</p>
+        </div>
+
+        <h3>Mistake #4: Choosing the Wrong Mortgage</h3>
+
+        <ul>
+          <li><strong>Fixed vs. Variable:</strong> In 2026's moderating rate environment, consider your risk tolerance</li>
+          <li><strong>Term length:</strong> 5-year terms are common but not always optimal</li>
+          <li><strong>Prepayment options:</strong> Look for 15-20% annual prepayment privileges</li>
+          <li><strong>Portability:</strong> Important if you might move before term ends</li>
+        </ul>
+
+        <h3>Mistake #5: Draining All Savings for Maximum Down Payment</h3>
+
+        <div class="callout callout-tip">
+          <p>Keep an emergency fund of 3-6 months expenses <em>separate</em> from your down payment. Homeownership brings unexpected costs—furnaces fail, roofs leak, appliances die. Don't be house-rich and cash-poor.</p>
+        </div>
+
+        <h2 id="action-plan">Your 2026 Action Plan</h2>
+
+        <h3>12+ Months Before Buying:</h3>
+        <p>1. Open your FHSA immediately</p>
+        <p>2. Check credit score and fix any errors</p>
+        <p>3. Pay down high-interest debt</p>
+        <p>4. Start saving aggressively</p>
+        <p>5. Research neighbourhoods and prices</p>
+
+        <h3>6-12 Months Before:</h3>
+        <p>1. Get mortgage pre-approval to know your budget</p>
+        <p>2. Continue maximizing FHSA and TFSA contributions</p>
+        <p>3. Engage with a real estate agent</p>
+        <p>4. Attend open houses to calibrate expectations</p>
+        <p>5. Line up a home inspector and real estate lawyer</p>
+
+        <h3>3-6 Months Before:</h3>
+        <p>1. Shift down payment funds to safe, liquid investments</p>
+        <p>2. Avoid any major credit changes (new cars, credit cards, job changes)</p>
+        <p>3. Intensify your house search</p>
+        <p>4. Calculate all costs using a mortgage calculator</p>
+
+        <h3>Ready to Buy:</h3>
+        <p>1. Make your offer with financing and inspection conditions</p>
+        <p>2. Complete home inspection</p>
+        <p>3. Finalize mortgage with your lender</p>
+        <p>4. Lawyer handles closing</p>
+        <p>5. Move in and enjoy!</p>
+
+        <h2 id="calculate-affordability">Calculate Your Affordability</h2>
+
+        <div class="callout callout-tip">
+          <p>Wondering how much home you can actually afford based on your income, down payment, and current rates? <strong>Use FiggyBank's Mortgage Calculator at <a href="https://figgybank.ca">figgybank.ca</a></strong> to:</p>
+
+          <ul>
+            <li>Calculate maximum purchase price based on your income</li>
+            <li>See the impact of different down payment amounts</li>
+            <li>Compare the total cost of CMHC insurance vs. larger down payments</li>
+            <li>Model different interest rates and amortization periods</li>
+            <li>Factor in property taxes and condo fees for total monthly cost</li>
+          </ul>
+
+          <p>It's free, designed specifically for Canadian buyers, and includes the stress test calculations.</p>
+        </div>
+
+        <div class="key-takeaway">
+          <h3>🎯 Key Takeaways</h3>
+          <ul>
+            <li><strong>Start saving early</strong> using tax-advantaged accounts (FHSA first!)</li>
+            <li><strong>Understand all the costs</strong> beyond just the down payment</li>
+            <li><strong>Get pre-approved</strong> to know your realistic budget</li>
+            <li><strong>Don't rush</strong> into a purchase you can't comfortably afford</li>
+            <li><strong>Use the tools available</strong> to run the numbers on your specific situation</li>
+            <li>The combination of FHSA tax advantages, HBP flexibility, and provincial rebates provides first-time buyers with more support than ever</li>
+            <li>With Canadian home prices stabilizing in many markets and interest rates moderating from their 2023-2024 peaks, 2026 presents a realistic opportunity for prepared first-time buyers</li>
+          </ul>
+        </div>
+
+        <div class="related-articles">
+          <h3>📚 Related Articles</h3>
+          <div class="related-grid">
+            <a href="rrsp-vs-tfsa-2026.html" class="related-card">
+              <div class="related-card-title">RRSP vs TFSA in 2026</div>
+              <div class="related-card-category">Retirement Planning</div>
+            </a>
+            <a href="canadian-tax-brackets-2026.html" class="related-card">
+              <div class="related-card-title">2026 Canadian Tax Brackets</div>
+              <div class="related-card-category">Tax Planning</div>
+            </a>
+            <a href="debt-payoff-strategies-canada.html" class="related-card">
+              <div class="related-card-title">Debt Payoff Strategies</div>
+              <div class="related-card-category">Debt Management</div>
+            </a>
+            <a href="small-business-valuation-canada.html" class="related-card">
+              <div class="related-card-title">Small Business Valuation</div>
+              <div class="related-card-category">Business Finance</div>
+            </a>
+          </div>
+        </div>
+
+        <hr>
+
+        <p><em>Ready to crunch the numbers? Use our <strong><a href="https://figgybank.ca">Canadian Mortgage Calculator</a></strong> to see exactly what you can afford, compare scenarios, and plan your path to homeownership. Takes less than 3 minutes and gives you complete clarity on your home buying budget.</em></p>
+      </div>
+      
+      <aside class="author-bio">
+        <div class="author-bio-avatar">
+          <svg width="64" height="64" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="48" fill="url(#avatarGrad)"/>
+    <circle cx="50" cy="42" r="18" fill="#FDBCB4"/>
+    <path d="M32 38 Q32 22 50 20 Q68 22 68 38 L68 42 Q68 32 50 30 Q32 32 32 42 Z" fill="#4A3C2C"/>
+    <circle cx="43" cy="40" r="2" fill="#2C2416"/>
+    <circle cx="57" cy="40" r="2" fill="#2C2416"/>
+    <circle cx="43.5" cy="39.5" r="0.8" fill="white"/>
+    <circle cx="57.5" cy="39.5" r="0.8" fill="white"/>
+    <path d="M38 36 Q43 34 48 36" stroke="#4A3C2C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M52 36 Q57 34 62 36" stroke="#4A3C2C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M50 44 L48 48 L50 48.5 L52 48 Z" fill="#F5A699"/>
+    <path d="M44 50 Q50 53 56 50" stroke="#C87872" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="50" cy="64" rx="14" ry="8" fill="#FDBCB4"/>
+    <path d="M36 68 Q36 78 50 80 Q64 78 64 68 L64 100 L36 100 Z" fill="#4A90E2"/>
+    <path d="M44 68 L48 72 L50 70 L52 72 L56 68" stroke="#3A7BC8" stroke-width="1.5" fill="none"/>
+    <defs>
+      <linearGradient id="avatarGrad" x1="0" y1="0" x2="100" y2="100">
+        <stop offset="0%" stop-color="#FFE5D9"/>
+        <stop offset="100%" stop-color="#FFD4C4"/>
+      </linearGradient>
+    </defs>
+  </svg>
+        </div>
+        <div class="author-bio-content">
+          <h3>About Rick Minji</h3>
+          <p>Rick Minji is a financial technology specialist focused on making Canadian personal finance accessible and actionable. In his spare time, he loves to go on hikes with his 4 kids and fly fish whenever possible.</p>
+        </div>
+      </aside>
+    </article>
+  </div>
+
+  <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
 
   <footer>
     <p>© 2026 FiggyBank • <a href="../">Home</a> • <a href="index.html">Blog</a> • <a href="mailto:hello@figgybank.ca">Contact</a></p>
@@ -753,6 +1115,7 @@
   </footer>
 
   <script>
+    // Theme Toggle
     function toggleTheme() {
       document.documentElement.classList.toggle('dark');
       const isDark = document.documentElement.classList.contains('dark');
@@ -769,6 +1132,100 @@
         document.querySelector('.theme-toggle').textContent = '🌙';
       }
     })();
+
+    // Generate TOC
+    (function generateTOC() {
+      const tocList = document.getElementById('tocList');
+      const headings = document.querySelectorAll('.article-content h2');
+      
+      headings.forEach((heading, index) => {
+        if (!heading.id) {
+          heading.id = `section-${index}`;
+        }
+        
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = `#${heading.id}`;
+        a.textContent = heading.textContent;
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          heading.scrollIntoView({ behavior: 'smooth' });
+          if (window.innerWidth <= 1024) {
+            document.getElementById('tocSidebar').classList.remove('open');
+          }
+        });
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+    })();
+
+    // TOC Active State
+    (function setupTOCActiveState() {
+      const tocLinks = document.querySelectorAll('.toc-list a');
+      const headings = document.querySelectorAll('.article-content h2');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            tocLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }, { rootMargin: '-100px 0px -80% 0px' });
+      
+      headings.forEach(heading => observer.observe(heading));
+    })();
+
+    // Reading Progress Bar
+    (function setupReadingProgress() {
+      const progressBar = document.getElementById('readingProgress');
+      
+      window.addEventListener('scroll', () => {
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight - windowHeight;
+        const scrolled = window.scrollY;
+        const progress = (scrolled / documentHeight) * 100;
+        progressBar.style.width = `${Math.min(progress, 100)}%`;
+      });
+    })();
+
+    // Back to Top Button
+    (function setupBackToTop() {
+      const backToTop = document.getElementById('backToTop');
+      
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      });
+    })();
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // TOC Toggle for Mobile
+    function toggleTOC() {
+      document.getElementById('tocSidebar').classList.toggle('open');
+    }
+
+    // Close TOC when clicking outside on mobile
+    document.addEventListener('click', (e) => {
+      const tocSidebar = document.getElementById('tocSidebar');
+      const isClickInsideTOC = tocSidebar.contains(e.target);
+      const isToggleButton = e.target.classList.contains('toc-toggle');
+      
+      if (!isClickInsideTOC && !isToggleButton && window.innerWidth <= 1024) {
+        tocSidebar.classList.remove('open');
+      }
+    });
   </script>
 
 </body>

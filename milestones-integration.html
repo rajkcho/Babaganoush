@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FiggyBank Milestones - Integration Guide</title>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+      background: #FCFAF4;
+      color: #333;
+    }
+    h1 {
+      color: #2C087D;
+      border-bottom: 3px solid #FF6B6B;
+      padding-bottom: 10px;
+    }
+    h2 {
+      color: #2C087D;
+      margin-top: 30px;
+    }
+    .code-block {
+      background: #1a1a1a;
+      color: #f8f8f2;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 15px 0;
+    }
+    .code-block code {
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 14px;
+    }
+    .note {
+      background: #fff3cd;
+      border-left: 4px solid #FF6B6B;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 4px;
+    }
+    .success {
+      background: #d4edda;
+      border-left: 4px solid #28a745;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 4px;
+    }
+    ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    li {
+      margin: 8px 0;
+    }
+    .badge-preview {
+      display: inline-block;
+      background: linear-gradient(135deg, #2C087D 0%, #1a0548 100%);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🏆 FiggyBank Money Milestones - Integration Guide</h1>
+  
+  <div class="success">
+    <strong>✅ Quick Start:</strong> Add the script tag below to your index.html before the closing &lt;/body&gt; tag.
+  </div>
+
+  <h2>1. Add to index.html</h2>
+  <p>Place this script tag at the end of your <code>&lt;body&gt;</code> section, just before <code>&lt;/body&gt;</code>:</p>
+  
+  <div class="code-block">
+    <code>&lt;!-- FiggyBank Money Milestones System --&gt;
+&lt;script src="milestones.js"&gt;&lt;/script&gt;</code>
+  </div>
+
+  <h2>2. Complete Integration Example</h2>
+  <p>Here's how your index.html should look (bottom section):</p>
+  
+  <div class="code-block">
+    <code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;FiggyBank - Canadian Financial Calculators&lt;/title&gt;
+  &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+  &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+  &lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"&gt;
+  &lt;!-- Your existing CSS files --&gt;
+&lt;/head&gt;
+&lt;body id="page-home"&gt;
+  
+  &lt;!-- Your existing content --&gt;
+  
+  &lt;!-- FiggyBank Money Milestones System --&gt;
+  &lt;script src="milestones.js"&gt;&lt;/script&gt;
+  
+  &lt;!-- Your other scripts --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+  </div>
+
+  <h2>3. Page ID Requirements</h2>
+  <div class="note">
+    <strong>⚠️ Important:</strong> Each calculator page MUST have the correct <code>id</code> attribute on the <code>&lt;body&gt;</code> tag.
+  </div>
+  
+  <p>The system tracks calculator usage based on the body ID. Ensure each page has the appropriate ID:</p>
+  
+  <ul>
+    <li><code>&lt;body id="page-mortgage"&gt;</code> - Mortgage Calculator</li>
+    <li><code>&lt;body id="page-rent-vs-buy"&gt;</code> - Rent vs Buy Calculator</li>
+    <li><code>&lt;body id="page-tax"&gt;</code> - Tax Calculator</li>
+    <li><code>&lt;body id="page-capital-gains"&gt;</code> - Capital Gains Calculator</li>
+    <li><code>&lt;body id="page-investment"&gt;</code> - Investment Calculator</li>
+    <li><code>&lt;body id="page-compound"&gt;</code> - Compound Interest Calculator</li>
+    <li><code>&lt;body id="page-resp"&gt;</code> - RESP Calculator</li>
+    <li><code>&lt;body id="page-cpp"&gt;</code> - CPP Calculator</li>
+    <li><code>&lt;body id="page-retirement"&gt;</code> - Retirement Calculator</li>
+    <li><code>&lt;body id="page-valuation"&gt;</code> - Business Valuation Calculator</li>
+    <li><code>&lt;body id="page-ma"&gt;</code> - M&A Calculator</li>
+    <li><code>&lt;body id="page-runway"&gt;</code> - Runway Calculator</li>
+    <li><code>&lt;body id="page-debt"&gt;</code> - Debt Calculator</li>
+    <li><code>&lt;body id="page-salary"&gt;</code> - Salary Calculator</li>
+    <li><code>&lt;body id="page-net-worth"&gt;</code> - Net Worth Calculator</li>
+    <li><code>&lt;body id="page-budgeting"&gt;</code> - Budgeting Calculator</li>
+    <li><code>&lt;body id="page-loan"&gt;</code> - Loan Calculator</li>
+    <li><code>&lt;body id="page-savings"&gt;</code> - Savings Calculator</li>
+    <li><code>&lt;body id="page-inflation"&gt;</code> - Inflation Calculator</li>
+    <li><code>&lt;body id="page-roi"&gt;</code> - ROI Calculator</li>
+  </ul>
+
+  <h2>4. Achievement Badges</h2>
+  <p>The system awards these badges automatically:</p>
+  
+  <div style="margin: 20px 0;">
+    <span class="badge-preview">🏠 Home Explorer</span>
+    <span class="badge-preview">💰 Tax Strategist</span>
+    <span class="badge-preview">📈 Investment Pro</span>
+    <span class="badge-preview">🎓 Education Planner</span>
+    <span class="badge-preview">🏦 Retirement Ready</span>
+    <span class="badge-preview">💼 Business Mogul</span>
+    <span class="badge-preview">🏆 Debt Destroyer</span>
+    <span class="badge-preview">🌟 FiggyBank Master</span>
+    <span class="badge-preview">🔥 Power User</span>
+    <span class="badge-preview">👑 Financial Guru</span>
+  </div>
+
+  <h2>5. Features</h2>
+  <ul>
+    <li>✅ Automatic tracking of calculator usage</li>
+    <li>✅ Toast notifications when badges are earned</li>
+    <li>✅ Floating trophy button (bottom-left)</li>
+    <li>✅ Achievement panel with progress tracking</li>
+    <li>✅ Progress bar showing X/20 calculators used</li>
+    <li>✅ Share functionality (native share API + clipboard fallback)</li>
+    <li>✅ Dark mode support</li>
+    <li>✅ localStorage persistence</li>
+    <li>✅ FiggyBank brand colors (#2C087D, #FF6B6B, #FCFAF4)</li>
+    <li>✅ Inter font family</li>
+    <li>✅ Responsive design</li>
+  </ul>
+
+  <h2>6. How It Works</h2>
+  <ol>
+    <li>Script loads and initializes automatically</li>
+    <li>Monitors page navigation via body ID changes</li>
+    <li>Tracks each unique calculator used in localStorage</li>
+    <li>Checks for newly-earned badges after each calculator use</li>
+    <li>Displays toast notification when badges are unlocked</li>
+    <li>Trophy button shows badge count</li>
+    <li>Clicking trophy opens achievement panel</li>
+    <li>Users can share their progress via native share or clipboard</li>
+  </ol>
+
+  <h2>7. No Configuration Needed</h2>
+  <div class="success">
+    <strong>✨ Zero Config:</strong> The system works automatically once added. No initialization code or configuration required!
+  </div>
+
+  <h2>8. Browser Support</h2>
+  <ul>
+    <li>✅ Chrome/Edge (latest)</li>
+    <li>✅ Firefox (latest)</li>
+    <li>✅ Safari (latest)</li>
+    <li>✅ Mobile browsers (iOS Safari, Chrome Mobile)</li>
+  </ul>
+
+  <h2>9. Testing</h2>
+  <p>To test the system:</p>
+  <ol>
+    <li>Navigate to different calculator pages</li>
+    <li>Watch for toast notifications when badges are earned</li>
+    <li>Click the trophy button (bottom-left) to view all achievements</li>
+    <li>Clear localStorage to reset progress: <code>localStorage.removeItem('figgybank_milestones')</code></li>
+  </ol>
+
+  <h2>10. Customization</h2>
+  <p>To customize badges or calculators, edit the <code>BADGES</code> and <code>CALCULATORS</code> constants in <code>milestones.js</code>.</p>
+
+  <div class="note">
+    <strong>💡 Pro Tip:</strong> The system automatically adapts to light/dark mode based on user preferences!
+  </div>
+
+  <hr style="margin: 40px 0; border: none; border-top: 2px solid #2C087D;">
+  
+  <p style="text-align: center; color: #666;">
+    Built with 💜 for FiggyBank • <a href="https://figgybank.ca" style="color: #2C087D;">figgybank.ca</a>
+  </p>
+</body>
+</html>

@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Health Quiz - FiggyBank Canada</title>
+    <meta name="description" content="Take our free 5-minute Financial Health Quiz to assess your Savings, Debt, Insurance, Investment, and Retirement readiness. Get personalized tips and Canadian financial insights.">
+    <meta name="keywords" content="financial health quiz, TFSA, RRSP, CPP, retirement planning Canada, debt management, financial assessment">
+    <meta property="og:title" content="Financial Health Quiz - FiggyBank Canada">
+    <meta property="og:description" content="Assess your financial wellness across 5 key dimensions and get personalized Canadian financial advice.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://figgybank.ca/quiz.html">
+    <link rel="canonical" href="https://figgybank.ca/quiz.html">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHP0GVPV8Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QHP0GVPV8Q');
+    </script>
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3447886014314572" crossorigin="anonymous"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --purple: #2C087D;
+            --coral: #FF6B6B;
+            --cream: #FCFAF4;
+            --dark-bg: #1a1a2e;
+            --dark-card: #16213e;
+            --text-light: #f5f5f5;
+            --text-dark: #2C087D;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--cream);
+            color: var(--text-dark);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        body.dark-mode {
+            background: var(--dark-bg);
+            color: var(--text-light);
+        }
+        
+        /* Navbar */
+        nav {
+            background: var(--purple);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            gap: 0.5rem;
+        }
+        
+        .piggy-logo {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .dark-mode-toggle {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+        
+        .dark-mode-toggle:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        /* Quiz Card */
+        .quiz-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(44,8,125,0.1);
+            transition: background 0.3s;
+        }
+        
+        body.dark-mode .quiz-card {
+            background: var(--dark-card);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 2rem;
+        }
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        body.dark-mode .progress-text {
+            color: #aaa;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        body.dark-mode .progress-bar {
+            background: #333;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--purple), var(--coral));
+            border-radius: 10px;
+            transition: width 0.4s ease;
+        }
+        
+        /* Question */
+        .question-container {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        .question-container.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .question-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--purple);
+        }
+        
+        body.dark-mode .question-title {
+            color: var(--coral);
+        }
+        
+        .question-subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        body.dark-mode .question-subtitle {
+            color: #aaa;
+        }
+        
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        /* Options */
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .option {
+            background: var(--cream);
+            border: 2px solid transparent;
+            padding: 1.25rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            text-align: left;
+        }
+        
+        body.dark-mode .option {
+            background: rgba(255,255,255,0.05);
+            color: var(--text-light);
+        }
+        
+        .option:hover {
+            border-color: var(--purple);
+            transform: translateX(5px);
+        }
+        
+        .option.selected {
+            background: var(--purple);
+            color: white;
+            border-color: var(--purple);
+        }
+        
+        body.dark-mode .option.selected {
+            background: var(--coral);
+            border-color: var(--coral);
+        }
+        
+        /* Buttons */
+        .button-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+        
+        button {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .btn-back {
+            background: #e0e0e0;
+            color: #333;
+        }
+        
+        body.dark-mode .btn-back {
+            background: #333;
+            color: #aaa;
+        }
+        
+        .btn-back:hover {
+            background: #d0d0d0;
+        }
+        
+        .btn-back:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .btn-next {
+            background: var(--purple);
+            color: white;
+            flex: 1;
+        }
+        
+        .btn-next:hover {
+            background: #1f0557;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(44,8,125,0.3);
+        }
+        
+        .btn-next:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Intro Screen */
+        .intro-screen {
+            text-align: center;
+        }
+        
+        .intro-screen h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--purple);
+        }
+        
+        body.dark-mode .intro-screen h1 {
+            color: var(--coral);
+        }
+        
+        .intro-screen p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+        
+        body.dark-mode .intro-screen p {
+            color: #aaa;
+        }
+        
+        .dimensions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .dimension-badge {
+            background: linear-gradient(135deg, var(--purple), var(--coral));
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+        
+        .btn-start {
+            background: var(--coral);
+            color: white;
+            padding: 1.5rem 3rem;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+        }
+        
+        .btn-start:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+        
+        /* Results Screen */
+        .results-screen {
+            display: none;
+        }
+        
+        .results-screen.active {
+            display: block;
+            animation: fadeIn 0.6s ease;
+        }
+        
+        .score-display {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1rem;
+            position: relative;
+        }
+        
+        .score-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--purple);
+        }
+        
+        body.dark-mode .score-number {
+            color: var(--coral);
+        }
+        
+        .score-label {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        body.dark-mode .score-label {
+            color: #aaa;
+        }
+        
+        .grade {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--coral);
+            margin-bottom: 1rem;
+        }
+        
+        .grade-description {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        body.dark-mode .grade-description {
+            color: #aaa;
+        }
+        
+        /* Radar Chart */
+        .chart-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+        
+        body.dark-mode .chart-container {
+            background: rgba(255,255,255,0.05);
+        }
+        
+        /* Dimension Details */
+        .dimension-details {
+            margin-bottom: 2rem;
+        }
+        
+        .dimension-card {
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--purple);
+        }
+        
+        body.dark-mode .dimension-card {
+            background: rgba(255,255,255,0.05);
+            border-left-color: var(--coral);
+        }
+        
+        .dimension-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--purple);
+        }
+        
+        body.dark-mode .dimension-card h3 {
+            color: var(--coral);
+        }
+        
+        .dimension-score {
+            font-weight: 600;
+            color: var(--coral);
+            margin-bottom: 1rem;
+        }
+        
+        .dimension-tip {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        body.dark-mode .dimension-tip {
+            color: #ccc;
+        }
+        
+        /* Recommended Tools */
+        .recommended-tools {
+            background: linear-gradient(135deg, var(--purple), var(--coral));
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            color: white;
+        }
+        
+        .recommended-tools h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tool-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .tool-link {
+            background: rgba(255,255,255,0.2);
+            padding: 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .tool-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-share {
+            background: #1DA1F2;
+            color: white;
+        }
+        
+        .btn-share:hover {
+            background: #1a8cd8;
+        }
+        
+        .btn-retake {
+            background: var(--coral);
+            color: white;
+            flex: 1;
+        }
+        
+        .btn-retake:hover {
+            background: #ff5252;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--purple);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer a {
+            color: var(--coral);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .quiz-card {
+                padding: 1.5rem;
+            }
+            
+            .intro-screen h1 {
+                font-size: 2rem;
+            }
+            
+            .question-title {
+                font-size: 1.2rem;
+            }
+            
+            .question-text {
+                font-size: 1rem;
+            }
+            
+            .dimensions {
+                grid-template-columns: 1fr;
+            }
+            
+            .button-container {
+                flex-direction: column;
+            }
+            
+            .btn-back {
+                order: 2;
+            }
+            
+            .btn-next {
+                order: 1;
+            }
+            
+            .score-number {
+                font-size: 3rem;
+            }
+            
+            .grade {
+                font-size: 2rem;
+            }
+            
+            .tool-links {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                padding: 1rem;
+            }
+            
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="../" class="logo">
+                <svg class="piggy-logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="28" fill="#FF6B6B"/>
+                    <ellipse cx="32" cy="40" rx="20" ry="16" fill="#FCFAF4"/>
+                    <circle cx="24" cy="26" r="3" fill="#2C087D"/>
+                    <circle cx="40" cy="26" r="3" fill="#2C087D"/>
+                    <ellipse cx="32" cy="44" rx="8" ry="5" fill="#FF6B6B" opacity="0.6"/>
+                    <rect x="20" y="10" width="6" height="2" rx="1" fill="#2C087D"/>
+                    <path d="M32 20 L28 8 L36 8 Z" fill="#FF6B6B"/>
+                </svg>
+                <span>FiggyBank</span>
+            </a>
+            <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="quiz-card">
+            <!-- Intro Screen -->
+            <div id="intro" class="intro-screen">
+                <h1>💰 Financial Health Quiz</h1>
+                <p>Discover your financial wellness score in just 5 minutes! This comprehensive quiz evaluates your financial health across five critical dimensions.</p>
+                
+                <div class="dimensions">
+                    <div class="dimension-badge">💵 Savings</div>
+                    <div class="dimension-badge">💳 Debt</div>
+                    <div class="dimension-badge">🛡️ Insurance</div>
+                    <div class="dimension-badge">📈 Investment</div>
+                    <div class="dimension-badge">🏖️ Retirement</div>
+                </div>
+                
+                <p>You'll receive personalized insights and recommendations based on Canadian financial best practices, including TFSA, RRSP, CPP, and OAS guidance.</p>
+                
+                <button class="btn-start" onclick="startQuiz()">Start Quiz →</button>
+            </div>
+
+            <!-- Quiz Questions -->
+            <div id="quiz" style="display: none;">
+                <div class="progress-container">
+                    <div class="progress-text">
+                        <span>Question <span id="current-q">1</span> of 15</span>
+                        <span id="dimension-label">Savings</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+
+                <div id="questions-container"></div>
+
+                <div class="button-container">
+                    <button class="btn-back" onclick="previousQuestion()" id="btn-back">← Back</button>
+                    <button class="btn-next" onclick="nextQuestion()" id="btn-next" disabled>Next →</button>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="results" class="results-screen">
+                <div class="score-display">
+                    <div class="score-label">Your Financial Health Score</div>
+                    <div class="score-number" id="total-score">0</div>
+                    <div class="score-label">out of 100</div>
+                    <div class="grade" id="grade">A+</div>
+                    <div class="grade-description" id="grade-desc"></div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="radar-chart" width="400" height="400"></canvas>
+                </div>
+
+                <div class="dimension-details" id="dimension-details"></div>
+
+                <div class="recommended-tools">
+                    <h3>🧮 Recommended Calculators</h3>
+                    <div class="tool-links">
+                        <a href="../index.html#page-retirement" class="tool-link">Retirement Calculator</a>
+                        <a href="../index.html#page-mortgage" class="tool-link">Mortgage Calculator</a>
+                        <a href="../index.html#page-investment" class="tool-link">Investment Calculator</a>
+                        <a href="../index.html#page-budget" class="tool-link">Budget Planner</a>
+                        <a href="../index.html#page-debt" class="tool-link">Debt Payoff Calculator</a>
+                        <a href="../index.html#page-tfsa" class="tool-link">TFSA Calculator</a>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-share" onclick="shareResults()">📤 Share Results</button>
+                    <button class="btn-retake" onclick="retakeQuiz()">🔄 Retake Quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 FiggyBank Canada. Empowering Your Financial Future.</p>
+        <p><a href="../">Home</a> | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        // Quiz Data
+        const questions = [
+            // SAVINGS (3 questions)
+            {
+                dimension: 'Savings',
+                question: 'How much do you currently have in emergency savings?',
+                options: [
+                    { text: 'Less than 1 month of expenses', score: 0 },
+                    { text: '1-3 months of expenses', score: 2 },
+                    { text: '3-6 months of expenses', score: 4 },
+                    { text: 'More than 6 months of expenses', score: 5 }
+                ]
+            },
+            {
+                dimension: 'Savings',
+                question: 'Do you have a Tax-Free Savings Account (TFSA)?',
+                options: [
+                    { text: 'No, I don\'t have a TFSA', score: 0 },
+                    { text: 'Yes, but I rarely contribute', score: 2 },
+                    { text: 'Yes, and I contribute occasionally', score: 4 },
+                    { text: 'Yes, and I maximize my contributions annually', score: 5 }
+                ]
+            },
+            {
+                dimension: 'Savings',
+                question: 'What percentage of your monthly income do you save?',
+                options: [
+                    { text: 'Less than 5%', score: 0 },
+                    { text: '5-10%', score: 2 },
+                    { text: '10-20%', score: 4 },
+                    { text: 'More than 20%', score: 5 }
+                ]
+            },
+            
+            // DEBT (3 questions)
+            {
+                dimension: 'Debt',
+                question: 'What is your current debt-to-income ratio?',
+                options: [
+                    { text: 'More than 50% (High debt)', score: 0 },
+                    { text: '36-50% (Moderate debt)', score: 2 },
+                    { text: '20-35% (Manageable debt)', score: 4 },
+                    { text: 'Less than 20% or debt-free', score: 5 }
+                ]
+            },
+            {
+                dimension: 'Debt',
+                question: 'How do you manage your credit card balances?',
+                options: [
+                    { text: 'I carry a balance and pay minimum payments', score: 0 },
+                    { text: 'I pay more than the minimum but not in full', score: 2 },
+                    { text: 'I pay in full most months', score: 4 },
+                    { text: 'I always pay in full every month', score: 5 }
+                ]
+            },
+            {
+                dimension: 'Debt',
+                question: 'Do you have a plan to pay off your debts?',
+                options: [
+                    { text: 'No plan, just making minimum payments', score: 0 },
+                    { text: 'I have a vague plan but no timeline', score: 2 },
+                    { text: 'Yes, I have a structured repayment plan', score: 4 },
+                    { text: 'I\'m debt-free or following an aggressive payoff strategy', score: 5 }
+                ]
+            },
+            
+            // INSURANCE (3 questions)
+            {
+                dimension: 'Insurance',
+                question: 'Do you have life insurance coverage?',
+                options: [
+                    { text: 'No life insurance', score: 0 },
+                    { text: 'Yes, but coverage is minimal', score: 2 },
+                    { text: 'Yes, adequate coverage for my dependents', score: 4 },
+                    { text: 'Yes, comprehensive coverage reviewed annually', score: 5 }
+                ]
+            },
+            {
+                dimension: 'Insurance',
+                question: 'Do you have disability insurance?',
+                options: [
+                    { text: 'No disability insurance', score: 0 },
+                    { text: 'Only through employer (basic coverage)', score: 2 },
+                    { text: 'Yes, supplemental private coverage', score: 4 },
+                    { text: 'Yes, comprehensive coverage protecting 60-70% of income', score: 5 }
+                ]
+            },
+            {
+                dimension: 'Insurance',
+                question: 'How adequate is your health and dental insurance?',
+                options: [
+                    { text: 'No coverage beyond provincial health care', score: 0 },
+                    { text: 'Basic employer coverage only', score: 2 },
+                    { text: 'Good coverage with reasonable co-pays', score: 4 },
+                    { text: 'Excellent comprehensive coverage with low out-of-pocket costs', score: 5 }
+                ]
+            },
+            
+            // INVESTMENT (3 questions)
+            {
+                dimension: 'Investment',
+                question: 'Do you have an RRSP (Registered Retirement Savings Plan)?',
+                options: [
+                    { text: 'No RRSP', score: 0 },
+                    { text: 'Yes, but I contribute irregularly', score: 2 },
+                    { text: 'Yes, and I contribute regularly', score: 4 },
+                    { text: 'Yes, maximizing contributions and employer matching', score: 5 }
+                ]
+            },
+            {
+                dimension: 'Investment',
+                question: 'How diversified is your investment portfolio?',
+                options: [
+                    { text: 'No investments outside savings accounts', score: 0 },
+                    { text: 'Single asset class (e.g., only stocks or bonds)', score: 2 },
+                    { text: 'Multiple asset classes (stocks, bonds, real estate)', score: 4 },
+                    { text: 'Well-diversified across asset classes and geographies', score: 5 }
+                ]
+            },
+            {
+                dimension: 'Investment',
+                question: 'How often do you review and rebalance your portfolio?',
+                options: [
+                    { text: 'Never or almost never', score: 0 },
+                    { text: 'Once every few years', score: 2 },
+                    { text: 'Annually', score: 4 },
+                    { text: 'Quarterly or as needed with clear strategy', score: 5 }
+                ]
+            },
+            
+            // RETIREMENT (3 questions)
+            {
+                dimension: 'Retirement',
+                question: 'Have you calculated how much you need for retirement?',
+                options: [
+                    { text: 'No, I haven\'t thought about it', score: 0 },
+                    { text: 'I have a rough estimate', score: 2 },
+                    { text: 'Yes, I\'ve done detailed calculations', score: 4 },
+                    { text: 'Yes, with professional advice and regular updates', score: 5 }
+                ]
+            },
+            {
+                dimension: 'Retirement',
+                question: 'Are you on track to meet your retirement goals?',
+                options: [
+                    { text: 'Far behind or no plan', score: 0 },
+                    { text: 'Behind, need to catch up', score: 2 },
+                    { text: 'Mostly on track', score: 4 },
+                    { text: 'On track or ahead of schedule', score: 5 }
+                ]
+            },
+            {
+                dimension: 'Retirement',
+                question: 'Do you understand CPP and OAS benefits?',
+                options: [
+                    { text: 'Not at all', score: 0 },
+                    { text: 'Basic understanding', score: 2 },
+                    { text: 'Good understanding of eligibility and amounts', score: 4 },
+                    { text: 'Comprehensive understanding, integrated into retirement plan', score: 5 }
+                ]
+            }
+        ];
+
+        // State
+        let currentQuestion = 0;
+        let answers = [];
+        const dimensionScores = {
+            'Savings': 0,
+            'Debt': 0,
+            'Insurance': 0,
+            'Investment': 0,
+            'Retirement': 0
+        };
+
+        // Initialize
+        function init() {
+            renderQuestions();
+            loadDarkMode();
+        }
+
+        function renderQuestions() {
+            const container = document.getElementById('questions-container');
+            questions.forEach((q, index) => {
+                const div = document.createElement('div');
+                div.className = 'question-container';
+                div.id = `question-${index}`;
+                
+                let optionsHTML = '';
+                q.options.forEach((opt, optIndex) => {
+                    optionsHTML += `
+                        <div class="option" onclick="selectOption(${index}, ${optIndex}, ${opt.score})">
+                            ${opt.text}
+                        </div>
+                    `;
+                });
+                
+                div.innerHTML = `
+                    <div class="question-title">${q.dimension}</div>
+                    <div class="question-subtitle">Question ${index + 1} of 15</div>
+                    <div class="question-text">${q.question}</div>
+                    <div class="options">
+                        ${optionsHTML}
+                    </div>
+                `;
+                
+                container.appendChild(div);
+            });
+        }
+
+        function startQuiz() {
+            document.getElementById('intro').style.display = 'none';
+            document.getElementById('quiz').style.display = 'block';
+            showQuestion(0);
+        }
+
+        function showQuestion(index) {
+            // Hide all questions
+            document.querySelectorAll('.question-container').forEach(q => {
+                q.classList.remove('active');
+            });
+            
+            // Show current question
+            document.getElementById(`question-${index}`).classList.add('active');
+            
+            // Update progress
+            const progress = ((index + 1) / questions.length) * 100;
+            document.getElementById('progress-fill').style.width = progress + '%';
+            document.getElementById('current-q').textContent = index + 1;
+            document.getElementById('dimension-label').textContent = questions[index].dimension;
+            
+            // Update back button
+            document.getElementById('btn-back').disabled = index === 0;
+            
+            // Check if answer exists
+            if (answers[index] !== undefined) {
+                highlightSelected(index, answers[index].optionIndex);
+                document.getElementById('btn-next').disabled = false;
+            } else {
+                document.getElementById('btn-next').disabled = true;
+            }
+        }
+
+        function selectOption(questionIndex, optionIndex, score) {
+            answers[questionIndex] = { optionIndex, score, dimension: questions[questionIndex].dimension };
+            highlightSelected(questionIndex, optionIndex);
+            document.getElementById('btn-next').disabled = false;
+        }
+
+        function highlightSelected(questionIndex, optionIndex) {
+            const container = document.getElementById(`question-${questionIndex}`);
+            const options = container.querySelectorAll('.option');
+            options.forEach((opt, idx) => {
+                if (idx === optionIndex) {
+                    opt.classList.add('selected');
+                } else {
+                    opt.classList.remove('selected');
+                }
+            });
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            } else {
+                showResults();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        }
+
+        function showResults() {
+            // Calculate scores
+            answers.forEach(answer => {
+                dimensionScores[answer.dimension] += answer.score;
+            });
+            
+            // Calculate total (out of 75, scale to 100)
+            const totalScore = Object.values(dimensionScores).reduce((a, b) => a + b, 0);
+            const scaledScore = Math.round((totalScore / 75) * 100);
+            
+            // Determine grade
+            let grade, gradeDesc;
+            if (scaledScore >= 90) {
+                grade = 'A+';
+                gradeDesc = 'Excellent! Your financial health is outstanding.';
+            } else if (scaledScore >= 80) {
+                grade = 'A';
+                gradeDesc = 'Great job! You\'re doing very well financially.';
+            } else if (scaledScore >= 70) {
+                grade = 'B';
+                gradeDesc = 'Good work! Some areas could use improvement.';
+            } else if (scaledScore >= 60) {
+                grade = 'C';
+                gradeDesc = 'Fair. There\'s room for significant improvement.';
+            } else {
+                grade = 'D';
+                gradeDesc = 'Needs attention. Consider focusing on your financial health.';
+            }
+            
+            // Display results
+            document.getElementById('total-score').textContent = scaledScore;
+            document.getElementById('grade').textContent = grade;
+            document.getElementById('grade-desc').textContent = gradeDesc;
+            
+            // Draw radar chart
+            drawRadarChart();
+            
+            // Show dimension details
+            showDimensionDetails();
+            
+            // Switch screens
+            document.getElementById('quiz').style.display = 'none';
+            document.getElementById('results').classList.add('active');
+        }
+
+        function drawRadarChart() {
+            const canvas = document.getElementById('radar-chart');
+            const ctx = canvas.getContext('2d');
+            const centerX = 200;
+            const centerY = 200;
+            const maxRadius = 150;
+            
+            // Scale scores to percentages
+            const dimensions = ['Savings', 'Debt', 'Insurance', 'Investment', 'Retirement'];
+            const scores = dimensions.map(d => (dimensionScores[d] / 15) * 100);
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, 400, 400);
+            
+            // Draw background circles
+            ctx.strokeStyle = getComputedStyle(document.body).getPropertyValue('--purple').trim() || '#2C087D';
+            ctx.globalAlpha = 0.1;
+            [0.2, 0.4, 0.6, 0.8, 1.0].forEach(scale => {
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, maxRadius * scale, 0, Math.PI * 2);
+                ctx.stroke();
+            });
+            ctx.globalAlpha = 1.0;
+            
+            // Draw axis lines
+            ctx.strokeStyle = '#ccc';
+            ctx.lineWidth = 1;
+            dimensions.forEach((_, i) => {
+                const angle = (Math.PI * 2 * i / 5) - Math.PI / 2;
+                const x = centerX + Math.cos(angle) * maxRadius;
+                const y = centerY + Math.sin(angle) * maxRadius;
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.lineTo(x, y);
+                ctx.stroke();
+            });
+            
+            // Draw data polygon
+            ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--coral').trim() || '#FF6B6B';
+            ctx.globalAlpha = 0.3;
+            ctx.beginPath();
+            scores.forEach((score, i) => {
+                const angle = (Math.PI * 2 * i / 5) - Math.PI / 2;
+                const radius = (score / 100) * maxRadius;
+                const x = centerX + Math.cos(angle) * radius;
+                const y = centerY + Math.sin(angle) * radius;
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            });
+            ctx.closePath();
+            ctx.fill();
+            
+            // Draw data outline
+            ctx.globalAlpha = 1.0;
+            ctx.strokeStyle = getComputedStyle(document.body).getPropertyValue('--coral').trim() || '#FF6B6B';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+            
+            // Draw points
+            ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--purple').trim() || '#2C087D';
+            scores.forEach((score, i) => {
+                const angle = (Math.PI * 2 * i / 5) - Math.PI / 2;
+                const radius = (score / 100) * maxRadius;
+                const x = centerX + Math.cos(angle) * radius;
+                const y = centerY + Math.sin(angle) * radius;
+                ctx.beginPath();
+                ctx.arc(x, y, 5, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            // Draw labels
+            ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--text-dark').trim() || '#2C087D';
+            if (document.body.classList.contains('dark-mode')) {
+                ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--text-light').trim() || '#f5f5f5';
+            }
+            ctx.font = 'bold 14px Inter';
+            ctx.textAlign = 'center';
+            dimensions.forEach((dim, i) => {
+                const angle = (Math.PI * 2 * i / 5) - Math.PI / 2;
+                const x = centerX + Math.cos(angle) * (maxRadius + 30);
+                const y = centerY + Math.sin(angle) * (maxRadius + 30);
+                ctx.fillText(dim, x, y);
+            });
+        }
+
+        function showDimensionDetails() {
+            const container = document.getElementById('dimension-details');
+            const dimensions = ['Savings', 'Debt', 'Insurance', 'Investment', 'Retirement'];
+            
+            const tips = {
+                'Savings': {
+                    low: 'Start building an emergency fund. Aim for at least 3 months of expenses. Consider setting up automatic transfers to your TFSA.',
+                    medium: 'You\'re on the right track! Continue building your emergency fund and maximize your TFSA contributions.',
+                    high: 'Excellent savings habits! Consider diversifying into other investment vehicles while maintaining your emergency fund.'
+                },
+                'Debt': {
+                    low: 'Focus on debt reduction. Consider the avalanche method (highest interest first) or snowball method (smallest balance first). Avoid carrying credit card balances.',
+                    medium: 'Good progress! Keep paying down debt and avoid taking on new high-interest debt. Consider consolidation if rates are high.',
+                    high: 'Great debt management! Stay disciplined with credit cards and consider investing your freed-up cash flow.'
+                },
+                'Insurance': {
+                    low: 'Insurance is crucial for financial security. Start with term life insurance if you have dependents, and ensure adequate health coverage.',
+                    medium: 'You have basic coverage. Review your policies annually and consider increasing coverage as your responsibilities grow.',
+                    high: 'Well protected! Continue reviewing coverage annually to ensure it aligns with your changing needs.'
+                },
+                'Investment': {
+                    low: 'Start investing today! Even small contributions to an RRSP or TFSA can grow significantly over time. Consider low-cost index funds or robo-advisors.',
+                    medium: 'You\'re building wealth! Focus on diversification and consistent contributions. Review your asset allocation regularly.',
+                    high: 'Strong investment strategy! Continue regular rebalancing and consider tax-loss harvesting strategies.'
+                },
+                'Retirement': {
+                    low: 'Retirement planning is urgent. Calculate your retirement needs and start contributing to RRSPs. Understand CPP and OAS benefits.',
+                    medium: 'You\'re planning ahead! Increase contributions if possible and regularly review your retirement timeline and goals.',
+                    high: 'Retirement ready! Continue monitoring your plan and adjust for life changes. Consider consulting a financial advisor.'
+                }
+            };
+            
+            let html = '';
+            dimensions.forEach(dim => {
+                const score = dimensionScores[dim];
+                const percentage = Math.round((score / 15) * 100);
+                let level = 'low';
+                if (percentage >= 70) level = 'high';
+                else if (percentage >= 50) level = 'medium';
+                
+                html += `
+                    <div class="dimension-card">
+                        <h3>${dim}</h3>
+                        <div class="dimension-score">${percentage}% - ${score}/15 points</div>
+                        <div class="dimension-tip">${tips[dim][level]}</div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        function shareResults() {
+            const score = document.getElementById('total-score').textContent;
+            const grade = document.getElementById('grade').textContent;
+            const text = `I scored ${score}/100 (Grade: ${grade}) on the FiggyBank Financial Health Quiz! 💰 Check your financial wellness: https://figgybank.ca/quiz.html`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'My Financial Health Score',
+                    text: text,
+                    url: 'https://figgybank.ca/quiz.html'
+                }).catch(() => {
+                    fallbackShare(text);
+                });
+            } else {
+                fallbackShare(text);
+            }
+        }
+
+        function fallbackShare(text) {
+            const encodedText = encodeURIComponent(text);
+            const twitterUrl = `https://twitter.com/intent/tweet?text=${encodedText}`;
+            window.open(twitterUrl, '_blank');
+        }
+
+        function retakeQuiz() {
+            // Reset state
+            currentQuestion = 0;
+            answers = [];
+            Object.keys(dimensionScores).forEach(key => {
+                dimensionScores[key] = 0;
+            });
+            
+            // Reset UI
+            document.getElementById('results').classList.remove('active');
+            document.getElementById('intro').style.display = 'block';
+            
+            // Clear selections
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+            
+            // Redraw chart if on results page
+            if (document.getElementById('results').classList.contains('active')) {
+                drawRadarChart();
+            }
+        }
+
+        function loadDarkMode() {
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark-mode');
+            }
+        }
+
+        // Initialize on load
+        init();
+    </script>
+</body>
+</html>
