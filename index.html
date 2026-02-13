@@ -1025,7 +1025,7 @@
     .nav-dropdown-menu {
       display: none;
       position: absolute;
-      top: calc(100% + 8px);
+      top: 100%;
       left: 50%;
       transform: translateX(-50%);
       background: var(--bg-secondary);
@@ -1033,6 +1033,7 @@
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-xl);
       padding: 1.25rem;
+      padding-top: 1.5rem;
       min-width: 580px;
       z-index: 100;
       animation: fadeInUp 0.2s ease both;
@@ -1043,10 +1044,10 @@
       content: '';
       position: absolute;
       top: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-left: 8px solid transparent;
-      border-right: 8px solid transparent;
+      left: 0;
+      right: 0;
+      height: 16px;
+      background: transparent;
       border-bottom: 8px solid var(--border-primary);
     }
     .nav-dropdown-grid {

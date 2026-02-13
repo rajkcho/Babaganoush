@@ -583,17 +583,68 @@
         height: 45px;
       }
     }
+  
+    /* ═══ Shared Navbar Styles ═══ */
+    .nav-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(252, 250, 244, 0.92);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(44, 8, 125, 0.06);
+      padding: 0.75rem 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .dark .nav-bar { background: rgba(15, 10, 26, 0.92); border-bottom-color: rgba(255,255,255,0.06); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; font-weight: 800; font-size: 1.1rem; color: var(--fg-purple, #2C087D); }
+    .dark .nav-logo { color: var(--text-primary, #f4f0ff); }
+    .nav-logo-svg { width: 36px; height: 36px; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { padding: 0.5rem 0.75rem; border-radius: 999px; color: var(--text-secondary, #5a4d7a); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: all 0.3s ease; }
+    .nav-links a:hover, .nav-links a.active { color: var(--fg-purple, #2C087D); background: rgba(44, 8, 125, 0.06); }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-trigger { cursor: pointer; }
+    .nav-dropdown-menu {
+      display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      background: var(--bg-secondary, #fff); border: 1px solid var(--border-primary, #e8e4dc);
+      border-radius: 1rem; box-shadow: 0 20px 40px rgba(44,8,125,0.1); padding: 1.25rem;
+      min-width: 580px; z-index: 100; padding-top: 1.5rem;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown-menu:hover { display: block; }
+    .nav-dropdown-menu::before {
+      content: ''; position: absolute; top: -8px; left: 0; right: 0; height: 16px; background: transparent;
+    }
+    .nav-dropdown-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .nav-dropdown-group { display: flex; flex-direction: column; gap: 2px; }
+    .nav-dropdown-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted, #9b8fb5); padding: 0.25rem 0.5rem; margin-bottom: 4px; }
+    .nav-dropdown-menu a { padding: 0.4rem 0.5rem !important; border-radius: 6px !important; font-size: 0.82rem !important; color: var(--text-secondary, #5a4d7a) !important; white-space: nowrap; }
+    .nav-dropdown-menu a:hover { background: rgba(44, 8, 125, 0.06) !important; color: var(--fg-purple, #2C087D) !important; }
+    .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
+    .theme-toggle { width: 40px; height: 40px; border-radius: 999px; border: 1px solid var(--border-primary, #e8e4dc); background: var(--bg-card, #fff); color: var(--text-secondary, #5a4d7a); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: all 0.3s ease; }
+    .theme-toggle:hover { border-color: var(--border-hover, #d4cfc5); }
+    .mobile-menu-btn { display: none; width: 40px; height: 40px; border-radius: 999px; border: 1px solid var(--border-primary, #e8e4dc); background: var(--bg-card, #fff); color: var(--text-primary, #2C087D); cursor: pointer; align-items: center; justify-content: center; font-size: 1.2rem; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: flex; }
+      .nav-links.mobile-open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-secondary, #fff); border-bottom: 1px solid var(--border-primary, #e8e4dc); padding: 1rem; gap: 0.25rem; }
+      .nav-links.mobile-open a { padding: 0.75rem 1rem; width: 100%; }
+      .nav-dropdown-menu { position: static; transform: none; min-width: auto; box-shadow: none; border: none; padding: 0.5rem 0; background: transparent; }
+      .nav-dropdown-menu::before { display: none; }
+      .nav-dropdown-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links.mobile-open .nav-dropdown-menu { display: block; }
+    }
+
   </style>
 </head>
 <body>
   <div class="reading-progress" id="readingProgress"></div>
 
-  <nav class="nav-bar">
+  <nav class="nav-bar" id="navbar">
     <div class="nav-inner">
       <a href="../" class="nav-logo">
         <svg class="nav-logo-svg" width="36" height="36" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="32" cy="36" rx="22" ry="18" fill="#FF8A8A"/>
-          <ellipse cx="32" cy="36" rx="22" ry="18" fill="url(#piggyGrad)" opacity="0.5"/>
+          <ellipse cx="32" cy="36" rx="22" ry="18" fill="url(#pgNav)" opacity="0.5"/>
           <ellipse cx="16" cy="22" rx="6" ry="7" fill="#FF8A8A" transform="rotate(-15 16 22)"/>
           <ellipse cx="16" cy="22" rx="4" ry="5" fill="#FFB5B5" transform="rotate(-15 16 22)"/>
           <ellipse cx="48" cy="22" rx="6" ry="7" fill="#FF8A8A" transform="rotate(15 48 22)"/>
@@ -612,7 +663,7 @@
           <rect x="39" y="50" width="5" height="6" rx="2.5" fill="#FF8A8A"/>
           <path d="M54 34 Q58 30 56 26 Q54 22 58 20" stroke="#FF8A8A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
           <defs>
-            <linearGradient id="piggyGrad" x1="10" y1="18" x2="54" y2="54">
+            <linearGradient id="pgNav" x1="10" y1="18" x2="54" y2="54">
               <stop offset="0%" stop-color="#FFD4D4"/>
               <stop offset="100%" stop-color="#FF6B6B" stop-opacity="0.3"/>
             </linearGradient>
@@ -620,7 +671,74 @@
         </svg>
         <span>FiggyBank</span>
       </a>
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">☀️</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="#" class="nav-dropdown-trigger">Calculators <span style="font-size:0.6em;margin-left:2px;">▾</span></a>
+          <div class="nav-dropdown-menu">
+            <div class="nav-dropdown-grid">
+              <div class="nav-dropdown-group">
+                <span class="nav-dropdown-label">🏠 Home & Property</span>
+                <a href="../#page-mortgage">Mortgage</a>
+                <a href="../#page-fhsa">FHSA</a>
+                <a href="../#page-rentbuy">Rent vs Buy</a>
+                <a href="../#page-lease">Lease vs Buy</a>
+              </div>
+              <div class="nav-dropdown-group">
+                <span class="nav-dropdown-label">💰 Tax & Income</span>
+                <a href="../#page-tax">Tax Estimator</a>
+                <a href="../#page-capgains">Capital Gains</a>
+                <a href="../#page-salary">Salary</a>
+              </div>
+              <div class="nav-dropdown-group">
+                <span class="nav-dropdown-label">📈 Investing & Savings</span>
+                <a href="../#page-investment">Investment Returns</a>
+                <a href="../#page-compound">Compound Interest</a>
+                <a href="../#page-gic">GIC Ladder</a>
+                <a href="../#page-currency">Currency</a>
+              </div>
+              <div class="nav-dropdown-group">
+                <span class="nav-dropdown-label">🏦 Retirement</span>
+                <a href="../#page-retirement">RRSP vs TFSA</a>
+                <a href="../#page-resp">RESP</a>
+                <a href="../#page-cpp">CPP/OAS</a>
+              </div>
+              <div class="nav-dropdown-group">
+                <span class="nav-dropdown-label">🏢 Business & Debt</span>
+                <a href="../#page-valuation">Valuation</a>
+                <a href="../#page-merger">M&A Analyzer</a>
+                <a href="../#page-runway">Startup Runway</a>
+                <a href="../#page-debt">Debt Payoff</a>
+                <a href="../#page-networth">Net Worth</a>
+                <a href="../#page-compare">Compare</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-dropdown">
+          <a href="#" class="nav-dropdown-trigger">Tools <span style="font-size:0.6em;margin-left:2px;">▾</span></a>
+          <div class="nav-dropdown-menu">
+            <div class="nav-dropdown-grid">
+              <div class="nav-dropdown-group">
+                <span class="nav-dropdown-label">🧭 Interactive</span>
+                <a href="../quiz.html">Financial Health Quiz</a>
+                <a href="../benchmarks.html">How Do You Compare?</a>
+                <a href="../cost-of-living.html">Cost of Living</a>
+              </div>
+              <div class="nav-dropdown-group">
+                <span class="nav-dropdown-label">📋 Resources</span>
+                <a href="../checklists.html">Life Checklists</a>
+                <a href="../glossary.html">Financial Glossary</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li><a href="../blog/">Blog</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">☀️</button>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">☰</button>
+      </div>
     </div>
   </nav>
 
@@ -966,111 +1084,26 @@
     <p style="margin-top: 1rem; font-size: 0.7rem; color: #999; line-height: 1.5;"><strong>Disclaimer:</strong> This report is for informational and educational purposes only. It does not constitute financial, investment, tax, or legal advice. Consult a qualified professional before making financial decisions.</p>
   </footer>
 
+  
   <script>
     function toggleTheme() {
       document.documentElement.classList.toggle('dark');
       const isDark = document.documentElement.classList.contains('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      localStorage.setItem('figgybank-theme', isDark ? 'dark' : 'light');
       document.querySelector('.theme-toggle').textContent = isDark ? '🌙' : '☀️';
     }
-
+    function toggleMobileMenu() {
+      document.getElementById('nav-links').classList.toggle('mobile-open');
+    }
     (function initTheme() {
-      const savedTheme = localStorage.getItem('theme');
+      const saved = localStorage.getItem('figgybank-theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-      if (isDark) {
+      if (saved === 'dark' || (!saved && prefersDark)) {
         document.documentElement.classList.add('dark');
-        document.querySelector('.theme-toggle').textContent = '🌙';
+        const btn = document.querySelector('.theme-toggle');
+        if (btn) btn.textContent = '🌙';
       }
     })();
-
-    (function generateTOC() {
-      const tocList = document.getElementById('tocList');
-      const headings = document.querySelectorAll('.article-content h2');
-      
-      headings.forEach((heading, index) => {
-        if (!heading.id) {
-          heading.id = `section-${index}`;
-        }
-        
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = `#${heading.id}`;
-        a.textContent = heading.textContent;
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          heading.scrollIntoView({ behavior: 'smooth' });
-          if (window.innerWidth <= 1024) {
-            document.getElementById('tocSidebar').classList.remove('open');
-          }
-        });
-        li.appendChild(a);
-        tocList.appendChild(li);
-      });
-    })();
-
-    (function setupTOCActiveState() {
-      const tocLinks = document.querySelectorAll('.toc-list a');
-      const headings = document.querySelectorAll('.article-content h2');
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            tocLinks.forEach(link => {
-              link.classList.remove('active');
-              if (link.getAttribute('href') === `#${id}`) {
-                link.classList.add('active');
-              }
-            });
-          }
-        });
-      }, { rootMargin: '-100px 0px -80% 0px' });
-      
-      headings.forEach(heading => observer.observe(heading));
-    })();
-
-    (function setupReadingProgress() {
-      const progressBar = document.getElementById('readingProgress');
-      
-      window.addEventListener('scroll', () => {
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight - windowHeight;
-        const scrolled = window.scrollY;
-        const progress = (scrolled / documentHeight) * 100;
-        progressBar.style.width = `${Math.min(progress, 100)}%`;
-      });
-    })();
-
-    (function setupBackToTop() {
-      const backToTop = document.getElementById('backToTop');
-      
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) {
-          backToTop.classList.add('visible');
-        } else {
-          backToTop.classList.remove('visible');
-        }
-      });
-    })();
-
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function toggleTOC() {
-      document.getElementById('tocSidebar').classList.toggle('open');
-    }
-
-    document.addEventListener('click', (e) => {
-      const tocSidebar = document.getElementById('tocSidebar');
-      const isClickInsideTOC = tocSidebar.contains(e.target);
-      const isToggleButton = e.target.classList.contains('toc-toggle');
-      
-      if (!isClickInsideTOC && !isToggleButton && window.innerWidth <= 1024) {
-        tocSidebar.classList.remove('open');
-      }
-    });
   </script>
 
 </body>
