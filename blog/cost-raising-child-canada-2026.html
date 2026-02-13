@@ -501,6 +501,24 @@
     }
     .scroll-top-piggy.visible { opacity: 1; transform: translateY(0); }
     .scroll-top-piggy:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(44,8,125,0.4); }
+
+    /* Author Bio */
+    .author-bio {
+      display: flex; gap: 1.5rem; align-items: flex-start;
+      background: var(--bg-card, #fff); border: 1px solid var(--border-primary, #e8e4dc);
+      border-radius: 1rem; padding: 2rem; margin-top: 3rem;
+    }
+    .dark .author-bio { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); }
+    .author-bio-avatar { flex-shrink: 0; }
+    .author-bio-content h3 { font-size: 1.1rem; margin: 0 0 0.5rem; color: var(--text-primary, #1a0e3a); }
+    .dark .author-bio-content h3 { color: #f4f0ff; }
+    .author-bio-content p { font-size: 0.95rem; line-height: 1.7; color: var(--text-secondary, #5a4d7a); margin: 0; }
+    .dark .author-bio-content p { color: rgba(255,255,255,0.7); }
+    .author-bio-links { margin-top: 0.75rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .author-bio-links a { font-size: 0.85rem; color: var(--fg-purple, #2C087D); text-decoration: none; font-weight: 500; }
+    .author-bio-links a:hover { text-decoration: underline; }
+    .dark .author-bio-links a { color: #a78bfa; }
+    @media (max-width: 600px) { .author-bio { flex-direction: column; align-items: center; text-align: center; } .author-bio-links { justify-content: center; } }
   </style>
 </head>
 <body>
@@ -1505,7 +1523,43 @@
                     </a>
                 </div>
             </div>
-        </article>
+    
+      <!-- Author Bio -->
+      <aside class="author-bio">
+        <div class="author-bio-avatar">
+          <svg width="72" height="72" viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="30" fill="url(#pigBioGrad)"/>
+            <ellipse cx="32" cy="36" rx="18" ry="14" fill="#FF8A8A"/>
+            <ellipse cx="20" cy="26" rx="5" ry="6" fill="#FF8A8A" transform="rotate(-15 20 26)"/>
+            <ellipse cx="44" cy="26" rx="5" ry="6" fill="#FF8A8A" transform="rotate(15 44 26)"/>
+            <rect x="27" y="23" width="10" height="2.5" rx="1.25" fill="#F5A623"/>
+            <ellipse cx="32" cy="39" rx="6" ry="4.5" fill="#FFB5B5"/>
+            <circle cx="30" cy="38.5" r="1.2" fill="#E88A8A"/>
+            <circle cx="34" cy="38.5" r="1.2" fill="#E88A8A"/>
+            <circle cx="26" cy="33" r="2" fill="white"/>
+            <circle cx="38" cy="33" r="2" fill="white"/>
+            <circle cx="26.8" cy="32.3" r="0.8" fill="#2C087D"/>
+            <circle cx="38.8" cy="32.3" r="0.8" fill="#2C087D"/>
+            <path d="M29 42 Q32 44 35 42" stroke="#E88A8A" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="pigBioGrad" x1="0" y1="0" x2="64" y2="64">
+                <stop offset="0%" stop-color="#f3e8ff"/>
+                <stop offset="100%" stop-color="#ede0ff"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="author-bio-content">
+          <h3>About the FiggyBank Team</h3>
+          <p>We're a small team of Canadian finance professionals and technologists on a mission to make money math simple. Every calculator, guide, and blog post on FiggyBank is built from real Canadian tax rules, up-to-date government data, and practical experience — not generic advice recycled from south of the border. Whether you're buying your first home, planning for retirement, or running a business, we want to give you the tools to make confident financial decisions.</p>
+          <div class="author-bio-links">
+            <a href="/">🧮 Try Our Calculators</a>
+            <a href="/blog/">📚 More Articles</a>
+            <a href="/glossary.html">📖 Financial Glossary</a>
+          </div>
+        </div>
+      </aside>
+    </article>
     </div>
     
     <script>
