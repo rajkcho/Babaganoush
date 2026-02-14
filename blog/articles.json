@@ -1,5 +1,39 @@
 [
   {
+    "slug": "mortgage-renewal-canada-2026",
+    "title": "Mortgage Renewal in 2026: What Every Canadian Needs to Know",
+    "description": "Complete guide to renewing your mortgage in Canada in 2026. Payment shock calculations, fixed vs variable rates, switching lenders, penalty math, and strategies to prepare.",
+    "author": "Rick Minji",
+    "date": "2026-02-13",
+    "readTime": "12 min read",
+    "category": "Real Estate",
+    "tags": [
+      "Mortgage Renewal",
+      "Mortgage Rates",
+      "Fixed vs Variable",
+      "Mortgage Penalty",
+      "Canadian Mortgage"
+    ],
+    "excerpt": "Roughly 1.2 million Canadian mortgages are up for renewal in 2026, and most borrowers face rates 2-3 percentage points higher than what they're paying. A $500K mortgage going from 1.89% to 4.5% means ~$700/month more. Here's how to prepare, negotiate, and minimize the impact."
+  },
+  {
+    "slug": "capital-gains-tax-canada-2026",
+    "title": "What Canadians Get Wrong About Capital Gains Tax (2026 Update)",
+    "description": "Comprehensive guide to Canadian capital gains tax in 2026. The new inclusion rate, principal residence exemption, LCGE, worked examples, and strategies to minimize your tax bill.",
+    "author": "Rick Minji",
+    "date": "2026-02-13",
+    "readTime": "11 min read",
+    "category": "Tax Planning",
+    "tags": [
+      "Capital Gains",
+      "Inclusion Rate",
+      "Principal Residence",
+      "LCGE",
+      "Tax Planning"
+    ],
+    "excerpt": "The 2024 capital gains inclusion rate change confused a lot of Canadians. Here's what actually changed: individuals pay 50% inclusion on the first $250K of gains per year and 66.67% above that. We bust the myths, run worked examples, and show you how to legally minimize what you owe."
+  },
+  {
     "slug": "cost-raising-child-canada-2026",
     "title": "The True Cost of Raising a Child in Canada (2026 Edition)",
     "description": "Complete breakdown of raising a child in Canada from birth to 18. Includes provincial costs, CCB benefits, RESP strategies, and real cost estimates by age bracket.",
@@ -7,7 +41,16 @@
     "date": "2026-02-13",
     "readTime": "13 min read",
     "category": "Family Finance",
-    "tags": ["Child Costs", "CCB", "Canada Child Benefit", "RESP", "CESG", "Childcare", "Family Budget", "Parenting"],
+    "tags": [
+      "Child Costs",
+      "CCB",
+      "Canada Child Benefit",
+      "RESP",
+      "CESG",
+      "Childcare",
+      "Family Budget",
+      "Parenting"
+    ],
     "excerpt": "Raising a child from birth to age 18 in Canada costs approximately $293,000 to $350,000, depending on your province and lifestyle choices. However, with the Canada Child Benefit (CCB) providing up to $180,000 over 18 years and smart RESP contributions capturing $7,200 in free government money, the net cost ranges from $113,000 to $170,000."
   },
   {
@@ -18,7 +61,15 @@
     "date": "2026-02-13",
     "readTime": "14 min read",
     "category": "Retirement Planning",
-    "tags": ["Retirement", "CPP", "OAS", "GIS", "Retirement Savings", "Financial Planning", "Canadian Finance"],
+    "tags": [
+      "Retirement",
+      "CPP",
+      "OAS",
+      "GIS",
+      "Retirement Savings",
+      "Financial Planning",
+      "Canadian Finance"
+    ],
     "excerpt": "Most Canadians will need between $400,000 and $1.2 million in retirement savings (excluding their home) to maintain their lifestyle, depending on their province and spending level. When combined with CPP and OAS, this translates to a retirement income ranging from $35,000 to $80,000+ annually."
   },
   {
@@ -29,7 +80,16 @@
     "date": "2026-02-13",
     "readTime": "12 min read",
     "category": "Real Estate",
-    "tags": ["FHSA", "RRSP", "Home Buyers Plan", "HBP", "First Home Savings Account", "First Home", "Down Payment", "Tax Planning"],
+    "tags": [
+      "FHSA",
+      "RRSP",
+      "Home Buyers Plan",
+      "HBP",
+      "First Home Savings Account",
+      "First Home",
+      "Down Payment",
+      "Tax Planning"
+    ],
     "excerpt": "Choosing between maxing your FHSA or RRSP for your first home down payment can save you thousands. We compare contribution limits ($8K vs $40K lifetime), tax treatment, repayment rules, and show worked examples at three income levels to help you decide which account to prioritize."
   },
   {
@@ -40,8 +100,14 @@
     "date": "2026-02-10",
     "readTime": "12 min read",
     "category": "Retirement Planning",
-    "tags": ["RRSP", "TFSA", "Retirement", "Tax Planning", "Canadian Finance"],
-    "excerpt": "Choosing between maximizing your RRSP or TFSA is one of the most common financial dilemmas facing Canadians. Both are powerful savings vehicles, but they work very differently—and the right choice depends heavily on your current income, future plans, and financial goals."
+    "tags": [
+      "RRSP",
+      "TFSA",
+      "Retirement",
+      "Tax Planning",
+      "Canadian Finance"
+    ],
+    "excerpt": "Choosing between maximizing your RRSP or TFSA is one of the most common financial dilemmas facing Canadians. Both are powerful savings vehicles, but they work very differently\u2014and the right choice depends heavily on your current income, future plans, and financial goals."
   },
   {
     "slug": "canadian-tax-brackets-2026",
@@ -51,7 +117,13 @@
     "date": "2026-02-08",
     "readTime": "10 min read",
     "category": "Tax Planning",
-    "tags": ["Tax Brackets", "Canadian Tax", "Tax Planning", "Provincial Tax", "CPP"],
+    "tags": [
+      "Tax Brackets",
+      "Canadian Tax",
+      "Tax Planning",
+      "Provincial Tax",
+      "CPP"
+    ],
     "excerpt": "Understanding Canadian tax brackets is essential for effective tax planning. In 2026, federal and provincial tax rates continue to evolve, with CPP2 enhancements and indexed basic personal amounts affecting your take-home pay."
   },
   {
@@ -62,7 +134,14 @@
     "date": "2026-02-05",
     "readTime": "11 min read",
     "category": "Real Estate",
-    "tags": ["First Home", "FHSA", "Home Buyers Plan", "CMHC", "Mortgage", "Real Estate"],
+    "tags": [
+      "First Home",
+      "FHSA",
+      "Home Buyers Plan",
+      "CMHC",
+      "Mortgage",
+      "Real Estate"
+    ],
     "excerpt": "Buying your first home in Canada can feel overwhelming, but 2026 brings several helpful programs including the First Home Savings Account (FHSA), enhanced Home Buyers' Plan, and provincial incentives that can make homeownership more accessible."
   },
   {
@@ -73,8 +152,14 @@
     "date": "2026-02-03",
     "readTime": "9 min read",
     "category": "Debt Management",
-    "tags": ["Debt Payoff", "Avalanche Method", "Snowball Method", "Student Loans", "Credit Cards"],
-    "excerpt": "When you're carrying multiple debts—credit cards, student loans, car payments, lines of credit—choosing the right payoff strategy can save you thousands in interest and help you become debt-free faster. The two most popular approaches are the Avalanche and Snowball methods."
+    "tags": [
+      "Debt Payoff",
+      "Avalanche Method",
+      "Snowball Method",
+      "Student Loans",
+      "Credit Cards"
+    ],
+    "excerpt": "When you're carrying multiple debts\u2014credit cards, student loans, car payments, lines of credit\u2014choosing the right payoff strategy can save you thousands in interest and help you become debt-free faster. The two most popular approaches are the Avalanche and Snowball methods."
   },
   {
     "slug": "small-business-valuation-canada",
@@ -84,7 +169,13 @@
     "date": "2026-02-01",
     "readTime": "13 min read",
     "category": "Business Finance",
-    "tags": ["Business Valuation", "Small Business", "DCF", "M&A", "Canadian Business"],
-    "excerpt": "Whether you're buying, selling, or seeking funding for a small business in Canada, understanding valuation is critical. Business valuation combines art and science—blending financial analysis with industry knowledge and market conditions."
+    "tags": [
+      "Business Valuation",
+      "Small Business",
+      "DCF",
+      "M&A",
+      "Canadian Business"
+    ],
+    "excerpt": "Whether you're buying, selling, or seeking funding for a small business in Canada, understanding valuation is critical. Business valuation combines art and science\u2014blending financial analysis with industry knowledge and market conditions."
   }
 ]
