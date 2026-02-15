@@ -627,7 +627,45 @@
     .author-bio-links a:hover { text-decoration: underline; }
     .dark .author-bio-links a { color: #a78bfa; }
     @media (max-width: 600px) { .author-bio { flex-direction: column; align-items: center; text-align: center; } .author-bio-links { justify-content: center; } }
-  </style>
+  
+    /* Calculator CTA Box */
+    .calc-cta-box {
+      background: linear-gradient(135deg, rgba(44, 8, 125, 0.08) 0%, rgba(255, 107, 107, 0.08) 100%);
+      border: 2px solid rgba(44, 8, 125, 0.2);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 32px 0;
+      text-align: center;
+    }
+    .dark .calc-cta-box {
+      background: linear-gradient(135deg, rgba(44, 8, 125, 0.25) 0%, rgba(255, 107, 107, 0.15) 100%);
+      border-color: rgba(255, 107, 107, 0.3);
+    }
+    .calc-cta-box p {
+      margin: 0 0 16px 0;
+      font-size: 1.05rem;
+      color: var(--text-primary, #1a1a2e);
+      line-height: 1.6;
+    }
+    .dark .calc-cta-box p {
+      color: var(--text-primary, #e8e8f0);
+    }
+    .calc-cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #2C087D, #5B21B6);
+      color: #fff !important;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .calc-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(44, 8, 125, 0.3);
+    }
+</style>
 </head>
 <body>
 
@@ -1281,7 +1319,12 @@
 
       </div>
       
-      <div class="related-articles">
+      <div class="calc-cta-box">
+  <p>🧮 Value your business — try our free Business Valuation Calculator with DCF, multiples, and asset-based methods.</p>
+  <a href="https://figgybank.ca/?calc=valuation" class="calc-cta-btn" target="_blank">Try the Business Valuation Calculator →</a>
+</div>
+
+<div class="related-articles">
         <h3>📚 Related Articles</h3>
         <div class="related-articles-grid">
           <a href="rrsp-vs-tfsa-2026.html" class="article-card">
