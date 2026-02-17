@@ -7195,6 +7195,19 @@
       if (pageId === 'capgains') calculateCapGains();
     }
     
+    // ── Hash-based routing (for external links like blog → calculator) ──
+    function handleHashRoute() {
+      const hash = window.location.hash;
+      if (hash && hash.startsWith('#page-')) {
+        const pageId = hash.replace('#page-', '');
+        showPage(pageId);
+      }
+    }
+    window.addEventListener('hashchange', handleHashRoute);
+    window.addEventListener('DOMContentLoaded', handleHashRoute);
+    // Also run immediately in case DOMContentLoaded already fired
+    if (document.readyState !== 'loading') handleHashRoute();
+
     // ── Theme Toggle ──────────────────────────────────────
     // Check localStorage first, then fall back to system preference
     let savedTheme = localStorage.getItem('figgybank-theme');
