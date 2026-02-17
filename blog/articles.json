@@ -1,5 +1,42 @@
 [
   {
+    "slug": "rrsp-deadline-2026",
+    "title": "RRSP Deadline 2026: Last-Minute Strategies Before March 3rd",
+    "description": "The RRSP contribution deadline for the 2025 tax year is March 3, 2026. Last-minute strategies including RRSP loans, spousal contributions, carry-forward deductions, and how to coordinate with TFSA and FHSA.",
+    "author": "Rick Minji",
+    "date": "2026-02-17",
+    "readTime": "11 min read",
+    "category": "Tax Planning",
+    "tags": [
+      "RRSP",
+      "RRSP Deadline",
+      "Tax Deduction",
+      "Spousal RRSP",
+      "Contribution Room",
+      "Tax Planning"
+    ],
+    "excerpt": "The RRSP contribution deadline for the 2025 tax year is March 3, 2026. Whether you have $500 or $50,000 in contribution room, last-minute strategies like RRSP loans, spousal contributions, and carry-forward deductions can save you thousands. Here's your two-week game plan."
+  },
+  {
+    "slug": "canada-mortgage-rules-2025-2026",
+    "title": "Canada's New Mortgage Rules: What the 2025-2026 Changes Mean for Buyers",
+    "description": "Canada's biggest mortgage rule changes in a decade took effect in late 2024, expanding 30-year amortizations for first-time buyers, raising the insured mortgage cap to $1.5M, and opening secondary suite refinancing. Here's what every Canadian buyer and homeowner needs to know heading into spring 2026.",
+    "author": "Rick Minji",
+    "date": "2026-02-16",
+    "readTime": "12 min read",
+    "category": "Real Estate",
+    "tags": [
+      "Mortgage Rules",
+      "30-Year Amortization",
+      "Insured Mortgage",
+      "Stress Test",
+      "CMHC",
+      "First-Time Buyer",
+      "Canadian Mortgage"
+    ],
+    "excerpt": "Canada's biggest mortgage rule changes in a decade took effect in late 2024, expanding 30-year amortizations for first-time buyers, raising the insured mortgage cap to $1.5M, and opening secondary suite refinancing. Here's what every Canadian buyer and homeowner needs to know heading into spring 2026."
+  },
+  {
     "slug": "mortgage-renewal-canada-2026",
     "title": "Mortgage Renewal in 2026: What Every Canadian Needs to Know",
     "description": "Complete guide to renewing your mortgage in Canada in 2026. Payment shock calculations, fixed vs variable rates, switching lenders, penalty math, and strategies to prepare.",
@@ -107,7 +144,7 @@
       "Tax Planning",
       "Canadian Finance"
     ],
-    "excerpt": "Choosing between maximizing your RRSP or TFSA is one of the most common financial dilemmas facing Canadians. Both are powerful savings vehicles, but they work very differently\u2014and the right choice depends heavily on your current income, future plans, and financial goals."
+    "excerpt": "Choosing between maximizing your RRSP or TFSA is one of the most common financial dilemmas facing Canadians. Both are powerful savings vehicles, but they work very differently—and the right choice depends heavily on your current income, future plans, and financial goals."
   },
   {
     "slug": "canadian-tax-brackets-2026",
@@ -159,7 +196,7 @@
       "Student Loans",
       "Credit Cards"
     ],
-    "excerpt": "When you're carrying multiple debts\u2014credit cards, student loans, car payments, lines of credit\u2014choosing the right payoff strategy can save you thousands in interest and help you become debt-free faster. The two most popular approaches are the Avalanche and Snowball methods."
+    "excerpt": "When you're carrying multiple debts—credit cards, student loans, car payments, lines of credit—choosing the right payoff strategy can save you thousands in interest and help you become debt-free faster. The two most popular approaches are the Avalanche and Snowball methods."
   },
   {
     "slug": "small-business-valuation-canada",
@@ -176,6 +213,6 @@
       "M&A",
       "Canadian Business"
     ],
-    "excerpt": "Whether you're buying, selling, or seeking funding for a small business in Canada, understanding valuation is critical. Business valuation combines art and science\u2014blending financial analysis with industry knowledge and market conditions."
+    "excerpt": "Whether you're buying, selling, or seeking funding for a small business in Canada, understanding valuation is critical. Business valuation combines art and science—blending financial analysis with industry knowledge and market conditions."
   }
 ]
