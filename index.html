@@ -12939,6 +12939,323 @@ if (document.readyState === 'loading') {
 }
 
     initAffiliateUpgrade();
+
+// ═══════════════════════════════════════════════════════
+// RESULT-TRIGGERED INLINE AFFILIATE CARDS
+// ═══════════════════════════════════════════════════════
+
+// Map calculator IDs to top recommended products
+const CALC_AFFILIATE_MAP = {
+  'mortgage-results': {
+    asin: 'B0CQW4P8VH',
+    title: 'The Wealthy Renter',
+    author: 'Alex Avery',
+    why: 'Essential reading for understanding Canadian housing and mortgage decisions',
+    stars: '★★★★★'
+  },
+  'rrsp-results': {
+    asin: 'B08L7QHDW2',
+    title: 'Beat the Bank',
+    author: 'Larry Bates',
+    why: 'Learn how to maximize your RRSP returns and minimize fees',
+    stars: '★★★★★'
+  },
+  'rrsptfsa-results': {
+    asin: 'B08L7QHDW2',
+    title: 'Beat the Bank',
+    author: 'Larry Bates',
+    why: 'Navigate RRSP vs TFSA decisions with confidence',
+    stars: '★★★★★'
+  },
+  'tfsa-results': {
+    asin: 'B09TDXBFQN',
+    title: 'Millionaire Teacher',
+    author: 'Andrew Hallam',
+    why: 'Build wealth using tax-advantaged accounts like TFSAs',
+    stars: '★★★★★'
+  },
+  'fhsa-results': {
+    asin: 'B0CQW4P8VH',
+    title: 'The Wealthy Renter',
+    author: 'Alex Avery',
+    why: 'Make informed first-home savings and buying decisions',
+    stars: '★★★★★'
+  },
+  'compound-results': {
+    asin: 'B09TDXBFQN',
+    title: 'Millionaire Teacher',
+    author: 'Andrew Hallam',
+    why: 'Master the power of compound interest and long-term investing',
+    stars: '★★★★★'
+  },
+  'dcf-results': {
+    asin: 'B08DHKZ5K7',
+    title: 'The Intelligent Investor',
+    author: 'Benjamin Graham',
+    why: 'Deep dive into business valuation fundamentals',
+    stars: '★★★★★'
+  },
+  'multiples-results': {
+    asin: 'B08DHKZ5K7',
+    title: 'The Intelligent Investor',
+    author: 'Benjamin Graham',
+    why: 'Understand valuation multiples and market pricing',
+    stars: '★★★★★'
+  },
+  'ma-results': {
+    asin: 'B0B2KJHZFV',
+    title: 'The Art of M&A',
+    author: 'Stanley Foster Reed',
+    why: 'Navigate mergers and acquisitions with expert guidance',
+    stars: '★★★★☆'
+  },
+  'asset-results': {
+    asin: 'B08DHKZ5K7',
+    title: 'The Intelligent Investor',
+    author: 'Benjamin Graham',
+    why: 'Learn asset-based valuation techniques from the master',
+    stars: '★★★★★'
+  },
+  'rb-results': {
+    asin: 'B0CSQWFFHZ',
+    title: 'Burn Your Mortgage',
+    author: 'Sean Cooper',
+    why: 'Canadian strategies for paying off your mortgage faster',
+    stars: '★★★★☆'
+  },
+  'incometax-results': {
+    asin: 'B0BQXFG7NK',
+    title: 'The Smart Canadian Wealth-Builder',
+    author: 'Peter Dolezal',
+    why: 'Optimize your taxes and keep more of what you earn',
+    stars: '★★★★☆'
+  },
+  'tax-results': {
+    asin: 'B0BQXFG7NK',
+    title: 'The Smart Canadian Wealth-Builder',
+    author: 'Peter Dolezal',
+    why: 'Master Canadian tax planning strategies',
+    stars: '★★★★☆'
+  },
+  'cg-results': {
+    asin: 'B08L7QHDW2',
+    title: 'Beat the Bank',
+    author: 'Larry Bates',
+    why: 'Understand capital gains and investment taxation',
+    stars: '★★★★★'
+  },
+  'gic-results': {
+    asin: 'B0BQXFG7NK',
+    title: 'The Smart Canadian Wealth-Builder',
+    author: 'Peter Dolezal',
+    why: 'Evaluate GICs vs other low-risk Canadian investments',
+    stars: '★★★★☆'
+  },
+  'resp-results': {
+    asin: 'B09JN5LQWV',
+    title: 'Worry-Free Money',
+    author: 'Shannon Lee Simmons',
+    why: 'Plan for your children\'s education with Canadian RESP strategies',
+    stars: '★★★★☆'
+  },
+  'cpp-results': {
+    asin: 'B0BQXFG7NK',
+    title: 'The Smart Canadian Wealth-Builder',
+    author: 'Peter Dolezal',
+    why: 'Maximize your CPP benefits and retirement planning',
+    stars: '★★★★☆'
+  },
+  'cagr-results': {
+    asin: 'B09TDXBFQN',
+    title: 'Millionaire Teacher',
+    author: 'Andrew Hallam',
+    why: 'Learn to evaluate investment returns like a pro',
+    stars: '★★★★★'
+  },
+  'dca-results': {
+    asin: 'B09TDXBFQN',
+    title: 'Millionaire Teacher',
+    author: 'Andrew Hallam',
+    why: 'Master dollar-cost averaging and systematic investing',
+    stars: '★★★★★'
+  },
+  'lease-buy-results': {
+    asin: 'B0CQW4P8VH',
+    title: 'The Wealthy Renter',
+    author: 'Alex Avery',
+    why: 'Make smarter rent vs buy decisions',
+    stars: '★★★★★'
+  },
+  'currency-results': {
+    asin: 'B08L7QHDW2',
+    title: 'Beat the Bank',
+    author: 'Larry Bates',
+    why: 'Minimize fees on currency exchange and investing',
+    stars: '★★★★★'
+  }
+};
+
+// Inject affiliate card below calculator results
+function injectInlineAffiliateCard(resultsId) {
+  const resultsEl = document.getElementById(resultsId);
+  if (!resultsEl) return;
+  
+  // Check if already injected
+  if (resultsEl.dataset.affiliateInjected === 'true') return;
+  resultsEl.dataset.affiliateInjected = 'true';
+  
+  const recommendation = CALC_AFFILIATE_MAP[resultsId];
+  if (!recommendation) return;
+  
+  const affiliateTag = 'figgy0a0-20';
+  const amazonUrl = `https://www.amazon.ca/dp/${recommendation.asin}?tag=${affiliateTag}`;
+  
+  const card = document.createElement('a');
+  card.className = 'affiliate-inline';
+  card.href = amazonUrl;
+  card.target = '_blank';
+  card.rel = 'noopener noreferrer sponsored';
+  card.innerHTML = `
+    <div class="affiliate-inline__icon">📚</div>
+    <div class="affiliate-inline__body">
+      <div class="affiliate-inline__label">Recommended Reading</div>
+      <div class="affiliate-inline__title">${recommendation.title}</div>
+      <div class="affiliate-inline__author">by ${recommendation.author}</div>
+      <div class="affiliate-inline__pitch">${recommendation.why}</div>
+      <div class="affiliate-inline__stars">${recommendation.stars}</div>
+    </div>
+    <div class="affiliate-inline__cta">View on Amazon →</div>
+  `;
+  
+  // Insert after the last child of results element
+  resultsEl.appendChild(card);
+}
+
+// Watch for changes in all calculator results
+function watchCalculatorResults() {
+  const resultIds = Object.keys(CALC_AFFILIATE_MAP);
+  
+  resultIds.forEach(resultsId => {
+    const resultsEl = document.getElementById(resultsId);
+    if (!resultsEl) return;
+    
+    // Create observer to watch for result changes
+    const observer = new MutationObserver((mutations) => {
+      // Check if there's actual content (not just "Enter values...")
+      const hasContent = resultsEl.querySelector('.result-card, .result-value');
+      if (hasContent && !resultsEl.dataset.affiliateInjected) {
+        // Add small delay to ensure results are fully rendered
+        setTimeout(() => injectInlineAffiliateCard(resultsId), 300);
+      }
+    });
+    
+    observer.observe(resultsEl, {
+      childList: true,
+      subtree: true
+    });
+    
+    // Also check on initial load if results already exist
+    const hasContent = resultsEl.querySelector('.result-card, .result-value');
+    if (hasContent && !resultsEl.dataset.affiliateInjected) {
+      setTimeout(() => injectInlineAffiliateCard(resultsId), 500);
+    }
+  });
+}
+
+// Initialize result watchers
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', watchCalculatorResults);
+} else {
+  watchCalculatorResults();
+}
+
+// ═══════════════════════════════════════════════════════
+// FLOATING BOTTOM CTA BAR
+// ═══════════════════════════════════════════════════════
+
+function showFloatingCTA() {
+  // Check if dismissed in last 24 hours
+  const dismissedTime = localStorage.getItem('figgy-float-dismissed');
+  if (dismissedTime) {
+    const hoursSinceDismissal = (Date.now() - parseInt(dismissedTime)) / (1000 * 60 * 60);
+    if (hoursSinceDismissal < 24) return;
+  }
+  
+  // Get current calculator page
+  const activePage = document.querySelector('.calc-page:not(.hidden)');
+  if (!activePage) return;
+  
+  // Map page IDs to recommendations
+  const pageId = activePage.id;
+  let recommendation = null;
+  
+  // Try to match page ID to our recommendations
+  const resultsId = pageId + '-results';
+  if (CALC_AFFILIATE_MAP[resultsId]) {
+    recommendation = CALC_AFFILIATE_MAP[resultsId];
+  } else {
+    // Default recommendation if no match
+    recommendation = {
+      asin: 'B08L7QHDW2',
+      title: 'Beat the Bank',
+      author: 'Larry Bates'
+    };
+  }
+  
+  const affiliateTag = 'figgy0a0-20';
+  const amazonUrl = `https://www.amazon.ca/dp/${recommendation.asin}?tag=${affiliateTag}`;
+  
+  // Create floating bar
+  const floatBar = document.createElement('div');
+  floatBar.className = 'affiliate-float';
+  floatBar.id = 'affiliate-float-bar';
+  floatBar.innerHTML = `
+    <div style="display: flex; align-items: center; gap: 12px; flex: 1;">
+      <span style="font-size: 1.2rem;">📚</span>
+      <div>
+        <div style="font-weight: 600; font-size: 0.95rem;">${recommendation.title}</div>
+        <div style="font-size: 0.8rem; color: #666;">by ${recommendation.author}</div>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="${amazonUrl}" target="_blank" rel="noopener noreferrer sponsored" class="aff-float-cta">
+        View on Amazon →
+      </a>
+      <button class="aff-float-close" aria-label="Close recommendation">✕</button>
+    </div>
+  `;
+  
+  document.body.appendChild(floatBar);
+  
+  // Show with slight delay for animation
+  setTimeout(() => {
+    floatBar.classList.add('visible');
+  }, 100);
+  
+  // Handle close button
+  const closeBtn = floatBar.querySelector('.aff-float-close');
+  closeBtn.addEventListener('click', () => {
+    floatBar.classList.remove('visible');
+    setTimeout(() => floatBar.remove(), 400);
+    localStorage.setItem('figgy-float-dismissed', Date.now().toString());
+  });
+}
+
+// Show floating CTA after 8 seconds on calculator pages
+function initFloatingCTA() {
+  const onCalcPage = document.querySelector('.calc-page:not(.hidden)');
+  if (onCalcPage) {
+    setTimeout(showFloatingCTA, 8000);
+  }
+}
+
+// Initialize floating CTA
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initFloatingCTA);
+} else {
+  initFloatingCTA();
+}
+
 </script>
 </body>
 </html>
