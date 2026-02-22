@@ -12806,10 +12806,15 @@ function enhanceExistingAffiliates() {
       starsEl.style.marginBottom = '0.25rem';
       link.parentNode.insertBefore(starsEl, link);
 
-      // Restyle link as CTA button
+      // Add CTA button without overwriting card content
       link.classList.add('aff-enhanced-cta');
-      if (!link.textContent.includes('→')) {
-        link.textContent = 'View on Amazon.ca →';
+      if (!link.querySelector('.aff-cta-btn')) {
+        const ctaBtn = document.createElement('span');
+        ctaBtn.className = 'aff-cta-btn';
+        ctaBtn.textContent = 'View on Amazon.ca →';
+        ctaBtn.style.cssText = 'display:inline-block;margin-top:0.5rem;padding:0.4rem 0.8rem;background:#FF6B6B;color:#fff;border-radius:6px;font-size:0.8rem;font-weight:600;';
+        const infoDiv = link.querySelector('.affiliate-info');
+        if (infoDiv) { infoDiv.appendChild(ctaBtn); } else { link.appendChild(ctaBtn); }
       }
     });
   });
