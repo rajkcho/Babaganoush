@@ -2343,6 +2343,16 @@
       background: rgba(44, 8, 125, 0.05);
       border-radius: 8px;
     }
+    .affiliate-card { align-items: center; }
+    .affiliate-card .aff-cover {
+      width: 60px;
+      height: 80px;
+      object-fit: contain;
+      flex-shrink: 0;
+      border-radius: 4px;
+      background: #f0f0f0;
+    }
+    .dark .affiliate-card .aff-cover { background: #2a2a3e; }
     .affiliate-card-info h5 {
       font-size: 0.9rem;
       font-weight: 600;
@@ -2725,6 +2735,57 @@
     right: 1rem;
     bottom: 1rem;
   }
+}
+
+/* ── Floating Affiliate CTA Bar ── */
+
+.affiliate-float {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: white;
+  border-top: 2px solid #2C087D;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.affiliate-float.visible {
+  transform: translateY(0);
+}
+
+.affiliate-float .aff-float-close {
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 4px 8px;
+  border: none;
+  background: none;
+  color: #999;
+}
+
+.affiliate-float .aff-float-cta {
+  background: #FF6B6B;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.15s ease;
+}
+
+.affiliate-float .aff-float-cta:hover {
+  background: #e85555;
+}
+
+.dark .affiliate-float {
+  background: #1a1a2e;
 }
 
   </style>
@@ -12798,13 +12859,17 @@ function enhanceExistingAffiliates() {
     section.querySelectorAll('a[href*="amazon"]').forEach(link => {
       if (link.querySelector('.aff-enhanced-cta')) return;
 
-      // Add star rating before link if not present
-      const starsEl = document.createElement('span');
-      starsEl.className = 'affiliate-inline__stars';
-      starsEl.textContent = '★★★★★';
-      starsEl.style.display = 'block';
-      starsEl.style.marginBottom = '0.25rem';
-      link.parentNode.insertBefore(starsEl, link);
+      // Add book cover image
+      const asinMatch = link.href.match(/\/dp\/([A-Z0-9]{10})/);
+      if (asinMatch && !link.querySelector('.aff-cover')) {
+        const img = document.createElement('img');
+        img.className = 'aff-cover';
+        img.alt = '';
+        img.loading = 'lazy';
+        img.src = 'https://images-na.ssl-images-amazon.com/images/P/' + asinMatch[1] + '.01._SX60_.jpg';
+        img.onerror = function() { this.style.display = 'none'; };
+        link.insertBefore(img, link.firstChild);
+      }
 
       // Add CTA button without overwriting card content
       link.classList.add('aff-enhanced-cta');
