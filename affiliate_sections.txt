@@ -1,0 +1,495 @@
+
+============================================================
+CAPGAINS (5 cards)
+============================================================
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/1119356296?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Millionaire Teacher</span>
+              <span class="affiliate-author">Andrew Hallam</span>
+              <span class="affiliate-why">Tax-efficient investing strategies for Canadians</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1459721646?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Tax-Free Savings Accounts</span>
+              <span class="affiliate-author">Gordon Pape</span>
+              <span class="affiliate-why">Shelter capital gains in your TFSA</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0060555661?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Intelligent Investor</span>
+              <span class="affiliate-author">Benjamin Graham</span>
+              <span class="affiliate-why">Understanding value and capital appreciation</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1119404509?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Little Book of Common Sense Investing</span>
+              <span class="affiliate-author">John C. Bogle</span>
+              <span class="affiliate-why">Index investing for lower turnover and taxes</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0857197681?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Psychology of Money</span>
+              <span class="affiliate-author">Morgan Housel</span>
+              <span class="affiliate-why">Long-term thinking for capital gains success</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+      </div>
+
+============================================================
+CPP (5 cards)
+============================================================
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/1988344305?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Victory Lap Retirement</span>
+              <span class="affiliate-author">Mike Drak</span>
+              <span class="affiliate-why">Plan your CPP timing with retirement strategy</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1118691342?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Pensionize Your Nest Egg</span>
+              <span class="affiliate-author">Moshe Milevsky</span>
+              <span class="affiliate-why">Create guaranteed income streams alongside CPP</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0143190008?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Wealthy Barber Returns</span>
+              <span class="affiliate-author">David Chilton</span>
+              <span class="affiliate-why">Canadian retirement planning essentials</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1119356296?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Millionaire Teacher</span>
+              <span class="affiliate-author">Andrew Hallam</span>
+              <span class="affiliate-why">Building wealth beyond government benefits</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0143115766?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Your Money or Your Life</span>
+              <span class="affiliate-author">Vicki Robin</span>
+              <span class="affiliate-why">Financial independence and retirement planning</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+      </div>
+
+============================================================
+DEBT (5 cards)
+============================================================
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/1595555277?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Total Money Makeover</span>
+              <span class="affiliate-author">Dave Ramsey</span>
+              <span class="affiliate-why">The proven debt snowball method</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0525538690?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Quit Like a Millionaire</span>
+              <span class="affiliate-author">Kristy Shen</span>
+              <span class="affiliate-why">Achieve financial independence after debt</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0993874177?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Wealthing Like Rabbits</span>
+              <span class="affiliate-author">Robert R. Brown</span>
+              <span class="affiliate-why">Canadian perspective on debt-free living</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0143115766?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Your Money or Your Life</span>
+              <span class="affiliate-author">Vicki Robin</span>
+              <span class="affiliate-why">Transform your relationship with money</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1523505745?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">I Will Teach You to Be Rich</span>
+              <span class="affiliate-author">Ramit Sethi</span>
+              <span class="affiliate-why">Automate your way out of debt</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+      </div>
+
+============================================================
+INCOMETAX (5 cards)
+============================================================
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/0143190008?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Wealthy Barber Returns</span>
+              <span class="affiliate-author">David Chilton</span>
+              <span class="affiliate-why">Tax-smart wealth building for Canadians</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1459721646?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Tax-Free Savings Accounts</span>
+              <span class="affiliate-author">Gordon Pape</span>
+              <span class="affiliate-why">Maximize tax-free growth opportunities</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0143191292?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">How NOT to Move Back in with Your Parents</span>
+              <span class="affiliate-author">Rob Chicken</span>
+              <span class="affiliate-why">Young professional tax strategies</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1523505745?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">I Will Teach You to Be Rich</span>
+              <span class="affiliate-author">Ramit Sethi</span>
+              <span class="affiliate-why">Tax-efficient automation and investing</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0857197681?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Psychology of Money</span>
+              <span class="affiliate-author">Morgan Housel</span>
+              <span class="affiliate-why">Smart money decisions and tax planning</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+      </div>
+
+============================================================
+RENTBUY (5 cards)
+============================================================
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/B01MFAQMJS?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Wealthy Renter</span>
+              <span class="affiliate-author">Alex Avery</span>
+              <span class="affiliate-why">The financial case for renting vs buying</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0143115766?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Your Money or Your Life</span>
+              <span class="affiliate-author">Vicki Robin</span>
+              <span class="affiliate-why">True cost of homeownership analysis</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0143190008?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Wealthy Barber Returns</span>
+              <span class="affiliate-author">David Chilton</span>
+              <span class="affiliate-why">Canadian housing and wealth building</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1119356296?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Millionaire Teacher</span>
+              <span class="affiliate-author">Andrew Hallam</span>
+              <span class="affiliate-why">Building wealth regardless of housing choice</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0857197681?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Psychology of Money</span>
+              <span class="affiliate-author">Morgan Housel</span>
+              <span class="affiliate-why">Emotional vs rational home buying decisions</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+      </div>
+
+============================================================
+RESP (5 cards)
+============================================================
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/0143190008?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Wealthy Barber Returns</span>
+              <span class="affiliate-author">David Chilton</span>
+              <span class="affiliate-why">Family financial planning in Canada</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1459721646?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Tax-Free Savings Accounts</span>
+              <span class="affiliate-author">Gordon Pape</span>
+              <span class="affiliate-why">Tax-advantaged savings for education</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0143191292?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">How NOT to Move Back in with Your Parents</span>
+              <span class="affiliate-author">Rob Chicken</span>
+              <span class="affiliate-why">Setting up your kids for financial success</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1523505745?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">I Will Teach You to Be Rich</span>
+              <span class="affiliate-author">Ramit Sethi</span>
+              <span class="affiliate-why">Automated savings for education goals</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0857197681?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Psychology of Money</span>
+              <span class="affiliate-author">Morgan Housel</span>
+              <span class="affiliate-why">Teaching kids about money and investing</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+      </div>
+
+============================================================
+RETIREMENT (5 cards)
+============================================================
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/1988344305?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Victory Lap Retirement</span>
+              <span class="affiliate-author">Mike Drak</span>
+              <span class="affiliate-why">Redefine retirement on your terms</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1118691342?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Pensionize Your Nest Egg</span>
+              <span class="affiliate-author">Moshe Milevsky</span>
+              <span class="affiliate-why">Turn savings into guaranteed retirement income</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1119356296?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Millionaire Teacher</span>
+              <span class="affiliate-author">Andrew Hallam</span>
+              <span class="affiliate-why">Building a portfolio for retirement</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0143190008?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Wealthy Barber Returns</span>
+              <span class="affiliate-author">David Chilton</span>
+              <span class="affiliate-why">Canadian retirement essentials</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0143115766?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Your Money or Your Life</span>
+              <span class="affiliate-author">Vicki Robin</span>
+              <span class="affiliate-why">Achieve financial independence</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+      </div>
+
+============================================================
+RRSP (5 cards)
+============================================================
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/0143190008?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Wealthy Barber Returns</span>
+              <span class="affiliate-author">David Chilton</span>
+              <span class="affiliate-why">RRSP strategies for Canadians</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1459721646?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Tax-Free Savings Accounts</span>
+              <span class="affiliate-author">Gordon Pape</span>
+              <span class="affiliate-why">RRSP vs TFSA decision making</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0143191292?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">How NOT to Move Back in with Your Parents</span>
+              <span class="affiliate-author">Rob Chicken</span>
+              <span class="affiliate-why">Early-career retirement savings</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1523505745?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">I Will Teach You to Be Rich</span>
+              <span class="affiliate-author">Ramit Sethi</span>
+              <span class="affiliate-why">Automate your RRSP contributions</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0857197681?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Psychology of Money</span>
+              <span class="affiliate-author">Morgan Housel</span>
+              <span class="affiliate-why">Long-term thinking for retirement</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+      </div>
+
+============================================================
+RUNWAY (5 cards)
+============================================================
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/0307887898?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Lean Startup</span>
+              <span class="affiliate-author">Eric Ries</span>
+              <span class="affiliate-why">Build and pivot before you run out of runway</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0804139296?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Zero to One</span>
+              <span class="affiliate-author">Peter Thiel</span>
+              <span class="affiliate-why">Create breakthrough value quickly</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1591845823?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Built to Sell</span>
+              <span class="affiliate-author">John Warrillow</span>
+              <span class="affiliate-why">Build a business that generates cash</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1733478159?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Art of Selling Your Business</span>
+              <span class="affiliate-author">John Warrillow</span>
+              <span class="affiliate-why">Know your exit options early</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1612680194?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Rich Dad Poor Dad</span>
+              <span class="affiliate-author">Robert Kiyosaki</span>
+              <span class="affiliate-why">Entrepreneurial cashflow thinking</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+      </div>
+
+============================================================
+SALARY (5 cards)
+============================================================
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/0062407805?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Never Split the Difference</span>
+              <span class="affiliate-author">Chris Voss</span>
+              <span class="affiliate-why">Master salary negotiation tactics</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0143190008?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Wealthy Barber Returns</span>
+              <span class="affiliate-author">David Chilton</span>
+              <span class="affiliate-why">Make the most of your income</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0143191292?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">How NOT to Move Back in with Your Parents</span>
+              <span class="affiliate-author">Rob Chicken</span>
+              <span class="affiliate-why">Young professional compensation guide</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1523505745?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">I Will Teach You to Be Rich</span>
+              <span class="affiliate-author">Ramit Sethi</span>
+              <span class="affiliate-why">Optimize and automate your salary</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0857197681?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Psychology of Money</span>
+              <span class="affiliate-author">Morgan Housel</span>
+              <span class="affiliate-why">Career and compensation mindset</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+      </div>
+
+============================================================
+TFSA (5 cards)
+============================================================
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/1459721646?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Tax-Free Savings Accounts</span>
+              <span class="affiliate-author">Gordon Pape</span>
+              <span class="affiliate-why">The complete guide to TFSAs</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0143190008?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Wealthy Barber Returns</span>
+              <span class="affiliate-author">David Chilton</span>
+              <span class="affiliate-why">Canadian tax-free investing strategies</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/0143191292?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">How NOT to Move Back in with Your Parents</span>
+              <span class="affiliate-author">Rob Chicken</span>
+              <span class="affiliate-why">TFSA strategies for young Canadians</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1523505745?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">I Will Teach You to Be Rich</span>
+              <span class="affiliate-author">Ramit Sethi</span>
+              <span class="affiliate-why">Automate your TFSA contributions</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1119404509?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Little Book of Common Sense Investing</span>
+              <span class="affiliate-author">John C. Bogle</span>
+              <span class="affiliate-why">Simple index investing in your TFSA</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+      </div>
