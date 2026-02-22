@@ -1,0 +1,134 @@
+<div class="page" id="page-incometax" role="region" aria-label="Canadian Income Tax Calculator">
+    <div class="calc-container" style="padding-top: 6rem;">
+      <div class="calc-back" onclick="showPage('home')" role="button" tabindex="0" aria-label="Back to Tools">← Back to Tools</div>
+      <div class="calc-header animate-fade-up">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🧾</div>
+        <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">Canadian Income Tax Calculator</h1>
+        <p style="color: var(--text-secondary); max-width: 540px; margin: 0 auto;">Complete T1 tax estimator for all provinces and territories. Employment, self-employment, investments, and more.</p>
+      </div>
+      <div class="action-buttons" style="justify-content: center;">
+        <button class="btn btn-secondary btn-sm" onclick="generatePDFReport('Canadian Income Tax Calculator')">📄 PDF</button>
+        <button class="btn btn-secondary btn-sm" onclick="copyResults('Canadian Income Tax Calculator')">📋 Copy</button>
+        <button class="btn btn-secondary btn-sm" onclick="shareCalculator('incometax')">🔗 Share</button>
+      </div>
+      <div class="calc-grid" style="margin-top: 2rem;">
+        <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
+
+          <div class="input-group">
+            <label for="incometax-province">Province / Territory</label>
+            <select id="incometax-province" onchange="calculateIncomeTax()">
+              <option value="AB">Alberta</option>
+              <option value="BC">British Columbia</option>
+              <option value="MB">Manitoba</option>
+              <option value="NB">New Brunswick</option>
+              <option value="NL">Newfoundland &amp; Labrador</option>
+              <option value="NS">Nova Scotia</option>
+              <option value="NT">Northwest Territories</option>
+              <option value="NU">Nunavut</option>
+              <option value="ON" selected>Ontario</option>
+              <option value="PE">Prince Edward Island</option>
+              <option value="QC">Quebec</option>
+              <option value="SK">Saskatchewan</option>
+              <option value="YT">Yukon</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="incometax-employment">Employment Income</label>
+            <div class="input-with-prefix">
+              <span class="input-prefix">$</span>
+              <input type="number" id="incometax-employment" placeholder="85,000" min="0" step="100" oninput="calculateIncomeTax()">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="incometax-selfemploy">Self-Employment Income <span style="color: var(--text-secondary); font-weight: 400;">(optional)</span></label>
+            <div class="input-with-prefix">
+              <span class="input-prefix">$</span>
+              <input type="number" id="incometax-selfemploy" placeholder="0" min="0" step="100" oninput="calculateIncomeTax()">
+            </div>
+          </div>
+
+          <!-- Collapsible: Investment Income -->
+          <details style="margin-top: 0.5rem;">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--text-secondary); font-size: 0.9rem; padding: 0.5rem 0;">📈 Investment Income</summary>
+            <div style="padding-top: 0.5rem;">
+              <div class="input-group">
+                <label for="incometax-capitalgains">Capital Gains <span style="color: var(--text-secondary); font-weight: 400;">(total, 50% taxable)</span></label>
+                <div class="input-with-prefix">
+                  <span class="input-prefix">$</span>
+                  <input type="number" id="incometax-capitalgains" placeholder="0" min="0" step="100" oninput="calculateIncomeTax()">
+                </div>
+              </div>
+              <div class="input-group">
+                <label for="incometax-eligible-div">Eligible Dividends <span style="color: var(--text-secondary); font-weight: 400;">(Canadian public co.)</span></label>
+                <div class="input-with-prefix">
+                  <span class="input-prefix">$</span>
+                  <input type="number" id="incometax-eligible-div" placeholder="0" min="0" step="100" oninput="calculateIncomeTax()">
+                </div>
+              </div>
+              <div class="input-group">
+                <label for="incometax-ineligible-div">Ineligible Dividends <span style="color: var(--text-secondary); font-weight: 400;">(Canadian private co.)</span></label>
+                <div class="input-with-prefix">
+                  <span class="input-prefix">$</span>
+                  <input type="number" id="incometax-ineligible-div" placeholder="0" min="0" step="100" oninput="calculateIncomeTax()">
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Collapsible: Other Income -->
+          <details style="margin-top: 0.25rem;">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--text-secondary); font-size: 0.9rem; padding: 0.5rem 0;">🏠 Other Income &amp; Deductions</summary>
+            <div style="padding-top: 0.5rem;">
+              <div class="input-group">
+                <label for="incometax-rental">Rental Income (net) <span style="color: var(--text-secondary); font-weight: 400;">(optional)</span></label>
+                <div class="input-with-prefix">
+                  <span class="input-prefix">$</span>
+                  <input type="number" id="incometax-rental" placeholder="0" min="0" step="100" oninput="calculateIncomeTax()">
+                </div>
+              </div>
+              <div class="input-group">
+                <label for="incometax-rrsp">RRSP Deduction</label>
+                <div class="input-with-prefix">
+                  <span class="input-prefix">$</span>
+                  <input type="number" id="incometax-rrsp" placeholder="0" min="0" step="100" oninput="calculateIncomeTax()">
+                </div>
+              </div>
+              <div class="input-group">
+                <label for="incometax-other-deductions">Other Deductions <span style="color: var(--text-secondary); font-weight: 400;">(union dues, childcare, etc.)</span></label>
+                <div class="input-with-prefix">
+                  <span class="input-prefix">$</span>
+                  <input type="number" id="incometax-other-deductions" placeholder="0" min="0" step="100" oninput="calculateIncomeTax()">
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <button class="btn btn-primary" onclick="calculateIncomeTax()" style="width: 100%; margin-top: 1rem;">Calculate My Taxes</button>
+        </div>
+        <div class="calc-results" id="incometax-results" aria-live="polite"></div>
+      </div>
+      <div id="incometax-breakdown" style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);"></div>
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/0143190008?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Wealthy Barber Returns</span>
+              <span class="affiliate-author">David Chilton</span>
+              <span class="affiliate-why">Essential Canadian financial planning</span>
+            </div>
+          </a>
+          <a href="https://www.amazon.ca/dp/1119856159?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">Personal Finance for Canadians FD</span>
+              <span class="affiliate-author">Eric Tyson &amp; Tony Martin</span>
+              <span class="affiliate-why">Comprehensive Canadian tax &amp; finance guide</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+      </div>
+    </div>
+</div>

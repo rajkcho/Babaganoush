@@ -1,0 +1,75 @@
+<div class="page" id="page-rrsp" role="region" aria-label="RRSP Tax Refund Calculator">
+    <div class="calc-container" style="padding-top: 6rem;">
+      <div class="calc-back" onclick="showPage('home')" role="button" tabindex="0" aria-label="Back to Tools">← Back to Tools</div>
+      <div class="calc-header animate-fade-up">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">💰</div>
+        <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">RRSP Tax Refund Calculator</h1>
+        <p style="color: var(--text-secondary); max-width: 540px; margin: 0 auto;">See exactly how much you'll get back — and find the optimal contribution to minimize your tax bill.</p>
+      </div>
+      <div class="action-buttons" style="justify-content: center;">
+        <button class="btn btn-secondary btn-sm" onclick="generatePDFReport('RRSP Tax Refund Calculator')">📄 PDF</button>
+        <button class="btn btn-secondary btn-sm" onclick="copyResults('RRSP Tax Refund Calculator')">📋 Copy</button>
+        <button class="btn btn-secondary btn-sm" onclick="shareCalculator('rrsp')">🔗 Share</button>
+      </div>
+      <div class="calc-grid" style="margin-top: 2rem;">
+        <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
+          <div class="input-group">
+            <label for="rrsp-income">Employment Income</label>
+            <div class="input-with-prefix">
+              <span class="input-prefix">$</span>
+              <input type="number" id="rrsp-income" placeholder="85,000" min="0" step="100" oninput="calculateRRSP()">
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="rrsp-other-income">Other Income <span style="color: var(--text-secondary); font-weight: 400;">(optional)</span></label>
+            <div class="input-with-prefix">
+              <span class="input-prefix">$</span>
+              <input type="number" id="rrsp-other-income" placeholder="0" min="0" step="100" oninput="calculateRRSP()">
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="rrsp-province">Province / Territory</label>
+            <select id="rrsp-province" onchange="calculateRRSP()">
+              <option value="AB">Alberta</option>
+              <option value="BC">British Columbia</option>
+              <option value="MB">Manitoba</option>
+              <option value="NB">New Brunswick</option>
+              <option value="NL">Newfoundland &amp; Labrador</option>
+              <option value="NS">Nova Scotia</option>
+              <option value="NT">Northwest Territories</option>
+              <option value="NU">Nunavut</option>
+              <option value="ON" selected>Ontario</option>
+              <option value="PE">Prince Edward Island</option>
+              <option value="QC">Quebec</option>
+              <option value="SK">Saskatchewan</option>
+              <option value="YT">Yukon</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="rrsp-contribution">Planned RRSP Contribution</label>
+            <div class="input-with-prefix">
+              <span class="input-prefix">$</span>
+              <input type="number" id="rrsp-contribution" placeholder="10,000" min="0" step="100" oninput="calculateRRSP()">
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;" id="rrsp-room-hint">2026 max: 18% of earned income, up to $32,490</div>
+          </div>
+          <button class="btn btn-primary" onclick="calculateRRSP()" style="width: 100%; margin-top: 0.5rem;">Calculate Tax Refund</button>
+        </div>
+        <div class="calc-results" id="rrsp-results" aria-live="polite"></div>
+      </div>
+      <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);" id="rrsp-breakdown"></div>
+      <div class="affiliate-resources">
+        <h3>📚 Recommended Resources</h3>
+        <div class="affiliate-grid">
+          <a href="https://www.amazon.ca/dp/0143190008?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+            <div class="affiliate-info">
+              <span class="affiliate-title">The Wealthy Barber Returns</span>
+              <span class="affiliate-author">David Chilton</span>
+              <span class="affiliate-why">Essential Canadian financial planning</span>
+            </div>
+          </a>
+        </div>
+        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+      </div>
+    </div>
+</div>

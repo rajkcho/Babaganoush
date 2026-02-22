@@ -2520,13 +2520,11 @@
               <div class="nav-dropdown-group">
                 <span class="nav-dropdown-label">💰 Tax & Income</span>
                 <a href="#" onclick="showPage('tax'); return false;">Tax Estimator</a>
-                <a href="#" onclick="showPage('incometax'); return false;">Full Income Tax</a>
                 <a href="#" onclick="showPage('capgains'); return false;">Capital Gains</a>
                 <a href="#" onclick="showPage('salary'); return false;">Salary</a>
               </div>
               <div class="nav-dropdown-group">
                 <span class="nav-dropdown-label">📈 Investing & Savings</span>
-                <a href="#" onclick="showPage('tfsa'); return false;">TFSA Room</a>
                 <a href="#" onclick="showPage('investment'); return false;">Investment Returns</a>
                 <a href="#" onclick="showPage('compound'); return false;">Compound Interest</a>
                 <a href="#" onclick="showPage('gic'); return false;">GIC Ladder</a>
@@ -2534,8 +2532,6 @@
               </div>
               <div class="nav-dropdown-group">
                 <span class="nav-dropdown-label">🏦 Retirement</span>
-                <a href="#" onclick="showPage('rrsp'); return false;">RRSP Refund</a>
-                <a href="#" onclick="showPage('rrsptfsa'); return false;">RRSP vs TFSA Pro</a>
                 <a href="#" onclick="showPage('retirement'); return false;">RRSP vs TFSA</a>
                 <a href="#" onclick="showPage('resp'); return false;">RESP</a>
                 <a href="#" onclick="showPage('cpp'); return false;">CPP/OAS</a>
@@ -5713,115 +5709,73 @@
   <!-- ═══════════════════════════════════════════════════════
        CAPITAL GAINS TAX CALCULATOR
        ═══════════════════════════════════════════════════════ -->
-<div class="page" id="page-capgains" role="region" aria-label="Capital Gains Tax Calculator">
+  <div class="page" id="page-capgains" role="region" aria-label="Capital Gains Tax Calculator">
     <div class="calc-container" style="padding-top: 6rem;">
       <div class="calc-back" onclick="showPage('home')" role="button" tabindex="0" aria-label="Back to Tools">← Back to Tools</div>
+      
       <div class="calc-header animate-fade-up">
         <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📊</div>
         <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">Capital Gains Tax Calculator</h1>
-        <p style="color: var(--text-secondary); max-width: 540px; margin: 0 auto;">Calculate Canadian capital gains tax with 2024+ inclusion rate changes. Compare old vs new rules.</p>
+        <p style="color: var(--text-secondary); max-width: 540px; margin: 0 auto;">Calculate Canadian capital gains tax with 2024+ inclusion rates (50% / 66.67%).</p>
       </div>
+      
       <div class="action-buttons" style="justify-content: center;">
         <button class="btn btn-secondary btn-sm" onclick="generatePDFReport('Capital Gains Tax Calculator')">📄 Download PDF Report</button>
         <button class="btn btn-secondary btn-sm" onclick="copyResults('Capital Gains Tax Calculator')">📋 Copy Results</button>
         <button class="btn btn-secondary btn-sm" onclick="shareCalculator('capgains')">🔗 Share</button>
       </div>
+      
       <div class="calc-grid" style="margin-top: 2rem;">
         <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
-
           <div class="input-group">
-            <label for="cg-asset-type">Asset Type</label>
-            <select id="cg-asset-type" onchange="calculateCapGains()">
-              <option value="stocks">Stocks / ETFs / Mutual Funds</option>
-              <option value="real-estate">Real Estate (non-principal)</option>
-              <option value="crypto">Cryptocurrency</option>
-              <option value="business">Qualified Small Business Shares</option>
-              <option value="farm">Qualified Farm/Fishing Property</option>
-              <option value="other">Other Capital Property</option>
-            </select>
+            <label>Purchase Price ($)</label>
+            <input type="number" id="cg-purchase" value="300000" oninput="calculateCapGains()" />
           </div>
-
+          
           <div class="input-group">
-            <label for="cg-year">Year of Disposition</label>
-            <select id="cg-year" onchange="calculateCapGains()">
-              <option value="2023">2023 or earlier</option>
-              <option value="2024">2024</option>
-              <option value="2025" selected>2025</option>
-              <option value="2026">2026+</option>
-            </select>
+            <label>Sale Price ($)</label>
+            <input type="number" id="cg-sale" value="500000" oninput="calculateCapGains()" />
           </div>
-
+          
           <div class="input-group">
-            <label for="cg-province">Province / Territory</label>
+            <label>Years Owned</label>
+            <input type="number" id="cg-years" value="5" oninput="calculateCapGains()" />
+          </div>
+          
+          <div class="input-group">
+            <label>Province</label>
             <select id="cg-province" onchange="calculateCapGains()">
-              <option value="AB">Alberta</option>
+              <option value="ON">Ontario</option>
               <option value="BC">British Columbia</option>
+              <option value="AB">Alberta</option>
+              <option value="QC">Quebec</option>
               <option value="MB">Manitoba</option>
+              <option value="SK">Saskatchewan</option>
+              <option value="NS">Nova Scotia</option>
               <option value="NB">New Brunswick</option>
               <option value="NL">Newfoundland & Labrador</option>
-              <option value="NS">Nova Scotia</option>
-              <option value="NT">Northwest Territories</option>
-              <option value="NU">Nunavut</option>
-              <option value="ON" selected>Ontario</option>
               <option value="PE">Prince Edward Island</option>
-              <option value="QC">Quebec</option>
-              <option value="SK">Saskatchewan</option>
-              <option value="YT">Yukon</option>
             </select>
           </div>
-
+          
           <div class="input-group">
-            <label for="cg-sale-price">Sale Price / Proceeds of Disposition ($)</label>
-            <input type="number" id="cg-sale-price" value="500000" min="0" step="1000" oninput="calculateCapGains()">
-          </div>
-
-          <div class="input-group">
-            <label for="cg-acb">Adjusted Cost Base (ACB) ($)</label>
-            <input type="number" id="cg-acb" value="200000" min="0" step="1000" oninput="calculateCapGains()">
-          </div>
-
-          <div class="input-group">
-            <label for="cg-expenses">Selling Expenses / Commissions ($)</label>
-            <input type="number" id="cg-expenses" value="0" min="0" step="100" oninput="calculateCapGains()">
-          </div>
-
-          <div class="input-group">
-            <label for="cg-other-gains">Other Capital Gains This Year ($)</label>
-            <input type="number" id="cg-other-gains" value="0" min="0" step="1000" oninput="calculateCapGains()">
-            <small style="color: var(--text-secondary);">Used to determine if total exceeds $250K threshold</small>
-          </div>
-
-          <div class="input-group">
-            <label for="cg-capital-losses">Capital Losses to Apply ($)</label>
-            <input type="number" id="cg-capital-losses" value="0" min="0" step="1000" oninput="calculateCapGains()">
-            <small style="color: var(--text-secondary);">Carry-forward/back losses to offset gains</small>
-          </div>
-
-          <div class="input-group">
-            <label for="cg-other-income">Other Taxable Income ($)</label>
-            <input type="number" id="cg-other-income" value="80000" min="0" step="1000" oninput="calculateCapGains()">
-            <small style="color: var(--text-secondary);">Employment, business, etc. (for bracket calculation)</small>
-          </div>
-
-          <div class="input-group" id="cg-lcge-group">
-            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-              <input type="checkbox" id="cg-lcge" onchange="calculateCapGains()">
-              Apply Lifetime Capital Gains Exemption (LCGE)
+            <label style="display: flex; align-items: center; gap: 0.5rem;">
+              <input type="checkbox" id="cg-principal" onchange="calculateCapGains()" />
+              <span>Principal Residence Exemption</span>
             </label>
-            <small style="color: var(--text-secondary);">$1.25M for qualified small business shares (2025+), $1.016M (2024)</small>
+            <span class="input-help">Fully exempt if this was your primary residence</span>
           </div>
-
-          <div class="input-group">
-            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-              <input type="checkbox" id="cg-principal-res" onchange="calculateCapGains()">
-              Principal Residence Exemption
-            </label>
-          </div>
-
         </div>
-        <div class="calc-results" id="cg-results" aria-live="polite"></div>
+        
+        <div class="calc-results" id="cg-results" aria-live="polite">
+          <!-- Results populated by JS -->
+        </div>
       </div>
-      <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);" id="cg-breakdown"></div>
+      
+      <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);" id="cg-breakdown">
+        <!-- Breakdown populated by JS -->
+      </div>
+
       <div class="affiliate-resources">
         <h3>📚 Recommended Resources</h3>
         <div class="affiliate-grid">
@@ -5832,398 +5786,11 @@
               <span class="affiliate-why">Build wealth on any salary — with Canadian examples</span>
             </div>
           </a>
-          <a href="https://www.amazon.ca/dp/0143193856?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
-            <div class="affiliate-info">
-              <span class="affiliate-title">Wealthing Like Rabbits</span>
-              <span class="affiliate-author">Robert R. Brown</span>
-              <span class="affiliate-why">Fun Canadian guide to personal finance fundamentals</span>
-            </div>
-          </a>
         </div>
         <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
       </div>
-    </div>
-</div>
-
-
-  <!-- TFSA Contribution Room Calculator -->
-<div class="page" id="page-tfsa" role="region" aria-label="TFSA Contribution Room Calculator">
-  <div class="calc-container" style="padding-top: 6rem;">
-    <div class="calc-back" onclick="showPage('home')" role="button" tabindex="0" aria-label="Back to Tools">← Back to Tools</div>
-    <div class="calc-header animate-fade-up">
-      <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏦</div>
-      <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">TFSA Contribution Room Calculator</h1>
-      <p style="color: var(--text-secondary); max-width: 540px; margin: 0 auto;">Track your TFSA contribution room from 2009 to today. Never over-contribute again.</p>
-    </div>
-    <div class="action-buttons" style="justify-content: center;">
-      <button class="btn btn-secondary btn-sm" onclick="generatePDFReport('TFSA Contribution Room Calculator')">📄 Download PDF Report</button>
-      <button class="btn btn-secondary btn-sm" onclick="copyResults('TFSA Contribution Room Calculator')">📋 Copy Results</button>
-      <button class="btn btn-secondary btn-sm" onclick="shareCalculator('tfsa')">🔗 Share</button>
-    </div>
-    <div class="calc-grid" style="margin-top: 2rem;">
-      <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
-        <div class="input-group">
-          <label for="tfsa-birth-year">Birth Year</label>
-          <input type="number" id="tfsa-birth-year" min="1900" max="2008" value="1990" oninput="calculateTFSA()">
-        </div>
-        <div class="input-group">
-          <label for="tfsa-resident-check">
-            <input type="checkbox" id="tfsa-resident-check" checked oninput="calculateTFSA(); document.getElementById('tfsa-residency-year-group').style.display = this.checked ? 'none' : 'block';">
-            Born in Canada / resident since before 2009
-          </label>
-        </div>
-        <div class="input-group" id="tfsa-residency-year-group" style="display: none;">
-          <label for="tfsa-residency-year">Year You Became a Canadian Resident</label>
-          <input type="number" id="tfsa-residency-year" min="2009" max="2026" value="2015" oninput="calculateTFSA()">
-        </div>
-        <div class="input-group">
-          <label for="tfsa-contributions">Total Contributions to Date ($)</label>
-          <input type="number" id="tfsa-contributions" min="0" step="100" value="0" oninput="calculateTFSA()">
-        </div>
-        <button class="btn btn-primary" onclick="calculateTFSA()" style="width: 100%; margin-top: 1rem;">Calculate My TFSA Room</button>
-      </div>
-      <div class="calc-results" id="tfsa-results" aria-live="polite"></div>
-    </div>
-    <div style="margin-top: 2rem;" id="tfsa-chart"></div>
-    <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);" id="tfsa-breakdown"></div>
-    <div class="affiliate-resources">
-      <h3>📚 Recommended Resources</h3>
-      <div class="affiliate-grid">
-        <a href="https://www.amazon.ca/dp/1119356296?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
-          <div class="affiliate-info">
-            <span class="affiliate-title">Millionaire Teacher</span>
-            <span class="affiliate-author">Andrew Hallam</span>
-            <span class="affiliate-why">Canadian investing fundamentals</span>
-          </div>
-        </a>
-        <a href="https://www.amazon.ca/dp/0143188410?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
-          <div class="affiliate-info">
-            <span class="affiliate-title">Wealthing Like Rabbits</span>
-            <span class="affiliate-author">Robert R. Brown</span>
-            <span class="affiliate-why">Fun intro to Canadian personal finance</span>
-          </div>
-        </a>
-      </div>
-      <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
     </div>
   </div>
-</div>
-
-
-  <!-- RRSP Tax Refund Calculator -->
-<div class="page" id="page-rrsp" role="region" aria-label="RRSP Tax Refund Calculator">
-    <div class="calc-container" style="padding-top: 6rem;">
-      <div class="calc-back" onclick="showPage('home')" role="button" tabindex="0" aria-label="Back to Tools">← Back to Tools</div>
-      <div class="calc-header animate-fade-up">
-        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">💰</div>
-        <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">RRSP Tax Refund Calculator</h1>
-        <p style="color: var(--text-secondary); max-width: 540px; margin: 0 auto;">See exactly how much you'll get back — and find the optimal contribution to minimize your tax bill.</p>
-      </div>
-      <div class="action-buttons" style="justify-content: center;">
-        <button class="btn btn-secondary btn-sm" onclick="generatePDFReport('RRSP Tax Refund Calculator')">📄 PDF</button>
-        <button class="btn btn-secondary btn-sm" onclick="copyResults('RRSP Tax Refund Calculator')">📋 Copy</button>
-        <button class="btn btn-secondary btn-sm" onclick="shareCalculator('rrsp')">🔗 Share</button>
-      </div>
-      <div class="calc-grid" style="margin-top: 2rem;">
-        <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
-          <div class="input-group">
-            <label for="rrsp-income">Employment Income</label>
-            <div class="input-with-prefix">
-              <span class="input-prefix">$</span>
-              <input type="number" id="rrsp-income" placeholder="85,000" min="0" step="100" oninput="calculateRRSP()">
-            </div>
-          </div>
-          <div class="input-group">
-            <label for="rrsp-other-income">Other Income <span style="color: var(--text-secondary); font-weight: 400;">(optional)</span></label>
-            <div class="input-with-prefix">
-              <span class="input-prefix">$</span>
-              <input type="number" id="rrsp-other-income" placeholder="0" min="0" step="100" oninput="calculateRRSP()">
-            </div>
-          </div>
-          <div class="input-group">
-            <label for="rrsp-province">Province / Territory</label>
-            <select id="rrsp-province" onchange="calculateRRSP()">
-              <option value="AB">Alberta</option>
-              <option value="BC">British Columbia</option>
-              <option value="MB">Manitoba</option>
-              <option value="NB">New Brunswick</option>
-              <option value="NL">Newfoundland &amp; Labrador</option>
-              <option value="NS">Nova Scotia</option>
-              <option value="NT">Northwest Territories</option>
-              <option value="NU">Nunavut</option>
-              <option value="ON" selected>Ontario</option>
-              <option value="PE">Prince Edward Island</option>
-              <option value="QC">Quebec</option>
-              <option value="SK">Saskatchewan</option>
-              <option value="YT">Yukon</option>
-            </select>
-          </div>
-          <div class="input-group">
-            <label for="rrsp-contribution">Planned RRSP Contribution</label>
-            <div class="input-with-prefix">
-              <span class="input-prefix">$</span>
-              <input type="number" id="rrsp-contribution" placeholder="10,000" min="0" step="100" oninput="calculateRRSP()">
-            </div>
-            <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;" id="rrsp-room-hint">2026 max: 18% of earned income, up to $32,490</div>
-          </div>
-          <button class="btn btn-primary" onclick="calculateRRSP()" style="width: 100%; margin-top: 0.5rem;">Calculate Tax Refund</button>
-        </div>
-        <div class="calc-results" id="rrsp-results" aria-live="polite"></div>
-      </div>
-      <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);" id="rrsp-breakdown"></div>
-      <div class="affiliate-resources">
-        <h3>📚 Recommended Resources</h3>
-        <div class="affiliate-grid">
-          <a href="https://www.amazon.ca/dp/0143190008?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
-            <div class="affiliate-info">
-              <span class="affiliate-title">The Wealthy Barber Returns</span>
-              <span class="affiliate-author">David Chilton</span>
-              <span class="affiliate-why">Essential Canadian financial planning</span>
-            </div>
-          </a>
-        </div>
-        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
-      </div>
-    </div>
-</div>
-
-
-  <!-- Canadian Income Tax Calculator -->
-<div class="page" id="page-incometax" role="region" aria-label="Canadian Income Tax Calculator">
-    <div class="calc-container" style="padding-top: 6rem;">
-      <div class="calc-back" onclick="showPage('home')" role="button" tabindex="0" aria-label="Back to Tools">← Back to Tools</div>
-      <div class="calc-header animate-fade-up">
-        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🧾</div>
-        <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">Canadian Income Tax Calculator</h1>
-        <p style="color: var(--text-secondary); max-width: 540px; margin: 0 auto;">Complete T1 tax estimator for all provinces and territories. Employment, self-employment, investments, and more.</p>
-      </div>
-      <div class="action-buttons" style="justify-content: center;">
-        <button class="btn btn-secondary btn-sm" onclick="generatePDFReport('Canadian Income Tax Calculator')">📄 PDF</button>
-        <button class="btn btn-secondary btn-sm" onclick="copyResults('Canadian Income Tax Calculator')">📋 Copy</button>
-        <button class="btn btn-secondary btn-sm" onclick="shareCalculator('incometax')">🔗 Share</button>
-      </div>
-      <div class="calc-grid" style="margin-top: 2rem;">
-        <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
-
-          <div class="input-group">
-            <label for="incometax-province">Province / Territory</label>
-            <select id="incometax-province" onchange="calculateIncomeTax()">
-              <option value="AB">Alberta</option>
-              <option value="BC">British Columbia</option>
-              <option value="MB">Manitoba</option>
-              <option value="NB">New Brunswick</option>
-              <option value="NL">Newfoundland &amp; Labrador</option>
-              <option value="NS">Nova Scotia</option>
-              <option value="NT">Northwest Territories</option>
-              <option value="NU">Nunavut</option>
-              <option value="ON" selected>Ontario</option>
-              <option value="PE">Prince Edward Island</option>
-              <option value="QC">Quebec</option>
-              <option value="SK">Saskatchewan</option>
-              <option value="YT">Yukon</option>
-            </select>
-          </div>
-
-          <div class="input-group">
-            <label for="incometax-employment">Employment Income</label>
-            <div class="input-with-prefix">
-              <span class="input-prefix">$</span>
-              <input type="number" id="incometax-employment" placeholder="85,000" min="0" step="100" oninput="calculateIncomeTax()">
-            </div>
-          </div>
-
-          <div class="input-group">
-            <label for="incometax-selfemploy">Self-Employment Income <span style="color: var(--text-secondary); font-weight: 400;">(optional)</span></label>
-            <div class="input-with-prefix">
-              <span class="input-prefix">$</span>
-              <input type="number" id="incometax-selfemploy" placeholder="0" min="0" step="100" oninput="calculateIncomeTax()">
-            </div>
-          </div>
-
-          <!-- Collapsible: Investment Income -->
-          <details style="margin-top: 0.5rem;">
-            <summary style="cursor: pointer; font-weight: 600; color: var(--text-secondary); font-size: 0.9rem; padding: 0.5rem 0;">📈 Investment Income</summary>
-            <div style="padding-top: 0.5rem;">
-              <div class="input-group">
-                <label for="incometax-capitalgains">Capital Gains <span style="color: var(--text-secondary); font-weight: 400;">(total, 50% taxable)</span></label>
-                <div class="input-with-prefix">
-                  <span class="input-prefix">$</span>
-                  <input type="number" id="incometax-capitalgains" placeholder="0" min="0" step="100" oninput="calculateIncomeTax()">
-                </div>
-              </div>
-              <div class="input-group">
-                <label for="incometax-eligible-div">Eligible Dividends <span style="color: var(--text-secondary); font-weight: 400;">(Canadian public co.)</span></label>
-                <div class="input-with-prefix">
-                  <span class="input-prefix">$</span>
-                  <input type="number" id="incometax-eligible-div" placeholder="0" min="0" step="100" oninput="calculateIncomeTax()">
-                </div>
-              </div>
-              <div class="input-group">
-                <label for="incometax-ineligible-div">Ineligible Dividends <span style="color: var(--text-secondary); font-weight: 400;">(Canadian private co.)</span></label>
-                <div class="input-with-prefix">
-                  <span class="input-prefix">$</span>
-                  <input type="number" id="incometax-ineligible-div" placeholder="0" min="0" step="100" oninput="calculateIncomeTax()">
-                </div>
-              </div>
-            </div>
-          </details>
-
-          <!-- Collapsible: Other Income -->
-          <details style="margin-top: 0.25rem;">
-            <summary style="cursor: pointer; font-weight: 600; color: var(--text-secondary); font-size: 0.9rem; padding: 0.5rem 0;">🏠 Other Income &amp; Deductions</summary>
-            <div style="padding-top: 0.5rem;">
-              <div class="input-group">
-                <label for="incometax-rental">Rental Income (net) <span style="color: var(--text-secondary); font-weight: 400;">(optional)</span></label>
-                <div class="input-with-prefix">
-                  <span class="input-prefix">$</span>
-                  <input type="number" id="incometax-rental" placeholder="0" min="0" step="100" oninput="calculateIncomeTax()">
-                </div>
-              </div>
-              <div class="input-group">
-                <label for="incometax-rrsp">RRSP Deduction</label>
-                <div class="input-with-prefix">
-                  <span class="input-prefix">$</span>
-                  <input type="number" id="incometax-rrsp" placeholder="0" min="0" step="100" oninput="calculateIncomeTax()">
-                </div>
-              </div>
-              <div class="input-group">
-                <label for="incometax-other-deductions">Other Deductions <span style="color: var(--text-secondary); font-weight: 400;">(union dues, childcare, etc.)</span></label>
-                <div class="input-with-prefix">
-                  <span class="input-prefix">$</span>
-                  <input type="number" id="incometax-other-deductions" placeholder="0" min="0" step="100" oninput="calculateIncomeTax()">
-                </div>
-              </div>
-            </div>
-          </details>
-
-          <button class="btn btn-primary" onclick="calculateIncomeTax()" style="width: 100%; margin-top: 1rem;">Calculate My Taxes</button>
-        </div>
-        <div class="calc-results" id="incometax-results" aria-live="polite"></div>
-      </div>
-      <div id="incometax-breakdown" style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);"></div>
-      <div class="affiliate-resources">
-        <h3>📚 Recommended Resources</h3>
-        <div class="affiliate-grid">
-          <a href="https://www.amazon.ca/dp/0143190008?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
-            <div class="affiliate-info">
-              <span class="affiliate-title">The Wealthy Barber Returns</span>
-              <span class="affiliate-author">David Chilton</span>
-              <span class="affiliate-why">Essential Canadian financial planning</span>
-            </div>
-          </a>
-          <a href="https://www.amazon.ca/dp/1119856159?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
-            <div class="affiliate-info">
-              <span class="affiliate-title">Personal Finance for Canadians FD</span>
-              <span class="affiliate-author">Eric Tyson &amp; Tony Martin</span>
-              <span class="affiliate-why">Comprehensive Canadian tax &amp; finance guide</span>
-            </div>
-          </a>
-        </div>
-        <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
-      </div>
-    </div>
-</div>
-
-
-  <!-- RRSP vs TFSA Comparison Tool -->
-<div class="page" id="page-rrsptfsa" role="region" aria-label="RRSP vs TFSA Optimizer">
-  <div class="calc-container" style="padding-top: 6rem;">
-    <div class="calc-back" onclick="showPage('home')" role="button" tabindex="0" aria-label="Back to Tools">← Back to Tools</div>
-    <div class="calc-header animate-fade-up">
-      <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚖️</div>
-      <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">RRSP vs TFSA: Which Wins for You?</h1>
-      <p style="color: var(--text-secondary); max-width: 540px; margin: 0 auto;">Personalized comparison based on your income, province, and retirement plans. See the real numbers.</p>
-    </div>
-    <div class="action-buttons" style="justify-content: center;">
-      <button class="btn btn-secondary btn-sm" onclick="generatePDFReport('RRSP vs TFSA Comparison')">📄 PDF</button>
-      <button class="btn btn-secondary btn-sm" onclick="copyResults('RRSP vs TFSA Comparison')">📋 Copy</button>
-      <button class="btn btn-secondary btn-sm" onclick="shareCalculator('rrsptfsa')">🔗 Share</button>
-    </div>
-    <div class="calc-grid" style="margin-top: 2rem;">
-      <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
-        <div class="input-group">
-          <label for="rvt-age">Current Age</label>
-          <input type="number" id="rvt-age" min="18" max="70" value="30" oninput="calculateRRSPvsTFSA()">
-        </div>
-        <div class="input-group">
-          <label for="rvt-retire-age">Retirement Age</label>
-          <input type="number" id="rvt-retire-age" min="30" max="80" value="65" oninput="calculateRRSPvsTFSA()">
-        </div>
-        <div class="input-group">
-          <label for="rvt-income">Current Annual Income</label>
-          <div class="input-with-prefix">
-            <span class="input-prefix">$</span>
-            <input type="number" id="rvt-income" placeholder="85,000" min="0" step="1000" value="85000" oninput="calculateRRSPvsTFSA()">
-          </div>
-        </div>
-        <div class="input-group">
-          <label for="rvt-province">Province / Territory</label>
-          <select id="rvt-province" onchange="calculateRRSPvsTFSA()">
-            <option value="AB">Alberta</option>
-            <option value="BC">British Columbia</option>
-            <option value="MB">Manitoba</option>
-            <option value="NB">New Brunswick</option>
-            <option value="NL">Newfoundland & Labrador</option>
-            <option value="NS">Nova Scotia</option>
-            <option value="NT">Northwest Territories</option>
-            <option value="NU">Nunavut</option>
-            <option value="ON" selected>Ontario</option>
-            <option value="PE">Prince Edward Island</option>
-            <option value="QC">Quebec</option>
-            <option value="SK">Saskatchewan</option>
-            <option value="YT">Yukon</option>
-          </select>
-        </div>
-        <div class="input-group">
-          <label for="rvt-retire-income">Expected Retirement Income <span style="color: var(--text-secondary); font-weight: 400;">(withdrawals/yr)</span></label>
-          <div class="input-with-prefix">
-            <span class="input-prefix">$</span>
-            <input type="number" id="rvt-retire-income" placeholder="50,000" min="0" step="1000" value="50000" oninput="calculateRRSPvsTFSA()">
-          </div>
-        </div>
-        <div class="input-group">
-          <label for="rvt-contribution">Annual Contribution</label>
-          <div class="input-with-prefix">
-            <span class="input-prefix">$</span>
-            <input type="number" id="rvt-contribution" placeholder="10,000" min="0" step="500" value="10000" oninput="calculateRRSPvsTFSA()">
-          </div>
-        </div>
-        <div class="input-group">
-          <label for="rvt-return">Expected Rate of Return (%)</label>
-          <input type="number" id="rvt-return" min="0" max="20" step="0.5" value="6" oninput="calculateRRSPvsTFSA()">
-        </div>
-        <div class="input-group">
-          <label for="rvt-inflation">Inflation Rate (%) <span style="color: var(--text-secondary); font-weight: 400;">optional</span></label>
-          <input type="number" id="rvt-inflation" min="0" max="10" step="0.5" value="2" oninput="calculateRRSPvsTFSA()">
-        </div>
-        <button class="btn btn-primary" onclick="calculateRRSPvsTFSA()" style="width: 100%; margin-top: 1rem;">Compare RRSP vs TFSA</button>
-      </div>
-      <div class="calc-results" id="rrsptfsa-results" aria-live="polite"></div>
-    </div>
-    <div id="rrsptfsa-breakdown" style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);"></div>
-    <div class="affiliate-resources">
-      <h3>📚 Recommended Resources</h3>
-      <div class="affiliate-grid">
-        <a href="https://www.amazon.ca/dp/1119356296?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
-          <div class="affiliate-info">
-            <span class="affiliate-title">Millionaire Teacher</span>
-            <span class="affiliate-author">Andrew Hallam</span>
-            <span class="affiliate-why">Index investing for Canadians — TFSA & RRSP strategies</span>
-          </div>
-        </a>
-        <a href="https://www.amazon.ca/dp/0143190008?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
-          <div class="affiliate-info">
-            <span class="affiliate-title">The Wealthy Barber Returns</span>
-            <span class="affiliate-author">David Chilton</span>
-            <span class="affiliate-why">Canadian RRSP and retirement planning essentials</span>
-          </div>
-        </a>
-      </div>
-      <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
-    </div>
-  </div>
-</div>
-
 
   <!-- ═══════════════════════════════════════════════════════
        JAVASCRIPT ENGINE
@@ -7269,1687 +6836,168 @@
 
     // ── Capital Gains Tax Calculator ──────────────────────
     function calculateCapGains() {
-  // ── Inputs ──
-  const assetType = document.getElementById('cg-asset-type').value;
-  const year = document.getElementById('cg-year').value;
-  const province = document.getElementById('cg-province').value;
-  const salePrice = parseFloat(document.getElementById('cg-sale-price').value) || 0;
-  const acb = parseFloat(document.getElementById('cg-acb').value) || 0;
-  const expenses = parseFloat(document.getElementById('cg-expenses').value) || 0;
-  const otherGains = parseFloat(document.getElementById('cg-other-gains').value) || 0;
-  const capitalLosses = parseFloat(document.getElementById('cg-capital-losses').value) || 0;
-  const otherIncome = parseFloat(document.getElementById('cg-other-income').value) || 0;
-  const applyLCGE = document.getElementById('cg-lcge').checked;
-  const principalRes = document.getElementById('cg-principal-res').checked;
-
-  // Show/hide LCGE based on asset type
-  const lcgeGroup = document.getElementById('cg-lcge-group');
-  const lcgeEligible = (assetType === 'business' || assetType === 'farm');
-  lcgeGroup.style.display = lcgeEligible ? '' : 'none';
-
-  // ── Capital Gain ──
-  let capitalGain = salePrice - acb - expenses;
-  if (principalRes) capitalGain = 0;
-  if (capitalGain < 0) capitalGain = 0;
-
-  // Apply losses
-  let netGain = Math.max(0, capitalGain - capitalLosses);
-
-  // LCGE
-  let lcgeAmount = 0;
-  if (applyLCGE && lcgeEligible && netGain > 0) {
-    const lcgeLimit = (year === '2023') ? 971190 : (year === '2024') ? 1016836 : 1250000;
-    lcgeAmount = Math.min(netGain, lcgeLimit);
-    netGain = Math.max(0, netGain - lcgeAmount);
-  }
-
-  // Total gains for threshold
-  const totalGains = netGain + otherGains;
-
-  // ── Inclusion Rate Logic ──
-  function calcTaxableGain(gain, totalForThreshold, useNewRules) {
-    if (!useNewRules || year === '2023') {
-      return gain * 0.5; // Old rules: flat 50%
-    }
-    // New rules (2024+): 50% on first $250K of total gains, 66.67% above
-    if (totalForThreshold <= 250000) {
-      return gain * 0.5;
-    }
-    // Portion of THIS gain that falls above $250K threshold
-    const gainBelowThreshold = Math.max(0, 250000 - (totalForThreshold - gain));
-    const gainAboveThreshold = gain - gainBelowThreshold;
-    return (Math.max(0, gainBelowThreshold) * 0.5) + (Math.max(0, gainAboveThreshold) * 2 / 3);
-  }
-
-  const taxableGainNew = calcTaxableGain(netGain, totalGains, true);
-  const taxableGainOld = calcTaxableGain(netGain, totalGains, false);
-
-  // ── Federal Tax Brackets 2025/2026 ──
-  const fedBrackets = [
-    { limit: 57375, rate: 0.15 },
-    { limit: 114750, rate: 0.205 },
-    { limit: 158468, rate: 0.26 },
-    { limit: 221708, rate: 0.29 },
-    { limit: Infinity, rate: 0.33 }
-  ];
-
-  // ── Provincial Brackets (2025 values) ──
-  const provBrackets = {
-    AB: [
-      { limit: 148269, rate: 0.10 },
-      { limit: 177922, rate: 0.12 },
-      { limit: 237230, rate: 0.13 },
-      { limit: 355845, rate: 0.14 },
-      { limit: Infinity, rate: 0.15 }
-    ],
-    BC: [
-      { limit: 47937, rate: 0.0506 },
-      { limit: 95875, rate: 0.077 },
-      { limit: 110076, rate: 0.105 },
-      { limit: 133664, rate: 0.1229 },
-      { limit: 181232, rate: 0.147 },
-      { limit: 252752, rate: 0.168 },
-      { limit: Infinity, rate: 0.205 }
-    ],
-    MB: [
-      { limit: 47000, rate: 0.108 },
-      { limit: 100000, rate: 0.1275 },
-      { limit: Infinity, rate: 0.174 }
-    ],
-    NB: [
-      { limit: 49958, rate: 0.094 },
-      { limit: 99916, rate: 0.14 },
-      { limit: 185064, rate: 0.16 },
-      { limit: Infinity, rate: 0.195 }
-    ],
-    NL: [
-      { limit: 43198, rate: 0.087 },
-      { limit: 86395, rate: 0.145 },
-      { limit: 154244, rate: 0.158 },
-      { limit: 215943, rate: 0.178 },
-      { limit: 275870, rate: 0.198 },
-      { limit: 551739, rate: 0.208 },
-      { limit: 1103478, rate: 0.213 },
-      { limit: Infinity, rate: 0.218 }
-    ],
-    NS: [
-      { limit: 29590, rate: 0.0879 },
-      { limit: 59180, rate: 0.1495 },
-      { limit: 93000, rate: 0.1667 },
-      { limit: 150000, rate: 0.175 },
-      { limit: Infinity, rate: 0.21 }
-    ],
-    NT: [
-      { limit: 50597, rate: 0.059 },
-      { limit: 101198, rate: 0.086 },
-      { limit: 164525, rate: 0.122 },
-      { limit: Infinity, rate: 0.1405 }
-    ],
-    NU: [
-      { limit: 53268, rate: 0.04 },
-      { limit: 106537, rate: 0.07 },
-      { limit: 173205, rate: 0.09 },
-      { limit: Infinity, rate: 0.115 }
-    ],
-    ON: [
-      { limit: 51446, rate: 0.0505 },
-      { limit: 102894, rate: 0.0915 },
-      { limit: 150000, rate: 0.1116 },
-      { limit: 220000, rate: 0.1216 },
-      { limit: Infinity, rate: 0.1316 }
-    ],
-    PE: [
-      { limit: 32656, rate: 0.098 },
-      { limit: 64313, rate: 0.138 },
-      { limit: 105000, rate: 0.167 },
-      { limit: 140000, rate: 0.175 },
-      { limit: Infinity, rate: 0.1875 }
-    ],
-    QC: [
-      { limit: 51780, rate: 0.14 },
-      { limit: 103545, rate: 0.19 },
-      { limit: 126000, rate: 0.24 },
-      { limit: Infinity, rate: 0.2575 }
-    ],
-    SK: [
-      { limit: 52057, rate: 0.105 },
-      { limit: 148734, rate: 0.125 },
-      { limit: Infinity, rate: 0.145 }
-    ],
-    YT: [
-      { limit: 55867, rate: 0.064 },
-      { limit: 111733, rate: 0.09 },
-      { limit: 154906, rate: 0.109 },
-      { limit: 500000, rate: 0.128 },
-      { limit: Infinity, rate: 0.15 }
-    ]
-  };
-
-  // ── Bracket Tax Calculator ──
-  function calcBracketTax(brackets, taxableIncome) {
-    let tax = 0;
-    let prev = 0;
-    for (const b of brackets) {
-      if (taxableIncome <= prev) break;
-      const amt = Math.min(taxableIncome, b.limit) - prev;
-      tax += amt * b.rate;
-      prev = b.limit;
-    }
-    return tax;
-  }
-
-  // Tax on other income alone
-  const fedTaxBase = calcBracketTax(fedBrackets, otherIncome);
-  const provTaxBase = calcBracketTax(provBrackets[province] || provBrackets.ON, otherIncome);
-
-  // Tax on other income + taxable gain (new rules)
-  const fedTaxTotalNew = calcBracketTax(fedBrackets, otherIncome + taxableGainNew);
-  const provTaxTotalNew = calcBracketTax(provBrackets[province] || provBrackets.ON, otherIncome + taxableGainNew);
-  const fedTaxOnGainNew = fedTaxTotalNew - fedTaxBase;
-  const provTaxOnGainNew = provTaxTotalNew - provTaxBase;
-  const totalTaxNew = fedTaxOnGainNew + provTaxOnGainNew;
-
-  // Tax on other income + taxable gain (old rules)
-  const fedTaxTotalOld = calcBracketTax(fedBrackets, otherIncome + taxableGainOld);
-  const provTaxTotalOld = calcBracketTax(provBrackets[province] || provBrackets.ON, otherIncome + taxableGainOld);
-  const fedTaxOnGainOld = fedTaxTotalOld - fedTaxBase;
-  const provTaxOnGainOld = provTaxTotalOld - provTaxBase;
-  const totalTaxOld = fedTaxOnGainOld + provTaxOnGainOld;
-
-  const additionalTax = totalTaxNew - totalTaxOld;
-  const effectiveRate = netGain > 0 ? (totalTaxNew / netGain * 100) : 0;
-  const effectiveRateOld = netGain > 0 ? (totalTaxOld / netGain * 100) : 0;
-  const netProceeds = salePrice - expenses - totalTaxNew;
-  const inclusionRate = netGain > 0 ? (taxableGainNew / netGain * 100) : 50;
-
-  // Determine which tax applies
-  const isNewRules = (year !== '2023');
-  const activeTax = isNewRules ? totalTaxNew : totalTaxOld;
-  const activeFedTax = isNewRules ? fedTaxOnGainNew : fedTaxOnGainOld;
-  const activeProvTax = isNewRules ? provTaxOnGainNew : provTaxOnGainOld;
-  const activeTaxableGain = isNewRules ? taxableGainNew : taxableGainOld;
-  const activeEffRate = isNewRules ? effectiveRate : effectiveRateOld;
-
-  // ── Render Results ──
-  const resultsEl = document.getElementById('cg-results');
-  const showComparison = isNewRules && totalGains > 250000;
-
-  resultsEl.innerHTML = `
-    <div class="result-card glass-card" style="border-left: 4px solid var(--brand-success);">
-      <div class="result-label">Capital Gain</div>
-      <div class="result-value mono">${fmtFull(capitalGain)}</div>
-    </div>
-    ${lcgeAmount > 0 ? `
-    <div class="result-card glass-card" style="border-left: 4px solid var(--brand-warning);">
-      <div class="result-label">LCGE Applied</div>
-      <div class="result-value mono">−${fmtFull(lcgeAmount)}</div>
-    </div>` : ''}
-    ${capitalLosses > 0 ? `
-    <div class="result-card glass-card">
-      <div class="result-label">Capital Losses Applied</div>
-      <div class="result-value mono">−${fmtFull(Math.min(capitalLosses, capitalGain))}</div>
-    </div>` : ''}
-    <div class="result-card glass-card">
-      <div class="result-label">Net Capital Gain</div>
-      <div class="result-value mono">${fmtFull(netGain)}</div>
-    </div>
-    <div class="result-card glass-card">
-      <div class="result-label">Effective Inclusion Rate</div>
-      <div class="result-value mono">${inclusionRate.toFixed(1)}%</div>
-    </div>
-    <div class="result-card glass-card">
-      <div class="result-label">Taxable Capital Gain</div>
-      <div class="result-value mono">${fmtFull(activeTaxableGain)}</div>
-    </div>
-    <div class="result-card glass-card">
-      <div class="result-label">Federal Tax on Gain</div>
-      <div class="result-value mono">${fmtFull(activeFedTax)}</div>
-    </div>
-    <div class="result-card glass-card">
-      <div class="result-label">Provincial Tax on Gain</div>
-      <div class="result-value mono">${fmtFull(activeProvTax)}</div>
-    </div>
-    <div class="result-card glass-card" style="border-left: 4px solid var(--brand-danger);">
-      <div class="result-label">Total Tax</div>
-      <div class="result-value mono" style="font-size: 1.5rem;">${fmtFull(activeTax)}</div>
-    </div>
-    <div class="result-card glass-card">
-      <div class="result-label">Effective Tax Rate on Gain</div>
-      <div class="result-value mono">${activeEffRate.toFixed(1)}%</div>
-    </div>
-    <div class="result-card glass-card" style="border-left: 4px solid var(--brand-success);">
-      <div class="result-label">Net Proceeds After Tax</div>
-      <div class="result-value mono" style="font-size: 1.3rem;">${fmtFull(netProceeds)}</div>
-    </div>
-    ${showComparison ? `
-    <div class="result-card glass-card" style="border-left: 4px solid var(--brand-warning); background: rgba(255,193,7,0.05);">
-      <div class="result-label">⚠️ New Rules Impact</div>
-      <div style="margin-top: 0.5rem;">
-        <div style="display:flex;justify-content:space-between;margin-bottom:0.3rem;">
-          <span style="color:var(--text-secondary);">Tax under old rules (50%)</span>
-          <span class="mono">${fmtFull(totalTaxOld)}</span>
-        </div>
-        <div style="display:flex;justify-content:space-between;margin-bottom:0.3rem;">
-          <span style="color:var(--text-secondary);">Tax under new rules</span>
-          <span class="mono">${fmtFull(totalTaxNew)}</span>
-        </div>
-        <div style="display:flex;justify-content:space-between;padding-top:0.5rem;border-top:1px solid var(--border-primary);">
-          <span style="font-weight:600;color:var(--brand-danger);">Additional tax from new rules</span>
-          <span class="mono" style="font-weight:700;color:var(--brand-danger);">+${fmtFull(additionalTax)}</span>
-        </div>
-      </div>
-    </div>` : ''}
-  `;
-
-  // ── Breakdown Section ──
-  const breakdownEl = document.getElementById('cg-breakdown');
-
-  // Bar chart: old vs new inclusion
-  const barChartHTML = (showComparison) ? `
-    <div style="margin-bottom: 2rem;">
-      <h3 style="margin-bottom: 1rem;">📊 Inclusion Rate Comparison</h3>
-      <div style="display:flex;gap:1.5rem;align-items:flex-end;height:160px;padding:0 1rem;">
-        <div style="flex:1;display:flex;flex-direction:column;align-items:center;">
-          <span class="mono" style="font-weight:600;margin-bottom:0.5rem;">${fmtFull(taxableGainOld)}</span>
-          <div style="width:100%;background:var(--brand-success);border-radius:8px 8px 0 0;height:${Math.max(10, (taxableGainOld / Math.max(taxableGainNew, 1)) * 120)}px;transition:height 0.3s;"></div>
-          <span style="margin-top:0.5rem;font-size:0.85rem;color:var(--text-secondary);">Old Rules (50%)</span>
-        </div>
-        <div style="flex:1;display:flex;flex-direction:column;align-items:center;">
-          <span class="mono" style="font-weight:600;margin-bottom:0.5rem;">${fmtFull(taxableGainNew)}</span>
-          <div style="width:100%;background:var(--brand-warning);border-radius:8px 8px 0 0;height:120px;transition:height 0.3s;"></div>
-          <span style="margin-top:0.5rem;font-size:0.85rem;color:var(--text-secondary);">New Rules</span>
-        </div>
-      </div>
-    </div>` : '';
-
-  // Donut chart
-  const donutData = [
-    { label: 'Federal Tax', value: activeFedTax, color: '#3b82f6' },
-    { label: 'Provincial Tax', value: activeProvTax, color: '#8b5cf6' },
-    { label: 'Net Proceeds', value: Math.max(0, salePrice - expenses - activeTax), color: '#22c55e' }
-  ].filter(d => d.value > 0);
-
-  const donutHTML = (netGain > 0 && typeof svgDonut === 'function')
-    ? `<div style="margin-bottom:2rem;"><h3 style="margin-bottom:1rem;">🍩 Tax Breakdown</h3>${svgDonut(donutData, 220)}</div>`
-    : '';
-
-  // Waterfall chart
-  const waterfallSteps = [
-    { label: 'Sale Price', value: salePrice, type: 'add' },
-    { label: 'Cost Base', value: -acb, type: 'sub' },
-    { label: 'Expenses', value: -expenses, type: 'sub' },
-    ...(capitalLosses > 0 ? [{ label: 'Losses', value: -Math.min(capitalLosses, capitalGain), type: 'sub' }] : []),
-    ...(lcgeAmount > 0 ? [{ label: 'LCGE', value: -lcgeAmount, type: 'sub' }] : []),
-    { label: 'Fed Tax', value: -activeFedTax, type: 'sub' },
-    { label: 'Prov Tax', value: -activeProvTax, type: 'sub' },
-    { label: 'Net', value: netProceeds, type: 'total' }
-  ];
-
-  const waterfallHTML = (netGain > 0 && typeof svgWaterfall === 'function')
-    ? `<div style="margin-bottom:2rem;"><h3 style="margin-bottom:1rem;">📉 Proceeds Waterfall</h3>${svgWaterfall(waterfallSteps)}</div>`
-    : '';
-
-  // Strategies
-  const strategies = [];
-  if (!principalRes && assetType === 'real-estate')
-    strategies.push('🏠 If this was ever your principal residence, the <strong>Principal Residence Exemption</strong> could eliminate the entire gain.');
-  if (netGain > 250000 && isNewRules)
-    strategies.push('📅 Consider splitting the sale across two tax years to keep each year under the $250K threshold and stay at the 50% inclusion rate.');
-  if (!applyLCGE && lcgeEligible)
-    strategies.push('🏢 Qualified small business shares may be eligible for the <strong>Lifetime Capital Gains Exemption</strong> ($1.25M for 2025+).');
-  if (capitalLosses === 0)
-    strategies.push('📉 Harvest capital losses from other investments to offset this gain. Losses can be carried back 3 years or forward indefinitely.');
-  if (otherIncome > 100000)
-    strategies.push('💰 Consider <strong>spousal attribution planning</strong> — transferring assets to a lower-income spouse (with proper documentation) can reduce the marginal rate.');
-  strategies.push('🏦 Maximize RRSP contributions to reduce other taxable income and lower the marginal rate applied to your capital gain.');
-  if (assetType === 'crypto')
-    strategies.push('🪙 Ensure accurate ACB tracking for crypto — each trade, swap, and DeFi transaction can trigger a taxable event.');
-  if (assetType === 'real-estate')
-    strategies.push('📋 Don\'t forget to include renovation costs, legal fees, and land transfer taxes in your adjusted cost base.');
-
-  const strategiesHTML = strategies.length > 0 ? `
-    <div style="margin-top: 2rem;">
-      <h3 style="margin-bottom: 1rem;">💡 Tax-Saving Strategies</h3>
-      <div style="display: grid; gap: 0.75rem;">
-        ${strategies.map(s => `<div style="padding: 0.75rem 1rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-primary); font-size: 0.95rem; line-height: 1.5;">${s}</div>`).join('')}
-      </div>
-    </div>` : '';
-
-  breakdownEl.innerHTML = barChartHTML + donutHTML + waterfallHTML + strategiesHTML;
-
-  if (!netGain && !capitalGain) {
-    resultsEl.innerHTML = `
-      <div class="result-card glass-card" style="text-align:center;padding:2rem;">
-        <div style="font-size:2rem;margin-bottom:0.5rem;">✅</div>
-        <div class="result-label">No Capital Gain</div>
-        <p style="color:var(--text-secondary);margin-top:0.5rem;">
-          ${principalRes ? 'Principal Residence Exemption eliminates the entire gain.' : 'The sale price does not exceed your cost base and expenses.'}
-        </p>
-      </div>`;
-    breakdownEl.innerHTML = '';
-  }
-}
-
-// Auto-calculate on load
-if (document.getElementById('cg-sale-price')) calculateCapGains();
-
-
-    // ═══ TFSA CONTRIBUTION ROOM CALCULATOR ═══
-function calculateTFSA() {
-  const ANNUAL_LIMITS = {
-    2009: 5000, 2010: 5000, 2011: 5000, 2012: 5000,
-    2013: 5500, 2014: 5500,
-    2015: 10000,
-    2016: 5500, 2017: 5500, 2018: 5500,
-    2019: 6000, 2020: 6000, 2021: 6000, 2022: 6000, 2023: 6000,
-    2024: 7000, 2025: 7000, 2026: 7000
-  };
-
-  const CURRENT_YEAR = 2026;
-  const birthYear = parseInt(document.getElementById('tfsa-birth-year').value) || 1990;
-  const bornInCanada = document.getElementById('tfsa-resident-check').checked;
-  const residencyYear = bornInCanada ? 2009 : (parseInt(document.getElementById('tfsa-residency-year').value) || 2015);
-  const totalContributions = parseFloat(document.getElementById('tfsa-contributions').value) || 0;
-
-  // TFSA starts accumulating from the year you turn 18 OR 2009, whichever is later
-  const year18 = birthYear + 18;
-  const eligibleFrom = Math.max(2009, year18, residencyYear);
-
-  // Build year-by-year breakdown
-  const breakdown = [];
-  let cumulative = 0;
-  for (let y = eligibleFrom; y <= CURRENT_YEAR; y++) {
-    const limit = ANNUAL_LIMITS[y] || 0;
-    cumulative += limit;
-    breakdown.push({ year: y, limit, cumulative });
-  }
-
-  const totalRoom = cumulative;
-  const currentYearLimit = ANNUAL_LIMITS[CURRENT_YEAR] || 0;
-  const remainingRoom = totalRoom - totalContributions;
-  const overContribution = Math.max(0, totalContributions - totalRoom);
-  const monthlyPenalty = Math.floor(overContribution / 100) * 1;
-
-  // Render results
-  const resultsEl = document.getElementById('tfsa-results');
-  let statusHTML = '';
-  if (overContribution > 0) {
-    statusHTML = `
-      <div class="result-card" style="border-left: 4px solid var(--brand-danger);">
-        <div class="result-label">⚠️ Over-Contribution</div>
-        <div class="result-value mono" style="color: var(--brand-danger);">${fmtFull(overContribution)}</div>
-      </div>
-      <div class="result-card" style="border-left: 4px solid var(--brand-warning);">
-        <div class="result-label">Estimated Monthly Penalty</div>
-        <div class="result-value mono" style="color: var(--brand-warning);">${fmtFull(monthlyPenalty)}/mo</div>
-        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">CRA charges 1% per month on the highest excess amount in each month</div>
-      </div>`;
-  } else {
-    statusHTML = `
-      <div class="result-card" style="border-left: 4px solid var(--brand-success);">
-        <div class="result-label">Remaining Room</div>
-        <div class="result-value mono" style="color: var(--brand-success);">${fmtFull(remainingRoom)}</div>
-      </div>`;
-  }
-
-  resultsEl.innerHTML = `
-    <div class="result-card">
-      <div class="result-label">Total Cumulative Room</div>
-      <div class="result-value mono">${fmtFull(totalRoom)}</div>
-      <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">From ${eligibleFrom} to ${CURRENT_YEAR} (${breakdown.length} years)</div>
-    </div>
-    <div class="result-card">
-      <div class="result-label">${CURRENT_YEAR} Annual Limit</div>
-      <div class="result-value mono">${fmtFull(currentYearLimit)}</div>
-    </div>
-    <div class="result-card">
-      <div class="result-label">Your Total Contributions</div>
-      <div class="result-value mono">${fmtFull(totalContributions)}</div>
-    </div>
-    ${statusHTML}
-  `;
-
-  // Render SVG bar chart
-  const chartEl = document.getElementById('tfsa-chart');
-  if (breakdown.length > 0) {
-    const svgW = 700, svgH = 300, pad = { t: 20, r: 20, b: 50, l: 60 };
-    const plotW = svgW - pad.l - pad.r;
-    const plotH = svgH - pad.t - pad.b;
-    const maxVal = breakdown[breakdown.length - 1].cumulative;
-    const barW = Math.max(4, Math.min(30, plotW / breakdown.length - 2));
-    const gap = (plotW - barW * breakdown.length) / (breakdown.length + 1);
-
-    let bars = '', labels = '';
-    breakdown.forEach((d, i) => {
-      const x = pad.l + gap + i * (barW + gap);
-      const h = (d.cumulative / maxVal) * plotH;
-      const y = pad.t + plotH - h;
-      const fill = d.cumulative <= totalContributions ? 'var(--brand-danger)' : 'var(--brand-success)';
-      bars += `<rect x="${x}" y="${y}" width="${barW}" height="${h}" fill="${fill}" rx="2"><title>${d.year}: ${fmtFull(d.cumulative)} cumulative</title></rect>`;
-      if (breakdown.length <= 18 || i % 2 === 0) {
-        labels += `<text x="${x + barW / 2}" y="${svgH - 10}" text-anchor="middle" fill="var(--text-muted)" font-size="10">${d.year}</text>`;
+      const purchasePrice = parseFloat(document.getElementById('cg-purchase').value) || 300000;
+      const salePrice = parseFloat(document.getElementById('cg-sale').value) || 500000;
+      const yearsOwned = parseFloat(document.getElementById('cg-years').value) || 5;
+      const province = document.getElementById('cg-province').value;
+      const isPrincipal = document.getElementById('cg-principal').checked;
+      
+      const capitalGain = salePrice - purchasePrice;
+      
+      if (isPrincipal || capitalGain <= 0) {
+        document.getElementById('cg-results').innerHTML = `
+          <div class="result-card" style="grid-column: 1 / -1;">
+            ${isPrincipal 
+              ? `<div style="text-align: center; padding: 1rem;">
+                  <div style="font-size: 2rem; margin-bottom: 0.5rem;">✓</div>
+                  <div style="font-size: 1.2rem; font-weight: 700; color: var(--brand-success); margin-bottom: 0.5rem;">Principal Residence Exemption</div>
+                  <div style="font-size: 0.9rem; color: var(--text-secondary);">No tax on capital gains from your primary residence!</div>
+                  <div style="margin-top: 1rem; padding: 1rem; background: var(--bg-secondary); border-radius: 6px;">
+                    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Capital Gain</div>
+                    <div class="mono" style="font-size: 1.5rem; font-weight: 700; color: var(--brand-success);">${fmtFull(capitalGain)}</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Tax-free!</div>
+                  </div>
+                </div>`
+              : `<div style="text-align: center; padding: 1rem; color: var(--text-muted);">
+                  <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📉</div>
+                  <div>No capital gain to calculate. Sale price must exceed purchase price.</div>
+                </div>`
+            }
+          </div>
+        `;
+        document.getElementById('cg-breakdown').innerHTML = '';
+        return;
       }
-    });
-
-    // Y-axis labels
-    let yLabels = '';
-    for (let i = 0; i <= 4; i++) {
-      const val = (maxVal / 4) * i;
-      const y = pad.t + plotH - (val / maxVal) * plotH;
-      yLabels += `<text x="${pad.l - 8}" y="${y + 4}" text-anchor="end" fill="var(--text-muted)" font-size="10">${(val / 1000).toFixed(0)}k</text>`;
-      yLabels += `<line x1="${pad.l}" y1="${y}" x2="${svgW - pad.r}" y2="${y}" stroke="var(--border-primary)" stroke-dasharray="3,3"/>`;
-    }
-
-    // Contribution line
-    let contribLine = '';
-    if (totalContributions > 0 && totalContributions <= maxVal * 1.1) {
-      const cy = pad.t + plotH - (Math.min(totalContributions, maxVal) / maxVal) * plotH;
-      contribLine = `<line x1="${pad.l}" y1="${cy}" x2="${svgW - pad.r}" y2="${cy}" stroke="var(--brand-warning)" stroke-width="2" stroke-dasharray="6,4"/>
-        <text x="${svgW - pad.r}" y="${cy - 6}" text-anchor="end" fill="var(--brand-warning)" font-size="11" font-weight="600">Your contributions</text>`;
-    }
-
-    chartEl.innerHTML = `
-      <div class="glass-card" style="padding: 1.5rem; overflow-x: auto;">
-        <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">📊 Cumulative TFSA Room by Year</h3>
-        <svg viewBox="0 0 ${svgW} ${svgH}" style="width: 100%; max-width: ${svgW}px; height: auto;">
-          ${yLabels}${bars}${labels}${contribLine}
-        </svg>
-      </div>`;
-  } else {
-    chartEl.innerHTML = '';
-  }
-
-  // Render breakdown table
-  const breakdownEl = document.getElementById('tfsa-breakdown');
-  if (breakdown.length > 0) {
-    let rows = breakdown.map(d => `
-      <tr>
-        <td style="padding: 0.5rem 0.75rem;" class="mono">${d.year}</td>
-        <td style="padding: 0.5rem 0.75rem; text-align: right;" class="mono">${fmtFull(d.limit)}</td>
-        <td style="padding: 0.5rem 0.75rem; text-align: right; font-weight: 600;" class="mono">${fmtFull(d.cumulative)}</td>
-      </tr>`).join('');
-
-    breakdownEl.innerHTML = `
-      <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">📋 Year-by-Year Breakdown</h3>
-      <div style="overflow-x: auto;">
-        <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
-          <thead>
-            <tr style="border-bottom: 2px solid var(--border-primary);">
-              <th style="padding: 0.5rem 0.75rem; text-align: left;">Year</th>
-              <th style="padding: 0.5rem 0.75rem; text-align: right;">Annual Limit</th>
-              <th style="padding: 0.5rem 0.75rem; text-align: right;">Cumulative Room</th>
-            </tr>
-          </thead>
-          <tbody>${rows}</tbody>
-        </table>
-      </div>
-      <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted);">
-        Note: This calculator does not account for withdrawals (which restore room the following year) or carry-forward adjustments from the CRA. Check your My CRA Account for your official TFSA room.
-      </p>`;
-  } else {
-    breakdownEl.innerHTML = `<p style="color: var(--text-muted);">You are not yet eligible for TFSA contribution room. Eligibility begins the year you turn 18 (and no earlier than 2009).</p>`;
-  }
-}
-
-// Auto-calculate on load
-document.addEventListener('DOMContentLoaded', function() {
-  if (document.getElementById('tfsa-birth-year')) calculateTFSA();
-});
-
-
-    // ═══ RRSP TAX REFUND CALCULATOR ═══
-function calculateRRSP() {
-  const income = parseFloat(document.getElementById('rrsp-income').value) || 0;
-  const otherIncome = parseFloat(document.getElementById('rrsp-other-income').value) || 0;
-  const province = document.getElementById('rrsp-province').value;
-  const contribution = parseFloat(document.getElementById('rrsp-contribution').value) || 0;
-
-  const resultsEl = document.getElementById('rrsp-results');
-  const breakdownEl = document.getElementById('rrsp-breakdown');
-
-  if (income <= 0) {
-    resultsEl.innerHTML = '<div class="result-card glass-card" style="padding:2rem;text-align:center;color:var(--text-secondary);">Enter your income to see your RRSP tax refund.</div>';
-    breakdownEl.innerHTML = '';
-    return;
-  }
-
-  const totalIncome = income + otherIncome;
-  const maxRoom = Math.min(totalIncome * 0.18, 32490);
-  document.getElementById('rrsp-room-hint').textContent = `2026 max: 18% of earned income, up to $32,490 — Your room: ${fmtFull(maxRoom)}`;
-
-  const effectiveContribution = Math.min(contribution, maxRoom, totalIncome);
-  const taxableWithout = Math.max(totalIncome, 0);
-  const taxableWith = Math.max(totalIncome - effectiveContribution, 0);
-
-  // Federal brackets 2026
-  const fedBrackets = [
-    { min: 0, max: 57375, rate: 0.15 },
-    { min: 57375, max: 114750, rate: 0.205 },
-    { min: 114750, max: 158468, rate: 0.26 },
-    { min: 158468, max: 220000, rate: 0.29 },
-    { min: 220000, max: Infinity, rate: 0.33 }
-  ];
-
-  // Provincial brackets 2025/2026
-  const provBrackets = {
-    AB: [
-      { min: 0, max: 148269, rate: 0.10 },
-      { min: 148269, max: 177922, rate: 0.12 },
-      { min: 177922, max: 237230, rate: 0.13 },
-      { min: 237230, max: 355845, rate: 0.14 },
-      { min: 355845, max: Infinity, rate: 0.15 }
-    ],
-    BC: [
-      { min: 0, max: 47937, rate: 0.0506 },
-      { min: 47937, max: 95875, rate: 0.077 },
-      { min: 95875, max: 110076, rate: 0.105 },
-      { min: 110076, max: 133664, rate: 0.1229 },
-      { min: 133664, max: 181232, rate: 0.147 },
-      { min: 181232, max: 252752, rate: 0.168 },
-      { min: 252752, max: Infinity, rate: 0.205 }
-    ],
-    MB: [
-      { min: 0, max: 47000, rate: 0.108 },
-      { min: 47000, max: 100000, rate: 0.1275 },
-      { min: 100000, max: Infinity, rate: 0.174 }
-    ],
-    NB: [
-      { min: 0, max: 49958, rate: 0.094 },
-      { min: 49958, max: 99916, rate: 0.14 },
-      { min: 99916, max: 185064, rate: 0.16 },
-      { min: 185064, max: Infinity, rate: 0.195 }
-    ],
-    NL: [
-      { min: 0, max: 43198, rate: 0.087 },
-      { min: 43198, max: 86395, rate: 0.145 },
-      { min: 86395, max: 154244, rate: 0.158 },
-      { min: 154244, max: 215943, rate: 0.178 },
-      { min: 215943, max: 275870, rate: 0.198 },
-      { min: 275870, max: 551739, rate: 0.208 },
-      { min: 551739, max: 1103478, rate: 0.213 },
-      { min: 1103478, max: Infinity, rate: 0.218 }
-    ],
-    NS: [
-      { min: 0, max: 29590, rate: 0.0879 },
-      { min: 29590, max: 59180, rate: 0.1495 },
-      { min: 59180, max: 93000, rate: 0.1667 },
-      { min: 93000, max: 150000, rate: 0.175 },
-      { min: 150000, max: Infinity, rate: 0.21 }
-    ],
-    NT: [
-      { min: 0, max: 50597, rate: 0.059 },
-      { min: 50597, max: 101198, rate: 0.086 },
-      { min: 101198, max: 164525, rate: 0.122 },
-      { min: 164525, max: Infinity, rate: 0.1405 }
-    ],
-    NU: [
-      { min: 0, max: 53268, rate: 0.04 },
-      { min: 53268, max: 106537, rate: 0.07 },
-      { min: 106537, max: 173205, rate: 0.09 },
-      { min: 173205, max: Infinity, rate: 0.115 }
-    ],
-    ON: [
-      { min: 0, max: 52886, rate: 0.0505 },
-      { min: 52886, max: 105775, rate: 0.0915 },
-      { min: 105775, max: 150000, rate: 0.1116 },
-      { min: 150000, max: 220000, rate: 0.1216 },
-      { min: 220000, max: Infinity, rate: 0.1316 }
-    ],
-    PE: [
-      { min: 0, max: 32656, rate: 0.0965 },
-      { min: 32656, max: 64313, rate: 0.1363 },
-      { min: 64313, max: 105000, rate: 0.1665 },
-      { min: 105000, max: 140000, rate: 0.18 },
-      { min: 140000, max: Infinity, rate: 0.1875 }
-    ],
-    QC: [
-      { min: 0, max: 51780, rate: 0.14 },
-      { min: 51780, max: 103545, rate: 0.19 },
-      { min: 103545, max: 126000, rate: 0.24 },
-      { min: 126000, max: Infinity, rate: 0.2575 }
-    ],
-    SK: [
-      { min: 0, max: 52057, rate: 0.105 },
-      { min: 52057, max: 148734, rate: 0.125 },
-      { min: 148734, max: Infinity, rate: 0.145 }
-    ],
-    YT: [
-      { min: 0, max: 57375, rate: 0.064 },
-      { min: 57375, max: 114750, rate: 0.09 },
-      { min: 114750, max: 158468, rate: 0.109 },
-      { min: 158468, max: 220000, rate: 0.128 },
-      { min: 220000, max: 500000, rate: 0.15 },
-      { min: 500000, max: Infinity, rate: 0.15 }
-    ]
-  };
-
-  function calcTax(taxableIncome, brackets) {
-    let tax = 0;
-    for (const b of brackets) {
-      if (taxableIncome <= b.min) break;
-      const taxable = Math.min(taxableIncome, b.max) - b.min;
-      tax += taxable * b.rate;
-    }
-    return tax;
-  }
-
-  function getMarginalRate(taxableIncome, brackets) {
-    let rate = brackets[0].rate;
-    for (const b of brackets) {
-      if (taxableIncome > b.min) rate = b.rate;
-    }
-    return rate;
-  }
-
-  function getOptimalContribution(taxableIncome, brackets) {
-    // Find current bracket threshold and how much to contribute to drop to next lower bracket
-    for (let i = brackets.length - 1; i >= 0; i--) {
-      if (taxableIncome > brackets[i].min) {
-        const amountInBracket = taxableIncome - brackets[i].min;
-        return { amount: amountInBracket, bracketRate: brackets[i].rate, nextThreshold: brackets[i].min };
+      
+      // 2024+ inclusion rates
+      const first250k = Math.min(capitalGain, 250000);
+      const above250k = Math.max(0, capitalGain - 250000);
+      const taxableGain = (first250k * 0.5) + (above250k * 0.6667);
+      
+      // Federal tax brackets 2026
+      const fedBrackets = [
+        { limit: 57375, rate: 0.15 },
+        { limit: 114750, rate: 0.205 },
+        { limit: 158468, rate: 0.26 },
+        { limit: 220000, rate: 0.29 },
+        { limit: Infinity, rate: 0.33 }
+      ];
+      
+      let fedTax = 0;
+      let remaining = taxableGain;
+      let prevLimit = 0;
+      for (const bracket of fedBrackets) {
+        const taxableInBracket = Math.min(remaining, bracket.limit - prevLimit);
+        if (taxableInBracket > 0) {
+          fedTax += taxableInBracket * bracket.rate;
+          remaining -= taxableInBracket;
+        }
+        prevLimit = bracket.limit;
+        if (remaining <= 0) break;
       }
-    }
-    return { amount: 0, bracketRate: 0, nextThreshold: 0 };
-  }
-
-  const prov = provBrackets[province] || provBrackets.ON;
-
-  const fedTaxWithout = calcTax(taxableWithout, fedBrackets);
-  const fedTaxWith = calcTax(taxableWith, fedBrackets);
-  const provTaxWithout = calcTax(taxableWithout, prov);
-  const provTaxWith = calcTax(taxableWith, prov);
-
-  const totalTaxWithout = fedTaxWithout + provTaxWithout;
-  const totalTaxWith = fedTaxWith + provTaxWith;
-  const refund = totalTaxWithout - totalTaxWith;
-
-  const fedMarginal = getMarginalRate(taxableWithout, fedBrackets);
-  const provMarginal = getMarginalRate(taxableWithout, prov);
-  const combinedMarginal = fedMarginal + provMarginal;
-  const effectiveRate = taxableWithout > 0 ? totalTaxWithout / taxableWithout : 0;
-
-  // Optimal contribution to drop federal bracket
-  const fedOptimal = getOptimalContribution(taxableWithout, fedBrackets);
-  const provOptimal = getOptimalContribution(taxableWithout, prov);
-  const optimalContrib = Math.min(fedOptimal.amount, maxRoom);
-
-  // Bar chart max
-  const barMax = Math.max(totalTaxWithout, 1);
-
-  resultsEl.innerHTML = `
-    <div class="result-card glass-card" style="padding: 1.5rem; text-align: center; background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(59,130,246,0.1));">
-      <div class="result-label">Your RRSP Tax Refund</div>
-      <div class="result-value mono" style="font-size: 2.5rem; color: var(--brand-success);">${fmtFull(refund)}</div>
-      <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.25rem;">
-        from a ${fmtFull(effectiveContribution)} contribution
-      </div>
-    </div>
-    <div class="result-card glass-card" style="padding: 1.25rem;">
-      <div class="result-label">Combined Marginal Rate</div>
-      <div class="result-value mono" style="font-size: 1.5rem;">${(combinedMarginal * 100).toFixed(2)}%</div>
-      <div style="color: var(--text-secondary); font-size: 0.8rem;">Federal ${(fedMarginal * 100).toFixed(1)}% + Provincial ${(provMarginal * 100).toFixed(1)}%</div>
-    </div>
-    <div class="result-card glass-card" style="padding: 1.25rem;">
-      <div class="result-label">Effective Tax Rate</div>
-      <div class="result-value mono" style="font-size: 1.5rem;">${(effectiveRate * 100).toFixed(2)}%</div>
-      <div style="color: var(--text-secondary); font-size: 0.8rem;">On total income of ${fmtFull(taxableWithout)}</div>
-    </div>
-    <div class="result-card glass-card" style="padding: 1.25rem;">
-      <div class="result-label">Optimal Contribution</div>
-      <div class="result-value mono" style="font-size: 1.5rem; color: var(--brand-warning);">${fmtFull(optimalContrib)}</div>
-      <div style="color: var(--text-secondary); font-size: 0.8rem;">To drop to next federal bracket (${(fedOptimal.bracketRate * 100).toFixed(1)}% → ${fedOptimal.nextThreshold > 0 ? (getMarginalRate(fedOptimal.nextThreshold, fedBrackets) * 100).toFixed(1) : '0'}%)</div>
-    </div>
-    <div class="result-card glass-card" style="padding: 1.25rem;">
-      <div class="result-label" style="margin-bottom: 1rem;">Tax Comparison</div>
-      <div style="display: flex; gap: 1.5rem; align-items: flex-end; height: 120px; margin-bottom: 0.75rem;">
-        <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;">
-          <div class="mono" style="font-size:0.8rem; margin-bottom:0.25rem; color:var(--brand-danger);">${fmtFull(totalTaxWithout)}</div>
-          <div style="width:100%; background:var(--brand-danger); border-radius:var(--radius-lg) var(--radius-lg) 0 0; min-height:8px; height:${(totalTaxWithout / barMax * 100).toFixed(1)}%;"></div>
-          <div style="font-size:0.75rem; color:var(--text-secondary); margin-top:0.35rem;">Without RRSP</div>
+      
+      // Provincial rates (simplified top marginal)
+      const provRates = {
+        ON: 0.1316, BC: 0.205, AB: 0.15, QC: 0.2575,
+        MB: 0.174, SK: 0.145, NS: 0.21, NB: 0.195,
+        NL: 0.218, PE: 0.1837
+      };
+      const provTax = taxableGain * (provRates[province] || 0.1316);
+      
+      const totalTax = fedTax + provTax;
+      const netProceeds = salePrice - totalTax;
+      const effectiveRate = (totalTax / capitalGain) * 100;
+      
+      document.getElementById('cg-results').innerHTML = `
+        <div class="result-card">
+          <div class="result-label">Capital Gain</div>
+          <div class="result-value">${fmtFull(capitalGain)}</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Sale - Purchase</div>
         </div>
-        <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;">
-          <div class="mono" style="font-size:0.8rem; margin-bottom:0.25rem; color:var(--brand-success);">${fmtFull(totalTaxWith)}</div>
-          <div style="width:100%; background:var(--brand-success); border-radius:var(--radius-lg) var(--radius-lg) 0 0; min-height:8px; height:${(totalTaxWith / barMax * 100).toFixed(1)}%;"></div>
-          <div style="font-size:0.75rem; color:var(--text-secondary); margin-top:0.35rem;">With RRSP</div>
+        
+        <div class="result-card">
+          <div class="result-label">Taxable Gain</div>
+          <div class="result-value">${fmtFull(taxableGain)}</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">After inclusion rates</div>
         </div>
-      </div>
-      <div style="text-align:center; font-size:0.85rem; color:var(--brand-success); font-weight:600;">You save ${fmtFull(refund)}</div>
-    </div>
-  `;
-
-  // Breakdown section — bracket visualization + federal/provincial split
-  const fedBracketRows = fedBrackets.map(b => {
-    const lo = b.min;
-    const hi = b.max === Infinity ? '∞' : fmtFull(b.max);
-    const inBracket = Math.max(0, Math.min(taxableWithout, b.max === Infinity ? taxableWithout : b.max) - b.min);
-    const taxInBracket = inBracket * b.rate;
-    const active = taxableWithout > b.min;
-    return `<tr style="opacity:${active ? 1 : 0.4};">
-      <td style="padding:0.4rem 0.75rem;">${fmtFull(lo)} – ${hi}</td>
-      <td style="padding:0.4rem 0.75rem; text-align:right;" class="mono">${(b.rate * 100).toFixed(1)}%</td>
-      <td style="padding:0.4rem 0.75rem; text-align:right;" class="mono">${fmtFull(inBracket)}</td>
-      <td style="padding:0.4rem 0.75rem; text-align:right;" class="mono">${fmtFull(taxInBracket)}</td>
-    </tr>`;
-  }).join('');
-
-  const provBracketRows = prov.map(b => {
-    const lo = b.min;
-    const hi = b.max === Infinity ? '∞' : fmtFull(b.max);
-    const inBracket = Math.max(0, Math.min(taxableWithout, b.max === Infinity ? taxableWithout : b.max) - b.min);
-    const taxInBracket = inBracket * b.rate;
-    const active = taxableWithout > b.min;
-    return `<tr style="opacity:${active ? 1 : 0.4};">
-      <td style="padding:0.4rem 0.75rem;">${fmtFull(lo)} – ${hi}</td>
-      <td style="padding:0.4rem 0.75rem; text-align:right;" class="mono">${(b.rate * 100).toFixed(1)}%</td>
-      <td style="padding:0.4rem 0.75rem; text-align:right;" class="mono">${fmtFull(inBracket)}</td>
-      <td style="padding:0.4rem 0.75rem; text-align:right;" class="mono">${fmtFull(taxInBracket)}</td>
-    </tr>`;
-  }).join('');
-
-  const provName = document.getElementById('rrsp-province').selectedOptions[0].text;
-
-  // Bracket position visualization
-  const allBracketThresholds = fedBrackets.filter(b => b.max !== Infinity).map(b => b.max);
-  const vizMax = Math.max(taxableWithout * 1.2, 250000);
-  const incomePos = (taxableWithout / vizMax * 100).toFixed(1);
-  const bracketMarkers = allBracketThresholds.map(t => {
-    const pos = (t / vizMax * 100).toFixed(1);
-    return `<div style="position:absolute; left:${pos}%; top:0; bottom:0; width:1px; background:var(--border-primary);"></div>
-            <div style="position:absolute; left:${pos}%; bottom:-1.4rem; font-size:0.65rem; color:var(--text-secondary); transform:translateX(-50%);">${(t/1000).toFixed(0)}k</div>`;
-  }).join('');
-
-  breakdownEl.innerHTML = `
-    <h3 style="margin: 0 0 1rem 0; font-size: 1.1rem;">📊 Where Your Income Falls</h3>
-    <div style="position:relative; height:28px; background:var(--bg-secondary); border-radius:14px; overflow:visible; margin-bottom:2.5rem; border:1px solid var(--border-primary);">
-      <div style="position:absolute; left:0; top:0; bottom:0; width:${incomePos}%; background:linear-gradient(90deg, var(--brand-success), var(--brand-warning)); border-radius:14px; transition:width 0.4s ease;"></div>
-      ${bracketMarkers}
-      <div style="position:absolute; left:${incomePos}%; top:-6px; width:3px; height:40px; background:var(--brand-danger); border-radius:2px; transform:translateX(-50%);"></div>
-      <div style="position:absolute; left:${incomePos}%; top:-1.8rem; font-size:0.75rem; font-weight:600; color:var(--brand-danger); transform:translateX(-50%); white-space:nowrap;">${fmtFull(taxableWithout)}</div>
-    </div>
-
-    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
-      <div>
-        <h4 style="margin: 0 0 0.75rem 0; font-size: 0.95rem;">🇨🇦 Federal Brackets</h4>
-        <table style="width:100%; font-size:0.8rem; border-collapse:collapse;">
-          <thead><tr style="border-bottom:1px solid var(--border-primary);">
-            <th style="padding:0.4rem 0.75rem; text-align:left;">Range</th>
-            <th style="padding:0.4rem 0.75rem; text-align:right;">Rate</th>
-            <th style="padding:0.4rem 0.75rem; text-align:right;">Income</th>
-            <th style="padding:0.4rem 0.75rem; text-align:right;">Tax</th>
-          </tr></thead>
-          <tbody>${fedBracketRows}</tbody>
-          <tfoot><tr style="border-top:1px solid var(--border-primary); font-weight:600;">
-            <td colspan="3" style="padding:0.5rem 0.75rem;">Total Federal Tax</td>
-            <td style="padding:0.5rem 0.75rem; text-align:right;" class="mono">${fmtFull(fedTaxWithout)}</td>
-          </tr></tfoot>
-        </table>
-      </div>
-      <div>
-        <h4 style="margin: 0 0 0.75rem 0; font-size: 0.95rem;">🏠 ${provName} Brackets</h4>
-        <table style="width:100%; font-size:0.8rem; border-collapse:collapse;">
-          <thead><tr style="border-bottom:1px solid var(--border-primary);">
-            <th style="padding:0.4rem 0.75rem; text-align:left;">Range</th>
-            <th style="padding:0.4rem 0.75rem; text-align:right;">Rate</th>
-            <th style="padding:0.4rem 0.75rem; text-align:right;">Income</th>
-            <th style="padding:0.4rem 0.75rem; text-align:right;">Tax</th>
-          </tr></thead>
-          <tbody>${provBracketRows}</tbody>
-          <tfoot><tr style="border-top:1px solid var(--border-primary); font-weight:600;">
-            <td colspan="3" style="padding:0.5rem 0.75rem;">Total Provincial Tax</td>
-            <td style="padding:0.5rem 0.75rem; text-align:right;" class="mono">${fmtFull(provTaxWithout)}</td>
-          </tr></tfoot>
-        </table>
-      </div>
-    </div>
-
-    <div style="margin-top:1.5rem; padding:1rem; background:rgba(16,185,129,0.08); border-radius:var(--radius-lg); border:1px solid rgba(16,185,129,0.2);">
-      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:1rem; text-align:center;">
-        <div>
-          <div style="font-size:0.8rem; color:var(--text-secondary);">Federal Savings</div>
-          <div class="mono" style="font-size:1.1rem; font-weight:600; color:var(--brand-success);">${fmtFull(fedTaxWithout - fedTaxWith)}</div>
+        
+        <div class="result-card">
+          <div class="result-label">Total Tax Owed</div>
+          <div class="result-value" style="color: var(--brand-danger);">${fmtFull(totalTax)}</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Federal + Provincial</div>
         </div>
-        <div>
-          <div style="font-size:0.8rem; color:var(--text-secondary);">Provincial Savings</div>
-          <div class="mono" style="font-size:1.1rem; font-weight:600; color:var(--brand-success);">${fmtFull(provTaxWithout - provTaxWith)}</div>
+        
+        <div class="result-card">
+          <div class="result-label">Net Proceeds</div>
+          <div class="result-value">${fmtFull(netProceeds)}</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">After tax</div>
         </div>
-        <div>
-          <div style="font-size:0.8rem; color:var(--text-secondary);">Total Refund</div>
-          <div class="mono" style="font-size:1.1rem; font-weight:700; color:var(--brand-success);">${fmtFull(refund)}</div>
+        
+        <div class="result-card">
+          <div class="result-label">Effective Tax Rate</div>
+          <div class="result-value">${effectiveRate.toFixed(2)}%</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Tax / Gain</div>
         </div>
-      </div>
-    </div>
-  `;
-}
-
-
-    // ═══ CANADIAN INCOME TAX CALCULATOR ═══
-function calculateIncomeTax() {
-  const v = id => parseFloat(document.getElementById(id)?.value) || 0;
-  const province = document.getElementById('incometax-province').value;
-  const employment = v('incometax-employment');
-  const selfEmploy = v('incometax-selfemploy');
-  const capitalGainsTotal = v('incometax-capitalgains');
-  const eligibleDiv = v('incometax-eligible-div');
-  const ineligibleDiv = v('incometax-ineligible-div');
-  const rental = v('incometax-rental');
-  const rrspDeduction = v('incometax-rrsp');
-  const otherDeductions = v('incometax-other-deductions');
-
-  const resultsEl = document.getElementById('incometax-results');
-  const breakdownEl = document.getElementById('incometax-breakdown');
-
-  if (employment + selfEmploy + capitalGainsTotal + eligibleDiv + ineligibleDiv + rental <= 0) {
-    resultsEl.innerHTML = '';
-    breakdownEl.innerHTML = '';
-    return;
-  }
-
-  // ── 2026 Constants ──
-  const CPP_RATE = 0.0595;
-  const CPP_MAX_PENSIONABLE = 71300;
-  const CPP_EXEMPTION = 3500;
-  const CPP_MAX_CONTRIB = 4034.10; // employee portion
-  const CPP2_RATE = 0.04;
-  const CPP2_CEILING = 81200;
-  const CPP2_MAX_CONTRIB = 396.00;
-  const EI_RATE = 0.0164;
-  const EI_MAX_INSURABLE = 65700;
-  const EI_MAX_PREMIUM = 1077.48;
-  const FEDERAL_BPA = 16129;
-
-  // QPP for Quebec
-  const QPP_RATE = 0.0640;
-  const QPP_MAX_CONTRIB = 4340.80;
-  const QPIP_RATE_EE = 0.00494;
-  const QPIP_MAX_INSURABLE = 98000;
-  const QPIP_MAX_PREMIUM = 484.12;
-  const EI_RATE_QC = 0.01312; // reduced EI for Quebec
-  const EI_MAX_QC = 862.62;
-
-  // ── Capital gains inclusion ──
-  const capitalGainsTaxable = capitalGainsTotal * 0.5;
-
-  // ── Dividend gross-up ──
-  const eligibleGrossUp = eligibleDiv * 1.38;
-  const ineligibleGrossUp = ineligibleDiv * 1.15;
-
-  // ── Total & taxable income ──
-  const totalIncome = employment + selfEmploy + capitalGainsTaxable + eligibleGrossUp + ineligibleGrossUp + rental;
-  const taxableIncome = Math.max(0, totalIncome - rrspDeduction - otherDeductions);
-
-  // ── CPP / QPP ──
-  const earnedIncome = employment + selfEmploy;
-  const isQuebec = province === 'QC';
-  let cppContrib = 0, cpp2Contrib = 0, eiPremium = 0, qpipPremium = 0;
-
-  if (isQuebec) {
-    // QPP
-    const qppPensionable = Math.min(earnedIncome, CPP_MAX_PENSIONABLE);
-    const qppBase = Math.max(0, qppPensionable - CPP_EXEMPTION);
-    cppContrib = Math.min(qppBase * QPP_RATE, QPP_MAX_CONTRIB);
-    // QPP2
-    if (earnedIncome > CPP_MAX_PENSIONABLE) {
-      const qpp2Base = Math.min(earnedIncome, CPP2_CEILING) - CPP_MAX_PENSIONABLE;
-      cpp2Contrib = Math.min(Math.max(0, qpp2Base) * CPP2_RATE, CPP2_MAX_CONTRIB);
-    }
-    // Self-employed pays both portions
-    if (selfEmploy > 0 && employment === 0) {
-      cppContrib *= 2;
-      cpp2Contrib *= 2;
-    } else if (selfEmploy > 0 && employment > 0) {
-      // Additional self-employ CPP on self-employ portion
-      const empCpp = Math.min(Math.max(0, Math.min(employment, CPP_MAX_PENSIONABLE) - CPP_EXEMPTION) * QPP_RATE, QPP_MAX_CONTRIB);
-      const totalCpp = Math.min(Math.max(0, Math.min(earnedIncome, CPP_MAX_PENSIONABLE) - CPP_EXEMPTION) * QPP_RATE, QPP_MAX_CONTRIB);
-      const selfCpp = totalCpp - empCpp;
-      cppContrib = empCpp + selfCpp * 2;
-    }
-    // QPIP
-    qpipPremium = Math.min(earnedIncome * QPIP_RATE_EE, QPIP_MAX_PREMIUM);
-    // EI (reduced)
-    eiPremium = Math.min(employment * EI_RATE_QC, EI_MAX_QC);
-  } else {
-    // CPP
-    const cppPensionable = Math.min(earnedIncome, CPP_MAX_PENSIONABLE);
-    const cppBase = Math.max(0, cppPensionable - CPP_EXEMPTION);
-    cppContrib = Math.min(cppBase * CPP_RATE, CPP_MAX_CONTRIB);
-    // CPP2
-    if (earnedIncome > CPP_MAX_PENSIONABLE) {
-      const cpp2Base = Math.min(earnedIncome, CPP2_CEILING) - CPP_MAX_PENSIONABLE;
-      cpp2Contrib = Math.min(Math.max(0, cpp2Base) * CPP2_RATE, CPP2_MAX_CONTRIB);
-    }
-    // Self-employed pays both portions
-    if (selfEmploy > 0 && employment === 0) {
-      cppContrib *= 2;
-      cpp2Contrib *= 2;
-    } else if (selfEmploy > 0 && employment > 0) {
-      const empCpp = Math.min(Math.max(0, Math.min(employment, CPP_MAX_PENSIONABLE) - CPP_EXEMPTION) * CPP_RATE, CPP_MAX_CONTRIB);
-      const totalCpp = Math.min(Math.max(0, Math.min(earnedIncome, CPP_MAX_PENSIONABLE) - CPP_EXEMPTION) * CPP_RATE, CPP_MAX_CONTRIB);
-      const selfCpp = totalCpp - empCpp;
-      cppContrib = empCpp + selfCpp * 2;
-    }
-    // EI (employees only)
-    eiPremium = Math.min(employment * EI_RATE, EI_MAX_PREMIUM);
-  }
-
-  // ── Federal tax brackets 2026 ──
-  const fedBrackets = [
-    [57375, 0.15],
-    [114750 - 57375, 0.205],
-    [158468 - 114750, 0.26],
-    [220000 - 158468, 0.29],
-    [Infinity, 0.33]
-  ];
-
-  // ── Provincial brackets 2026 ──
-  const provData = {
-    AB: {
-      name: 'Alberta', bpa: 22323,
-      brackets: [[148269, 0.10], [177922 - 148269, 0.12], [237230 - 177922, 0.13], [355845 - 237230, 0.14], [Infinity, 0.15]],
-      eligDTC: 0.10, ineligDTC: 0.10
-    },
-    BC: {
-      name: 'British Columbia', bpa: 12580,
-      brackets: [[47937, 0.0506], [95875 - 47937, 0.077], [110076 - 95875, 0.105], [133664 - 110076, 0.1229], [181232 - 133664, 0.147], [252752 - 181232, 0.168], [Infinity, 0.205]],
-      eligDTC: 0.10, ineligDTC: 0.0196
-    },
-    MB: {
-      name: 'Manitoba', bpa: 15780,
-      brackets: [[47000, 0.108], [100000 - 47000, 0.1275], [Infinity, 0.174]],
-      eligDTC: 0.08, ineligDTC: 0.007
-    },
-    NB: {
-      name: 'New Brunswick', bpa: 13044,
-      brackets: [[49958, 0.094], [99916 - 49958, 0.14], [185064 - 99916, 0.16], [Infinity, 0.195]],
-      eligDTC: 0.0314, ineligDTC: 0.0291
-    },
-    NL: {
-      name: 'Newfoundland & Labrador', bpa: 10818,
-      brackets: [[43198, 0.087], [86395 - 43198, 0.145], [154244 - 86395, 0.158], [215943 - 154244, 0.178], [275870 - 215943, 0.198], [551739 - 275870, 0.208], [1103478 - 551739, 0.213], [Infinity, 0.218]],
-      eligDTC: 0.056, ineligDTC: 0.032
-    },
-    NS: {
-      name: 'Nova Scotia', bpa: 8481,
-      brackets: [[29590, 0.0879], [59180 - 29590, 0.1495], [93000 - 59180, 0.1667], [150000 - 93000, 0.175], [Infinity, 0.21]],
-      eligDTC: 0.0885, ineligDTC: 0.0299
-    },
-    NT: {
-      name: 'Northwest Territories', bpa: 17373,
-      brackets: [[50597, 0.059], [101198 - 50597, 0.086], [164525 - 101198, 0.122], [Infinity, 0.1405]],
-      eligDTC: 0.0601, ineligDTC: 0.028
-    },
-    NU: {
-      name: 'Nunavut', bpa: 18767,
-      brackets: [[53268, 0.04], [106537 - 53268, 0.07], [173205 - 106537, 0.09], [Infinity, 0.115]],
-      eligDTC: 0.0551, ineligDTC: 0.0261
-    },
-    ON: {
-      name: 'Ontario', bpa: 11865,
-      brackets: [[51446, 0.0505], [102894 - 51446, 0.0915], [150000 - 102894, 0.1116], [220000 - 150000, 0.1216], [Infinity, 0.1316]],
-      surtax: true, surtaxThresholds: [4991, 0.20, 6387, 0.36],
-      eligDTC: 0.10, ineligDTC: 0.029863
-    },
-    PE: {
-      name: 'Prince Edward Island', bpa: 13500,
-      brackets: [[32656, 0.095], [64313 - 32656, 0.1325], [105000 - 64313, 0.166], [140000 - 105000, 0.1763], [Infinity, 0.19]],
-      surtax: true, surtaxThresholds: [12500, 0.10],
-      eligDTC: 0.105, ineligDTC: 0.028
-    },
-    QC: {
-      name: 'Quebec', bpa: 18056,
-      brackets: [[51780, 0.14], [103545 - 51780, 0.19], [126000 - 103545, 0.24], [Infinity, 0.2575]],
-      eligDTC: 0.1132, ineligDTC: 0.0347,
-      abatement: 0.165
-    },
-    SK: {
-      name: 'Saskatchewan', bpa: 18491,
-      brackets: [[52057, 0.105], [148734 - 52057, 0.125], [Infinity, 0.145]],
-      eligDTC: 0.105, ineligDTC: 0.02105
-    },
-    YT: {
-      name: 'Yukon', bpa: 16129,
-      brackets: [[57375, 0.064], [114750 - 57375, 0.09], [158468 - 114750, 0.109], [500000 - 158468, 0.128], [Infinity, 0.15]],
-      eligDTC: 0.0512, ineligDTC: 0.0241
-    }
-  };
-
-  // ── Tax calculation helper ──
-  function calcBracketTax(income, brackets) {
-    let tax = 0, remaining = income;
-    for (const [width, rate] of brackets) {
-      const taxable = Math.min(remaining, width);
-      tax += taxable * rate;
-      remaining -= taxable;
-      if (remaining <= 0) break;
-    }
-    return tax;
-  }
-
-  function getMarginalRate(income, brackets) {
-    let remaining = income;
-    let rate = 0;
-    for (const [width, r] of brackets) {
-      rate = r;
-      remaining -= width;
-      if (remaining <= 0) break;
-    }
-    return rate;
-  }
-
-  // ── Federal tax ──
-  let fedTaxGross = calcBracketTax(taxableIncome, fedBrackets);
-  const fedBPACredit = FEDERAL_BPA * 0.15;
-  const fedCPPCredit = (cppContrib + cpp2Contrib) * 0.15;
-  const fedEICredit = eiPremium * 0.15;
-  const fedEligDTC = eligibleGrossUp * 0.150198;
-  const fedIneligDTC = ineligibleGrossUp * 0.090301;
-  let federalTax = Math.max(0, fedTaxGross - fedBPACredit - fedCPPCredit - fedEICredit - fedEligDTC - fedIneligDTC);
-
-  // Quebec abatement
-  if (isQuebec) {
-    federalTax *= (1 - provData.QC.abatement);
-  }
-
-  // ── Provincial tax ──
-  const prov = provData[province];
-  let provTaxGross = calcBracketTax(taxableIncome, prov.brackets);
-  const provBPACredit = prov.bpa * (prov.brackets[0][1]);
-  const provEligDTC = eligibleGrossUp * (prov.eligDTC || 0);
-  const provIneligDTC = ineligibleGrossUp * (prov.ineligDTC || 0);
-  let provincialTax = Math.max(0, provTaxGross - provBPACredit - provEligDTC - provIneligDTC);
-
-  // Ontario surtax
-  if (province === 'ON' && prov.surtax) {
-    const baseTax = provincialTax;
-    let surtax = 0;
-    if (baseTax > 6387) surtax += (baseTax - 6387) * 0.36;
-    if (baseTax > 4991) surtax += (baseTax - 4991) * 0.20;
-    provincialTax += surtax;
-  }
-
-  // PEI surtax
-  if (province === 'PE' && prov.surtax) {
-    if (provincialTax > 12500) {
-      provincialTax += (provincialTax - 12500) * 0.10;
-    }
-  }
-
-  // Quebec: QPIP premium
-  let qpipDisplay = 0;
-  if (isQuebec) {
-    qpipDisplay = qpipPremium;
-  }
-
-  // ── Totals ──
-  const totalTax = federalTax + provincialTax;
-  const totalPayrollDeductions = cppContrib + cpp2Contrib + eiPremium + qpipDisplay;
-  const totalDeductions = totalTax + totalPayrollDeductions;
-  const grossIncome = employment + selfEmploy + capitalGainsTotal + eligibleDiv + ineligibleDiv + rental;
-  const netIncome = grossIncome - totalDeductions;
-  const effectiveRate = grossIncome > 0 ? (totalDeductions / grossIncome * 100) : 0;
-  const fedMarginal = getMarginalRate(taxableIncome, fedBrackets);
-  const provMarginal = getMarginalRate(taxableIncome, prov.brackets);
-  const marginalRate = (fedMarginal + provMarginal) * 100;
-  const monthly = netIncome / 12;
-  const biweekly = netIncome / 26;
-  const weekly = netIncome / 52;
-
-  // ── Render results ──
-  resultsEl.innerHTML = `
-    <div class="result-card glass-card">
-      <div class="result-label">Total Income</div>
-      <div class="result-value mono">${fmtFull(grossIncome)}</div>
-    </div>
-    <div class="result-card glass-card">
-      <div class="result-label">Taxable Income</div>
-      <div class="result-value mono">${fmtFull(taxableIncome)}</div>
-    </div>
-    <div class="result-card glass-card">
-      <div class="result-label">Federal Tax</div>
-      <div class="result-value mono" style="color: var(--brand-danger)">${fmtFull(federalTax)}</div>
-    </div>
-    <div class="result-card glass-card">
-      <div class="result-label">Provincial Tax (${prov.name})</div>
-      <div class="result-value mono" style="color: var(--brand-danger)">${fmtFull(provincialTax)}</div>
-    </div>
-    <div class="result-card glass-card">
-      <div class="result-label">${isQuebec ? 'QPP' : 'CPP'} Contributions</div>
-      <div class="result-value mono">${fmtFull(cppContrib)}${cpp2Contrib > 0 ? ` <span style="font-size:0.8rem;color:var(--text-secondary)">+ ${fmtFull(cpp2Contrib)} CPP2</span>` : ''}</div>
-    </div>
-    <div class="result-card glass-card">
-      <div class="result-label">EI Premiums${isQuebec ? ' + QPIP' : ''}</div>
-      <div class="result-value mono">${fmtFull(eiPremium)}${isQuebec ? ` <span style="font-size:0.8rem;color:var(--text-secondary)">+ ${fmtFull(qpipDisplay)} QPIP</span>` : ''}</div>
-    </div>
-    <div class="result-card glass-card">
-      <div class="result-label">Total Deductions</div>
-      <div class="result-value mono" style="color: var(--brand-danger)">${fmtFull(totalDeductions)}</div>
-    </div>
-    <div class="result-card glass-card" style="border: 2px solid var(--brand-success);">
-      <div class="result-label" style="font-size: 1.1rem;">💰 Net Take-Home Pay</div>
-      <div class="result-value mono" style="color: var(--brand-success); font-size: 1.6rem;">${fmtFull(netIncome)}</div>
-    </div>
-    <div class="result-card glass-card">
-      <div class="result-label">Effective Tax Rate</div>
-      <div class="result-value mono">${effectiveRate.toFixed(1)}%</div>
-    </div>
-    <div class="result-card glass-card">
-      <div class="result-label">Marginal Tax Rate</div>
-      <div class="result-value mono" style="color: var(--brand-warning)">${marginalRate.toFixed(1)}%</div>
-    </div>
-    <div class="result-card glass-card">
-      <div class="result-label">Monthly / Biweekly / Weekly</div>
-      <div class="result-value mono" style="font-size: 0.95rem;">
-        ${fmtFull(monthly)} / ${fmtFull(biweekly)} / ${fmtFull(weekly)}
-      </div>
-    </div>
-  `;
-
-  // ── Breakdown charts ──
-  const donutData = [
-    { label: 'Federal Tax', value: federalTax, color: '#ef4444' },
-    { label: 'Provincial Tax', value: provincialTax, color: '#f97316' },
-    { label: `${isQuebec ? 'QPP' : 'CPP'}`, value: cppContrib + cpp2Contrib, color: '#eab308' },
-    { label: `EI${isQuebec ? '/QPIP' : ''}`, value: eiPremium + qpipDisplay, color: '#6366f1' },
-    { label: 'Take-Home', value: Math.max(0, netIncome), color: '#22c55e' }
-  ].filter(d => d.value > 0);
-
-  const waterfallData = [
-    { label: 'Gross Income', value: grossIncome, color: '#3b82f6' },
-    { label: 'RRSP + Deductions', value: -(rrspDeduction + otherDeductions), color: '#a855f7' },
-    { label: 'Federal Tax', value: -federalTax, color: '#ef4444' },
-    { label: 'Provincial Tax', value: -provincialTax, color: '#f97316' },
-    { label: `${isQuebec ? 'QPP' : 'CPP'}/EI`, value: -(totalPayrollDeductions), color: '#eab308' },
-    { label: 'Take-Home', value: Math.max(0, netIncome), color: '#22c55e' }
-  ];
-
-  breakdownEl.innerHTML = `
-    <h3 style="margin: 0 0 1rem 0; font-size: 1.1rem;">📊 Tax Breakdown</h3>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: start;">
-      <div>
-        <h4 style="margin: 0 0 0.75rem; color: var(--text-secondary); font-size: 0.9rem;">Income Allocation</h4>
-        ${svgDonut(donutData, 220)}
-      </div>
-      <div>
-        <h4 style="margin: 0 0 0.75rem; color: var(--text-secondary); font-size: 0.9rem;">Income Waterfall</h4>
-        ${svgWaterfall(waterfallData, 400, 220)}
-      </div>
-    </div>
-    <div style="margin-top: 1.5rem;">
-      <h4 style="margin: 0 0 0.75rem; color: var(--text-secondary); font-size: 0.9rem;">💵 Monthly Cash Flow</h4>
-      <div style="display: flex; gap: 0.5rem; align-items: end; height: 120px;">
-        ${[
-          { label: 'Gross', val: grossIncome / 12, color: '#3b82f6' },
-          { label: 'Fed Tax', val: federalTax / 12, color: '#ef4444' },
-          { label: 'Prov Tax', val: provincialTax / 12, color: '#f97316' },
-          { label: isQuebec ? 'QPP' : 'CPP', val: (cppContrib + cpp2Contrib) / 12, color: '#eab308' },
-          { label: 'EI', val: (eiPremium + qpipDisplay) / 12, color: '#6366f1' },
-          { label: 'Net', val: Math.max(0, netIncome) / 12, color: '#22c55e' }
-        ].map(b => {
-          const maxVal = grossIncome / 12;
-          const h = maxVal > 0 ? Math.max(4, (b.val / maxVal) * 100) : 4;
-          return `<div style="flex:1;text-align:center;">
-            <div style="font-size:0.7rem;color:var(--text-secondary);margin-bottom:2px;">${fmtFull(b.val)}</div>
-            <div style="height:${h}px;background:${b.color};border-radius:4px 4px 0 0;"></div>
-            <div style="font-size:0.65rem;color:var(--text-secondary);margin-top:2px;">${b.label}</div>
-          </div>`;
-        }).join('')}
-      </div>
-    </div>
-    <div style="margin-top: 1.5rem; padding: 1rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);">
-      <h4 style="margin: 0 0 0.5rem; font-size: 0.9rem;">📋 Detailed Breakdown</h4>
-      <table style="width:100%;font-size:0.85rem;border-collapse:collapse;">
-        <tr style="border-bottom:1px solid var(--border-primary)"><td style="padding:4px 0">Employment Income</td><td style="text-align:right" class="mono">${fmtFull(employment)}</td></tr>
-        ${selfEmploy > 0 ? `<tr style="border-bottom:1px solid var(--border-primary)"><td style="padding:4px 0">Self-Employment Income</td><td style="text-align:right" class="mono">${fmtFull(selfEmploy)}</td></tr>` : ''}
-        ${capitalGainsTotal > 0 ? `<tr style="border-bottom:1px solid var(--border-primary)"><td style="padding:4px 0">Capital Gains (taxable: ${fmtFull(capitalGainsTaxable)})</td><td style="text-align:right" class="mono">${fmtFull(capitalGainsTotal)}</td></tr>` : ''}
-        ${eligibleDiv > 0 ? `<tr style="border-bottom:1px solid var(--border-primary)"><td style="padding:4px 0">Eligible Dividends (grossed-up: ${fmtFull(eligibleGrossUp)})</td><td style="text-align:right" class="mono">${fmtFull(eligibleDiv)}</td></tr>` : ''}
-        ${ineligibleDiv > 0 ? `<tr style="border-bottom:1px solid var(--border-primary)"><td style="padding:4px 0">Ineligible Dividends (grossed-up: ${fmtFull(ineligibleGrossUp)})</td><td style="text-align:right" class="mono">${fmtFull(ineligibleDiv)}</td></tr>` : ''}
-        ${rental > 0 ? `<tr style="border-bottom:1px solid var(--border-primary)"><td style="padding:4px 0">Rental Income</td><td style="text-align:right" class="mono">${fmtFull(rental)}</td></tr>` : ''}
-        <tr style="border-bottom:2px solid var(--border-primary);font-weight:600"><td style="padding:4px 0">Total Income</td><td style="text-align:right" class="mono">${fmtFull(grossIncome)}</td></tr>
-        ${rrspDeduction > 0 ? `<tr style="border-bottom:1px solid var(--border-primary)"><td style="padding:4px 0">RRSP Deduction</td><td style="text-align:right;color:var(--brand-success)" class="mono">-${fmtFull(rrspDeduction)}</td></tr>` : ''}
-        ${otherDeductions > 0 ? `<tr style="border-bottom:1px solid var(--border-primary)"><td style="padding:4px 0">Other Deductions</td><td style="text-align:right;color:var(--brand-success)" class="mono">-${fmtFull(otherDeductions)}</td></tr>` : ''}
-        <tr style="border-bottom:2px solid var(--border-primary);font-weight:600"><td style="padding:4px 0">Taxable Income</td><td style="text-align:right" class="mono">${fmtFull(taxableIncome)}</td></tr>
-        <tr style="border-bottom:1px solid var(--border-primary)"><td style="padding:4px 0">Federal Tax</td><td style="text-align:right;color:var(--brand-danger)" class="mono">-${fmtFull(federalTax)}</td></tr>
-        <tr style="border-bottom:1px solid var(--border-primary)"><td style="padding:4px 0">Provincial Tax (${prov.name})</td><td style="text-align:right;color:var(--brand-danger)" class="mono">-${fmtFull(provincialTax)}</td></tr>
-        <tr style="border-bottom:1px solid var(--border-primary)"><td style="padding:4px 0">${isQuebec ? 'QPP' : 'CPP'} Contributions</td><td style="text-align:right" class="mono">-${fmtFull(cppContrib + cpp2Contrib)}</td></tr>
-        <tr style="border-bottom:1px solid var(--border-primary)"><td style="padding:4px 0">EI Premiums${isQuebec ? ' + QPIP' : ''}</td><td style="text-align:right" class="mono">-${fmtFull(eiPremium + qpipDisplay)}</td></tr>
-        <tr style="font-weight:700;font-size:1rem;"><td style="padding:8px 0">Net Take-Home Pay</td><td style="text-align:right;color:var(--brand-success)" class="mono">${fmtFull(netIncome)}</td></tr>
-      </table>
-    </div>
-  `;
-}
-
-
-    // ═══ RRSP VS TFSA COMPARISON TOOL ═══
-function calculateRRSPvsTFSA() {
-  // ── Inputs ──
-  const age = parseInt(document.getElementById('rvt-age').value) || 30;
-  const retireAge = parseInt(document.getElementById('rvt-retire-age').value) || 65;
-  const income = parseFloat(document.getElementById('rvt-income').value) || 0;
-  const province = document.getElementById('rvt-province').value;
-  const retireIncome = parseFloat(document.getElementById('rvt-retire-income').value) || 0;
-  const contribution = parseFloat(document.getElementById('rvt-contribution').value) || 0;
-  const returnRate = (parseFloat(document.getElementById('rvt-return').value) || 6) / 100;
-  const inflation = (parseFloat(document.getElementById('rvt-inflation').value) ?? 2) / 100;
-  const years = Math.max(1, retireAge - age);
-
-  // ── 2026 Federal Tax Brackets ──
-  const federalBrackets = [
-    { max: 57375, rate: 0.15 },
-    { max: 114750, rate: 0.205 },
-    { max: 158468, rate: 0.26 },
-    { max: 220000, rate: 0.29 },
-    { max: Infinity, rate: 0.33 }
-  ];
-
-  // ── 2026 Provincial/Territorial Tax Brackets ──
-  const provincialBrackets = {
-    AB: [
-      { max: 148269, rate: 0.10 },
-      { max: 177922, rate: 0.12 },
-      { max: 237230, rate: 0.13 },
-      { max: 355845, rate: 0.14 },
-      { max: Infinity, rate: 0.15 }
-    ],
-    BC: [
-      { max: 47937, rate: 0.0506 },
-      { max: 95875, rate: 0.077 },
-      { max: 110076, rate: 0.105 },
-      { max: 133664, rate: 0.1229 },
-      { max: 181232, rate: 0.147 },
-      { max: 252752, rate: 0.168 },
-      { max: Infinity, rate: 0.205 }
-    ],
-    MB: [
-      { max: 47000, rate: 0.108 },
-      { max: 100000, rate: 0.1275 },
-      { max: Infinity, rate: 0.174 }
-    ],
-    NB: [
-      { max: 49958, rate: 0.094 },
-      { max: 99916, rate: 0.14 },
-      { max: 185064, rate: 0.16 },
-      { max: Infinity, rate: 0.195 }
-    ],
-    NL: [
-      { max: 43198, rate: 0.087 },
-      { max: 86395, rate: 0.145 },
-      { max: 154244, rate: 0.158 },
-      { max: 215943, rate: 0.178 },
-      { max: 275870, rate: 0.198 },
-      { max: 551739, rate: 0.208 },
-      { max: 1103478, rate: 0.213 },
-      { max: Infinity, rate: 0.218 }
-    ],
-    NS: [
-      { max: 29590, rate: 0.0879 },
-      { max: 59180, rate: 0.1495 },
-      { max: 93000, rate: 0.1667 },
-      { max: 150000, rate: 0.175 },
-      { max: Infinity, rate: 0.21 }
-    ],
-    NT: [
-      { max: 50597, rate: 0.059 },
-      { max: 101198, rate: 0.086 },
-      { max: 164525, rate: 0.122 },
-      { max: Infinity, rate: 0.1405 }
-    ],
-    NU: [
-      { max: 53268, rate: 0.04 },
-      { max: 106537, rate: 0.07 },
-      { max: 173205, rate: 0.09 },
-      { max: Infinity, rate: 0.115 }
-    ],
-    ON: [
-      { max: 51446, rate: 0.0505 },
-      { max: 102894, rate: 0.0915 },
-      { max: 150000, rate: 0.1116 },
-      { max: 220000, rate: 0.1216 },
-      { max: Infinity, rate: 0.1316 }
-    ],
-    PE: [
-      { max: 32656, rate: 0.095 },
-      { max: 64313, rate: 0.1347 },
-      { max: 105000, rate: 0.166 },
-      { max: 140000, rate: 0.176 },
-      { max: Infinity, rate: 0.19 }
-    ],
-    QC: [
-      { max: 51780, rate: 0.14 },
-      { max: 103545, rate: 0.19 },
-      { max: 126000, rate: 0.24 },
-      { max: Infinity, rate: 0.2575 }
-    ],
-    SK: [
-      { max: 52057, rate: 0.105 },
-      { max: 148734, rate: 0.125 },
-      { max: Infinity, rate: 0.145 }
-    ],
-    YT: [
-      { max: 57375, rate: 0.064 },
-      { max: 114750, rate: 0.09 },
-      { max: 158468, rate: 0.109 },
-      { max: 220000, rate: 0.128 },
-      { max: 500000, rate: 0.15 },
-      { max: Infinity, rate: 0.15 }
-    ]
-  };
-
-  // ── Tax calculation helpers ──
-  function calcTaxOnIncome(taxableIncome, brackets) {
-    let tax = 0, prev = 0;
-    for (const b of brackets) {
-      if (taxableIncome <= prev) break;
-      const taxable = Math.min(taxableIncome, b.max) - prev;
-      tax += taxable * b.rate;
-      prev = b.max;
-    }
-    return tax;
-  }
-
-  function combinedTax(taxableIncome, prov) {
-    return calcTaxOnIncome(taxableIncome, federalBrackets) +
-           calcTaxOnIncome(taxableIncome, provincialBrackets[prov] || provincialBrackets.ON);
-  }
-
-  function marginalRate(taxableIncome, prov) {
-    // Marginal rate = combined rate at this income level
-    let fedRate = 0, provRate = 0, prev = 0;
-    for (const b of federalBrackets) {
-      if (taxableIncome <= b.max) { fedRate = b.rate; break; }
-      prev = b.max;
-    }
-    prev = 0;
-    const provBr = provincialBrackets[prov] || provincialBrackets.ON;
-    for (const b of provBr) {
-      if (taxableIncome <= b.max) { provRate = b.rate; break; }
-      prev = b.max;
-    }
-    return fedRate + provRate;
-  }
-
-  // ── Core calculation ──
-  const currentMarginal = marginalRate(income, province);
-  const retireMarginal = marginalRate(retireIncome, province);
-
-  // RRSP: contribution is tax-deductible. Refund = contribution × marginal rate. Refund is reinvested.
-  // At retirement, full withdrawal is taxed at retirement marginal rate.
-  const rrspRefundPerYear = contribution * currentMarginal;
-  const rrspTotalContribPerYear = contribution + rrspRefundPerYear; // contribution + reinvested refund
-
-  // TFSA: contribution from after-tax dollars. No tax on withdrawal.
-  const tfsaContribPerYear = contribution; // same dollar amount contributed
-
-  // Project growth year by year
-  const rrspGrowth = []; // nominal balances
-  const tfsaGrowth = [];
-  let rrspBal = 0, tfsaBal = 0;
-  let totalRRSPContrib = 0, totalTFSAContrib = 0;
-  let totalRefundReinvested = 0;
-
-  for (let y = 0; y < years; y++) {
-    // Contribute at start of year, grow for the year
-    rrspBal = (rrspBal + rrspTotalContribPerYear) * (1 + returnRate);
-    tfsaBal = (tfsaBal + tfsaContribPerYear) * (1 + returnRate);
-    totalRRSPContrib += rrspTotalContribPerYear;
-    totalTFSAContrib += tfsaContribPerYear;
-    totalRefundReinvested += rrspRefundPerYear;
-    rrspGrowth.push(rrspBal);
-    tfsaGrowth.push(tfsaBal);
-  }
-
-  // ── Final values ──
-  const inflationFactor = Math.pow(1 + inflation, years);
-  const rrspNominal = rrspBal;
-  const tfsaNominal = tfsaBal;
-  const rrspReal = rrspNominal / inflationFactor;
-  const tfsaReal = tfsaNominal / inflationFactor;
-
-  // Tax on RRSP withdrawal (effective tax on full amount at retirement income level)
-  const rrspWithdrawalTax = rrspNominal * retireMarginal;
-  const rrspAfterTax = rrspNominal - rrspWithdrawalTax;
-
-  // TFSA: tax was already paid upfront on contributions
-  // The "tax paid" for TFSA is the opportunity cost — the tax on original contributions
-  const tfsaTaxPaidUpfront = contribution * years * currentMarginal;
-  const tfsaAfterTax = tfsaNominal; // no withdrawal tax
-
-  // Total lifetime tax comparison
-  // RRSP: saved tax now (refunds), pays tax later
-  const rrspTaxSavedNow = totalRefundReinvested;
-  const rrspTaxPaidLater = rrspWithdrawalTax;
-  const rrspNetTax = rrspTaxPaidLater - rrspTaxSavedNow;
-
-  // TFSA: paid tax now, no tax later
-  const tfsaNetTax = tfsaTaxPaidUpfront;
-
-  const winner = rrspAfterTax > tfsaAfterTax ? 'RRSP' : 'TFSA';
-  const advantage = Math.abs(rrspAfterTax - tfsaAfterTax);
-
-  // ── Breakeven retirement income ──
-  // Find the retirement income where RRSP after-tax = TFSA after-tax
-  // RRSP wins when retirement marginal < current marginal, so breakeven is where they equal
-  let breakevenIncome = null;
-  for (let testIncome = 0; testIncome <= 500000; testIncome += 500) {
-    const testMarginal = marginalRate(testIncome, province);
-    const testRRSPTax = rrspNominal * testMarginal;
-    const testRRSPNet = rrspNominal - testRRSPTax;
-    if (testRRSPNet <= tfsaAfterTax) {
-      breakevenIncome = testIncome;
-      break;
-    }
-  }
-
-  // ── Sensitivity table data ──
-  const sensitivityLevels = [20000, 35000, 50000, 65000, 80000, 100000, 125000, 150000, 200000];
-  const sensitivityData = sensitivityLevels.map(ri => {
-    const mr = marginalRate(ri, province);
-    const rrspTx = rrspNominal * mr;
-    const rrspNet = rrspNominal - rrspTx;
-    const w = rrspNet > tfsaAfterTax ? 'RRSP' : 'TFSA';
-    const adv = Math.abs(rrspNet - tfsaAfterTax);
-    return { income: ri, marginal: mr, rrspNet, tfsaNet: tfsaAfterTax, winner: w, advantage: adv };
-  });
-
-  // ── Why explanation ──
-  let whyText = '';
-  if (winner === 'RRSP') {
-    whyText = `Your current marginal rate (${(currentMarginal * 100).toFixed(1)}%) is <strong>higher</strong> than your expected retirement rate (${(retireMarginal * 100).toFixed(1)}%). The RRSP tax deduction now is worth more than the tax you'll pay on withdrawals later.`;
-  } else {
-    whyText = `Your expected retirement marginal rate (${(retireMarginal * 100).toFixed(1)}%) is <strong>equal to or higher</strong> than your current rate (${(currentMarginal * 100).toFixed(1)}%). With a TFSA, you pay tax now at the lower rate and withdraw tax-free.`;
-  }
-
-  // ── Render Results ──
-  const resultsEl = document.getElementById('rrsptfsa-results');
-  const winColor = winner === 'RRSP' ? 'var(--fg-purple)' : 'var(--brand-success)';
-
-  resultsEl.innerHTML = `
-    <div class="result-card" style="border: 3px solid ${winColor}; background: linear-gradient(135deg, ${winColor}11, ${winColor}05); padding: 1.5rem;">
-      <div style="font-size: 2.2rem; font-weight: 800; color: ${winColor}; margin-bottom: 0.25rem;">🏆 ${winner} Wins!</div>
-      <div style="font-size: 1.3rem; font-weight: 600; color: ${winColor};" class="mono">by ${fmtFull(advantage)}</div>
-      <div style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">${whyText}</div>
-    </div>
-    <div class="result-card">
-      <div class="result-label">RRSP — Net After-Tax at Retirement</div>
-      <div class="result-value mono" style="color: var(--fg-purple);">${fmtFull(rrspAfterTax)}</div>
-      <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">Nominal: ${fmtFull(rrspNominal)} · Real: ${fmtFull(rrspReal)}</div>
-    </div>
-    <div class="result-card">
-      <div class="result-label">TFSA — Net After-Tax at Retirement</div>
-      <div class="result-value mono" style="color: var(--brand-success);">${fmtFull(tfsaAfterTax)}</div>
-      <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">Nominal: ${fmtFull(tfsaNominal)} · Real: ${fmtFull(tfsaReal)}</div>
-    </div>
-    <div class="result-card">
-      <div class="result-label">RRSP Lifetime Tax</div>
-      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 0.25rem;">
-        <span style="font-size: 0.85rem; color: var(--brand-success);">Saved now: ${fmtFull(rrspTaxSavedNow)}</span>
-        <span style="font-size: 0.85rem; color: var(--brand-danger);">Paid later: ${fmtFull(rrspTaxPaidLater)}</span>
-      </div>
-      <div class="result-value mono" style="margin-top: 0.25rem;">Net tax: ${fmtFull(rrspNetTax)}</div>
-    </div>
-    <div class="result-card">
-      <div class="result-label">TFSA Lifetime Tax</div>
-      <div style="font-size: 0.85rem; color: var(--brand-danger); margin-top: 0.25rem;">Paid upfront: ${fmtFull(tfsaTaxPaidUpfront)}</div>
-      <div class="result-value mono" style="margin-top: 0.25rem;">Net tax: ${fmtFull(tfsaNetTax)}</div>
-    </div>
-    <div class="result-card">
-      <div class="result-label">Your Marginal Rates</div>
-      <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
-        <div style="text-align: center;">
-          <div style="font-size: 0.8rem; color: var(--text-secondary);">Now</div>
-          <div class="mono" style="font-size: 1.3rem; font-weight: 700;">${(currentMarginal * 100).toFixed(1)}%</div>
+      `;
+      
+      document.getElementById('cg-breakdown').innerHTML = `
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+          <div>
+            <div style="font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem;">Waterfall: From Purchase to Net Proceeds</div>
+            <div style="background: var(--bg-secondary); padding: 1rem; border-radius: 12px;">
+              ${svgWaterfall([
+                {label: 'Purchase', value: purchasePrice, isPositive: true},
+                {label: 'Gain', value: capitalGain, isPositive: true},
+                {label: 'Tax', value: -totalTax, isPositive: false}
+              ], 350, 220)}
+            </div>
+            <div style="text-align: center; font-size: 0.9rem; font-weight: 600; margin-top: 0.75rem; color: var(--brand-success);">
+              Net Proceeds: ${fmtFull(netProceeds)}
+            </div>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem;">Tax Breakdown</div>
+            <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
+              ${svgDonut([
+                {value: fedTax, color: 'var(--brand-danger)', label: 'Federal'},
+                {value: provTax, color: 'var(--brand-warning)', label: 'Provincial'}
+              ], 140)}
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.75rem;">
+              <div><span style="display: inline-block; width: 12px; height: 12px; background: var(--brand-danger); border-radius: 2px; margin-right: 4px;"></span>Federal: ${fmtFull(fedTax)} (${((fedTax/totalTax)*100).toFixed(0)}%)</div>
+              <div><span style="display: inline-block; width: 12px; height: 12px; background: var(--brand-warning); border-radius: 2px; margin-right: 4px;"></span>Provincial (${province}): ${fmtFull(provTax)} (${((provTax/totalTax)*100).toFixed(0)}%)</div>
+            </div>
+          </div>
         </div>
-        <div style="font-size: 1.5rem; align-self: center;">→</div>
-        <div style="text-align: center;">
-          <div style="font-size: 0.8rem; color: var(--text-secondary);">Retirement</div>
-          <div class="mono" style="font-size: 1.3rem; font-weight: 700;">${(retireMarginal * 100).toFixed(1)}%</div>
+        
+        <div style="font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem;">2024+ Inclusion Rate Breakdown</div>
+        <div style="display: grid; gap: 0.75rem; margin-bottom: 1.5rem;">
+          <div style="padding: 0.75rem; background: var(--bg-primary); border-radius: 6px; border: 1px solid var(--border-primary);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+              <span style="font-size: 0.85rem;">First $250,000</span>
+              <span class="mono" style="font-weight: 600;">${fmtFull(first250k)}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary);">
+              <span>50% inclusion rate</span>
+              <span class="mono">Taxable: ${fmtFull(first250k * 0.5)}</span>
+            </div>
+          </div>
+          ${above250k > 0 ? `
+          <div style="padding: 0.75rem; background: var(--bg-primary); border-radius: 6px; border: 1px solid var(--border-primary);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+              <span style="font-size: 0.85rem;">Above $250,000</span>
+              <span class="mono" style="font-weight: 600;">${fmtFull(above250k)}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary);">
+              <span>66.67% inclusion rate</span>
+              <span class="mono">Taxable: ${fmtFull(above250k * 0.6667)}</span>
+            </div>
+          </div>
+          ` : ''}
         </div>
-      </div>
-    </div>
-    ${breakevenIncome !== null ? `
-    <div class="result-card" style="border-left: 4px solid var(--brand-warning);">
-      <div class="result-label">⚖️ Breakeven Retirement Income</div>
-      <div class="result-value mono">${fmtFull(breakevenIncome)}</div>
-      <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">Above this, TFSA wins. Below this, RRSP wins.</div>
-    </div>` : `
-    <div class="result-card" style="border-left: 4px solid var(--brand-success);">
-      <div class="result-label">⚖️ Breakeven</div>
-      <div style="font-size: 0.9rem; color: var(--text-secondary);">RRSP wins at all tested retirement income levels up to $500k — your current rate is very low.</div>
-    </div>`}
-  `;
-
-  // ── Breakdown: Charts + Sensitivity Table ──
-  const breakdownEl = document.getElementById('rrsptfsa-breakdown');
-
-  // Dual line chart
-  const svgW = 700, svgH = 320, pad = { t: 30, r: 30, b: 50, l: 70 };
-  const plotW = svgW - pad.l - pad.r;
-  const plotH = svgH - pad.t - pad.b;
-  const maxBal = Math.max(rrspGrowth[rrspGrowth.length - 1], tfsaGrowth[tfsaGrowth.length - 1]) * 1.05;
-
-  function linePoints(data) {
-    return data.map((v, i) => {
-      const x = pad.l + (i / (data.length - 1)) * plotW;
-      const y = pad.t + plotH - (v / maxBal) * plotH;
-      return `${x},${y}`;
-    }).join(' ');
-  }
-
-  // Y-axis labels
-  let yLabels = '';
-  for (let i = 0; i <= 4; i++) {
-    const val = (maxBal / 4) * i;
-    const y = pad.t + plotH - (val / maxBal) * plotH;
-    yLabels += `<text x="${pad.l - 8}" y="${y + 4}" text-anchor="end" fill="var(--text-muted)" font-size="10">$${(val / 1000).toFixed(0)}k</text>`;
-    yLabels += `<line x1="${pad.l}" y1="${y}" x2="${svgW - pad.r}" y2="${y}" stroke="var(--border-primary)" stroke-dasharray="3,3"/>`;
-  }
-
-  // X-axis labels
-  let xLabels = '';
-  const labelInterval = Math.max(1, Math.floor(years / 6));
-  for (let i = 0; i < years; i += labelInterval) {
-    const x = pad.l + (i / (years - 1)) * plotW;
-    xLabels += `<text x="${x}" y="${svgH - 10}" text-anchor="middle" fill="var(--text-muted)" font-size="10">Age ${age + i + 1}</text>`;
-  }
-  // Always show last
-  const lastX = pad.l + plotW;
-  xLabels += `<text x="${lastX}" y="${svgH - 10}" text-anchor="middle" fill="var(--text-muted)" font-size="10">Age ${retireAge}</text>`;
-
-  const lineChart = `
-    <svg viewBox="0 0 ${svgW} ${svgH}" style="width: 100%; max-width: ${svgW}px; height: auto;">
-      ${yLabels}${xLabels}
-      <polyline points="${linePoints(rrspGrowth)}" fill="none" stroke="#2C087D" stroke-width="2.5"/>
-      <polyline points="${linePoints(tfsaGrowth)}" fill="none" stroke="var(--brand-success)" stroke-width="2.5"/>
-      <rect x="${pad.l + 10}" y="${pad.t}" width="12" height="12" rx="2" fill="#2C087D"/>
-      <text x="${pad.l + 28}" y="${pad.t + 10}" fill="var(--text-secondary)" font-size="11">RRSP (pre-tax)</text>
-      <rect x="${pad.l + 140}" y="${pad.t}" width="12" height="12" rx="2" fill="var(--brand-success)"/>
-      <text x="${pad.l + 158}" y="${pad.t + 10}" fill="var(--text-secondary)" font-size="11">TFSA</text>
-    </svg>`;
-
-  // Stacked bar: tax now vs tax later
-  const barW = 300, barH = 180, barPad = 40;
-  const maxTax = Math.max(rrspTaxPaidLater, tfsaTaxPaidUpfront, rrspTaxSavedNow) * 1.1 || 1;
-  const bw = 60;
-
-  function taxBarH(val) { return (val / maxTax) * (barH - barPad * 2); }
-
-  const taxChart = `
-    <svg viewBox="0 0 ${barW} ${barH}" style="width: 100%; max-width: ${barW}px; height: auto;">
-      <!-- RRSP -->
-      <rect x="50" y="${barH - barPad - taxBarH(rrspTaxSavedNow)}" width="${bw}" height="${taxBarH(rrspTaxSavedNow)}" fill="var(--brand-success)" rx="4">
-        <title>RRSP tax saved now: ${fmtFull(rrspTaxSavedNow)}</title></rect>
-      <rect x="50" y="${barH - barPad - taxBarH(rrspTaxSavedNow) - taxBarH(rrspTaxPaidLater)}" width="${bw}" height="${taxBarH(rrspTaxPaidLater)}" fill="var(--brand-danger)" rx="4">
-        <title>RRSP tax paid later: ${fmtFull(rrspTaxPaidLater)}</title></rect>
-      <text x="80" y="${barH - 10}" text-anchor="middle" fill="var(--text-secondary)" font-size="12" font-weight="600">RRSP</text>
-      <!-- TFSA -->
-      <rect x="190" y="${barH - barPad - taxBarH(tfsaTaxPaidUpfront)}" width="${bw}" height="${taxBarH(tfsaTaxPaidUpfront)}" fill="var(--brand-warning)" rx="4">
-        <title>TFSA tax paid upfront: ${fmtFull(tfsaTaxPaidUpfront)}</title></rect>
-      <text x="220" y="${barH - 10}" text-anchor="middle" fill="var(--text-secondary)" font-size="12" font-weight="600">TFSA</text>
-      <!-- Legend -->
-      <rect x="30" y="5" width="10" height="10" rx="2" fill="var(--brand-success)"/><text x="44" y="14" font-size="9" fill="var(--text-muted)">Tax saved</text>
-      <rect x="110" y="5" width="10" height="10" rx="2" fill="var(--brand-danger)"/><text x="124" y="14" font-size="9" fill="var(--text-muted)">Tax paid later</text>
-      <rect x="200" y="5" width="10" height="10" rx="2" fill="var(--brand-warning)"/><text x="214" y="14" font-size="9" fill="var(--text-muted)">Tax paid now</text>
-    </svg>`;
-
-  // Sensitivity table
-  let sensRows = sensitivityData.map(d => `
-    <tr style="${d.income === retireIncome ? 'background: ' + winColor + '11; font-weight: 600;' : ''}">
-      <td style="padding: 0.4rem 0.6rem;" class="mono">${fmtFull(d.income)}</td>
-      <td style="padding: 0.4rem 0.6rem; text-align: center;" class="mono">${(d.marginal * 100).toFixed(1)}%</td>
-      <td style="padding: 0.4rem 0.6rem; text-align: right;" class="mono">${fmtFull(d.rrspNet)}</td>
-      <td style="padding: 0.4rem 0.6rem; text-align: right;" class="mono">${fmtFull(d.tfsaNet)}</td>
-      <td style="padding: 0.4rem 0.6rem; text-align: center; font-weight: 700; color: ${d.winner === 'RRSP' ? 'var(--fg-purple)' : 'var(--brand-success)'};">${d.winner} +${fmtFull(d.advantage)}</td>
-    </tr>`).join('');
-
-  breakdownEl.innerHTML = `
-    <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">📈 Account Growth Over Time</h3>
-    <div class="glass-card" style="padding: 1.5rem; overflow-x: auto;">
-      ${lineChart}
-    </div>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
-      <div>
-        <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">💰 Tax: Now vs Later</h3>
-        <div class="glass-card" style="padding: 1.5rem; overflow-x: auto;">
-          ${taxChart}
-        </div>
-      </div>
-      <div>
-        <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">📊 Key Assumptions</h3>
-        <div class="glass-card" style="padding: 1.5rem; font-size: 0.9rem; line-height: 1.8;">
-          <div>📅 <strong>${years}</strong> years to retirement</div>
-          <div>💵 <strong>${fmtFull(contribution)}</strong>/yr contribution</div>
-          <div>🔄 RRSP refund of <strong>${fmtFull(rrspRefundPerYear)}</strong>/yr reinvested</div>
-          <div>📈 <strong>${(returnRate * 100).toFixed(1)}%</strong> nominal return</div>
-          <div>📉 <strong>${(inflation * 100).toFixed(1)}%</strong> inflation</div>
-          <div>🏛️ Province: <strong>${province}</strong></div>
-        </div>
-      </div>
-    </div>
-    <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.1rem;">🔍 Sensitivity: Winner at Different Retirement Incomes</h3>
-    <div style="overflow-x: auto;">
-      <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
-        <thead>
-          <tr style="border-bottom: 2px solid var(--border-primary);">
-            <th style="padding: 0.5rem 0.6rem; text-align: left;">Retirement Income</th>
-            <th style="padding: 0.5rem 0.6rem; text-align: center;">Marginal Rate</th>
-            <th style="padding: 0.5rem 0.6rem; text-align: right;">RRSP After-Tax</th>
-            <th style="padding: 0.5rem 0.6rem; text-align: right;">TFSA After-Tax</th>
-            <th style="padding: 0.5rem 0.6rem; text-align: center;">Winner</th>
-          </tr>
-        </thead>
-        <tbody>${sensRows}</tbody>
-      </table>
-    </div>
-    <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;">
-      ⚠️ This calculator uses simplified assumptions: flat marginal rates on full withdrawal, no OAS clawback, no pension income splitting, no CPP/EI considerations, and no RRSP HBP/LLP. 
-      RRSP refund reinvestment assumes full refund is contributed to RRSP each year. Actual results depend on your complete financial picture. Consult a financial advisor for personalized advice.
-    </p>
-  `;
-}
-
-// Auto-calculate on load
-document.addEventListener('DOMContentLoaded', function() {
-  if (document.getElementById('rvt-age')) calculateRRSPvsTFSA();
-});
-
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">💡 Consider spreading sales over multiple years to stay under the $250K threshold and minimize the 66.67% inclusion rate.</div>
+      `;
+    }
 
     // ── Utility Functions ──────────────────────────────────
     const fmt = (n, decimals = 0) => {
@@ -9145,10 +7193,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if (pageId === 'gic') calculateGIC();
       if (pageId === 'cpp') calculateCPP();
       if (pageId === 'capgains') calculateCapGains();
-      if (pageId === 'tfsa') calculateTFSA();
-      if (pageId === 'rrsp') calculateRRSP();
-      if (pageId === 'incometax') calculateIncomeTax();
-      if (pageId === 'rrsptfsa') calculateRRSPvsTFSA();
     }
     
     // ── Hash-based routing (for external links like blog → calculator) ──
@@ -11637,10 +9681,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (pageId === 'gic') calculateGIC();
             if (pageId === 'cpp') calculateCPP();
             if (pageId === 'capgains') calculateCapGains();
-            if (pageId === 'tfsa') calculateTFSA();
-            if (pageId === 'rrsp') calculateRRSP();
-            if (pageId === 'incometax') calculateIncomeTax();
-            if (pageId === 'rrsptfsa') calculateRRSPvsTFSA();
           }, 150);
         } else {
           origShowPage(pageId);

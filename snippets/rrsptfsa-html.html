@@ -1,0 +1,97 @@
+<div class="page" id="page-rrsptfsa" role="region" aria-label="RRSP vs TFSA Optimizer">
+  <div class="calc-container" style="padding-top: 6rem;">
+    <div class="calc-back" onclick="showPage('home')" role="button" tabindex="0" aria-label="Back to Tools">← Back to Tools</div>
+    <div class="calc-header animate-fade-up">
+      <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚖️</div>
+      <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">RRSP vs TFSA: Which Wins for You?</h1>
+      <p style="color: var(--text-secondary); max-width: 540px; margin: 0 auto;">Personalized comparison based on your income, province, and retirement plans. See the real numbers.</p>
+    </div>
+    <div class="action-buttons" style="justify-content: center;">
+      <button class="btn btn-secondary btn-sm" onclick="generatePDFReport('RRSP vs TFSA Comparison')">📄 PDF</button>
+      <button class="btn btn-secondary btn-sm" onclick="copyResults('RRSP vs TFSA Comparison')">📋 Copy</button>
+      <button class="btn btn-secondary btn-sm" onclick="shareCalculator('rrsptfsa')">🔗 Share</button>
+    </div>
+    <div class="calc-grid" style="margin-top: 2rem;">
+      <div class="calc-inputs glass-card" style="padding: var(--space-xl);">
+        <div class="input-group">
+          <label for="rvt-age">Current Age</label>
+          <input type="number" id="rvt-age" min="18" max="70" value="30" oninput="calculateRRSPvsTFSA()">
+        </div>
+        <div class="input-group">
+          <label for="rvt-retire-age">Retirement Age</label>
+          <input type="number" id="rvt-retire-age" min="30" max="80" value="65" oninput="calculateRRSPvsTFSA()">
+        </div>
+        <div class="input-group">
+          <label for="rvt-income">Current Annual Income</label>
+          <div class="input-with-prefix">
+            <span class="input-prefix">$</span>
+            <input type="number" id="rvt-income" placeholder="85,000" min="0" step="1000" value="85000" oninput="calculateRRSPvsTFSA()">
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="rvt-province">Province / Territory</label>
+          <select id="rvt-province" onchange="calculateRRSPvsTFSA()">
+            <option value="AB">Alberta</option>
+            <option value="BC">British Columbia</option>
+            <option value="MB">Manitoba</option>
+            <option value="NB">New Brunswick</option>
+            <option value="NL">Newfoundland & Labrador</option>
+            <option value="NS">Nova Scotia</option>
+            <option value="NT">Northwest Territories</option>
+            <option value="NU">Nunavut</option>
+            <option value="ON" selected>Ontario</option>
+            <option value="PE">Prince Edward Island</option>
+            <option value="QC">Quebec</option>
+            <option value="SK">Saskatchewan</option>
+            <option value="YT">Yukon</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="rvt-retire-income">Expected Retirement Income <span style="color: var(--text-secondary); font-weight: 400;">(withdrawals/yr)</span></label>
+          <div class="input-with-prefix">
+            <span class="input-prefix">$</span>
+            <input type="number" id="rvt-retire-income" placeholder="50,000" min="0" step="1000" value="50000" oninput="calculateRRSPvsTFSA()">
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="rvt-contribution">Annual Contribution</label>
+          <div class="input-with-prefix">
+            <span class="input-prefix">$</span>
+            <input type="number" id="rvt-contribution" placeholder="10,000" min="0" step="500" value="10000" oninput="calculateRRSPvsTFSA()">
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="rvt-return">Expected Rate of Return (%)</label>
+          <input type="number" id="rvt-return" min="0" max="20" step="0.5" value="6" oninput="calculateRRSPvsTFSA()">
+        </div>
+        <div class="input-group">
+          <label for="rvt-inflation">Inflation Rate (%) <span style="color: var(--text-secondary); font-weight: 400;">optional</span></label>
+          <input type="number" id="rvt-inflation" min="0" max="10" step="0.5" value="2" oninput="calculateRRSPvsTFSA()">
+        </div>
+        <button class="btn btn-primary" onclick="calculateRRSPvsTFSA()" style="width: 100%; margin-top: 1rem;">Compare RRSP vs TFSA</button>
+      </div>
+      <div class="calc-results" id="rrsptfsa-results" aria-live="polite"></div>
+    </div>
+    <div id="rrsptfsa-breakdown" style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);"></div>
+    <div class="affiliate-resources">
+      <h3>📚 Recommended Resources</h3>
+      <div class="affiliate-grid">
+        <a href="https://www.amazon.ca/dp/1119356296?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+          <div class="affiliate-info">
+            <span class="affiliate-title">Millionaire Teacher</span>
+            <span class="affiliate-author">Andrew Hallam</span>
+            <span class="affiliate-why">Index investing for Canadians — TFSA & RRSP strategies</span>
+          </div>
+        </a>
+        <a href="https://www.amazon.ca/dp/0143190008?tag=figgy0a0-20" target="_blank" rel="noopener noreferrer sponsored" class="affiliate-card">
+          <div class="affiliate-info">
+            <span class="affiliate-title">The Wealthy Barber Returns</span>
+            <span class="affiliate-author">David Chilton</span>
+            <span class="affiliate-why">Canadian RRSP and retirement planning essentials</span>
+          </div>
+        </a>
+      </div>
+      <p class="affiliate-disclosure">As an Amazon Associate, FiggyBank earns from qualifying purchases.</p>
+    </div>
+  </div>
+</div>
