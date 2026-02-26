@@ -1,5 +1,59 @@
 [
   {
+    "slug": "resp-strategies-maximize-cesg",
+    "title": "RESP Strategies: Maximize the CESG Before Your Kids Turn 18",
+    "description": "How to maximize the Canada Education Savings Grant (CESG) with optimal RESP contribution strategies, catch-up rules, provider comparisons, and what happens if your child doesn't go to school.",
+    "author": "Rick Minji",
+    "date": "2026-02-25",
+    "readTime": "11 min read",
+    "category": "Education Planning",
+    "tags": [
+      "RESP",
+      "CESG",
+      "Canada Learning Bond",
+      "Education Savings",
+      "RESP Providers",
+      "Education Planning"
+    ],
+    "excerpt": "The CESG gives you free money \u2014 up to $7,200 per child \u2014 but only if you contribute strategically. We break down optimal contribution schedules, catch-up rules, provider types, and what happens if your child skips post-secondary."
+  },
+  {
+    "slug": "lease-vs-buy-car-canada",
+    "title": "Lease vs Buy a Car in Canada: The Real Math",
+    "description": "Total cost comparison of leasing vs buying a car in Canada. Hidden costs, tax implications for personal and business use, EV incentives, and a decision framework.",
+    "author": "Rick Minji",
+    "date": "2026-02-25",
+    "readTime": "12 min read",
+    "category": "Auto & Lifestyle",
+    "tags": [
+      "Lease vs Buy",
+      "Car Lease Canada",
+      "Auto Finance",
+      "EV Incentives",
+      "Vehicle Tax Deduction",
+      "iZEV"
+    ],
+    "excerpt": "Leasing feels cheaper monthly but is it really? We run the full 6-year cost comparison on a $45K vehicle \u2014 lease vs finance vs cash \u2014 including hidden fees, tax write-offs, EV rebates, and depreciation curves."
+  },
+  {
+    "slug": "net-worth-by-age-canada",
+    "title": "Net Worth by Age in Canada: Where Do You Stand?",
+    "description": "Canadian net worth benchmarks by age group using 2023 Statistics Canada data. Median vs average, regional differences, homeowner vs renter gap, and strategies to grow at every life stage.",
+    "author": "Rick Minji",
+    "date": "2026-02-25",
+    "readTime": "12 min read",
+    "category": "Financial Planning",
+    "tags": [
+      "Net Worth",
+      "Net Worth by Age",
+      "Statistics Canada",
+      "Financial Benchmarks",
+      "Wealth Building",
+      "Financial Planning"
+    ],
+    "excerpt": "The median Canadian family has a net worth of $519,700 \u2014 but that number varies wildly by age, region, and homeownership. See where you stand with 2023 Stats Canada data and get strategies for every life stage."
+  },
+  {
     "slug": "gic-rates-canada-2026",
     "title": "GIC Rates in Canada 2026: Are They Still Worth It (and When to Lock In)",
     "description": "GIC rates in Canada are falling as the Bank of Canada cuts rates. Are GICs still worth it in 2026? Cashable vs non-redeemable, GIC laddering strategy, when GICs beat bonds and HISAs, and tax treatment.",
@@ -16,7 +70,7 @@
       "Bank of Canada",
       "Investment Planning"
     ],
-    "excerpt": "GIC rates in Canada are heading down after the Bank of Canada's aggressive rate-cutting cycle. With rates now in the 3.25%–4.25% range, are GICs still worth it? We break down cashable vs non-redeemable, the GIC laddering strategy, when GICs beat HISAs and bonds, and optimal tax treatment in registered vs non-registered accounts."
+    "excerpt": "GIC rates in Canada are heading down after the Bank of Canada's aggressive rate-cutting cycle. With rates now in the 3.25%\u20134.25% range, are GICs still worth it? We break down cashable vs non-redeemable, the GIC laddering strategy, when GICs beat HISAs and bonds, and optimal tax treatment in registered vs non-registered accounts."
   },
   {
     "slug": "cpp-start-age-canada",
@@ -36,7 +90,7 @@
       "OAS",
       "GIS"
     ],
-    "excerpt": "The Canada Pension Plan start-age decision is one of the most consequential financial choices a Canadian retiree will make. The max CPP at 65 in 2026 is $1,364.60/month — take it at 60 and you get 36% less; wait until 70 and you get 42% more. We run the breakeven analysis, cover working while collecting, pension sharing, OAS/GIS interaction, and build a decision framework."
+    "excerpt": "The Canada Pension Plan start-age decision is one of the most consequential financial choices a Canadian retiree will make. The max CPP at 65 in 2026 is $1,364.60/month \u2014 take it at 60 and you get 36% less; wait until 70 and you get 42% more. We run the breakeven analysis, cover working while collecting, pension sharing, OAS/GIS interaction, and build a decision framework."
   },
   {
     "slug": "rrsp-deadline-2026",
@@ -183,7 +237,7 @@
       "Tax Planning",
       "Canadian Finance"
     ],
-    "excerpt": "Choosing between maximizing your RRSP or TFSA is one of the most common financial dilemmas facing Canadians. Both are powerful savings vehicles, but they work very differently—and the right choice depends heavily on your current income, future plans, and financial goals."
+    "excerpt": "Choosing between maximizing your RRSP or TFSA is one of the most common financial dilemmas facing Canadians. Both are powerful savings vehicles, but they work very differently\u2014and the right choice depends heavily on your current income, future plans, and financial goals."
   },
   {
     "slug": "canadian-tax-brackets-2026",
@@ -235,7 +289,7 @@
       "Student Loans",
       "Credit Cards"
     ],
-    "excerpt": "When you're carrying multiple debts—credit cards, student loans, car payments, lines of credit—choosing the right payoff strategy can save you thousands in interest and help you become debt-free faster. The two most popular approaches are the Avalanche and Snowball methods."
+    "excerpt": "When you're carrying multiple debts\u2014credit cards, student loans, car payments, lines of credit\u2014choosing the right payoff strategy can save you thousands in interest and help you become debt-free faster. The two most popular approaches are the Avalanche and Snowball methods."
   },
   {
     "slug": "small-business-valuation-canada",
@@ -252,6 +306,6 @@
       "M&A",
       "Canadian Business"
     ],
-    "excerpt": "Whether you're buying, selling, or seeking funding for a small business in Canada, understanding valuation is critical. Business valuation combines art and science—blending financial analysis with industry knowledge and market conditions."
+    "excerpt": "Whether you're buying, selling, or seeking funding for a small business in Canada, understanding valuation is critical. Business valuation combines art and science\u2014blending financial analysis with industry knowledge and market conditions."
   }
 ]
