@@ -1,5 +1,69 @@
 [
   {
+    "slug": "canada-federal-budget-2026-tax-changes",
+    "title": "Canada's 2026 Federal Budget: Every Tax Change That Affects Your Wallet",
+    "description": "What to expect from Canada's 2026 Federal Budget: TFSA/RRSP limit increases, CCB changes, capital gains updates, housing affordability measures, climate incentives, small business tax changes, and income tier impact analysis.",
+    "author": "Rick Minji",
+    "date": "2026-03-03",
+    "readTime": "12 min read",
+    "category": "Tax Planning",
+    "tags": [
+      "Federal Budget 2026",
+      "Tax Changes",
+      "Canada Budget",
+      "Tax Policy",
+      "Personal Finance",
+      "TFSA",
+      "RRSP",
+      "CCB",
+      "Capital Gains",
+      "Housing"
+    ],
+    "excerpt": "Canada's 2026 Federal Budget preview: TFSA/RRSP limits, CCB adjustments, capital gains changes, housing affordability measures, climate incentives, and small business tax updates. Complete analysis of how every income tier is affected, plus action steps for your money."
+  },
+  {
+    "slug": "index-etf-portfolio-canada-2026",
+    "title": "How to Build a Simple Index ETF Portfolio in Canada (2026 Edition)",
+    "description": "Step-by-step guide to building a low-cost, diversified index ETF portfolio in Canada. Asset allocation strategies, recommended ETFs (XEQT, VEQT, VGRO, VBAL), rebalancing rules, and tax-efficient investing in TFSA, RRSP, and taxable accounts.",
+    "author": "Rick Minji",
+    "date": "2026-03-03",
+    "readTime": "11 min read",
+    "category": "Investment Planning",
+    "tags": [
+      "Index ETFs",
+      "Asset Allocation",
+      "XEQT",
+      "VEQT",
+      "VGRO",
+      "VBAL",
+      "Passive Investing",
+      "Canadian Investing",
+      "Tax Efficiency",
+      "Rebalancing"
+    ],
+    "excerpt": "Building a diversified portfolio doesn't require stock-picking or active management. A simple index ETF strategy—using one or two low-cost funds—can outperform most investors while requiring minimal maintenance. Here's exactly how to set it up in Canada."
+  },
+  {
+    "slug": "tfsa-vs-rrsp-vs-fhsa-2026",
+    "title": "TFSA vs RRSP vs FHSA: Where to Put Your Next Dollar in 2026",
+    "description": "Which Canadian registered account deserves your next contribution dollar in 2026? Decision flowchart comparing TFSA, RRSP, and FHSA based on income, age, homeownership, and retirement timeline with worked examples.",
+    "author": "Rick Minji",
+    "date": "2026-03-03",
+    "readTime": "11 min read",
+    "category": "Tax Planning",
+    "tags": [
+      "TFSA",
+      "RRSP",
+      "FHSA",
+      "Registered Accounts",
+      "Tax Planning",
+      "Investment Strategy",
+      "Canadian Finance",
+      "Contribution Priority"
+    ],
+    "excerpt": "You have $10,000 to invest. Should it go to your TFSA, RRSP, or FHSA? The answer depends on your income, age, homeownership goals, and timeline. This guide provides a clear decision framework with real scenarios at every income level."
+  },
+  {
     "slug": "resp-strategies-maximize-cesg",
     "title": "RESP Strategies: Maximize the CESG Before Your Kids Turn 18",
     "description": "How to maximize the Canada Education Savings Grant (CESG) with optimal RESP contribution strategies, catch-up rules, provider comparisons, and what happens if your child doesn't go to school.",
@@ -15,7 +79,7 @@
       "RESP Providers",
       "Education Planning"
     ],
-    "excerpt": "The CESG gives you free money \u2014 up to $7,200 per child \u2014 but only if you contribute strategically. We break down optimal contribution schedules, catch-up rules, provider types, and what happens if your child skips post-secondary."
+    "excerpt": "The CESG gives you free money — up to $7,200 per child — but only if you contribute strategically. We break down optimal contribution schedules, catch-up rules, provider types, and what happens if your child skips post-secondary."
   },
   {
     "slug": "lease-vs-buy-car-canada",
@@ -33,7 +97,7 @@
       "Vehicle Tax Deduction",
       "iZEV"
     ],
-    "excerpt": "Leasing feels cheaper monthly but is it really? We run the full 6-year cost comparison on a $45K vehicle \u2014 lease vs finance vs cash \u2014 including hidden fees, tax write-offs, EV rebates, and depreciation curves."
+    "excerpt": "Leasing feels cheaper monthly but is it really? We run the full 6-year cost comparison on a $45K vehicle — lease vs finance vs cash — including hidden fees, tax write-offs, EV rebates, and depreciation curves."
   },
   {
     "slug": "net-worth-by-age-canada",
@@ -51,7 +115,7 @@
       "Wealth Building",
       "Financial Planning"
     ],
-    "excerpt": "The median Canadian family has a net worth of $519,700 \u2014 but that number varies wildly by age, region, and homeownership. See where you stand with 2023 Stats Canada data and get strategies for every life stage."
+    "excerpt": "The median Canadian family has a net worth of $519,700 — but that number varies wildly by age, region, and homeownership. See where you stand with 2023 Stats Canada data and get strategies for every life stage."
   },
   {
     "slug": "gic-rates-canada-2026",
@@ -70,7 +134,7 @@
       "Bank of Canada",
       "Investment Planning"
     ],
-    "excerpt": "GIC rates in Canada are heading down after the Bank of Canada's aggressive rate-cutting cycle. With rates now in the 3.25%\u20134.25% range, are GICs still worth it? We break down cashable vs non-redeemable, the GIC laddering strategy, when GICs beat HISAs and bonds, and optimal tax treatment in registered vs non-registered accounts."
+    "excerpt": "GIC rates in Canada are heading down after the Bank of Canada's aggressive rate-cutting cycle. With rates now in the 3.25%–4.25% range, are GICs still worth it? We break down cashable vs non-redeemable, the GIC laddering strategy, when GICs beat HISAs and bonds, and optimal tax treatment in registered vs non-registered accounts."
   },
   {
     "slug": "cpp-start-age-canada",
@@ -90,7 +154,7 @@
       "OAS",
       "GIS"
     ],
-    "excerpt": "The Canada Pension Plan start-age decision is one of the most consequential financial choices a Canadian retiree will make. The max CPP at 65 in 2026 is $1,364.60/month \u2014 take it at 60 and you get 36% less; wait until 70 and you get 42% more. We run the breakeven analysis, cover working while collecting, pension sharing, OAS/GIS interaction, and build a decision framework."
+    "excerpt": "The Canada Pension Plan start-age decision is one of the most consequential financial choices a Canadian retiree will make. The max CPP at 65 in 2026 is $1,364.60/month — take it at 60 and you get 36% less; wait until 70 and you get 42% more. We run the breakeven analysis, cover working while collecting, pension sharing, OAS/GIS interaction, and build a decision framework."
   },
   {
     "slug": "rrsp-deadline-2026",
@@ -237,7 +301,7 @@
       "Tax Planning",
       "Canadian Finance"
     ],
-    "excerpt": "Choosing between maximizing your RRSP or TFSA is one of the most common financial dilemmas facing Canadians. Both are powerful savings vehicles, but they work very differently\u2014and the right choice depends heavily on your current income, future plans, and financial goals."
+    "excerpt": "Choosing between maximizing your RRSP or TFSA is one of the most common financial dilemmas facing Canadians. Both are powerful savings vehicles, but they work very differently—and the right choice depends heavily on your current income, future plans, and financial goals."
   },
   {
     "slug": "canadian-tax-brackets-2026",
@@ -289,7 +353,7 @@
       "Student Loans",
       "Credit Cards"
     ],
-    "excerpt": "When you're carrying multiple debts\u2014credit cards, student loans, car payments, lines of credit\u2014choosing the right payoff strategy can save you thousands in interest and help you become debt-free faster. The two most popular approaches are the Avalanche and Snowball methods."
+    "excerpt": "When you're carrying multiple debts—credit cards, student loans, car payments, lines of credit—choosing the right payoff strategy can save you thousands in interest and help you become debt-free faster. The two most popular approaches are the Avalanche and Snowball methods."
   },
   {
     "slug": "small-business-valuation-canada",
@@ -306,6 +370,6 @@
       "M&A",
       "Canadian Business"
     ],
-    "excerpt": "Whether you're buying, selling, or seeking funding for a small business in Canada, understanding valuation is critical. Business valuation combines art and science\u2014blending financial analysis with industry knowledge and market conditions."
+    "excerpt": "Whether you're buying, selling, or seeking funding for a small business in Canada, understanding valuation is critical. Business valuation combines art and science—blending financial analysis with industry knowledge and market conditions."
   }
 ]
