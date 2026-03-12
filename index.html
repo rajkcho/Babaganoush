@@ -6579,7 +6579,7 @@
       <div class="calc-results" id="aff-results" aria-live="polite"></div>
     </div>
     <div style="margin-top: 2rem;" id="aff-chart"></div>
-    <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);" id="aff-breakdown"></div>
+    <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-primary); display: none;" id="aff-breakdown"></div>
     <div class="affiliate-resources">
       <h3>📚 Recommended Resources</h3>
       <div class="affiliate-grid">
@@ -6634,7 +6634,7 @@
       </div>
       <div class="calc-results" id="rrsproom-results" aria-live="polite"></div>
     </div>
-    <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);" id="rrsproom-breakdown"></div>
+    <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-primary); display: none;" id="rrsproom-breakdown"></div>
     <div class="affiliate-resources">
       <h3>📚 Recommended Resources</h3>
       <div class="affiliate-grid">
@@ -9470,6 +9470,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Breakdown
       const breakdownEl = document.getElementById('aff-breakdown');
+      breakdownEl.style.display = 'block';
       breakdownEl.innerHTML = `
         <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">📋 GDS & TDS Breakdown</h3>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
@@ -9605,6 +9606,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Breakdown explanation
       const breakdownEl = document.getElementById('rrsproom-breakdown');
+      breakdownEl.style.display = 'block';
       breakdownEl.innerHTML = `
         <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">📋 How RRSP Room Works</h3>
         <div style="display: grid; gap: 1rem;">
@@ -13484,6 +13486,9 @@ const AFFILIATE_DB = {
   lease:      [P.wealthyBarber, P.wealthing],
   compare:    [P.millionaire, P.commonSense],
   currency:   [P.commonSense, P.millionaire],
+  affordability: [P.wealthyBarber, P.millionaire, P.wealthing],
+  rrsproom:   [P.wealthyBarber, P.millionaire, P.howNot],
+  lifeinsurance: [P.wealthyBarber, P.wealthing, P.millionaire],
 };
 
 // ── Helpers ──
@@ -13512,7 +13517,7 @@ function injectAffiliateSuggestion(calcId, resultData) {
   document.querySelectorAll('.affiliate-inline-injected').forEach(el => el.remove());
 
   const product = getSmartRecommendation(calcId, resultData) || (AFFILIATE_DB[calcId] && AFFILIATE_DB[calcId][0]);
-  if (!product) return;
+  if (!product || !product.title || !product.asin) return;
 
   const card = document.createElement('a');
   card.href = amazonLink(product.asin);
@@ -13874,6 +13879,27 @@ const CALC_AFFILIATE_MAP = {
     title: 'Beat the Bank',
     author: 'Larry Bates',
     why: 'Minimize fees on currency exchange and investing',
+    stars: '★★★★★'
+  },
+  'aff-results': {
+    asin: '0143190008',
+    title: 'The Wealthy Barber Returns',
+    author: 'David Chilton',
+    why: 'Essential Canadian guide to making smart home buying decisions',
+    stars: '★★★★★'
+  },
+  'rrsproom-results': {
+    asin: 'B08L7QHDW2',
+    title: 'Beat the Bank',
+    author: 'Larry Bates',
+    why: 'Maximize your RRSP returns and minimize fees',
+    stars: '★★★★★'
+  },
+  'li-results': {
+    asin: '0143190008',
+    title: 'The Wealthy Barber Returns',
+    author: 'David Chilton',
+    why: 'Plan your family\'s financial protection the Canadian way',
     stars: '★★★★★'
   }
 };
