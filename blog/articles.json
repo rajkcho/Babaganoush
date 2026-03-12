@@ -1,55 +1,37 @@
 [
   {
-    "slug": "mortgage-renewal-strategies-2026",
-    "title": "Mortgage Renewal Strategies in a Changing Rate Environment",
-    "description": "Smart mortgage renewal strategies for Canadians in 2026. When to start shopping, fixed vs variable analysis, negotiation tactics, and penalty math for breaking early.",
+    "slug": "real-cost-car-ownership-canada-2026",
+    "title": "The Real Cost of Car Ownership in Canada (2026)",
+    "description": "Complete breakdown of car ownership costs in Canada for 2026. Purchase payments, insurance by province, fuel vs EV, maintenance, parking, depreciation, and total annual cost.",
     "author": "Rick Minji",
-    "date": "2026-03-05",
-    "readTime": "11 min read",
+    "date": "2026-03-12",
+    "readTime": "13 min read",
+    "category": "Auto & Lifestyle",
+    "tags": [
+      "Car Ownership",
+      "Auto Insurance",
+      "EV vs Gas",
+      "Vehicle Costs",
+      "Depreciation"
+    ],
+    "excerpt": "The average new car costs $12,000-$16,000 per year to own \u2014 not $849/month like your payment suggests. We break down every cost: payments, insurance by province, fuel vs EV, maintenance, and the silent killer \u2014 depreciation."
+  },
+  {
+    "slug": "parents-helping-kids-buy-home-canada",
+    "title": "Parents Helping Kids Buy a First Home \u2014 FHSA, Gifting, Co-signing",
+    "description": "How parents can help their kids buy a first home in Canada. FHSA strategies, gifted down payment rules, co-signing risks, Home Buyers' Plan from RRSP, and tax implications.",
+    "author": "Rick Minji",
+    "date": "2026-03-11",
+    "readTime": "12 min read",
     "category": "Real Estate",
     "tags": [
-      "Mortgage Renewal",
-      "Fixed vs Variable",
-      "Mortgage Rates",
-      "Mortgage Penalty",
-      "Canadian Mortgage"
+      "FHSA",
+      "Gifted Down Payment",
+      "Co-signing",
+      "Home Buyers Plan",
+      "First Home"
     ],
-    "excerpt": "Your lender's renewal letter is almost never their best offer. Start shopping 120 days before renewal, lock in rate holds, and negotiate with competing quotes. Here's the complete playbook for mortgage renewal in 2026."
-  },
-  {
-    "slug": "building-credit-newcomer-canada",
-    "title": "Building Credit as a Newcomer to Canada",
-    "description": "Step-by-step guide to building credit as a newcomer to Canada. Secured cards, how credit scores work, timeline to good credit, and common mistakes immigrants make.",
-    "author": "Rick Minji",
-    "date": "2026-03-07",
-    "readTime": "11 min read",
-    "category": "Financial Planning",
-    "tags": [
-      "Credit Score",
-      "Newcomer",
-      "Secured Credit Card",
-      "Immigration",
-      "Equifax",
-      "TransUnion"
-    ],
-    "excerpt": "Your credit score from your home country doesn't transfer to Canada. Here's how to build good credit from zero in 6-12 months using secured cards, newcomer programs, and smart strategies."
-  },
-  {
-    "slug": "rrif-vs-annuity-canada",
-    "title": "RRIF vs Annuity: Which Is Better for Canadian Retirement Income?",
-    "description": "Compare RRIF and annuity options for Canadian retirement income. RRIF minimum withdrawal rules, annuity pros and cons, hybrid strategies, and tax implications.",
-    "author": "Rick Minji",
-    "date": "2026-03-08",
-    "readTime": "12 min read",
-    "category": "Retirement Planning",
-    "tags": [
-      "RRIF",
-      "Annuity",
-      "Retirement Income",
-      "Tax Planning",
-      "Canadian Retirement"
-    ],
-    "excerpt": "RRIF gives you flexibility and control; an annuity gives you guaranteed income for life. Most retirees should use both. Here's how to build the optimal hybrid strategy for Canadian retirement income."
+    "excerpt": "With the average Canadian home price at $680K, many first-time buyers need help from parents. FHSA + HBP + gifted down payment can combine for a 20% down payment with maximum tax efficiency."
   },
   {
     "slug": "buy-now-pay-later-canada",
@@ -70,38 +52,56 @@
     "excerpt": "BNPL users spend 20-40% more than they would paying upfront. Credit bureaus are now tracking usage. Here's what Afterpay, Klarna, and Affirm really cost you \u2014 and when they actually make sense."
   },
   {
-    "slug": "parents-helping-kids-buy-home-canada",
-    "title": "Parents Helping Kids Buy a First Home \u2014 FHSA, Gifting, Co-signing",
-    "description": "How parents can help their kids buy a first home in Canada. FHSA strategies, gifted down payment rules, co-signing risks, Home Buyers' Plan from RRSP, and tax implications.",
+    "slug": "rrif-vs-annuity-canada",
+    "title": "RRIF vs Annuity: Which Is Better for Canadian Retirement Income?",
+    "description": "Compare RRIF and annuity options for Canadian retirement income. RRIF minimum withdrawal rules, annuity pros and cons, hybrid strategies, and tax implications.",
     "author": "Rick Minji",
-    "date": "2026-03-11",
+    "date": "2026-03-08",
     "readTime": "12 min read",
-    "category": "Real Estate",
+    "category": "Retirement Planning",
     "tags": [
-      "FHSA",
-      "Gifted Down Payment",
-      "Co-signing",
-      "Home Buyers Plan",
-      "First Home"
+      "RRIF",
+      "Annuity",
+      "Retirement Income",
+      "Tax Planning",
+      "Canadian Retirement"
     ],
-    "excerpt": "With the average Canadian home price at $680K, many first-time buyers need help from parents. FHSA + HBP + gifted down payment can combine for a 20% down payment with maximum tax efficiency."
+    "excerpt": "RRIF gives you flexibility and control; an annuity gives you guaranteed income for life. Most retirees should use both. Here's how to build the optimal hybrid strategy for Canadian retirement income."
   },
   {
-    "slug": "real-cost-car-ownership-canada-2026",
-    "title": "The Real Cost of Car Ownership in Canada (2026)",
-    "description": "Complete breakdown of car ownership costs in Canada for 2026. Purchase payments, insurance by province, fuel vs EV, maintenance, parking, depreciation, and total annual cost.",
+    "slug": "building-credit-newcomer-canada",
+    "title": "Building Credit as a Newcomer to Canada",
+    "description": "Step-by-step guide to building credit as a newcomer to Canada. Secured cards, how credit scores work, timeline to good credit, and common mistakes immigrants make.",
     "author": "Rick Minji",
-    "date": "2026-03-12",
-    "readTime": "13 min read",
-    "category": "Auto & Lifestyle",
+    "date": "2026-03-07",
+    "readTime": "11 min read",
+    "category": "Financial Planning",
     "tags": [
-      "Car Ownership",
-      "Auto Insurance",
-      "EV vs Gas",
-      "Vehicle Costs",
-      "Depreciation"
+      "Credit Score",
+      "Newcomer",
+      "Secured Credit Card",
+      "Immigration",
+      "Equifax",
+      "TransUnion"
     ],
-    "excerpt": "The average new car costs $12,000-$16,000 per year to own \u2014 not $849/month like your payment suggests. We break down every cost: payments, insurance by province, fuel vs EV, maintenance, and the silent killer \u2014 depreciation."
+    "excerpt": "Your credit score from your home country doesn't transfer to Canada. Here's how to build good credit from zero in 6-12 months using secured cards, newcomer programs, and smart strategies."
+  },
+  {
+    "slug": "mortgage-renewal-strategies-2026",
+    "title": "Mortgage Renewal Strategies in a Changing Rate Environment",
+    "description": "Smart mortgage renewal strategies for Canadians in 2026. When to start shopping, fixed vs variable analysis, negotiation tactics, and penalty math for breaking early.",
+    "author": "Rick Minji",
+    "date": "2026-03-05",
+    "readTime": "11 min read",
+    "category": "Real Estate",
+    "tags": [
+      "Mortgage Renewal",
+      "Fixed vs Variable",
+      "Mortgage Rates",
+      "Mortgage Penalty",
+      "Canadian Mortgage"
+    ],
+    "excerpt": "Your lender's renewal letter is almost never their best offer. Start shopping 120 days before renewal, lock in rate holds, and negotiate with competing quotes. Here's the complete playbook for mortgage renewal in 2026."
   },
   {
     "slug": "canada-federal-budget-2026-tax-changes",
