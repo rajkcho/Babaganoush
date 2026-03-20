@@ -2795,6 +2795,53 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
+  <!-- Noscript fallback for crawlers and users without JavaScript -->
+  <noscript>
+    <div style="max-width:1200px;margin:0 auto;padding:2rem;font-family:Inter,sans-serif;color:#2C087D;background:#FCFAF4;">
+      <h1 style="font-size:2rem;margin-bottom:1rem;">FiggyBank — Free Canadian Financial Calculators</h1>
+      <p style="margin-bottom:1.5rem;font-size:1.05rem;">Smart money moves made simple. 20+ free calculators, no sign-ups, privacy-first — all calculations run in your browser.</p>
+      
+      <h2 style="font-size:1.5rem;margin:2rem 0 1rem;">Our Calculators</h2>
+      <ul style="margin-left:1.5rem;line-height:1.8;">
+        <li><strong>Mortgage Calculator</strong> — Calculate monthly payments, amortization schedules, and total interest</li>
+        <li><strong>Canadian Tax Calculator</strong> — Estimate federal and provincial taxes for all income levels</li>
+        <li><strong>RRSP vs TFSA Calculator</strong> — Compare registered account strategies and tax benefits</li>
+        <li><strong>Capital Gains Tax Calculator</strong> — Calculate tax on investment gains with the latest inclusion rates</li>
+        <li><strong>Business Valuation Calculator</strong> — DCF, comparable multiples, and asset-based valuation</li>
+        <li><strong>Investment Returns Calculator</strong> — Project portfolio growth with annual contributions</li>
+        <li><strong>Compound Interest Calculator</strong> — See how your money grows over time</li>
+        <li><strong>Merger & Acquisition Analyzer</strong> — Analyze M&A deals, synergies, and ROI</li>
+        <li><strong>Startup Runway Calculator</strong> — Track burn rate and cash runway for startups</li>
+        <li><strong>Net Worth Tracker</strong> — Calculate assets minus liabilities</li>
+        <li><strong>FHSA Calculator</strong> — First Home Savings Account contribution optimizer</li>
+        <li><strong>RESP Calculator</strong> — Maximize CESG grants for education savings</li>
+        <li><strong>CPP/OAS Calculator</strong> — Estimate Canada Pension Plan and Old Age Security benefits</li>
+        <li><strong>Rent vs Buy Calculator</strong> — Compare renting vs buying a home in Canada</li>
+        <li><strong>Lease vs Buy Car Calculator</strong> — Compare leasing vs buying a vehicle</li>
+        <li><strong>Debt Payoff Calculator</strong> — Avalanche vs snowball debt repayment strategies</li>
+        <li><strong>GIC Ladder Calculator</strong> — Build a guaranteed investment certificate ladder</li>
+        <li><strong>Currency Converter</strong> — Real-time CAD, USD, EUR, GBP exchange rates</li>
+        <li><strong>Salary Compensation Calculator</strong> — Compare job offers with benefits and equity</li>
+        <li><strong>TFSA Contribution Room</strong> — Track your lifetime TFSA contribution limit</li>
+        <li><strong>RRSP Refund Estimator</strong> — Calculate your RRSP tax refund</li>
+        <li><strong>Income Tax Bracket Tool</strong> — Find your marginal tax rate</li>
+      </ul>
+      
+      <h2 style="font-size:1.5rem;margin:2rem 0 1rem;">Latest Blog Posts</h2>
+      <p style="margin-bottom:1rem;">Expert insights on Canadian personal finance:</p>
+      <ul style="margin-left:1.5rem;line-height:1.8;">
+        <li><a href="/blog/us-tariffs-trade-war-canada-2026.html" style="color:#2C087D;text-decoration:underline;">US Tariffs & Trade War: What It Means for Your Canadian Wallet</a></li>
+        <li><a href="/blog/estate-planning-basics-canada.html" style="color:#2C087D;text-decoration:underline;">Estate Planning Basics for Canadians: Wills, POAs, and What You Really Need</a></li>
+        <li><a href="/blog/mortgage-renewal-canada-2026.html" style="color:#2C087D;text-decoration:underline;">Mortgage Renewal in 2026: What Every Canadian Needs to Know</a></li>
+        <li><a href="/blog/rrsp-vs-tfsa-2026.html" style="color:#2C087D;text-decoration:underline;">RRSP vs TFSA in 2026: Which Should Canadians Max Out First?</a></li>
+        <li><a href="/blog/capital-gains-tax-canada-2026.html" style="color:#2C087D;text-decoration:underline;">What Canadians Get Wrong About Capital Gains Tax</a></li>
+      </ul>
+      <p style="margin-top:1rem;"><a href="/blog/" style="color:#2C087D;text-decoration:underline;font-weight:600;">View all 28 blog posts →</a></p>
+      
+      <p style="margin-top:2rem;font-size:0.9rem;color:#5a4d7a;">JavaScript is required for the interactive calculators. Please enable JavaScript in your browser to use FiggyBank's full features.</p>
+    </div>
+  </noscript>
+  
   <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
   <!-- Keyboard Shortcuts Overlay -->
@@ -3724,31 +3771,11 @@
 
     <!-- ══ FOOTER v6 ══ -->
     <!-- ══ CONTACT US ══ -->
-    <section id="contact-section" style="padding:4rem 1.5rem;background:var(--bg-primary);">
-      <div style="max-width:600px;margin:0 auto;">
-        <h2 class="js-show" style="text-align:center;font-size:clamp(1.5rem,3vw,2.25rem);font-weight:900;color:var(--text-primary);margin-bottom:0.5rem;">Get in Touch</h2>
-        <p class="js-show js-show-up-10" style="text-align:center;color:var(--text-secondary);margin-bottom:2rem;">Have a question, suggestion, or just want to say hi? Drop us a line.</p>
-        <form class="js-show js-show-up-20" action="https://formsubmit.co/rajankchopra@gmail.com" method="POST" style="display:flex;flex-direction:column;gap:1rem;">
-          <input type="hidden" name="_subject" value="FiggyBank Contact Form">
-          <input type="hidden" name="_captcha" value="true">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://figgybank.ca/">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-            <div>
-              <label style="display:block;font-size:0.8rem;font-weight:600;color:var(--text-primary);margin-bottom:0.25rem;">Name</label>
-              <input type="text" name="name" required placeholder="Your name" style="width:100%;padding:0.75rem 1rem;border:1px solid var(--border-primary);border-radius:var(--radius-md);background:var(--bg-card);color:var(--text-primary);font-size:0.9rem;transition:border-color 0.3s;outline:none;" onfocus="this.style.borderColor='var(--fg-purple)'" onblur="this.style.borderColor='var(--border-primary)'">
-            </div>
-            <div>
-              <label style="display:block;font-size:0.8rem;font-weight:600;color:var(--text-primary);margin-bottom:0.25rem;">Email</label>
-              <input type="email" name="email" required placeholder="you@example.com" style="width:100%;padding:0.75rem 1rem;border:1px solid var(--border-primary);border-radius:var(--radius-md);background:var(--bg-card);color:var(--text-primary);font-size:0.9rem;transition:border-color 0.3s;outline:none;" onfocus="this.style.borderColor='var(--fg-purple)'" onblur="this.style.borderColor='var(--border-primary)'">
-            </div>
-          </div>
-          <div>
-            <label style="display:block;font-size:0.8rem;font-weight:600;color:var(--text-primary);margin-bottom:0.25rem;">Message</label>
-            <textarea name="message" required rows="4" placeholder="What's on your mind?" style="width:100%;padding:0.75rem 1rem;border:1px solid var(--border-primary);border-radius:var(--radius-md);background:var(--bg-card);color:var(--text-primary);font-size:0.9rem;resize:vertical;font-family:inherit;transition:border-color 0.3s;outline:none;" onfocus="this.style.borderColor='var(--fg-purple)'" onblur="this.style.borderColor='var(--border-primary)'"></textarea>
-          </div>
-          <button type="submit" style="padding:0.85rem 2rem;background:var(--fg-purple);color:white;border:none;border-radius:var(--radius-md);font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.3s;align-self:flex-start;" onmouseover="this.style.background='var(--fg-purple-light)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--fg-purple)';this.style.transform='translateY(0)'">Send Message →</button>
-        </form>
+    <section id="contact-section" style="padding:4rem 1.5rem;background:var(--bg-primary);text-align:center;">
+      <div style="max-width:700px;margin:0 auto;">
+        <h2 class="js-show" style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:900;color:var(--text-primary);margin-bottom:0.5rem;">Questions? Suggestions? Feedback?</h2>
+        <p class="js-show js-show-up-10" style="color:var(--text-secondary);margin-bottom:2rem;font-size:1.05rem;">We'd love to hear from you. Whether you have feedback on our calculators or questions about Canadian personal finance, we're here to help.</p>
+        <a href="/contact.html" class="js-show js-show-up-20" style="display:inline-block;padding:0.85rem 2.5rem;background:var(--fg-purple);color:white;border:none;border-radius:var(--radius-md);font-size:1rem;font-weight:700;text-decoration:none;transition:all 0.3s;" onmouseover="this.style.background='var(--fg-purple-light)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--fg-purple)';this.style.transform='translateY(0)'">Get in Touch →</a>
       </div>
     </section>
 
@@ -3772,10 +3799,12 @@
         <h2 style="color:white;font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:1rem;">Your money. Your math. Your move.</h2>
         <p style="color:rgba(255,255,255,0.55);margin-bottom:2rem;font-size:1.05rem;">Smart money moves made simple — start crunching numbers today.</p>
         <div style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;">
-          <a href="#" onclick="document.getElementById('tools-section').scrollIntoView({behavior:'smooth'});return false;" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;">Business & M&A</a>
-          <a href="#" onclick="document.getElementById('tools-section').scrollIntoView({behavior:'smooth'});return false;" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;">Personal Finance</a>
-          <a href="#" onclick="document.getElementById('tools-section').scrollIntoView({behavior:'smooth'});return false;" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;">Tax & Planning</a>
-          <a href="#contact-section" onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth'});return false;" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;">Contact Us</a>
+          <a href="#" onclick="document.getElementById('tools-section').scrollIntoView({behavior:'smooth'});return false;" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;">Calculators</a>
+          <a href="/about.html" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;">About</a>
+          <a href="/privacy.html" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;">Privacy</a>
+          <a href="/contact.html" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;">Contact</a>
+          <a href="/glossary.html" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;">Glossary</a>
+          <a href="/blog/" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.85rem;transition:color 0.3s;">Blog</a>
         </div>
         <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:1.5rem;">
           <p style="font-size:0.7rem;color:rgba(255,255,255,0.3);max-width:600px;margin:0 auto 1rem;line-height:1.6;">⚠️ <strong>Disclaimer:</strong> All calculations provided by FiggyBank are for illustrative and educational purposes only. They do not constitute financial, tax, legal, or investment advice. Always verify results independently and consult a qualified professional before making financial decisions.</p>

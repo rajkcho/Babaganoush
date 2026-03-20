@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-CA" class="scroll-smooth">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3447886014314572"
+     crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHP0GVPV8Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QHP0GVPV8Q');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | FiggyBank</title>
+  <meta name="description" content="FiggyBank Privacy Policy — No user data collected, all calculations run in-browser. Details on cookies, Google Analytics, AdSense, and third-party services." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://figgybank.ca/privacy.html" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐷</text></svg>" />
+  
+  <style>
+    :root {
+      --fg-purple: #2C087D;
+      --fg-purple-light: #4A1CA0;
+      --fg-coral: #FF6B6B;
+      --fg-cream: #FCFAF4;
+      --bg-primary: #FCFAF4;
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --border-primary: #e8e4dc;
+      --border-hover: #d4cfc5;
+      --text-primary: #2C087D;
+      --text-secondary: #5a4d7a;
+      --text-muted: #9b8fb5;
+      --shadow-md: 0 4px 16px rgba(44, 8, 125, 0.06);
+      --radius-md: 0.75rem;
+      --radius-lg: 1rem;
+    }
+    .dark {
+      --bg-primary: #0f0a1a;
+      --bg-secondary: #16102a;
+      --bg-card: #1a1330;
+      --border-primary: #2d2450;
+      --border-hover: #3d3466;
+      --text-primary: #f4f0ff;
+      --text-secondary: #b0a3cc;
+      --text-muted: #7a6b9e;
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    .nav-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(252, 250, 244, 0.92);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(44, 8, 125, 0.06);
+      padding: 0.75rem 1.5rem;
+    }
+    .dark .nav-bar { background: rgba(15, 10, 26, 0.92); border-bottom-color: rgba(255,255,255,0.06); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; font-weight: 800; font-size: 1.1rem; color: var(--fg-purple); }
+    .dark .nav-logo { color: var(--text-primary); }
+    .nav-logo-svg { width: 36px; height: 36px; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+    .nav-links a { padding: 0.5rem 0.75rem; border-radius: 999px; color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: all 0.3s; }
+    .nav-links a:hover { color: var(--fg-purple); background: rgba(44, 8, 125, 0.06); }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-menu {
+      display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      background: var(--bg-secondary); border: 1px solid var(--border-primary);
+      border-radius: 1rem; box-shadow: 0 20px 40px rgba(44,8,125,0.1); padding: 1.25rem;
+      min-width: 580px; z-index: 100; padding-top: 1.5rem;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .nav-dropdown-group { display: flex; flex-direction: column; gap: 2px; }
+    .nav-dropdown-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); padding: 0.25rem 0.5rem; }
+    .nav-dropdown-menu a { padding: 0.4rem 0.5rem !important; border-radius: 6px !important; font-size: 0.82rem !important; white-space: nowrap; }
+    .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
+    .theme-toggle { width: 40px; height: 40px; border-radius: 999px; border: 1px solid var(--border-primary); background: var(--bg-card); cursor: pointer; font-size: 1.1rem; }
+    .mobile-menu-btn { display: none; width: 40px; height: 40px; border-radius: 999px; border: 1px solid var(--border-primary); background: var(--bg-card); cursor: pointer; font-size: 1.2rem; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
+      .nav-links.mobile-open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-secondary); padding: 1rem; }
+      .nav-dropdown-menu { position: static; transform: none; min-width: auto; }
+      .nav-dropdown-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .page-header {
+      margin-top: 100px;
+      padding: 4rem 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(44, 8, 125, 0.05), rgba(255, 107, 107, 0.05));
+    }
+    .page-header h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--fg-purple), var(--fg-coral));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .content-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+    .content-section h2 {
+      font-size: 1.75rem;
+      margin: 2rem 0 1rem;
+      color: var(--text-primary);
+    }
+    .content-section h3 {
+      font-size: 1.3rem;
+      margin: 1.5rem 0 0.75rem;
+      color: var(--text-primary);
+    }
+    .content-section p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+    .content-section ul {
+      margin: 1rem 0 1.5rem 2rem;
+      color: var(--text-secondary);
+    }
+    .content-section li {
+      margin-bottom: 0.5rem;
+    }
+    .figgy-footer-v6 {
+      background: linear-gradient(180deg, #1a0e3a, #0f0a1a); color: rgba(255,255,255,0.9);
+      padding: 4rem 2rem 2rem; text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav-bar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <svg class="nav-logo-svg" width="36" height="36" viewBox="0 0 64 64" fill="none">
+          <ellipse cx="32" cy="36" rx="22" ry="18" fill="#FF8A8A"/>
+          <circle cx="24" cy="32" r="2.5" fill="#2C087D"/>
+          <circle cx="40" cy="32" r="2.5" fill="#2C087D"/>
+        </svg>
+        <span>FiggyBank</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog/">Blog</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" onclick="toggleTheme()">☀️</button>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <h1>Privacy Policy</h1>
+    <p style="color:var(--text-secondary);">Last updated: March 20, 2026</p>
+  </header>
+
+  <main class="content-section">
+    <h2>1. Introduction</h2>
+    <p>At FiggyBank, your privacy is our priority. This Privacy Policy explains what information we collect, how we use it, and your rights.</p>
+    
+    <h2>2. Data We Collect</h2>
+    
+    <h3>Personal Information</h3>
+    <p><strong>We do not collect or store any personal financial data.</strong> All calculator inputs (salaries, mortgage amounts, investment figures, etc.) are processed entirely in your browser and never sent to our servers.</p>
+    
+    <h3>Analytics & Cookies</h3>
+    <p>We use the following third-party services that may collect non-personal information:</p>
+    <ul>
+      <li><strong>Google Analytics (GA4):</strong> Tracks anonymous usage data (page views, session duration, device type) to help us improve the site. No personally identifiable information is collected.</li>
+      <li><strong>Google AdSense:</strong> Displays advertisements and uses cookies to serve relevant ads. You can opt out via <a href="https://adssettings.google.com" target="_blank" rel="noopener" style="color:var(--fg-purple);">Google Ads Settings</a>.</li>
+    </ul>
+    
+    <h2>3. Contact Form</h2>
+    <p>When you use our contact form, your message is sent via <strong>FormSubmit.co</strong> to our email address (rajankchopra@gmail.com). We do not store contact form submissions on our servers.</p>
+    
+    <h2>4. Affiliate Links</h2>
+    <p>Some blog posts and pages may contain <strong>Amazon affiliate links</strong>. If you purchase through these links, we may earn a small commission at no extra cost to you. We only recommend products we believe are valuable.</p>
+    
+    <h2>5. No User Accounts</h2>
+    <p>FiggyBank does not require user accounts, logins, or passwords. You remain completely anonymous.</p>
+    
+    <h2>6. Client-Side Calculations</h2>
+    <p>All financial calculations (tax, mortgage, investment, etc.) are performed entirely in your browser using JavaScript. Your input data never leaves your device.</p>
+    
+    <h2>7. Cookies</h2>
+    <p>We use cookies for:</p>
+    <ul>
+      <li><strong>Theme preference:</strong> Stores your light/dark mode choice in localStorage.</li>
+      <li><strong>Google Analytics:</strong> Anonymous tracking cookies (you can disable these in your browser).</li>
+      <li><strong>Google AdSense:</strong> Advertising cookies (you can opt out via Google Ads Settings).</li>
+    </ul>
+    
+    <h2>8. Third-Party Services</h2>
+    <ul>
+      <li><strong>Google Analytics:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--fg-purple);">Privacy Policy</a></li>
+      <li><strong>Google AdSense:</strong> <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener" style="color:var(--fg-purple);">How Google uses data</a></li>
+      <li><strong>FormSubmit.co:</strong> <a href="https://formsubmit.co/privacy" target="_blank" rel="noopener" style="color:var(--fg-purple);">Privacy Policy</a></li>
+      <li><strong>Amazon Associates:</strong> <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=GX7NJQ4ZB8MHFRNJ" target="_blank" rel="noopener" style="color:var(--fg-purple);">Privacy Notice</a></li>
+    </ul>
+    
+    <h2>9. Your Rights</h2>
+    <p>You have the right to:</p>
+    <ul>
+      <li>Disable cookies in your browser settings</li>
+      <li>Opt out of Google Analytics via <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener" style="color:var(--fg-purple);">Google Analytics Opt-out</a></li>
+      <li>Opt out of personalized ads via <a href="https://adssettings.google.com" target="_blank" rel="noopener" style="color:var(--fg-purple);">Google Ads Settings</a></li>
+    </ul>
+    
+    <h2>10. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated "Last updated" date.</p>
+    
+    <h2>11. Contact Us</h2>
+    <p>If you have any questions about this Privacy Policy, please <a href="/contact.html" style="color:var(--fg-purple);">contact us</a>.</p>
+  </main>
+
+  <footer class="figgy-footer-v6">
+    <div style="max-width:800px;margin:0 auto;">
+      <div style="margin-bottom:1.5rem;">
+        <svg width="56" height="56" viewBox="0 0 64 64" fill="none">
+          <ellipse cx="32" cy="36" rx="22" ry="18" fill="#FF8A8A"/>
+          <circle cx="24" cy="32" r="2.5" fill="white"/>
+          <circle cx="40" cy="32" r="2.5" fill="white"/>
+        </svg>
+      </div>
+      <div style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;">
+        <a href="/" style="color:rgba(255,255,255,0.6);text-decoration:none;">Calculators</a>
+        <a href="/about.html" style="color:rgba(255,255,255,0.6);text-decoration:none;">About</a>
+        <a href="/privacy.html" style="color:rgba(255,255,255,0.6);text-decoration:none;">Privacy</a>
+        <a href="/contact.html" style="color:rgba(255,255,255,0.6);text-decoration:none;">Contact</a>
+        <a href="/blog/" style="color:rgba(255,255,255,0.6);text-decoration:none;">Blog</a>
+      </div>
+      <p style="font-size:0.8rem;color:rgba(255,255,255,0.35);">© 2026 FiggyBank</p>
+    </div>
+  </footer>
+
+  <script>
+    let savedTheme = localStorage.getItem('figgybank-theme');
+    let isDark = savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    function toggleTheme() {
+      isDark = !isDark;
+      document.documentElement.classList.toggle('dark', isDark);
+      document.querySelector('.theme-toggle').textContent = isDark ? '🌙' : '☀️';
+      localStorage.setItem('figgybank-theme', isDark ? 'dark' : 'light');
+    }
+    if (isDark) document.documentElement.classList.add('dark');
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.theme-toggle').textContent = isDark ? '🌙' : '☀️';
+    });
+    function toggleMobileMenu() {
+      document.getElementById('nav-links').classList.toggle('mobile-open');
+    }
+  </script>
+</body>
+</html>

@@ -156,6 +156,23 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Static Pages -->
+  <url>
+    <loc>https://figgybank.ca/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <!-- Blog Index -->
   <url>
     <loc>https://figgybank.ca/blog/</loc>
@@ -164,6 +181,21 @@
   </url>
 
   <!-- Blog Posts -->
+  <url>
+    <loc>https://figgybank.ca/blog/us-tariffs-trade-war-canada-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/blog/estate-planning-basics-canada.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://figgybank.ca/blog/emergency-fund-canada-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://figgybank.ca/blog/mortgage-renewal-canada-2026.html</loc>
     <changefreq>monthly</changefreq>
